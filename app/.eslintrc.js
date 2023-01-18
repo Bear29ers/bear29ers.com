@@ -12,7 +12,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'next/core-web-vitals',
     'plugin:jest/recommended',
-    'plugin:jest/recommended',
+    'plugin:jest-dom/recommended',
     'plugin:import/typescript',
     'prettier',
   ],
@@ -28,6 +28,7 @@ module.exports = {
   plugins: ['@typescript-eslint', 'jest', 'jest-dom'],
   rules: {
     'arrow-body-style': 'off',
+    'no-use-before-define': 'off',
     'no-restricted-syntax': [
       'error',
       {
