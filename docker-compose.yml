@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
     tty: true
     volumes:
-      - ./src:/app
+      - ./app:/app
     ports:
       - "4000:3000"
     environment:
