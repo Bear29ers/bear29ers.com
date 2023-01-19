@@ -4,7 +4,7 @@ export type Blog = {
   body: string;
   title: string;
   tags: Tag[];
-  image: string;
+  image: Image;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -18,4 +18,10 @@ export type Tag = {
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
+};
+
+type Image = {
+  url: string;
+  height: number;
+  width: number;
 };
