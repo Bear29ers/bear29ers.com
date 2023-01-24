@@ -1,7 +1,8 @@
-import { client } from '@/libs/client';
-import { Blog, Tag } from '@/types/blog';
-import { InferGetStaticPropsType, NextPage } from 'next';
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Link from 'next/link';
+
+import { client } from '@/libs/client';
+import { Blog, MicrocmsResponse, Tag } from '@/types/blog';
 
 // Props type
 type Props = {
@@ -25,9 +26,9 @@ const Home: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blogs,
 };
 
 // Request microCMS API
-export const getStaticProps = async () => {
-  const blog = await client.get({ endpoint: 'blog' });
-  const tag = await client.get({ endpoint: 'tag' });
+export const getStaticProps: GetStaticProps = async () => {
+  const blog: MicrocmsResponse<Blog> = await client.get({ endpoint: 'blog' });
+  const tag: MicrocmsResponse<Tag> = await client.get({ endpoint: 'tag' });
 
   return {
     props: {

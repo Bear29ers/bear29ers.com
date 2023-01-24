@@ -46,6 +46,16 @@ module.exports = {
         pathGroups: [{ pattern: '**/**.css', group: 'index', position: 'before' }],
       },
     ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': 'off',
     'react-hooks/rules-of-hooks': 'error',
