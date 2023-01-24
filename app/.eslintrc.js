@@ -14,6 +14,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:jest-dom/recommended',
     'plugin:import/typescript',
+    'plugin:react/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -58,7 +59,10 @@ module.exports = {
     ],
     'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
   },
 };
