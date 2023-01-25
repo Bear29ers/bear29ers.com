@@ -1,18 +1,16 @@
 import * as cheerio from 'cheerio';
 import hljs, { AutoHighlightResult } from 'highlight.js';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 
 import { client } from '@/libs/client';
 import { Blog, MicrocmsResponse } from '@/types/blog';
 import 'highlight.js/styles/atom-one-dark.css';
 
-// type Props
-type Props = {
-  blog: Blog;
-};
+// Props type
+type Props = InferGetStaticPropsType<typeof getStaticProps>;
 
 // BlogId Component
-const BlogId: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog }: Props) => {
+const BlogId: NextPage<Props> = ({ blog, highlightedBody }: Props) => {
   return (
     <main>
       <h1>{blog.title}</h1>
@@ -22,13 +20,13 @@ const BlogId: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({ blog
           <li key={tag.id}>#{tag.tag}</li>
         ))}
       </ul>
-      <div dangerouslySetInnerHTML={{ __html: `${blog.body}` }} />
+      <div dangerouslySetInnerHTML={{ __html: highlightedBody }} />
     </main>
   );
 };
 
 // Request microCMS API
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps = async (context: GetStaticPropsContext) => {
   const id = context.params?.id;
   const contentId = id instanceof Array ? id[0] : id;
   const blog: Blog = await client.get({ endpoint: 'blog', contentId });
