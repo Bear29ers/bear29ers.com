@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "export": "next build && next export",
     "lint": "next lint",
     "test": "jest --watch"
   },
@@ -15,6 +16,7 @@
     "@types/react": "18.0.26",
     "@types/react-dom": "18.0.10",
     "cheerio": "^1.0.0-rc.12",
+    "daisyui": "^2.47.0",
     "eslint": "8.32.0",
     "eslint-config-next": "13.1.2",
     "highlight.js": "^11.7.0",
@@ -32,6 +34,7 @@
     "@types/highlightjs": "^9.12.2",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
+    "autoprefixer": "^10.4.13",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-jest": "^27.2.1",
@@ -39,6 +42,8 @@
     "eslint-plugin-react": "^7.32.1",
     "eslint-plugin-unused-imports": "^2.0.0",
     "jest": "^29.3.1",
-    "prettier": "^2.8.3"
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.3",
+    "tailwindcss": "^3.2.4"
   }
 }
