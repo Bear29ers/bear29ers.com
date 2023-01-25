@@ -4,7 +4,7 @@ export type Blog = {
   body: string;
   title: string;
   tags: Tag[];
-  image: Image;
+  eyecatch: EyeCatch;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
@@ -20,8 +20,15 @@ export type Tag = {
   revisedAt: string;
 };
 
-type Image = {
+type EyeCatch = {
   url: string;
   height: number;
   width: number;
+};
+
+export type MicrocmsResponse<T> = {
+  contents: T[];
+  totalCount: number;
+  offset: number;
+  limit: number;
 };
