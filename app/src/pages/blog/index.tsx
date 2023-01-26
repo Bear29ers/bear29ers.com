@@ -10,15 +10,22 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 // Home component
 const Home: NextPage<Props> = ({ blogs, tags }: Props) => {
   return (
-    <div>
-      <ul>
-        {blogs.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <main className='blog-index-bg'>
+      <div className='blog-index-container'>
+        <div className='flex h-full'>
+          <div className='w-8/12 bg-emerald-200'>
+            <ul>
+              {blogs.map((blog) => (
+                <li key={blog.id}>
+                  <Link href={`/blog/${blog.id}`}>{blog.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className='w-4/12 bg-amber-200'>2</div>
+        </div>
+      </div>
+    </main>
   );
 };
 
