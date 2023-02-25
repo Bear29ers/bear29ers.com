@@ -1,0 +1,5 @@
+.blog {
+  &_index {
+    @apply h-screen w-screen bg-gradient-to-r from-violet-200 to-pink-200 py-12;
+  }
+}
