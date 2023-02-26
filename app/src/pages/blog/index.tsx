@@ -12,7 +12,7 @@ type Props = InferGetStaticPropsType<typeof getStaticProps>;
 const Home: NextPage<Props> = ({ blogs, tags }: Props) => {
   return (
     <main className={styles.blog_index}>
-      <div className='container mx-auto h-full rounded-3xl bg-white bg-opacity-70 px-8 py-10 shadow-2xl backdrop-blur-lg backdrop-filter'>
+      <div className={styles.blog_index_container}>
         <div className='flex h-full'>
           <div className='w-8/12 bg-emerald-200'>
             <ul>
