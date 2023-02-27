@@ -1,0 +1,9 @@
+.blog {
+  &_index {
+    @apply h-screen w-screen bg-gradient-to-r from-violet-200 to-pink-200 py-12;
+
+    &_container {
+      @apply container mx-auto h-full rounded-3xl bg-white bg-opacity-70 px-8 py-10 shadow-2xl backdrop-blur-lg backdrop-filter;
+    }
+  }
+}

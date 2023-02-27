@@ -8,4 +8,12 @@ module.exports = {
   jsxSingleQuote: true,
   bracketSameLine: false,
   trailingComma: 'es5',
+  overrides: [
+    {
+      files: ['**/*.css', '**/*.scss', '**/*.html'],
+      options: {
+        singleQuote: false,
+      },
+    },
+  ],
 };
