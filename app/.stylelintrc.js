@@ -1,5 +1,5 @@
 module.exports = {
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-prettier', 'stylelint-config-recess-order'],
+  extends: ['stylelint-config-standard-scss', 'stylelint-config-recess-order'],
   ignoreFiles: ['/node_modules', '/.next'],
   rules: {
     'no-empty-source': 'warn',
