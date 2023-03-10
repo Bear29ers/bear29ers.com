@@ -1,4 +1,4 @@
-// Types
+// Blog Types
 export type Blog = {
   id: string;
   body: string;
