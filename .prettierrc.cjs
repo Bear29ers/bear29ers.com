@@ -1,4 +1,4 @@
-/** @type {import('pretteir').Options} */
+/** @type {import('pretteir').Config} */
 
 const config = {
   printWidth: 120,
