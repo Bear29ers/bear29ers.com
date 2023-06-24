@@ -10,6 +10,9 @@ const config = {
     'airbnb',
     'plugin:@typescript-eslint/recommended',
     'next/core-web-vitals',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
+    'plugin:jest-dom/recommended',
     'plugin:import/typescript',
     'plugin:react/recommended',
     'prettier',
@@ -23,7 +26,7 @@ const config = {
     sourceType: 'module',
     tsconfigRootDir: __dirname,
   },
-  plugins: ['@typescript-eslint', 'unused-imports'],
+  plugins: ['@typescript-eslint', 'unused-imports', 'jest', 'jest-dom'],
   rules: {
     'no-unused-vars': 'off',
     'arrow-body-style': 'off',
@@ -68,6 +71,8 @@ const config = {
         'ts-check': false,
       },
     ],
+    'jest/consistent-test-it': ['error', { fn: 'it' }],
+    'jest/require-top-level-describe': ['error'],
   },
 };
 
