@@ -1,19 +1,23 @@
 /** @type {import('@typescript-eslint/experimental-utils').TSESLint.Linter.Config} */
 
 const config = {
+  root: true,
   env: {
     browser: true,
     node: true,
     es2021: true,
   },
   extends: [
+    'eslint/recommended',
     'airbnb',
+    'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:jsx-a11y/recommended',
     'next/core-web-vitals',
     'plugin:jest/recommended',
     'plugin:jest/style',
     'plugin:jest-dom/recommended',
-    'plugin:import/typescript',
     'plugin:react/recommended',
     'prettier',
   ],
@@ -24,10 +28,11 @@ const config = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    tsconfigRootDir: __dirname,
+    project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'unused-imports', 'jest', 'jest-dom'],
+  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'jsx-a11y', 'jest', 'jest-dom'],
   rules: {
+    /* eslint */
     'no-unused-vars': 'off',
     'arrow-body-style': 'off',
     'no-restricted-syntax': [
@@ -37,18 +42,32 @@ const config = {
         message: 'DO NOT DECLARE ENUM',
       },
     ],
-    'unused-imports/no-unused-imports': 'error',
-    'import/prefer-default-export': 'off',
-    'import/extensions': [
+    /* typescript */
+    '@typescript-eslint/ban-ts-comment': [
       'error',
-      'ignorePackages',
       {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
+        'ts-expect-error': 'allow-with-description',
+        'ts-ignore': false,
+        'ts-nocheck': false,
+        'ts-check': false,
       },
     ],
+    '@typescript-eslint/consistent-type-imports': [
+      'error',
+      {
+        prefer: 'type-imports',
+      },
+    ],
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+        destructuredArrayIgnorePattern: '^_',
+      },
+    ],
+    /* react */
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
     'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': [
@@ -62,15 +81,27 @@ const config = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/ban-ts-comment': [
+    /* import */
+    'unused-imports/no-unused-imports': 'error',
+    'import/prefer-default-export': 'off',
+    'no-restricted-imports': [
       'error',
       {
-        'ts-expect-error': 'allow-with-description',
-        'ts-ignore': false,
-        'ts-nocheck': false,
-        'ts-check': false,
+        patterns: ['./*', '../*', '~/*', '~~/*'],
       },
     ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    'import/order': [],
+    /* jest */
     'jest/consistent-test-it': ['error', { fn: 'it' }],
     'jest/require-top-level-describe': ['error'],
   },
