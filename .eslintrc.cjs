@@ -100,7 +100,69 @@ const config = {
         tsx: 'never',
       },
     ],
-    'import/order': [],
+    'import/order': [
+      'error',
+      {
+        'groups': ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+        'pathGroupsExcludedImportTypes': ['builtin'],
+        'newlines-between': 'always',
+        'pathGroups': [
+          {
+            pattern: '{react,react-dom/**,react-router-dom}',
+            group: 'builtin',
+            position: 'before',
+          },
+          {
+            pattern: '@/app/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/components/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/stores/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/providers/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/hooks/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/constants/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/libs/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/utils/**',
+            group: 'parent',
+            position: 'before',
+          },
+          {
+            pattern: '@/**',
+            group: 'parent',
+            position: 'before',
+          },
+        ],
+        'alphabetize': {
+          order: 'asc',
+        },
+      },
+    ],
     /* jest */
     'jest/consistent-test-it': ['error', { fn: 'it' }],
     'jest/require-top-level-describe': ['error'],
