@@ -11,6 +11,7 @@ const config = {
   quoteProps: 'consistent',
   bracketSpacing: true,
   arrowParens: 'always',
+  plugins: [require('prettier-plugin-tailwindcss')],
 };
 
 module.exports = config;

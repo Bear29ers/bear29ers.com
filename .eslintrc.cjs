@@ -8,13 +8,14 @@ const config = {
     es2021: true,
   },
   extends: [
-    'eslint/recommended',
+    'eslint:recommended',
     'airbnb',
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:jsx-a11y/recommended',
     'next/core-web-vitals',
+    'plugin:tailwindcss/recommended',
     'plugin:jest/recommended',
     'plugin:jest/style',
     'plugin:jest-dom/recommended',
@@ -30,7 +31,7 @@ const config = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['@typescript-eslint', 'import', 'unused-imports', 'jsx-a11y', 'jest', 'jest-dom'],
+  plugins: ['import', 'unused-imports', 'jsx-a11y', 'tailwindcss', '@typescript-eslint', 'jest', 'jest-dom'],
   rules: {
     /* eslint */
     'no-unused-vars': 'off',
@@ -163,6 +164,14 @@ const config = {
         },
       },
     ],
+    /* tailwindcss */
+    'tailwindcss/no-custom-classname': [
+      'warn',
+      {
+        config: 'tailwind.config.cjs',
+      },
+    ],
+    'tailwindcss/classnames-order': 'off',
     /* jest */
     'jest/consistent-test-it': ['error', { fn: 'it' }],
     'jest/require-top-level-describe': ['error'],
