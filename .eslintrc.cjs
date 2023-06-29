@@ -85,12 +85,6 @@ const config = {
     /* import */
     'unused-imports/no-unused-imports': 'error',
     'import/prefer-default-export': 'off',
-    'no-restricted-imports': [
-      'error',
-      {
-        patterns: ['./*', '../*', '~/*', '~~/*'],
-      },
-    ],
     'import/extensions': [
       'error',
       'ignorePackages',
