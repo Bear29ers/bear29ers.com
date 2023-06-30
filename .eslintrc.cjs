@@ -20,6 +20,7 @@ const config = {
     'plugin:jest/style',
     'plugin:jest-dom/recommended',
     'plugin:react/recommended',
+    'plugin:storybook/recommended',
     'prettier',
   ],
   parser: '@typescript-eslint/parser',
@@ -69,7 +70,12 @@ const config = {
       },
     ],
     /* react */
-    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': [
+      'error',
+      {
+        extensions: ['.jsx', '.tsx'],
+      },
+    ],
     'react/jsx-props-no-spreading': 'off',
     'react/function-component-definition': [
       'error',
@@ -167,9 +173,13 @@ const config = {
     ],
     'tailwindcss/classnames-order': 'off',
     /* jest */
-    'jest/consistent-test-it': ['error', { fn: 'it' }],
+    'jest/consistent-test-it': [
+      'error',
+      {
+        fn: 'it',
+      },
+    ],
     'jest/require-top-level-describe': ['error'],
   },
 };
-
 module.exports = config;
