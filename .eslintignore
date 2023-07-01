@@ -1,11 +1,5 @@
 # config
-.eslintrc.cjs
-.prettierrc.cjs
-.stylelint.cjs
-next.config.cjs
-tailwind.config.cjs
-tsconfig.json
-postcss.config.cjs
+*.cjs
 
 # build
 build/
