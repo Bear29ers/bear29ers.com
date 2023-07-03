@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/Navbar/Navbar.test.tsx renders correctly 1`] = `
+<div>
+  <header
+    class="flex w-full items-center justify-between px-32 py-8 font-medium"
+  >
+    <nav>
+      <a
+        href="/"
+      >
+        Home
+      </a>
+      <a
+        href="/about"
+      >
+        About
+      </a>
+      <a
+        href="/projects"
+      >
+        Projects
+      </a>
+      <a
+        href="/articles"
+      >
+        Articles
+      </a>
+    </nav>
+    <h2>
+      Logo
+    </h2>
+    <nav>
+      <a
+        href="/"
+        target="_brank"
+      >
+        T
+      </a>
+      <a
+        href="/"
+        target="_brank"
+      >
+        T
+      </a>
+      <a
+        href="/"
+        target="_brank"
+      >
+        T
+      </a>
+      <a
+        href="/"
+        target="_brank"
+      >
+        T
+      </a>
+      <a
+        href="/"
+        target="_brank"
+      >
+        T
+      </a>
+      <a
+        href="/"
+        target="_brank"
+      >
+        T
+      </a>
+    </nav>
+  </header>
+</div>
+`;
