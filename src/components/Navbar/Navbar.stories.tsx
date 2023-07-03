@@ -1,9 +1,15 @@
 import Navbar from '@/components/Navbar/Navbar';
 
-import type { ComponentMeta, ComponentStoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
 
-export default {
+const meta: Meta<typeof Navbar> = {
   component: Navbar,
-} as ComponentMeta<typeof Navbar>;
+};
 
-export const ComponentStatus: ComponentStoryObj<typeof Navbar> = {};
+export default meta;
+
+type Story = StoryObj<typeof Navbar>;
+
+export const Standard: Story = {
+  render: () => <Navbar />,
+};
