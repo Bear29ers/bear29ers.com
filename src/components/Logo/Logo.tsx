@@ -1,3 +1,5 @@
+'use client';
+
 import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
@@ -21,7 +23,8 @@ const Logo: FC = () => {
             '#121212',
           ],
           transition: { duration: 1, repeat: Infinity },
-        }}>
+        }}
+        role="link">
         BR
       </MotionLink>
     </motion.div>

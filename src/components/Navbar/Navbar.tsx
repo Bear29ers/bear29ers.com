@@ -2,16 +2,19 @@ import type { FC } from 'react';
 
 import Link from 'next/link';
 
+import { NAV_CONTENTS } from '@/constants';
+
+import Logo from '../Logo/Logo';
+import NavLink from '../NavLink/NavLink';
+
 const Navbar: FC = () => {
   return (
-    <header className="flex w-full items-center justify-between px-32 py-8 font-medium">
-      <nav>
-        <Link href="/">Home</Link>
-        <Link href="/about">About</Link>
-        <Link href="/projects">Projects</Link>
-        <Link href="/articles">Articles</Link>
+    <header className="flex w-full items-center justify-between px-32 py-8 font-medium" role="banner">
+      <nav className="space-x-4">
+        {NAV_CONTENTS.map((content) => (
+          <NavLink href={content.href} title={content.title} key={content.id} />
+        ))}
       </nav>
-      <h2>Logo</h2>
       <nav>
         <Link href="/" target="_brank">
           T
@@ -32,6 +35,9 @@ const Navbar: FC = () => {
           T
         </Link>
       </nav>
+      <div className="absolute left-1/2 top-2 translate-x-1/2">
+        <Logo />
+      </div>
     </header>
   );
 };
