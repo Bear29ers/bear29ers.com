@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run lint check
-        run: npm eslint
+        run: npm run eslint
       - name: Reviewdog
         uses: reviewdog/action-eslint@v1
         with:
