@@ -169,6 +169,7 @@ const config = {
       'warn',
       {
         config: 'tailwind.config.cjs',
+        cssFiles: ['**/*.scss', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
       },
     ],
     'tailwindcss/classnames-order': 'off',
