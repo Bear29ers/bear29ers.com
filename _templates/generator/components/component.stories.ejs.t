@@ -2,7 +2,7 @@
 to: src/components/<%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.stories.tsx
 ---
 
-import { <%= h.changeCase.pascal(component_name) %> } from './<%= h.changeCase.pascal(component_name) %>';
+import <%= h.changeCase.pascal(component_name) %> from './<%= h.changeCase.pascal(component_name) %>';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
