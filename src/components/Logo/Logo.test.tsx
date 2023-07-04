@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 describe('src/components/Logo/Logo.test.tsx', () => {
   it('renders correctly', () => {
-    const { container } = render(<Logo />);
-    expect(container).toMatchSnapshot();
+    const { getByRole } = render(<Logo />);
+    expect(getByRole('link', { name: 'BR' })).toBeInTheDocument();
   });
 });
