@@ -4,7 +4,7 @@ to: src/components/<%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.p
 
 import { render } from '@testing-library/react';
 
-import { <%= h.changeCase.pascal(component_name) %> } from './<%= h.changeCase.pascal(component_name) %>';
+import <%= h.changeCase.pascal(component_name) %> from './<%= h.changeCase.pascal(component_name) %>';
 
 describe('src/components/<%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.test.tsx', () => {
   it('renders correctly', () => {
