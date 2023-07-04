@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`src/components/Logo/Logo.test.tsx renders correctly 1`] = `
+<div>
+  <div
+    class="flex-center mt-2"
+  >
+    <a
+      class="flex-center h-16 w-16 rounded-full bg-dark text-2xl font-bold text-light"
+      href="/"
+    >
+      BR
+    </a>
+  </div>
+</div>
+`;
