@@ -2,7 +2,7 @@
 to: src/components/<%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.tsx
 ---
 
-import { FC } from 'react';
+import type { FC } from 'react';
 
 const <%= h.changeCase.pascal(component_name) %>: FC = () => {
   return (
