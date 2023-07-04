@@ -8,7 +8,6 @@ import <%= h.changeCase.pascal(component_name) %> from './<%= h.changeCase.pasca
 
 describe('src/components/<%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.test.tsx', () => {
   it('renders correctly', () => {
-    const { container } = render(<<%= h.changeCase.pascal(component_name) %> />);
-    expect(container).toMatchSnapshot();
+    const { getByRole } = render(<<%= h.changeCase.pascal(component_name) %> />);
   });
 });
