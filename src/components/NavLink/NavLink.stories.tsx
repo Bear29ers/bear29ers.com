@@ -15,7 +15,6 @@ export const Home: Story = {
   args: {
     href: '/',
     title: 'Home',
-    className: 'mr-4',
   },
 };
 
@@ -24,7 +23,6 @@ export const About: Story = {
   args: {
     href: '/about',
     title: 'About',
-    className: 'mr-4',
   },
 };
 
@@ -33,7 +31,6 @@ export const Projects: Story = {
   args: {
     href: '/projects',
     title: 'Projects',
-    className: 'mr-4',
   },
 };
 
@@ -42,6 +39,5 @@ export const Articles: Story = {
   args: {
     href: '/articles',
     title: 'Articles',
-    className: 'ml-4',
   },
 };
