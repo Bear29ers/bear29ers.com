@@ -8,7 +8,7 @@ jest.mock('next/navigation', () => ({
   usePathname: () => jest.fn(),
 }));
 
-// TODO: jest.spyOnでの説明を記載
+// jest.spyOnでnext/navigationのusePathnameをモックする
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const usePathname = jest.spyOn(require('next/navigation'), 'usePathname');
 
