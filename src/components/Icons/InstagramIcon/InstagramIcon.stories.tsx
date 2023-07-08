@@ -16,3 +16,10 @@ export const Standard: Story = {
     className: '',
   },
 };
+
+export const W20: Story = {
+  render: (args) => <InstagramIcon {...args} />,
+  args: {
+    className: '!w-20',
+  },
+};
