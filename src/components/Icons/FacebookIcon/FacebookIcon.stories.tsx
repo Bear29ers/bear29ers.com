@@ -16,3 +16,10 @@ export const Standard: Story = {
     className: '',
   },
 };
+
+export const W20: Story = {
+  render: (args) => <FacebookIcon {...args} />,
+  args: {
+    className: '!w-20',
+  },
+};
