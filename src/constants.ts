@@ -26,3 +26,9 @@ export const NAV_CONTENTS: NavContents[] = [
     title: 'Articles',
   },
 ];
+
+export const SOCIAL_LINK = {
+  github: 'https://github.com/Bear29ers',
+  facebook: 'https://www.facebook.com/kumakuma1129',
+  instagram: 'https://www.instagram.com/bear_27earl',
+};
