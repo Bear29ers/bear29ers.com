@@ -1,16 +1,12 @@
 import type { FC } from 'react';
 
-type Props = {
-  className: string;
-};
-
-const InstagramIcon: FC<Props> = ({ className }) => (
+const InstagramIcon: FC = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
     height="1em"
     viewBox="0 0 512 512"
-    className={`h-auto w-full ${className}`}
+    className="h-auto w-full"
     role="img">
     <rect width="100%" height="100%" fill="transparent" />
     <g>

@@ -11,15 +11,5 @@ export default meta;
 type Story = StoryObj<typeof FacebookIcon>;
 
 export const Standard: Story = {
-  render: (args) => <FacebookIcon {...args} />,
-  args: {
-    className: '',
-  },
-};
-
-export const W20: Story = {
-  render: (args) => <FacebookIcon {...args} />,
-  args: {
-    className: '!w-20',
-  },
+  render: () => <FacebookIcon />,
 };
