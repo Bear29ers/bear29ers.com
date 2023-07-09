@@ -88,6 +88,7 @@ const config = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     'react-hooks/exhaustive-deps': 'warn',
+    'react/no-unknown-property': ['error', { ignore: ['space'] }],
     /* import */
     'unused-imports/no-unused-imports': 'error',
     'import/prefer-default-export': 'off',
@@ -169,6 +170,7 @@ const config = {
       'warn',
       {
         config: 'tailwind.config.cjs',
+        cssFiles: ['**/*.scss', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
       },
     ],
     'tailwindcss/classnames-order': 'off',
