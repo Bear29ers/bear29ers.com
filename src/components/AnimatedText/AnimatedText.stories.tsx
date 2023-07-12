@@ -16,14 +16,14 @@ export const Home: Story = {
   render: () => <AnimatedText text={HOME_TEXT.title} className="" />,
 };
 
-export const SixXl: Story = {
+export const Text6Xl: Story = {
   render: () => <AnimatedText text={HOME_TEXT.title} className="!text-6xl" />,
 };
 
-export const FourXl: Story = {
+export const Text4Xl: Story = {
   render: () => <AnimatedText text={HOME_TEXT.title} className="!text-4xl" />,
 };
 
-export const TwoXl: Story = {
+export const Text2Xl: Story = {
   render: () => <AnimatedText text={HOME_TEXT.title} className="!text-2xl" />,
 };
