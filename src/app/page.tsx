@@ -15,11 +15,11 @@ const Home: NextPage = () => {
       <PageLayout className="pt-0">
         <div className="flex-between w-full">
           <div className="w-1/2">
-            <Image src={Profile} alt="Bear29ers" className="h-auto w-full" role="img" />
+            <Image src={Profile} alt="Bear29ers" className="h-auto w-full p-8" role="img" />
           </div>
           <div className="flex w-1/2 flex-col items-center self-center">
             <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
-            <p className="my-4 text-base font-medium">{HOME_TEXT.description}</p>
+            <p className="my-4 whitespace-pre-wrap text-base font-medium">{HOME_TEXT.description}</p>
           </div>
         </div>
       </PageLayout>
