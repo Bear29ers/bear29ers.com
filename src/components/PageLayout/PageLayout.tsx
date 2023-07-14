@@ -8,7 +8,7 @@ type Props = {
 
 const PageLayout: FC<Props> = ({ children }) => {
   return (
-    <div>
+    <div role="presentation">
       <Navbar />
       {children}
     </div>
