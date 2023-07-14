@@ -8,6 +8,11 @@ describe('src/components/AnimatedText/AnimatedText.test.tsx', () => {
     expect(getByRole('heading')).toBeInTheDocument();
   });
 
+  it('should render AnimatedText component without className props', () => {
+    const { getByRole } = render(<AnimatedText text="test" />);
+    expect(getByRole('heading')).toBeInTheDocument();
+  });
+
   it('should render AnimatedText component and span tags with text props', () => {
     const { getByRole } = render(<AnimatedText text="animated text" className="" />);
     expect(getByRole('heading').querySelectorAll('span')).toHaveLength(2);
