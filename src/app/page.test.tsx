@@ -1,13 +1,15 @@
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import mockRouter from 'next-router-mock';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 import Page from './page';
 
 describe('src/app/page.test.tsx', () => {
-  it('should render Home pege with PageLayout', () => {
-    const { getByRole } = render(<Page />);
-    expect(getByRole('presentation')).toBeInTheDocument();
+  it('should render Home pege with PageLayout and ContentsLayout', () => {
+    render(<Page />);
+    const layouts = screen.getAllByRole('presentation');
+    expect(layouts).toHaveLength(2);
+    layouts.map((layout) => expect(layout).toBeInTheDocument());
   });
 
   it('should render Home page with Navbar', () => {
