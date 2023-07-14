@@ -26,6 +26,14 @@ describe('src/app/page.test.tsx', () => {
   });
 
   describe('fireEvent click on Navbar', () => {
+    it('should page transition when home navlink is clicked', () => {
+      const { getByRole } = render(<Page />, { wrapper: MemoryRouterProvider });
+      const homeLink = getByRole('link', { name: 'Home' });
+      expect(homeLink).toBeInTheDocument();
+      fireEvent.click(homeLink);
+      expect(mockRouter.asPath).toBe('/');
+    });
+
     it('should page transition when about navlink is clicked', () => {
       const { getByRole } = render(<Page />, { wrapper: MemoryRouterProvider });
       const aboutLink = getByRole('link', { name: 'About' });
