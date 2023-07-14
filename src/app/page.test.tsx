@@ -5,6 +5,11 @@ import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 import Page from './page';
 
 describe('src/app/page.test.tsx', () => {
+  it('should render Home pege with PageLayout', () => {
+    const { getByRole } = render(<Page />);
+    expect(getByRole('presentation')).toBeInTheDocument();
+  });
+
   it('should render Home page with Navbar', () => {
     const { getByRole } = render(<Page />);
     expect(getByRole('banner')).toBeInTheDocument();
