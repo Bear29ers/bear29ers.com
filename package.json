@@ -15,7 +15,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:ci": "jest --ci",
-    "test:coverage": "npm run test -- --coverage --silent --testLocationInResults --ci --json --outputFile=\"report.json\"",
+    "test:coverage": "npm run test -- --coverage",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "gen": "hygen generator components"
