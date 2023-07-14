@@ -1,8 +1,6 @@
 import '@/app/globals.scss';
 import { Montserrat } from 'next/font/google';
 
-import Navbar from '@/components/Navbar/Navbar';
-
 const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-mont' });
 
 export const metadata = {
@@ -13,10 +11,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} h-full w-full bg-light font-mont`}>
-        <Navbar />
-        {children}
-      </body>
+      <body className={`${montserrat.className} h-full w-full bg-light font-mont`}>{children}</body>
     </html>
   );
 };
