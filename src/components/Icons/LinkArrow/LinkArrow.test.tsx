@@ -8,6 +8,11 @@ describe('src/components/LinkArrow/LinkArrow.test.tsx', () => {
     expect(getByRole('img')).toBeInTheDocument();
   });
 
+  it('should render LinkArrow component without props', () => {
+    const { getByRole } = render(<LinkArrow />);
+    expect(getByRole('img')).toBeInTheDocument();
+  });
+
   it('should render LinkArrow component with w-20 class', () => {
     const { getByRole } = render(<LinkArrow className="!w-20" />);
     expect(getByRole('img')).toHaveClass('!w-20');
