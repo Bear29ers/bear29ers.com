@@ -7,5 +7,5 @@ module.exports = {
   '**/*.{js,jsx,ts,tsx}': [buildEslintCommand, 'eslint --fix'],
   '**/*.{js,jsx,ts,tsx,json}': 'prettier --write',
   '**/*.{html,jsx,tsx}': 'markuplint --fix',
-  '**/*.{spec,test}.{js,jsx,ts,tsx}': 'jest',
+  '**/*.{spec,test}.{js,jsx,ts,tsx}': 'jest -- --coverage',
 };
