@@ -26,24 +26,39 @@ const Navbar: FC = () => {
           target="_blank"
           className="w-6"
           whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}>
+          whileTap={{ scale: 0.9 }}
+          role="link"
+          aria-describedby="navlink-id-1">
           <GithubIcon />
+          <div id="navlink-id-1" className="hidden">
+            github
+          </div>
         </motion.a>
         <motion.a
           href={SOCIAL_LINK.facebook}
           target="_blank"
           className="w-6"
           whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}>
+          whileTap={{ scale: 0.9 }}
+          role="link"
+          aria-describedby="navlink-id-2">
           <FacebookIcon />
+          <div id="navlink-id-2" className="hidden">
+            facebook
+          </div>
         </motion.a>
         <motion.a
           href={SOCIAL_LINK.instagram}
           target="_blank"
           className="w-6"
           whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}>
+          whileTap={{ scale: 0.9 }}
+          role="link"
+          aria-describedby="navlink-id-3">
           <InstagramIcon />
+          <div id="navlink-id-3" className="hidden">
+            instagram
+          </div>
         </motion.a>
       </nav>
       <div className="absolute left-1/2 top-2 translate-x-1/2">

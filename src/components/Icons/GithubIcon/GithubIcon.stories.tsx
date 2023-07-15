@@ -13,3 +13,11 @@ type Story = StoryObj<typeof GithubIcon>;
 export const Standard: Story = {
   render: () => <GithubIcon />,
 };
+
+export const W20: Story = {
+  render: () => (
+    <div className="w-20">
+      <GithubIcon />
+    </div>
+  ),
+};
