@@ -1,5 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
+import Footer from '../Footer/Footer';
 import Navbar from '../Navbar/Navbar';
 
 type Props = {
@@ -11,6 +12,7 @@ const PageLayout: FC<Props> = ({ children }) => {
     <div role="presentation">
       <Navbar />
       {children}
+      <Footer />
     </div>
   );
 };

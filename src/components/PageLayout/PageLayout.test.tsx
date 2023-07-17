@@ -11,4 +11,22 @@ describe('src/components/PageLayout/PageLayout.test.tsx', () => {
     );
     expect(getByRole('presentation')).toBeInTheDocument();
   });
+
+  it('should render PageLayout component with Navbar', () => {
+    const { getByRole } = render(
+      <PageLayout>
+        <div>PageLayout</div>
+      </PageLayout>
+    );
+    expect(getByRole('banner')).toBeInTheDocument();
+  });
+
+  it('should render PageLayout component with Footer', () => {
+    const { getByRole } = render(
+      <PageLayout>
+        <div>PageLayout</div>
+      </PageLayout>
+    );
+    expect(getByRole('contentinfo')).toBeInTheDocument();
+  });
 });
