@@ -9,7 +9,7 @@ type Props = {
 
 const PageLayout: FC<Props> = ({ children }) => {
   return (
-    <div role="presentation">
+    <div className="container mx-auto" role="presentation">
       <Navbar />
       {children}
       <Footer />

@@ -14,7 +14,7 @@ import NavLink from '../NavLink/NavLink';
 
 const Navbar: FC = () => {
   return (
-    <header className="flex-between w-full px-32 py-8 font-medium" role="banner">
+    <header className="flex-between w-full py-8 font-medium" role="banner">
       <nav className="space-x-4">
         {NAV_CONTENTS.map((content) => (
           <NavLink href={content.href} title={content.title} key={content.id} />
