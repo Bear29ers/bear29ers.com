@@ -53,6 +53,7 @@ export const PROFILE_TEXT = {
   fullName: 'Yuta Okuma',
   userName: 'Bear29ers',
   greeting: "Hi, there, I'm Yuta. Nice to see you!",
+  shortGreeting: "Hi, there, I'm Yuta 🤟🐻",
   organization: 'Gakken LEAP Co.,Ltd',
   location: 'Tokyo, Japan',
   website: 'https://bear29ers.github.io',
