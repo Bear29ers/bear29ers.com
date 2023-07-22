@@ -4,11 +4,8 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-import { NAV_CONTENTS, SOCIAL_LINK } from '@/constants';
+import { NAV_CONTENTS, SOCIAL_MEDIA_LIST } from '@/constants';
 
-import FacebookIcon from '../Icons/FacebookIcon/FacebookIcon';
-import GithubIcon from '../Icons/GithubIcon/GithubIcon';
-import InstagramIcon from '../Icons/InstagramIcon/InstagramIcon';
 import Logo from '../Logo/Logo';
 import NavLink from '../NavLink/NavLink';
 
@@ -21,45 +18,22 @@ const Navbar: FC = () => {
         ))}
       </nav>
       <nav className="flex-center flex-wrap space-x-3">
-        <motion.a
-          href={SOCIAL_LINK.github}
-          target="_blank"
-          className="w-6"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          role="link"
-          aria-describedby="navlink-id-1">
-          <GithubIcon />
-          <div id="navlink-id-1" className="hidden">
-            github
-          </div>
-        </motion.a>
-        <motion.a
-          href={SOCIAL_LINK.facebook}
-          target="_blank"
-          className="w-6"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          role="link"
-          aria-describedby="navlink-id-2">
-          <FacebookIcon />
-          <div id="navlink-id-2" className="hidden">
-            facebook
-          </div>
-        </motion.a>
-        <motion.a
-          href={SOCIAL_LINK.instagram}
-          target="_blank"
-          className="w-6"
-          whileHover={{ y: -2 }}
-          whileTap={{ scale: 0.9 }}
-          role="link"
-          aria-describedby="navlink-id-3">
-          <InstagramIcon />
-          <div id="navlink-id-3" className="hidden">
-            instagram
-          </div>
-        </motion.a>
+        {SOCIAL_MEDIA_LIST.map((socialMedia) => (
+          <motion.a
+            href={socialMedia.href}
+            target="_blank"
+            className="w-6"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.9 }}
+            role="link"
+            aria-describedby={socialMedia.describedby}
+            key={socialMedia.id}>
+            <socialMedia.component />
+            <div id={socialMedia.describedby} className="hidden">
+              {socialMedia.text}
+            </div>
+          </motion.a>
+        ))}
       </nav>
       <div className="absolute left-1/2 top-2 translate-x-1/2">
         <Logo />
