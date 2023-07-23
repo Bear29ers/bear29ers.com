@@ -10,6 +10,7 @@ import type { Achievement } from '@/constants';
 import { ACHIEVEMENTS, PROFILE_TEXT, SOCIAL_MEDIA_LIST } from '@/constants';
 
 import profilePic from '../../../public/images/profile.jpg';
+import LanguagesTools from '../LanguagesTools/LanguagesTools';
 
 const FramerImage = motion(Image);
 
@@ -121,6 +122,10 @@ const Profile: FC = () => {
               </motion.a>
             ))}
           </div>
+        </div>
+        <div>
+          <h3 className="mb-4 mt-16 text-xl font-bold">🛠️ Languages and Tools:</h3>
+          <LanguagesTools />
         </div>
       </div>
     </div>
