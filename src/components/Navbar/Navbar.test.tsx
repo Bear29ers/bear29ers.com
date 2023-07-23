@@ -2,7 +2,6 @@ import { render, screen } from '@testing-library/react';
 
 import Navbar from './Navbar';
 
-// テスト用のソーシャルメディアリンク
 const SOCIAL_LINK = {
   github: 'https://github.com/Bear29ers',
   instagram: 'https://www.instagram.com/bear_27earl',
@@ -29,21 +28,21 @@ describe('src/components/Navbar/Navbar.test.tsx', () => {
 
   it('should render GitHub icon link is valid', () => {
     const { getByRole } = render(<Navbar />);
-    expect(getByRole('link', { description: 'github' })).toHaveAttribute('href', `${SOCIAL_LINK.github}`);
+    expect(getByRole('link', { description: 'github' })).toHaveAttribute('href', SOCIAL_LINK.github);
   });
 
   it('should render Instagram icon link is valid', () => {
     const { getByRole } = render(<Navbar />);
-    expect(getByRole('link', { description: 'instagram' })).toHaveAttribute('href', `${SOCIAL_LINK.instagram}`);
+    expect(getByRole('link', { description: 'instagram' })).toHaveAttribute('href', SOCIAL_LINK.instagram);
   });
 
   it('should render Threads icon link is valid', () => {
     const { getByRole } = render(<Navbar />);
-    expect(getByRole('link', { description: 'threads' })).toHaveAttribute('href', `${SOCIAL_LINK.threads}`);
+    expect(getByRole('link', { description: 'threads' })).toHaveAttribute('href', SOCIAL_LINK.threads);
   });
 
   it('should render Facebook icon link is valid', () => {
     const { getByRole } = render(<Navbar />);
-    expect(getByRole('link', { description: 'facebook' })).toHaveAttribute('href', `${SOCIAL_LINK.facebook}`);
+    expect(getByRole('link', { description: 'facebook' })).toHaveAttribute('href', SOCIAL_LINK.facebook);
   });
 });
