@@ -1,12 +1,17 @@
+'use client';
+
 import type { FC } from 'react';
 
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
 import type { Achievement } from '@/constants';
-import { ACHIEVEMENTS, PROFILE_TEXT } from '@/constants';
+import { ACHIEVEMENTS, PROFILE_TEXT, SOCIAL_MEDIA_LIST } from '@/constants';
 
 import profilePic from '../../../public/images/profile.jpg';
+
+const FramerImage = motion(Image);
 
 const Profile: FC = () => {
   return (
@@ -57,11 +62,14 @@ const Profile: FC = () => {
           <h2 className="mb-3 text-lg font-bold">Achievements</h2>
           <div className="flex gap-1">
             {ACHIEVEMENTS.map((achievement: Achievement) => (
-              <Image
+              <FramerImage
                 src={achievement.src}
                 alt={`Achievement: ${achievement.alt}`}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 key={achievement.id}
-                className="h-auto w-16"
+                className="h-auto w-16 cursor-pointer"
               />
             ))}
           </div>
@@ -89,6 +97,28 @@ const Profile: FC = () => {
           <div className="flex flex-col gap-y-4">
             {PROFILE_TEXT.biographyList.map((biography) => (
               <p key={biography.id}>{biography.text}</p>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h3 className="mb-4 mt-16 text-xl font-bold">🤝 Connect with me:</h3>
+          <div className="flex gap-x-6">
+            {SOCIAL_MEDIA_LIST.map((socialMedia) => (
+              <motion.a
+                href={socialMedia.href}
+                target="_blank"
+                className="w-14"
+                role="link"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                aria-describedby={socialMedia.describedby}
+                key={socialMedia.id}>
+                <div id={socialMedia.describedby} className="hidden">
+                  {socialMedia.text}
+                </div>
+                <socialMedia.component />
+              </motion.a>
             ))}
           </div>
         </div>
