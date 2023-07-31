@@ -5,7 +5,7 @@ import { distance } from '@popmotion/popcorn';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import Image from 'next/image';
 
-import { lightIcons } from '@/const/languagesAndTools';
+import { lightIcons } from '../../const/languagesAndTools';
 
 import type { MotionValue } from 'framer-motion';
 import type { StaticImageData } from 'next/image';
