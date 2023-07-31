@@ -1,4 +1,19 @@
-import { Bootstrap, Css, Html, JQuery, JavaScript, Sass, Tailwind, TypeScript } from './SkillIcons';
+import {
+  Bootstrap,
+  Css,
+  Emotion,
+  Html,
+  JQuery,
+  JavaScript,
+  MaterialUi,
+  NextJs,
+  ReactJs,
+  Sass,
+  StyledComponents,
+  Tailwind,
+  ThreeJs,
+  TypeScript,
+} from './SkillIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -40,4 +55,28 @@ export const TYPESCRIPT: Story = {
 
 export const JQUERY: Story = {
   render: () => <JQuery />,
+};
+
+export const THREEJS: Story = {
+  render: () => <ThreeJs />,
+};
+
+export const REACT: Story = {
+  render: () => <ReactJs />,
+};
+
+export const STYLED_COMPONENTS: Story = {
+  render: () => <StyledComponents />,
+};
+
+export const EMOTION: Story = {
+  render: () => <Emotion />,
+};
+
+export const MATERIAL_UI: Story = {
+  render: () => <MaterialUi />,
+};
+
+export const NEXTJS: Story = {
+  render: () => <NextJs />,
 };
