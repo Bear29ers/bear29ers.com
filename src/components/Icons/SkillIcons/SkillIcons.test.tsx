@@ -1,6 +1,21 @@
 import { render } from '@testing-library/react';
 
-import { Bootstrap, Css, Html, JQuery, JavaScript, Sass, Tailwind, TypeScript } from './SkillIcons';
+import {
+  Bootstrap,
+  Css,
+  Emotion,
+  Html,
+  JQuery,
+  JavaScript,
+  MaterialUi,
+  NextJs,
+  ReactJs,
+  Sass,
+  StyledComponents,
+  Tailwind,
+  ThreeJs,
+  TypeScript,
+} from './SkillIcons';
 
 describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
   it('should render HTML svg component', () => {
@@ -41,5 +56,35 @@ describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
   it('should render jQuery svg component', () => {
     const { getByTestId } = render(<JQuery />);
     expect(getByTestId('jquery')).toBeInTheDocument();
+  });
+
+  it('should render Three.js svg component', () => {
+    const { getByTestId } = render(<ThreeJs />);
+    expect(getByTestId('threejs')).toBeInTheDocument();
+  });
+
+  it('should render React svg component', () => {
+    const { getByTestId } = render(<ReactJs />);
+    expect(getByTestId('react')).toBeInTheDocument();
+  });
+
+  it('should render styled-components svg component', () => {
+    const { getByTestId } = render(<StyledComponents />);
+    expect(getByTestId('styled-components')).toBeInTheDocument();
+  });
+
+  it('should render Emotion svg component', () => {
+    const { getByTestId } = render(<Emotion />);
+    expect(getByTestId('emotion')).toBeInTheDocument();
+  });
+
+  it('should render Material UI svg component', () => {
+    const { getByTestId } = render(<MaterialUi />);
+    expect(getByTestId('material-ui')).toBeInTheDocument();
+  });
+
+  it('should render Next.js svg component', () => {
+    const { getByTestId } = render(<NextJs />);
+    expect(getByTestId('nextjs')).toBeInTheDocument();
   });
 });

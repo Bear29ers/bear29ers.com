@@ -1,11 +1,17 @@
-import html from '../../public/images/languages_tools/html.svg';
+import type { FC } from 'react';
 
+import {
+  Bootstrap,
+  Css,
+  Html,
+  JavaScript,
+  Sass,
+  Tailwind,
+  TypeScript,
+} from '../components/Icons/SkillIcons/SkillIcons';
 
 // ライトモード用アイコン
-export const lightIcons = [
-  [html, html, html, html, html, html, html],
-  [html, html, html, html, html, html, html],
-];
+export const lightIcons: FC[][] = [[Html, Css, Sass, Tailwind, Bootstrap, JavaScript, TypeScript]];
 
 // ダークモード用アイコン
 export const darkIcons = [
