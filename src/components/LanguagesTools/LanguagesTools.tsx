@@ -3,18 +3,17 @@ import { useState } from 'react';
 
 import { distance } from '@popmotion/popcorn';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
-import Image from 'next/image';
 
-import { lightIcons } from '../../const/languagesAndTools';
+import { lightIcons } from '@/const/languagesAndTools';
+import type { SkillIcon } from '@/const/languagesAndTools';
 
 import type { MotionValue } from 'framer-motion';
-import type { StaticImageData } from 'next/image';
 
 const size = 60;
 const gap = 15;
 
 type Props = {
-  src: StaticImageData;
+  item: SkillIcon;
   active: { row: number; col: number };
   setActive: (active: { row: number; col: number }) => void;
   colIndex: number;
@@ -23,9 +22,7 @@ type Props = {
   y: MotionValue<number>;
 };
 
-const FramerImage = motion(Image);
-
-const Square: FC<Props> = ({ src, active, setActive, colIndex, rowIndex, x, y }) => {
+const Square: FC<Props> = ({ item, active, setActive, colIndex, rowIndex, x, y }) => {
   const isDragging = colIndex === active.col && rowIndex === active.row;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
@@ -36,14 +33,13 @@ const Square: FC<Props> = ({ src, active, setActive, colIndex, rowIndex, x, y })
   const dy = useSpring(y, springConfig);
 
   return (
-    <FramerImage
-      src={src}
+    <motion.div
+      className="absolute w-16 cursor-pointer"
       drag
       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
       dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
       dragElastic={1}
       onDragStart={() => setActive({ row: rowIndex, col: colIndex })}
-      className="absolute h-[60px] w-[60px] cursor-pointer rounded-2xl"
       style={{
         top: rowIndex * (size + gap),
         left: colIndex * (size + gap),
@@ -51,9 +47,9 @@ const Square: FC<Props> = ({ src, active, setActive, colIndex, rowIndex, x, y })
         y: isDragging ? y : dy,
         zIndex: isDragging ? 1 : 0,
       }}
-      data-testid={`square-${rowIndex}-${colIndex}`}
-      alt="icon"
-    />
+      data-testid={`square-${rowIndex}-${colIndex}`}>
+      <item.component />
+    </motion.div>
   );
 };
 
@@ -75,10 +71,10 @@ const LanguagesTools: FC = () => {
           perspective: 700,
         }}>
         {lightIcons.map((row, rowIndex) =>
-          row.map((img, colIndex) => (
+          row.map((item, colIndex) => (
             <Square
               // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-              src={img}
+              item={item}
               x={x}
               y={y}
               active={active}

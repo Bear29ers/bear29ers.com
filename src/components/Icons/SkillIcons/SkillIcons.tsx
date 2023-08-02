@@ -2,7 +2,14 @@ import type { FC } from 'react';
 
 // HTML
 export const Html: FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={256} height={256} fill="none" role="img" data-testid="html">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 256 256"
+    className="h-auto w-full"
+    role="img"
+    data-testid="html">
     <rect width={256} height={256} fill="#E14E1D" rx={60} />
     <path
       fill="#fff"
@@ -17,7 +24,14 @@ export const Html: FC = () => (
 
 // CSS
 export const Css: FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={256} height={256} fill="none" role="img" data-testid="css">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="1em"
+    height="1em"
+    viewBox="0 0 256 256"
+    className="h-auto w-full"
+    role="img"
+    data-testid="css">
     <rect width={256} height={256} fill="#0277BD" rx={60} />
     <path
       fill="#EBEBEB"
