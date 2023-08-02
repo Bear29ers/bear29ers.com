@@ -10,15 +10,22 @@ import {
   TypeScript,
 } from '../components/Icons/SkillIcons/SkillIcons';
 
-// ライトモード用アイコン
-export const lightIcons: FC[][] = [[Html, Css, Sass, Tailwind, Bootstrap, JavaScript, TypeScript]];
+export type SkillIcon = {
+  name: string;
+  component: FC;
+};
 
-// ダークモード用アイコン
-export const darkIcons = [
-  [0, 1, 2, 3],
-  [4, 5, 6, 7],
-  [8, 9, 10, 11],
-  [12, 13, 14, 15],
+// ライトモード用アイコン
+export const lightIcons: SkillIcon[][] = [
+  [
+    { name: 'HTML', component: Html },
+    { name: 'CSS', component: Css },
+    { name: 'Sass', component: Sass },
+    { name: 'Bootstrap', component: Bootstrap },
+    { name: 'Tailwind', component: Tailwind },
+    { name: 'JavaScript', component: JavaScript },
+    { name: 'TypeScript', component: TypeScript },
+  ],
 ];
 
 // アイコンサイズ
