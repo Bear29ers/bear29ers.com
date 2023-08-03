@@ -129,7 +129,22 @@ const Profile: FC = () => {
           </div>
         </div>
         <div className="mb-16">
-          <h3 className="mb-4 text-xl font-bold">🛠️ Languages and Tools:</h3>
+          <h3 className="mb-4 text-xl font-bold">📊 GitHub Stats:</h3>
+          <img
+            src="https://github-readme-stats-bear29ers.vercel.app/api?username=Bear29ers&show_icons=true&theme=bear"
+            alt="GitHub Stats"
+            className="w-[510px]"
+            data-testid="github-stats"
+          />
+        </div>
+        <div className="mb-16">
+          <h3 className="mb-4 text-xl font-bold">🍀 Contributions:</h3>
+          <img
+            src="https://raw.githubusercontent.com/Bear29ers/Bear29ers/master/profile-3d-contrib/profile-green-animate.svg"
+            alt="contributions"
+            className="w-full"
+            data-testid="contributions"
+          />
         </div>
       </div>
     </div>
