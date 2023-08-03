@@ -2,17 +2,24 @@ import {
   Bootstrap,
   Css,
   Emotion,
+  Express,
   Html,
   JQuery,
   JavaScript,
+  Jest,
   MaterialUi,
   NextJs,
+  NodeJs,
+  NuxtJs,
   ReactJs,
   Sass,
   StyledComponents,
   Tailwind,
   ThreeJs,
   TypeScript,
+  Vercel,
+  Vite,
+  VueJs,
 } from './SkillIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -37,12 +44,12 @@ export const SASS: Story = {
   render: () => <Sass />,
 };
 
-export const TAILWIND: Story = {
-  render: () => <Tailwind />,
-};
-
 export const BOOTSTRAP: Story = {
   render: () => <Bootstrap />,
+};
+
+export const TAILWIND: Story = {
+  render: () => <Tailwind />,
 };
 
 export const JAVASCRIPT: Story = {
@@ -79,4 +86,32 @@ export const MATERIAL_UI: Story = {
 
 export const NEXTJS: Story = {
   render: () => <NextJs />,
+};
+
+export const VERCEL: Story = {
+  render: () => <Vercel />,
+};
+
+export const VUEJS: Story = {
+  render: () => <VueJs />,
+};
+
+export const NUXTJS: Story = {
+  render: () => <NuxtJs />,
+};
+
+export const VITE: Story = {
+  render: () => <Vite />,
+};
+
+export const NODEJS: Story = {
+  render: () => <NodeJs />,
+};
+
+export const EXPRESS: Story = {
+  render: () => <Express />,
+};
+
+export const JEST: Story = {
+  render: () => <Jest />,
 };

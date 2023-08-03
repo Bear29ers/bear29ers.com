@@ -4,17 +4,24 @@ import {
   Bootstrap,
   Css,
   Emotion,
+  Express,
   Html,
   JQuery,
   JavaScript,
+  Jest,
   MaterialUi,
   NextJs,
+  NodeJs,
+  NuxtJs,
   ReactJs,
   Sass,
   StyledComponents,
   Tailwind,
   ThreeJs,
   TypeScript,
+  Vercel,
+  Vite,
+  VueJs,
 } from './SkillIcons';
 
 describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
@@ -33,14 +40,14 @@ describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
     expect(getByTestId('sass')).toBeInTheDocument();
   });
 
-  it('should render Tailwind svg component', () => {
-    const { getByTestId } = render(<Tailwind />);
-    expect(getByTestId('tailwind')).toBeInTheDocument();
-  });
-
   it('should render Bootstrap svg component', () => {
     const { getByTestId } = render(<Bootstrap />);
     expect(getByTestId('bootstrap')).toBeInTheDocument();
+  });
+
+  it('should render Tailwind svg component', () => {
+    const { getByTestId } = render(<Tailwind />);
+    expect(getByTestId('tailwind')).toBeInTheDocument();
   });
 
   it('should render JavaScript svg component', () => {
@@ -86,5 +93,40 @@ describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
   it('should render Next.js svg component', () => {
     const { getByTestId } = render(<NextJs />);
     expect(getByTestId('nextjs')).toBeInTheDocument();
+  });
+
+  it('should render Vercel svg component', () => {
+    const { getByTestId } = render(<Vercel />);
+    expect(getByTestId('vercel')).toBeInTheDocument();
+  });
+
+  it('should render Vue.js svg component', () => {
+    const { getByTestId } = render(<VueJs />);
+    expect(getByTestId('vuejs')).toBeInTheDocument();
+  });
+
+  it('should render Nuxt.js svg component', () => {
+    const { getByTestId } = render(<NuxtJs />);
+    expect(getByTestId('nuxtjs')).toBeInTheDocument();
+  });
+
+  it('should render Vite svg component', () => {
+    const { getByTestId } = render(<Vite />);
+    expect(getByTestId('vite')).toBeInTheDocument();
+  });
+
+  it('should render Node.js svg component', () => {
+    const { getByTestId } = render(<NodeJs />);
+    expect(getByTestId('nodejs')).toBeInTheDocument();
+  });
+
+  it('should render Express svg component', () => {
+    const { getByTestId } = render(<Express />);
+    expect(getByTestId('express')).toBeInTheDocument();
+  });
+
+  it('should render Jest svg component', () => {
+    const { getByTestId } = render(<Jest />);
+    expect(getByTestId('jest')).toBeInTheDocument();
   });
 });
