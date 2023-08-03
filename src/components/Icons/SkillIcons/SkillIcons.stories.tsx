@@ -115,3 +115,39 @@ export const EXPRESS: Story = {
 export const JEST: Story = {
   render: () => <Jest />,
 };
+
+export const REGEX: Story = {
+  render: () => <Jest />,
+};
+
+// Docker
+// Git
+// GitHub
+// GitHub Actions
+// AWS
+// GCP
+// Firebase
+
+// Vim
+// Neovim
+// Linux
+// Bash
+// Lua
+// Markdown
+// SVG
+
+// IDEA
+// VSCode
+// Atom
+// Figma
+// XD
+// Photoshop
+// Illustrator
+
+// Premiere Pro
+// AfterEffects
+// Postman
+// Sentry
+// Discord
+// Codepen
+// Stackoverflow
