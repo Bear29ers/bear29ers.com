@@ -1,25 +1,60 @@
 import {
+  AfterEffects,
+  Atom,
+  Aws,
+  Babel,
+  Bash,
   Bootstrap,
+  Codepen,
   Css,
+  Discord,
+  Docker,
   Emotion,
   Express,
+  Figma,
+  Firebase,
+  Gcp,
+  Git,
+  GitHub,
+  GitHubActions,
   Html,
+  Idea,
+  Illustrator,
   JQuery,
   JavaScript,
   Jest,
+  Laravel,
+  Linux,
+  Lua,
+  Markdown,
   MaterialUi,
+  MySql,
+  Neovim,
   NextJs,
   NodeJs,
   NuxtJs,
+  Photoshop,
+  Php,
+  Postman,
+  PremierePro,
   ReactJs,
+  Regex,
   Sass,
+  Sentry,
+  Sqlite,
+  StackOverFlow,
   StyledComponents,
+  Svg,
   Tailwind,
   ThreeJs,
   TypeScript,
   Vercel,
+  Vim,
   Vite,
+  Vscode,
   VueJs,
+  Webpack,
+  Xd,
 } from './SkillIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -117,37 +152,141 @@ export const JEST: Story = {
 };
 
 export const REGEX: Story = {
-  render: () => <Jest />,
+  render: () => <Regex />,
 };
 
-// Docker
-// Git
-// GitHub
-// GitHub Actions
-// AWS
-// GCP
-// Firebase
+export const PHP: Story = {
+  render: () => <Php />,
+};
 
-// Vim
-// Neovim
-// Linux
-// Bash
-// Lua
-// Markdown
-// SVG
+export const LARAVEL: Story = {
+  render: () => <Laravel />,
+};
 
-// IDEA
-// VSCode
-// Atom
-// Figma
-// XD
-// Photoshop
-// Illustrator
+export const MYSQL: Story = {
+  render: () => <MySql />,
+};
 
-// Premiere Pro
-// AfterEffects
-// Postman
-// Sentry
-// Discord
-// Codepen
-// Stackoverflow
+export const SQLITE: Story = {
+  render: () => <Sqlite />,
+};
+
+export const WEBPACK: Story = {
+  render: () => <Webpack />,
+};
+
+export const BABEL: Story = {
+  render: () => <Babel />,
+};
+
+export const DOCKER: Story = {
+  render: () => <Docker />,
+};
+
+export const GIT: Story = {
+  render: () => <Git />,
+};
+
+export const GITHUB: Story = {
+  render: () => <GitHub />,
+};
+
+export const GITHUB_ACTIONS: Story = {
+  render: () => <GitHubActions />,
+};
+
+export const AWS: Story = {
+  render: () => <Aws />,
+};
+
+export const GCP: Story = {
+  render: () => <Gcp />,
+};
+
+export const FIREBASE: Story = {
+  render: () => <Firebase />,
+};
+
+export const VIM: Story = {
+  render: () => <Vim />,
+};
+
+export const NEOVIM: Story = {
+  render: () => <Neovim />,
+};
+
+export const LINUX: Story = {
+  render: () => <Linux />,
+};
+
+export const BASH: Story = {
+  render: () => <Bash />,
+};
+
+export const LUA: Story = {
+  render: () => <Lua />,
+};
+
+export const MARKDOWN: Story = {
+  render: () => <Markdown />,
+};
+
+export const SVG: Story = {
+  render: () => <Svg />,
+};
+
+export const IDEA: Story = {
+  render: () => <Idea />,
+};
+
+export const VSCODE: Story = {
+  render: () => <Vscode />,
+};
+
+export const ATOM: Story = {
+  render: () => <Atom />,
+};
+
+export const FIGMA: Story = {
+  render: () => <Figma />,
+};
+
+export const XD: Story = {
+  render: () => <Xd />,
+};
+
+export const PHOTOSHOP: Story = {
+  render: () => <Photoshop />,
+};
+
+export const ILLUSTRATOR: Story = {
+  render: () => <Illustrator />,
+};
+
+export const PREMIERE_PRO: Story = {
+  render: () => <PremierePro />,
+};
+
+export const AFTEREFFECTS: Story = {
+  render: () => <AfterEffects />,
+};
+
+export const POSTMAN: Story = {
+  render: () => <Postman />,
+};
+
+export const SENTRY: Story = {
+  render: () => <Sentry />,
+};
+
+export const CODEPEN: Story = {
+  render: () => <Codepen />,
+};
+
+export const STACK_OVERFLOW: Story = {
+  render: () => <StackOverFlow />,
+};
+
+export const DISCORD: Story = {
+  render: () => <Discord />,
+};
