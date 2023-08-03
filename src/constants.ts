@@ -124,6 +124,7 @@ export const PROFILE_TEXT = {
   organization: 'Gakken LEAP Co.,Ltd',
   location: 'Tokyo, Japan',
   website: 'https://bear29ers.github.io',
+  githubStats: 'https://github-readme-stats-bear29ers.vercel.app/api?username=Bear29ers&show_icons=true&theme=bear',
 };
 
 export type Achievement = {
