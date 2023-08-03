@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 
 import {
+  Babel,
   Bootstrap,
   Css,
   Emotion,
@@ -9,12 +10,17 @@ import {
   JQuery,
   JavaScript,
   Jest,
+  Laravel,
   MaterialUi,
+  MySql,
   NextJs,
   NodeJs,
   NuxtJs,
+  Php,
   ReactJs,
+  Regex,
   Sass,
+  Sqlite,
   StyledComponents,
   Tailwind,
   ThreeJs,
@@ -22,6 +28,7 @@ import {
   Vercel,
   Vite,
   VueJs,
+  Webpack,
 } from './SkillIcons';
 
 describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
@@ -129,4 +136,71 @@ describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
     const { getByTestId } = render(<Jest />);
     expect(getByTestId('jest')).toBeInTheDocument();
   });
+
+  it('should render Regex svg component', () => {
+    const { getByTestId } = render(<Regex />);
+    expect(getByTestId('regex')).toBeInTheDocument();
+  });
+
+  it('should render PHP svg component', () => {
+    const { getByTestId } = render(<Php />);
+    expect(getByTestId('php')).toBeInTheDocument();
+  });
+
+  it('should render Laravel svg component', () => {
+    const { getByTestId } = render(<Laravel />);
+    expect(getByTestId('laravel')).toBeInTheDocument();
+  });
+
+  it('should render MySQL svg component', () => {
+    const { getByTestId } = render(<MySql />);
+    expect(getByTestId('mysql')).toBeInTheDocument();
+  });
+
+  it('should render SQLite svg component', () => {
+    const { getByTestId } = render(<Sqlite />);
+    expect(getByTestId('sqlite')).toBeInTheDocument();
+  });
+
+  it('should render Webpack svg component', () => {
+    const { getByTestId } = render(<Webpack />);
+    expect(getByTestId('webpack')).toBeInTheDocument();
+  });
+
+  it('should render Babel svg component', () => {
+    const { getByTestId } = render(<Babel />);
+    expect(getByTestId('babel')).toBeInTheDocument();
+  });
+
+  // Docker
+  // Git
+  // GitHub
+  // GitHub Actions
+  // AWS
+  // GCP
+  // Firebase
+
+  // Vim
+  // Neovim
+  // Linux
+  // Bash
+  // Lua
+  // Markdown
+  // SVG
+
+  // IDEA
+  // VSCode
+  // Atom
+  // Figma
+  // XD
+  // Photoshop
+  // Illustrator
+
+  // Premiere Pro
+  // AfterEffects
+  // Postman
+  // Sentry
+  // Discord
+  // Codepen
+  // Stackoverflow
 });
