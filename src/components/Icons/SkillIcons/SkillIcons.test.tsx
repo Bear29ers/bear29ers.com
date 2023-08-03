@@ -44,7 +44,7 @@ import {
   Sass,
   Sentry,
   Sqlite,
-  StackOverFlow,
+  StackOverflow,
   StyledComponents,
   Svg,
   Tailwind,
@@ -170,6 +170,16 @@ describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
     expect(getByTestId('regex')).toBeInTheDocument();
   });
 
+  it('should render Webpack svg component', () => {
+    const { getByTestId } = render(<Webpack />);
+    expect(getByTestId('webpack')).toBeInTheDocument();
+  });
+
+  it('should render Babel svg component', () => {
+    const { getByTestId } = render(<Babel />);
+    expect(getByTestId('babel')).toBeInTheDocument();
+  });
+
   it('should render PHP svg component', () => {
     const { getByTestId } = render(<Php />);
     expect(getByTestId('php')).toBeInTheDocument();
@@ -188,16 +198,6 @@ describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
   it('should render SQLite svg component', () => {
     const { getByTestId } = render(<Sqlite />);
     expect(getByTestId('sqlite')).toBeInTheDocument();
-  });
-
-  it('should render Webpack svg component', () => {
-    const { getByTestId } = render(<Webpack />);
-    expect(getByTestId('webpack')).toBeInTheDocument();
-  });
-
-  it('should render Babel svg component', () => {
-    const { getByTestId } = render(<Babel />);
-    expect(getByTestId('babel')).toBeInTheDocument();
   });
 
   it('should render Docker svg component', () => {
@@ -332,7 +332,7 @@ describe('src/components/Icons/SkillIcons/SkillIcons.test.tsx', () => {
   });
 
   it('should render Stack Overflow svg component', () => {
-    const { getByTestId } = render(<StackOverFlow />);
+    const { getByTestId } = render(<StackOverflow />);
     expect(getByTestId('stack-overflow')).toBeInTheDocument();
   });
 

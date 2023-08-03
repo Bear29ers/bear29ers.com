@@ -10,6 +10,6 @@ describe('src/components/LanguagesTools/LanguagesTools.test.tsx', () => {
 
   it('should have correct number of squares', () => {
     const { getAllByTestId } = render(<LanguagesTools />);
-    expect(getAllByTestId(/^square-\d+-\d+$/)).toHaveLength(16);
+    expect(getAllByTestId(/^square-\d+-\d+$/)).toHaveLength(56);
   });
 });
