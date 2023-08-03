@@ -42,7 +42,7 @@ import {
   Sass,
   Sentry,
   Sqlite,
-  StackOverFlow,
+  StackOverflow,
   StyledComponents,
   Svg,
   Tailwind,
@@ -155,6 +155,14 @@ export const REGEX: Story = {
   render: () => <Regex />,
 };
 
+export const WEBPACK: Story = {
+  render: () => <Webpack />,
+};
+
+export const BABEL: Story = {
+  render: () => <Babel />,
+};
+
 export const PHP: Story = {
   render: () => <Php />,
 };
@@ -169,14 +177,6 @@ export const MYSQL: Story = {
 
 export const SQLITE: Story = {
   render: () => <Sqlite />,
-};
-
-export const WEBPACK: Story = {
-  render: () => <Webpack />,
-};
-
-export const BABEL: Story = {
-  render: () => <Babel />,
 };
 
 export const DOCKER: Story = {
@@ -284,7 +284,7 @@ export const CODEPEN: Story = {
 };
 
 export const STACK_OVERFLOW: Story = {
-  render: () => <StackOverFlow />,
+  render: () => <StackOverflow />,
 };
 
 export const DISCORD: Story = {

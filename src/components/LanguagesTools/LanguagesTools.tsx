@@ -4,13 +4,13 @@ import { useState } from 'react';
 import { distance } from '@popmotion/popcorn';
 import { motion, useMotionValue, useSpring } from 'framer-motion-8';
 
-import { lightIcons } from '../../const/languagesAndTools';
+import { ICON_GAP, ICON_SIZE, SKILL_ICONS } from '../../const/languagesAndTools';
 
 import type { SkillIcon } from '../../const/languagesAndTools';
 import type { MotionValue } from 'framer-motion-8';
 
-const size = 60;
-const gap = 15;
+const size = ICON_SIZE;
+const gap = ICON_GAP;
 
 type Props = {
   item: SkillIcon;
@@ -26,8 +26,8 @@ const Square: FC<Props> = ({ item, active, setActive, colIndex, rowIndex, x, y }
   const isDragging = colIndex === active.col && rowIndex === active.row;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
-    stiffness: Math.max(1000 - d * 120, 0),
-    damping: 20 + d * 5,
+    stiffness: Math.max(1500 - d * 150, 0),
+    damping: 20 + d * 7,
   };
   const dx = useSpring(x, springConfig);
   const dy = useSpring(y, springConfig);
@@ -37,7 +37,7 @@ const Square: FC<Props> = ({ item, active, setActive, colIndex, rowIndex, x, y }
       className="absolute cursor-pointer"
       drag
       dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
-      dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
+      dragTransition={{ bounceStiffness: 2000, bounceDamping: 20 }}
       dragElastic={1}
       onDragStart={() => setActive({ row: rowIndex, col: colIndex })}
       style={{
@@ -69,11 +69,11 @@ const LanguagesTools: FC = () => {
         className="relative flex"
         style={{
           width: (size + gap) * 7 - gap,
-          height: (size + gap) * 7 - gap,
+          height: (size + gap) * 8 - gap,
           perspective: 700,
         }}>
-        {lightIcons.map((row, rowIndex) =>
-          row.map((item, colIndex) => (
+        {SKILL_ICONS.map((row: SkillIcon[], rowIndex: number) =>
+          row.map((item: SkillIcon, colIndex: number) => (
             <Square
               item={item}
               x={x}
