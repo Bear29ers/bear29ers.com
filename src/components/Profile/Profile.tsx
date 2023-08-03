@@ -125,7 +125,11 @@ const Profile: FC = () => {
         </div>
         <div>
           <h3 className="mb-4 mt-16 text-xl font-bold">🛠️ Languages and Tools:</h3>
-          <LanguagesTools />
+          <div
+            className="m-0 flex place-content-center place-items-center p-0 text-center"
+            style={{ perspective: 1000 }}>
+            <LanguagesTools />
+          </div>
         </div>
       </div>
     </div>
