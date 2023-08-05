@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { useState } from 'react';
 
 import { distance } from '@popmotion/popcorn';
-import { motion, useMotionValue, useSpring } from 'framer-motion-8';
+import { motion, useMotionValue, useSpring  } from 'framer-motion-8';
 
 import { ICON_GAP, ICON_SIZE, SKILL_ICONS } from '../../const/languagesAndTools';
 
@@ -22,15 +22,15 @@ type Props = {
   y: MotionValue<number>;
 };
 
-const Square: FC<Props> = ({ item, active, setActive, colIndex, rowIndex, x, y }) => {
+export const Square: FC<Props> = ({ item, active, setActive, colIndex, rowIndex, x, y }) => {
   const isDragging = colIndex === active.col && rowIndex === active.row;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
     stiffness: Math.max(1500 - d * 150, 0),
     damping: 20 + d * 7,
   };
-  const dx = useSpring(x, springConfig);
-  const dy = useSpring(y, springConfig);
+  const dx = useSpring(x, springConfig) as MotionValue<number>;
+  const dy = useSpring(y, springConfig) as MotionValue<number>;
 
   return (
     <motion.div
@@ -55,7 +55,7 @@ const Square: FC<Props> = ({ item, active, setActive, colIndex, rowIndex, x, y }
   );
 };
 
-const LanguagesTools: FC = () => {
+export const LanguagesTools: FC = () => {
   const [active, setActive] = useState({ row: 0, col: 0 });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -91,5 +91,3 @@ const LanguagesTools: FC = () => {
     </motion.div>
   );
 };
-
-export default LanguagesTools;

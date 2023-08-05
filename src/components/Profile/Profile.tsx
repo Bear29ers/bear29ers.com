@@ -10,7 +10,7 @@ import type { Achievement } from '@/constants';
 import { ACHIEVEMENTS, PROFILE_TEXT, SOCIAL_MEDIA_LIST } from '@/constants';
 
 import profilePic from '../../../public/images/profile.jpg';
-import LanguagesTools from '../LanguagesTools/LanguagesTools';
+import { LanguagesTools } from '../LanguagesTools/LanguagesTools';
 
 const FramerImage = motion(Image);
 
