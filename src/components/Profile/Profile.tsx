@@ -137,7 +137,7 @@ const Profile: FC = () => {
             data-testid="github-stats"
           />
         </div>
-        <div className="mb-16">
+        <div>
           <h3 className="mb-4 text-xl font-bold">🍀 Contributions:</h3>
           <img
             src="https://raw.githubusercontent.com/Bear29ers/Bear29ers/master/profile-3d-contrib/profile-green-animate.svg"

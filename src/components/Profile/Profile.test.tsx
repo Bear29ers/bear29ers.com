@@ -37,6 +37,21 @@ describe('src/components/Profile/Profile.test.tsx', () => {
     expect(getAllByRole('img', { name: /Achievement:/ })).toHaveLength(ACHIEVEMENTS.length);
   });
 
+  it('should render LanguagesTools component', () => {
+    const { getByTestId } = render(<Profile />);
+    expect(getByTestId('languages-tools')).toBeInTheDocument();
+  });
+
+  it('should render GitHub Stats image', () => {
+    const { getByTestId } = render(<Profile />);
+    expect(getByTestId('github-stats')).toBeInTheDocument();
+  });
+
+  it('should render GitHub Contributions image', () => {
+    const { getByTestId } = render(<Profile />);
+    expect(getByTestId('contributions')).toBeInTheDocument();
+  });
+
   describe('biography text', () => {
     const { biographyList } = PROFILE_TEXT;
 
