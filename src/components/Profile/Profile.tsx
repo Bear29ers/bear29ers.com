@@ -30,10 +30,10 @@ const Profile: FC = () => {
           </div>
         </div>
         <div className="py-6">
-          <h1 className="flex flex-col">
+          <h2 className="flex flex-col">
             <span className="text-2xl font-bold">{PROFILE_TEXT.fullName}</span>
             <span className="text-xl text-darkGray">{PROFILE_TEXT.userName}</span>
-          </h1>
+          </h2>
         </div>
         <div className="pb-8 text-lg">{PROFILE_TEXT.greeting}</div>
         <ul>
@@ -60,7 +60,7 @@ const Profile: FC = () => {
         </ul>
         <span className="my-8 block h-[1px] w-full bg-gray" />
         <div className="flex flex-col pb-6">
-          <h2 className="mb-3 text-lg font-bold">Achievements</h2>
+          <h3 className="mb-3 text-lg font-bold">Achievements</h3>
           <div className="flex gap-1">
             {ACHIEVEMENTS.map((achievement: Achievement) => (
               <FramerImage
@@ -92,8 +92,8 @@ const Profile: FC = () => {
           </svg>
         </div>
         <div className="mb-16">
-          <h3 className="mb-6 text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h3>
-          <h2 className="text-2xl font-bold">{PROFILE_TEXT.title}</h2>
+          <h4 className="mb-6 text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
+          <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
           <span className="mb-6 mt-2 block h-[1px] w-full bg-gray" />
           <div className="flex flex-col gap-y-4">
             {PROFILE_TEXT.biographyList.map((biography) => (
@@ -102,7 +102,7 @@ const Profile: FC = () => {
           </div>
         </div>
         <div className="mb-16">
-          <h3 className="mb-4 text-xl font-bold">🤝 Connect with me:</h3>
+          <h4 className="mb-4 text-xl font-bold">🤝 Connect with me:</h4>
           <div className="flex gap-x-6">
             {SOCIAL_MEDIA_LIST.map((socialMedia) => (
               <motion.a
@@ -121,7 +121,7 @@ const Profile: FC = () => {
           </div>
         </div>
         <div className="mb-16">
-          <h3 className="mb-4 text-xl font-bold">🛠️ Languages and Tools:</h3>
+          <h4 className="mb-4 text-xl font-bold">🛠️ Languages and Tools:</h4>
           <div
             className="m-0 flex place-content-center place-items-center p-0 text-center"
             style={{ perspective: 1000 }}>
@@ -129,7 +129,7 @@ const Profile: FC = () => {
           </div>
         </div>
         <div className="mb-16">
-          <h3 className="mb-4 text-xl font-bold">📊 GitHub Stats:</h3>
+          <h4 className="mb-4 text-xl font-bold">📊 GitHub Stats:</h4>
           <img
             src="https://github-readme-stats-bear29ers.vercel.app/api?username=Bear29ers&show_icons=true&theme=bear"
             alt="GitHub Stats"
@@ -138,7 +138,7 @@ const Profile: FC = () => {
           />
         </div>
         <div>
-          <h3 className="mb-4 text-xl font-bold">🍀 Contributions:</h3>
+          <h4 className="mb-4 text-xl font-bold">🍀 Contributions:</h4>
           <img
             src="https://raw.githubusercontent.com/Bear29ers/Bear29ers/master/profile-3d-contrib/profile-green-animate.svg"
             alt="contributions"
