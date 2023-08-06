@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import AnimatedText from '@/components/AnimatedText/AnimatedText';
-import ContentsLayout from '@/components/ContentsLayout/ContentsLayout';
-import PageLayout from '@/components/PageLayout/PageLayout';
+import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
+import ContentsLayout from '@/components/layouts/ContentsLayout/ContentsLayout';
+import PageLayout from '@/components/layouts/PageLayout/PageLayout';
 
 import { HOME_TEXT } from '@/constants';
 
