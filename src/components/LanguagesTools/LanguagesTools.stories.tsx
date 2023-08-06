@@ -1,4 +1,4 @@
-import LanguagesTools from './LanguagesTools';
+import { LanguagesTools } from './LanguagesTools';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
