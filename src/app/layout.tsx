@@ -1,7 +1,11 @@
 import '@/app/globals.scss';
 import { Montserrat } from 'next/font/google';
 
-const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-mont' });
+const montserrat = Montserrat({
+  weight: ['400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  variable: '--font-mont',
+});
 
 export const metadata = {
   title: 'Create Next App',
@@ -11,7 +15,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.className} h-full w-full bg-light font-mont`}>{children}</body>
+      <body className={`${montserrat.variable} h-full w-full bg-light font-mont`}>{children}</body>
     </html>
   );
 };

@@ -19,6 +19,9 @@ module.exports = {
         light: '#f5f5f5',
         primary: '#B63E96', // 240,86,199
         primaryDark: '#58E6D9', // 80,230,217
+        gray: '#d0d7de',
+        darkGray: '#656d76',
+        link: '#0969da',
       },
     },
   },
