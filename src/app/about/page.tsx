@@ -1,7 +1,7 @@
-import AnimatedText from '@/components/AnimatedText/AnimatedText';
-import ContentsLayout from '@/components/ContentsLayout/ContentsLayout';
-import PageLayout from '@/components/PageLayout/PageLayout';
 import Profile from '@/components/Profile/Profile';
+import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
+import ContentsLayout from '@/components/layouts/ContentsLayout/ContentsLayout';
+import PageLayout from '@/components/layouts/PageLayout/PageLayout';
 
 import type { NextPage } from 'next';
 
