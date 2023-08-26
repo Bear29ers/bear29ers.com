@@ -2,11 +2,11 @@ import type { FC } from 'react';
 import { useState } from 'react';
 
 import { distance } from '@popmotion/popcorn';
-import { motion, useMotionValue, useSpring  } from 'framer-motion-8';
+import { motion, useMotionValue, useSpring } from 'framer-motion-8';
 
-import { ICON_GAP, ICON_SIZE, SKILL_ICONS } from '../../const/languagesAndTools';
+import { ICON_GAP, ICON_SIZE, SKILL_ICONS } from '../../constants/languagesAndTools';
 
-import type { SkillIcon } from '../../const/languagesAndTools';
+import type { SkillIcon } from '../../constants/languagesAndTools';
 import type { MotionValue } from 'framer-motion-8';
 
 const size = ICON_SIZE;

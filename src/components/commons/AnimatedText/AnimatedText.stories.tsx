@@ -1,4 +1,4 @@
-import { HOME_TEXT } from '@/constants';
+import { HOME_TEXT } from '../../../constants/home';
 
 import AnimatedText from './AnimatedText';
 
