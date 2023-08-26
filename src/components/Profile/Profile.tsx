@@ -6,8 +6,9 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { Achievement } from '@/constants';
-import { ACHIEVEMENTS, PROFILE_TEXT, SOCIAL_MEDIA_LIST } from '@/constants';
+import { ACHIEVEMENTS, PROFILE_TEXT } from '@/constants/about';
+import type { Achievement } from '@/constants/about';
+import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
 
 import profilePic from '../../../public/images/profile.jpg';
 import { LanguagesTools } from '../LanguagesTools/LanguagesTools';

@@ -2,7 +2,7 @@
 /* eslint-disable jest/expect-expect */
 import { cleanup, render, screen } from '@testing-library/react';
 
-import { ACHIEVEMENTS, PROFILE_TEXT } from '@/constants';
+import { ACHIEVEMENTS, PROFILE_TEXT } from '../../constants/about';
 
 import Profile from './Profile';
 

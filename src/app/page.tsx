@@ -5,7 +5,7 @@ import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
 import ContentsLayout from '@/components/layouts/ContentsLayout/ContentsLayout';
 import PageLayout from '@/components/layouts/PageLayout/PageLayout';
 
-import { HOME_TEXT } from '@/constants';
+import { HOME_TEXT } from '@/constants/home';
 
 import Profile from '../../public/images/low-poly-bear.png';
 
