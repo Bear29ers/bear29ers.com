@@ -4,9 +4,8 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-import { NAV_CONTENTS } from '@/const/nav';
-import { SOCIAL_MEDIA_LIST } from '@/const/socialMedia';
-
+import { NAV_CONTENTS } from '../../../constants/nav';
+import { SOCIAL_MEDIA_LIST } from '../../../constants/socialMedia';
 import Logo from '../Logo/Logo';
 import NavLink from '../NavLink/NavLink';
 

@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 
-import FacebookIcon from '@/components/Icons/FacebookIcon/FacebookIcon';
-import GithubIcon from '@/components/Icons/GithubIcon/GithubIcon';
-import InstagramIcon from '@/components/Icons/InstagramIcon/InstagramIcon';
-import ThreadsIcon from '@/components/Icons/ThreadsIcon/ThreadsIcon';
+import FacebookIcon from '../components/Icons/FacebookIcon/FacebookIcon';
+import GithubIcon from '../components/Icons/GithubIcon/GithubIcon';
+import InstagramIcon from '../components/Icons/InstagramIcon/InstagramIcon';
+import ThreadsIcon from '../components/Icons/ThreadsIcon/ThreadsIcon';
 
 type SocialMedia = {
   id: number;
