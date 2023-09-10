@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   return (
     <PageLayout>
       <main className="flex min-h-screen w-full items-center text-dark" role="main">
-        <ContentsLayout className="pt-0">
+        <ContentsLayout className="bg-transparent pt-0">
           <div className="flex-between w-full">
             <div className="w-1/2">
               <Image src={Profile} alt="Bear29ers" className="h-auto w-full p-8" role="img" />
