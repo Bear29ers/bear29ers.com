@@ -23,6 +23,25 @@ module.exports = {
         darkGray: '#656d76',
         link: '#0969da',
       },
+      keyframes: {
+        blob: {
+          '0%': {
+            transform: 'translate(-50%, -50%) scale(1)',
+          },
+          '33%': {
+            transform: 'translate(-41%, -65%) scale(1.2)',
+          },
+          '66%': {
+            transform: 'translate(-56%, -44%) scale(0.8)',
+          },
+          '100%': {
+            transform: 'translate(-50%, -50%) scale(1)',
+          },
+        },
+      },
+      animation: {
+        blob: 'blob 7s infinite',
+      },
     },
   },
   // eslint-disable-next-line global-require
