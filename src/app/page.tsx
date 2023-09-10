@@ -17,10 +17,13 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen w-full items-center" role="main">
         <TopContentsLayout>
           <div className="flex-between w-full">
-            <div className="w-1/2">
-              <Image src={Profile} alt="Bear29ers" className="h-auto w-full pr-8" role="img" />
+            <div className="relative flex w-5/12 flex-col items-end">
+              <div className="trapezoid h-16 w-[70%] rounded-tr-2xl bg-green-300" />
+              <div className="rounded-b-2xl rounded-tl-2xl bg-blue-300 px-4 pb-4">
+                <Image src={Profile} alt="Bear29ers" className="h-auto w-full pr-8" role="img" />
+              </div>
             </div>
-            <div className="flex w-1/2 flex-col items-center self-center">
+            <div className="flex w-7/12 flex-col items-center self-center">
               <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
               <p className="my-4 whitespace-pre-wrap text-base font-medium">{HOME_TEXT.description}</p>
               <div className="mt-2 flex items-center self-start">
