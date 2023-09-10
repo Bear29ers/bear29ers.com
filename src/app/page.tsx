@@ -2,8 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
-import ContentsLayout from '@/components/layouts/ContentsLayout/ContentsLayout';
 import PageLayout from '@/components/layouts/PageLayout/PageLayout';
+import TopContentsLayout from '@/components/layouts/TopContentsLayout/TopContentsLayout';
 
 import { HOME_TEXT } from '@/constants/home';
 
@@ -14,11 +14,11 @@ import type { NextPage } from 'next';
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <main className="flex min-h-screen w-full items-center text-dark" role="main">
-        <ContentsLayout className="bg-transparent pt-0">
+      <main className="flex min-h-screen w-full items-center" role="main">
+        <TopContentsLayout>
           <div className="flex-between w-full">
             <div className="w-1/2">
-              <Image src={Profile} alt="Bear29ers" className="h-auto w-full p-8" role="img" />
+              <Image src={Profile} alt="Bear29ers" className="h-auto w-full pr-8" role="img" />
             </div>
             <div className="flex w-1/2 flex-col items-center self-center">
               <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
@@ -33,7 +33,7 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-        </ContentsLayout>
+        </TopContentsLayout>
       </main>
     </PageLayout>
   );
