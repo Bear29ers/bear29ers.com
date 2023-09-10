@@ -15,12 +15,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} relative h-full w-full bg-light font-mont`}>
-        <div className="absolute left-[30%] top-[42%] aspect-square h-[80%] w-auto -translate-x-1/2 -translate-y-1/2 animate-blob rounded-full bg-purple-800 opacity-70 mix-blend-multiply blur-3xl" />
-        <div className="animation-delay-2000 absolute left-[70%] top-[42%] aspect-square h-[80%] w-auto -translate-x-1/2 -translate-y-1/2 animate-blob rounded-full bg-yellow-300 opacity-70 mix-blend-multiply blur-3xl" />
-        <div className="animation-delay-4000 absolute left-1/2 top-[58%] aspect-square h-[80%] w-auto -translate-x-1/2 -translate-y-1/2 animate-blob rounded-full bg-pink-300 opacity-70 mix-blend-multiply blur-3xl" />
-        {children}
-      </body>
+      <body className={`${montserrat.variable} relative h-full w-full bg-gray font-mont`}>{children}</body>
     </html>
   );
 };
