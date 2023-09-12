@@ -1,13 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
 
+import ProfileCard from '@/components/ProfileCard/ProfileCard';
 import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
 import PageLayout from '@/components/layouts/PageLayout/PageLayout';
 import TopContentsLayout from '@/components/layouts/TopContentsLayout/TopContentsLayout';
 
 import { HOME_TEXT } from '@/constants/home';
-
-import Profile from '../../public/images/low-poly-bear.png';
 
 import type { NextPage } from 'next';
 
@@ -16,14 +14,11 @@ const Home: NextPage = () => {
     <PageLayout>
       <main className="flex min-h-screen w-full items-center" role="main">
         <TopContentsLayout>
-          <div className="flex-between w-full">
-            <div className="relative flex w-5/12 flex-col items-end">
-              <div className="trapezoid h-16 w-[70%] rounded-tr-2xl bg-green-300" />
-              <div className="rounded-b-2xl rounded-tl-2xl bg-blue-300 px-4 pb-4">
-                <Image src={Profile} alt="Bear29ers" className="h-auto w-full pr-8" role="img" />
-              </div>
+          <div className="flex-between w-full gap-x-8">
+            <div className="w-[35%]">
+              <ProfileCard />
             </div>
-            <div className="flex w-7/12 flex-col items-center self-center">
+            <div className="flex w-[65%] flex-col items-center self-center">
               <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
               <p className="my-4 whitespace-pre-wrap text-base font-medium">{HOME_TEXT.description}</p>
               <div className="mt-2 flex items-center self-start">
