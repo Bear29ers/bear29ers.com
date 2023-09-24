@@ -11,29 +11,31 @@ import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
-    <PageLayout>
-      <main className="flex min-h-screen w-full items-center" role="main">
-        <TopContentsLayout>
-          <div className="flex-between w-full gap-x-8">
-            <div className="w-4/12">
-              <ProfileCard />
-            </div>
-            <div className="flex w-8/12 flex-col items-center self-center">
-              <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
-              <p className="my-4 whitespace-pre-wrap text-base font-medium">{HOME_TEXT.description}</p>
-              <div className="mt-2 flex items-center self-start">
-                <Link
-                  href="/about"
-                  className="transition-500 flex items-center rounded-lg border-2 border-solid border-transparent bg-dark px-6 py-2.5 text-lg font-semibold text-light hover:border-dark hover:bg-light hover:text-dark"
-                  role="button">
-                  Explore
-                </Link>
+    <div className="bg-gray">
+      <PageLayout isNotHome={false}>
+        <main className="flex min-h-screen w-full items-center" role="main">
+          <TopContentsLayout>
+            <div className="flex-between w-full gap-x-8">
+              <div className="w-4/12">
+                <ProfileCard />
+              </div>
+              <div className="flex w-8/12 flex-col items-center self-center">
+                <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
+                <p className="my-4 whitespace-pre-wrap text-base font-medium">{HOME_TEXT.description}</p>
+                <div className="mt-2 flex items-center self-start">
+                  <Link
+                    href="/about"
+                    className="transition-500 flex items-center rounded-lg border-2 border-solid border-transparent bg-dark px-6 py-2.5 text-lg font-semibold text-light hover:border-dark hover:bg-light hover:text-dark"
+                    role="button">
+                    Explore
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-        </TopContentsLayout>
-      </main>
-    </PageLayout>
+          </TopContentsLayout>
+        </main>
+      </PageLayout>
+    </div>
   );
 };
 

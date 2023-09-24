@@ -7,7 +7,7 @@ type Props = {
 
 const ContentsLayout: FC<Props> = ({ children, className = '' }) => {
   return (
-    <div className={`z-0 inline-block h-full w-full bg-light ${className}`} role="presentation">
+    <div className={`z-0 inline-block h-full w-full ${className}`} role="presentation">
       {children}
     </div>
   );

@@ -7,9 +7,9 @@ import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   return (
-    <PageLayout>
+    <PageLayout isNotHome>
       <main className="flex-center w-full flex-col" role="main">
-        <ContentsLayout className="">
+        <ContentsLayout className="mt-40">
           <AnimatedText text="Persistence pays off!" className="mb-16" />
           <Profile />
         </ContentsLayout>

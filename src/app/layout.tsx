@@ -15,7 +15,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} relative h-full w-full bg-gray font-mont`}>{children}</body>
+      <body className={`${montserrat.variable} relative h-full w-full font-mont`}>{children}</body>
     </html>
   );
 };
