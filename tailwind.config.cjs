@@ -38,9 +38,18 @@ module.exports = {
             transform: 'translate(-50%, -50%) scale(1)',
           },
         },
+        spinSlow: {
+          '0%': {
+            transform: 'rotate(0deg)',
+          },
+          '100%': {
+            transform: 'rotate(360deg)',
+          },
+        },
       },
       animation: {
         blob: 'blob 7s infinite',
+        spinSlow: 'spin 18s linear infinite',
       },
     },
   },
