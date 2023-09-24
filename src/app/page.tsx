@@ -2,8 +2,8 @@ import Link from 'next/link';
 
 import ProfileCard from '@/components/ProfileCard/ProfileCard';
 import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
+import HomeContentsLayout from '@/components/layouts/HomeContentsLayout/HomeContentsLayout';
 import PageLayout from '@/components/layouts/PageLayout/PageLayout';
-import TopContentsLayout from '@/components/layouts/TopContentsLayout/TopContentsLayout';
 
 import { HOME_TEXT } from '@/constants/home';
 
@@ -14,7 +14,7 @@ const Home: NextPage = () => {
     <div className="bg-gray">
       <PageLayout isNotHome={false}>
         <main className="flex min-h-screen w-full items-center" role="main">
-          <TopContentsLayout>
+          <HomeContentsLayout>
             <div className="flex-between w-full gap-x-8">
               <div className="w-4/12">
                 <ProfileCard />
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
                 </div>
               </div>
             </div>
-          </TopContentsLayout>
+          </HomeContentsLayout>
         </main>
       </PageLayout>
     </div>
