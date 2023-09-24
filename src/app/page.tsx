@@ -15,10 +15,10 @@ const Home: NextPage = () => {
       <main className="flex min-h-screen w-full items-center" role="main">
         <TopContentsLayout>
           <div className="flex-between w-full gap-x-8">
-            <div className="w-[35%]">
+            <div className="w-4/12">
               <ProfileCard />
             </div>
-            <div className="flex w-[65%] flex-col items-center self-center">
+            <div className="flex w-8/12 flex-col items-center self-center">
               <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
               <p className="my-4 whitespace-pre-wrap text-base font-medium">{HOME_TEXT.description}</p>
               <div className="mt-2 flex items-center self-start">
