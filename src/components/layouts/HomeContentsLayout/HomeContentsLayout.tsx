@@ -4,7 +4,7 @@ type Props = {
   children: ReactNode;
 };
 
-const TopContentsLayout: FC<Props> = ({ children }) => {
+const HomeContentsLayout: FC<Props> = ({ children }) => {
   return (
     <div
       className="pointer-events-auto z-0 mx-auto inline-block h-full max-w-7xl rounded-3xl bg-light p-8 shadow-2xl"
@@ -14,4 +14,4 @@ const TopContentsLayout: FC<Props> = ({ children }) => {
   );
 };
 
-export default TopContentsLayout;
+export default HomeContentsLayout;
