@@ -77,7 +77,7 @@ const Profile: FC = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-2 flex flex-col rounded-md border border-gray bg-light p-6">
+      <div className="col-span-2 flex flex-col rounded-md border border-gray p-6">
         <div className="flex-between mb-5">
           <span className="font-mono text-xs">Bear29ers / README.md</span>
           <svg
