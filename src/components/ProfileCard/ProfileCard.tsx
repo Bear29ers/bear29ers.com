@@ -38,7 +38,7 @@ const ProfileCard: FC = () => {
                   40,40 0 1,1 -80,0"
                 fill="none"
               />
-              <text fill="#fff" className="text-[14.5px] font-bold">
+              <text fill="#fff" className="text-[14.8px] font-bold">
                 <textPath xlinkHref="#circle">{HOME_PROFILE_TEXT.occupation}</textPath>
               </text>
             </svg>
