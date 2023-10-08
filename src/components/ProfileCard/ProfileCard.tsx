@@ -10,7 +10,7 @@ import Profile from '../../../public/images/memoji.png';
 const ProfileCard: FC = () => {
   return (
     <div className="flex flex-col items-end">
-      <div className="trapezoid h-12 w-[70%] rounded-tr-2xl bg-blue-300" />
+      <div className="trapezoid mt-[-0.1px] h-12 w-[70%] rounded-tr-2xl bg-blue-300" />
       <div className="flex w-full flex-col rounded-b-2xl rounded-tl-2xl bg-blue-300 px-4 pb-4">
         <div className="relative ml-auto">
           <Image src={Profile} alt={HOME_PROFILE_TEXT.altText} className="relative z-20 h-auto w-72" role="img" />
@@ -29,8 +29,8 @@ const ProfileCard: FC = () => {
               <FiMail className="w-6" />
             </a>
           </div>
-          <div className="flex-center relative h-24 w-24 rounded-full bg-stone-800">
-            <svg viewBox="0 0 100 100" className="h-20 w-20 animate-spinSlow overflow-visible">
+          <div className="flex-center relative h-20 w-20 rounded-full bg-stone-800">
+            <svg viewBox="0 0 100 100" className="h-16 w-16 animate-spinSlow overflow-visible">
               <path
                 id="circle"
                 d="M 10, 50
@@ -38,7 +38,7 @@ const ProfileCard: FC = () => {
                   40,40 0 1,1 -80,0"
                 fill="none"
               />
-              <text fill="#fff" className="text-[15px] font-bold">
+              <text fill="#fff" className="text-[14.5px] font-bold">
                 <textPath xlinkHref="#circle">{HOME_PROFILE_TEXT.occupation}</textPath>
               </text>
             </svg>
