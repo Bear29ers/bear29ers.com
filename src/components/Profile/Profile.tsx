@@ -23,10 +23,10 @@ const Profile: FC = () => {
           <Image
             src={profilePic}
             alt={PROFILE_TEXT.userName}
-            className="w-full max-w-xs rounded-full border border-gray"
+            className="w-full max-w-xs rounded-full border border-geyser"
             role="img"
           />
-          <div className="flex-center absolute bottom-12 right-12 h-10 w-10 rounded-full border border-gray bg-light text-xl">
+          <div className="flex-center absolute bottom-12 right-12 h-10 w-10 rounded-full border border-geyser bg-light text-xl">
             <span>🐻</span>
           </div>
         </div>
@@ -59,7 +59,7 @@ const Profile: FC = () => {
             </Link>
           </li>
         </ul>
-        <span className="my-8 block h-[1px] w-full bg-gray" />
+        <span className="my-8 block h-[1px] w-full bg-geyser" />
         <div className="flex flex-col pb-6">
           <h3 className="mb-3 text-lg font-bold">Achievements</h3>
           <div className="flex gap-1">
@@ -77,7 +77,7 @@ const Profile: FC = () => {
           </div>
         </div>
       </div>
-      <div className="col-span-2 flex flex-col rounded-md border border-gray p-6">
+      <div className="col-span-2 flex flex-col rounded-md border border-geyser p-6">
         <div className="flex-between mb-5">
           <span className="font-mono text-xs">Bear29ers / README.md</span>
           <svg
@@ -95,7 +95,7 @@ const Profile: FC = () => {
         <div className="mb-16">
           <h4 className="mb-6 text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
           <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
-          <span className="mb-6 mt-2 block h-[1px] w-full bg-gray" />
+          <span className="mb-6 mt-2 block h-[1px] w-full bg-geyser" />
           <div className="flex flex-col gap-y-4">
             {PROFILE_TEXT.biographyList.map((biography) => (
               <p key={biography.id}>{biography.text}</p>

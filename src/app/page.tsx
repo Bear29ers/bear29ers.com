@@ -8,7 +8,7 @@ import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-gray">
+    <div className="bg-iron">
       <PageLayout isNotHome={false}>
         <main className="flex min-h-screen w-full items-center" role="main">
           <HomeContentsLayout>
