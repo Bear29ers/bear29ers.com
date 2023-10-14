@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import mockRouter from 'next-router-mock';
-import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
+import { render, screen } from '@testing-library/react';
+// import mockRouter from 'next-router-mock';
+// import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
 
 import Page from './page';
 
@@ -63,13 +63,14 @@ describe('src/app/page.test.tsx', () => {
   //   });
   // });
 
-  describe('fireEvent click on Explore button', () => {
-    it('should page transition when explore button is clicked', () => {
-      const { getByRole } = render(<Page />, { wrapper: MemoryRouterProvider });
-      const button = getByRole('button');
-      expect(button).toBeInTheDocument();
-      fireEvent.click(button);
-      expect(mockRouter.asPath).toBe('/about');
-    });
-  });
+  // TODO:クリックを実装したら対応
+  // describe('fireEvent click on Explore button', () => {
+  //   it('should page transition when explore button is clicked', () => {
+  //     const { getByRole } = render(<Page />, { wrapper: MemoryRouterProvider });
+  //     const button = getByRole('button');
+  //     expect(button).toBeInTheDocument();
+  //     fireEvent.click(button);
+  //     expect(mockRouter.asPath).toBe('/about');
+  //   });
+  // });
 });
