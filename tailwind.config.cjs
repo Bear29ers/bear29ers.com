@@ -36,6 +36,7 @@ module.exports = {
         cornflowerBlue: '#5EA8E6',
         iron: '#D2D8D9',
         hitGray: '#ADB5BB',
+        geyser: '#D0D7DE',
       },
       keyframes: {
         blob: {
