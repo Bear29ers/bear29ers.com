@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  .trapezoid {
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
 .flex-center {
   @apply flex items-center justify-center;
 }

@@ -4,15 +4,16 @@ import Footer from '@/components/commons/Footer/Footer';
 import Navbar from '@/components/commons/Navbar/Navbar';
 
 type Props = {
+  isNotHome: boolean;
   children: ReactNode;
 };
 
-const PageLayout: FC<Props> = ({ children }) => {
+const PageLayout: FC<Props> = ({ isNotHome, children }) => {
   return (
     <div className="container mx-auto" role="presentation">
-      <Navbar />
+      {isNotHome && <Navbar />}
       {children}
-      <Footer />
+      {isNotHome && <Footer />}
     </div>
   );
 };
