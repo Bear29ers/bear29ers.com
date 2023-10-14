@@ -1,41 +1,40 @@
-import Image from 'next/image';
-import Link from 'next/link';
-
-import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
-import ContentsLayout from '@/components/layouts/ContentsLayout/ContentsLayout';
+import ProfileCard from '@/components/ProfileCard/ProfileCard';
+import HomeContentsLayout from '@/components/layouts/HomeContentsLayout/HomeContentsLayout';
 import PageLayout from '@/components/layouts/PageLayout/PageLayout';
 
 import { HOME_TEXT } from '@/constants/home';
-
-import Profile from '../../public/images/low-poly-bear.png';
 
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
-    <PageLayout>
-      <main className="flex min-h-screen w-full items-center text-dark" role="main">
-        <ContentsLayout className="pt-0">
-          <div className="flex-between w-full">
-            <div className="w-1/2">
-              <Image src={Profile} alt="Bear29ers" className="h-auto w-full p-8" role="img" />
-            </div>
-            <div className="flex w-1/2 flex-col items-center self-center">
-              <AnimatedText text={HOME_TEXT.title} className="!text-left !text-6xl" />
-              <p className="my-4 whitespace-pre-wrap text-base font-medium">{HOME_TEXT.description}</p>
-              <div className="mt-2 flex items-center self-start">
-                <Link
-                  href="/about"
-                  className="transition-500 flex items-center rounded-lg border-2 border-solid border-transparent bg-dark px-6 py-2.5 text-lg font-semibold text-light hover:border-dark hover:bg-light hover:text-dark"
-                  role="button">
-                  Explore
-                </Link>
+    <div className="bg-iron">
+      <PageLayout isNotHome={false}>
+        <main className="flex min-h-screen w-full items-center" role="main">
+          <HomeContentsLayout>
+            <div className="flex w-full justify-between gap-x-8">
+              <div className="w-[38%]">
+                <ProfileCard />
+              </div>
+              <div className="flex w-[62%] flex-col gap-y-8 bg-sky-100">
+                <h2 className="bg-violet-200 text-6xl font-extrabold">{HOME_TEXT.quote}</h2>
+                <div className="flex h-72 w-full gap-x-8 rounded-2xl bg-green-200">
+                  <div className="h-72 w-9/12 rounded-2xl bg-orange-200">Gallery</div>
+                  <div className="flex h-72 w-3/12 flex-col rounded-2xl bg-yellow-200">
+                    <div className="h-1/2 rounded-t-2xl bg-rose-200">Time</div>
+                    <div className="h-1/2 rounded-b-2xl bg-fuchsia-200">Weather</div>
+                  </div>
+                </div>
+                <div className="flex w-full grow gap-x-8 rounded-2xl bg-purple-200">
+                  <div className="w-5/12 rounded-2xl bg-amber-200">work4(TBD)</div>
+                  <div className="w-7/12 rounded-2xl bg-lime-200">work4(TBD)</div>
+                </div>
               </div>
             </div>
-          </div>
-        </ContentsLayout>
-      </main>
-    </PageLayout>
+          </HomeContentsLayout>
+        </main>
+      </PageLayout>
+    </div>
   );
 };
 

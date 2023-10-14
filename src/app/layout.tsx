@@ -2,7 +2,7 @@ import '@/app/globals.scss';
 import { Montserrat } from 'next/font/google';
 
 const montserrat = Montserrat({
-  weight: ['400', '500', '600', '700', '800', '900'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   variable: '--font-mont',
 });
@@ -15,7 +15,7 @@ export const metadata = {
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} h-full w-full bg-light font-mont`}>{children}</body>
+      <body className={`${montserrat.variable} relative h-full w-full font-mont`}>{children}</body>
     </html>
   );
 };
