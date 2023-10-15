@@ -11,5 +11,9 @@ export default meta;
 type Story = StoryObj<typeof ProfileCard>;
 
 export const Standard: Story = {
-  render: () => <ProfileCard />,
+  render: () => (
+    <div className="w-96">
+      <ProfileCard />
+    </div>
+  ),
 };
