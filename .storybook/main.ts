@@ -15,7 +15,7 @@ const storybookConfig: StorybookConfig = {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve?.alias,
-        '@/constants': path.resolve(__dirname, '../src/constants.ts'),
+        '@/constants': path.resolve(__dirname, '../src/constants'),
       };
     }
     return config;
