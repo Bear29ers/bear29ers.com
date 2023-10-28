@@ -3,7 +3,7 @@ import type { FC } from 'react';
 
 const Bear: FC = () => {
   return (
-    <div className="relative w-[60px]">
+    <button type="button" className="relative w-[60px]">
       <div className="flex translate-y-[2.5px] justify-between">
         <div className="h-5 w-[22px] skew-y-[-5deg] rounded-[50%] bg-millbrook" />
         <div className="h-5 w-[22px] skew-y-[5deg] rounded-[50%] bg-millbrook" />
@@ -17,8 +17,8 @@ const Bear: FC = () => {
           <div className="bear-nose-inner-radius after:bear-nose-inner-after absolute left-1/2 top-1/2 h-[6.5px] w-[12.5px] -translate-x-1/2 -translate-y-1/2 bg-coffeeBean" />
         </div>
       </div>
-      <div className="absolute -bottom-4 left-1/2 m-auto mt-[-5px] block h-[7.5px] w-[50px] -translate-x-1/2 rounded-full bg-dark opacity-60 blur-[4.25px]" />
-    </div>
+      <div className="absolute -bottom-4 left-1/2 m-auto mt-[-5px] block h-2 w-[50px] -translate-x-1/2 rounded-full bg-dark opacity-60 blur-[4.25px]" />
+    </button>
   );
 };
 
