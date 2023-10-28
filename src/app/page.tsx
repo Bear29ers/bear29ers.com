@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import SocialIcons from '@/components/commons/SocialIcons/SocialIcons';
+import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
 // import { HOME_TEXT } from '@/constants/home';
 
