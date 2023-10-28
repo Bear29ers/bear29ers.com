@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import Bear from '@/components/Bear/Bear';
 import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
 // import { HOME_TEXT } from '@/constants/home';
@@ -9,6 +10,10 @@ import type { NextPage } from 'next';
 const Home: NextPage = () => {
   return (
     <main role="main" className="relative h-screen w-screen bg-iron">
+      {/* Bear */}
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        <Bear />
+      </div>
       {/* Social Icons */}
       <SocialIcons />
       {/* Page Navigation */}
