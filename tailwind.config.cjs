@@ -39,35 +39,60 @@ module.exports = {
         geyser: '#D0D7DE',
       },
       keyframes: {
-        blob: {
-          '0%': {
-            transform: 'translate(-50%, -50%) scale(1)',
-          },
-          '33%': {
-            transform: 'translate(-41%, -65%) scale(1.2)',
-          },
-          '66%': {
-            transform: 'translate(-56%, -44%) scale(0.8)',
-          },
-          '100%': {
-            transform: 'translate(-50%, -50%) scale(1)',
+        updown: {
+          to: {
+            transform: 'translateY(10px)',
           },
         },
-        spinSlow: {
+        blink: {
           '0%': {
-            transform: 'rotate(0deg)',
+            height: '0',
+          },
+          '30%': {
+            height: '5px',
           },
           '100%': {
-            transform: 'rotate(360deg)',
+            height: '5px',
+          },
+        },
+        nose: {
+          '0%': {
+            transform: 'translateY(20px)',
+          },
+          '20%': {
+            transform: 'translate(3.75px, 17.5px)',
+          },
+          '30%': {
+            transform: 'translate(3.75px, 17.5px)',
+          },
+          '60%': {
+            transform: 'translate(-3.75px, 17.5px)',
+          },
+          '70%': {
+            transform: 'translate(-3.75px, 17.5px)',
+          },
+          '90%': {
+            transform: 'translateY(20px)',
+          },
+          '100%': {
+            transform: 'translateY(20px)',
+          },
+        },
+        shadow: {
+          from: {
+            width: '50px',
+          },
+          to: {
+            width: '37.5px',
           },
         },
       },
       animation: {
-        blob: 'blob 7s infinite',
-        spinSlow: 'spin 18s linear infinite',
+        updown: 'updown 2s infinite alternate',
+        blink: 'blink 1s infinite alternate',
+        nose: 'nose 3s infinite',
+        shadow: 'shadow 2s infinite alternate',
       },
     },
   },
-  // eslint-disable-next-line global-require
-  // plugins: [require('daisyui')],
 };
