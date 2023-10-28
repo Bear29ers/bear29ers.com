@@ -1,41 +1,23 @@
-import ProfileCard from '@/components/ProfileCard/ProfileCard';
-import Tbd from '@/components/Tbd/Tbd';
-import HomeContentsLayout from '@/components/layouts/HomeContentsLayout/HomeContentsLayout';
-import PageLayout from '@/components/layouts/PageLayout/PageLayout';
+import Link from 'next/link';
 
-import { HOME_TEXT } from '@/constants/home';
+import SocialIcons from '@/components/commons/SocialIcons/SocialIcons';
+
+// import { HOME_TEXT } from '@/constants/home';
 
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-iron">
-      <PageLayout isNotHome={false}>
-        <main className="flex min-h-screen w-full items-center" role="main">
-          <HomeContentsLayout>
-            <div className="flex w-full justify-between gap-x-8">
-              <div className="w-[38%]">
-                <ProfileCard />
-              </div>
-              <div className="flex w-[62%] flex-col gap-y-8">
-                <h2 className="text-6xl font-extrabold">{HOME_TEXT.quote}</h2>
-                <div className="flex h-72 w-full gap-x-8 rounded-2xl">
-                  <div className="h-72 w-9/12 rounded-2xl bg-orange-200">Gallery</div>
-                  <div className="flex h-72 w-3/12 flex-col rounded-2xl bg-yellow-200">
-                    <div className="h-1/2 rounded-t-2xl bg-rose-200">Time</div>
-                    <div className="h-1/2 rounded-b-2xl bg-fuchsia-200">Weather</div>
-                  </div>
-                </div>
-                <div className="flex w-full grow gap-x-8 rounded-2xl">
-                  <Tbd width="w-5/12" />
-                  <Tbd width="w-7/12" />
-                </div>
-              </div>
-            </div>
-          </HomeContentsLayout>
-        </main>
-      </PageLayout>
-    </div>
+    <main role="main" className="relative h-screen w-screen bg-iron">
+      {/* Social Icons */}
+      <SocialIcons />
+      {/* Page Navigation */}
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-lg line-through">Works</div>
+      <Link href="/about" className="absolute bottom-2 left-1/2 -translate-x-1/2 text-lg">
+        About
+      </Link>
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-lg line-through">Gallery</div>
+    </main>
   );
 };
 
