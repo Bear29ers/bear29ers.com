@@ -45,7 +45,7 @@ module.exports = {
       keyframes: {
         updown: {
           to: {
-            transform: 'translateY(10px)',
+            transform: 'translateY(20px)',
           },
         },
         blink: {
@@ -53,41 +53,47 @@ module.exports = {
             height: '0',
           },
           '30%': {
-            height: '5px',
+            height: '10px',
           },
           '100%': {
-            height: '5px',
+            height: '10px',
           },
         },
         nose: {
           '0%': {
-            transform: 'translateY(20px)',
+            transform: 'translateY(40px)',
           },
           '20%': {
-            transform: 'translate(3.75px, 17.5px)',
+            transform: 'translate(7.5px, 35px)',
           },
           '30%': {
-            transform: 'translate(3.75px, 17.5px)',
+            transform: 'translate(7.5px, 35px)',
           },
           '60%': {
-            transform: 'translate(-3.75px, 17.5px)',
+            transform: 'translate(-7.5px, 35px)',
           },
           '70%': {
-            transform: 'translate(-3.75px, 17.5px)',
+            transform: 'translate(-7.5px, 35px)',
           },
           '90%': {
-            transform: 'translateY(20px)',
+            transform: 'translateY(40px)',
           },
           '100%': {
-            transform: 'translateY(20px)',
+            transform: 'translateY(40px)',
           },
         },
         shadow: {
-          from: {
-            width: '50px',
+          '0%': {
+            width: '100px',
           },
-          to: {
-            width: '37.5px',
+          '20%': {
+            width: '100px',
+          },
+          '95%': {
+            width: '75px',
+          },
+          '100%': {
+            width: '75px',
           },
         },
       },
