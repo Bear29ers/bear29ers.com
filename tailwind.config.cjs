@@ -37,6 +37,10 @@ module.exports = {
         iron: '#D2D8D9',
         hitGray: '#ADB5BB',
         geyser: '#D0D7DE',
+        millbrook: '#634538',
+        coffeeBean: '#2D120F',
+        tan: '#D1A68F',
+        heather: '#bfc9d4',
       },
       keyframes: {
         updown: {
