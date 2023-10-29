@@ -1,10 +1,19 @@
 /* eslint-disable tailwindcss/no-custom-classname */
+import React from 'react';
 import type { FC } from 'react';
 
-const Bear: FC = () => {
+interface Props {
+  setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Bear: FC<Props> = ({ setIsClicked }) => {
+  const handleClick = () => {
+    setIsClicked((isClicked) => !isClicked);
+  };
+
   return (
     <div className="relative">
-      <button type="button" className="w-[120px] animate-updown">
+      <button type="button" className="w-[120px] animate-updown" onClick={handleClick}>
         <div className="flex translate-y-[5px] animate-updown justify-between">
           <div className="h-10 w-11 skew-y-[-5deg] rounded-[50%] bg-millbrook" />
           <div className="h-10 w-11 skew-y-[5deg] rounded-[50%] bg-millbrook" />
