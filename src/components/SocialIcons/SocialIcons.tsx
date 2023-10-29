@@ -21,7 +21,11 @@ const SocialIcons: FC<Props> = ({ isClicked }) => {
           className="w-6"
           role="link"
           aria-describedby={socialMedia.describedby}>
-          {socialMedia.text === 'github' ? <socialMedia.component isClicked={isClicked} /> : <socialMedia.component />}
+          {socialMedia.text === 'github' || socialMedia.text === 'threads' ? (
+            <socialMedia.component isClicked={isClicked} />
+          ) : (
+            <socialMedia.component />
+          )}
         </motion.a>
       ))}
       <span className={`h-32 w-0.5 ${isClicked ? 'bg-iron' : 'bg-dark'}`} />

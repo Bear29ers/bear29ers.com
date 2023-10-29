@@ -22,7 +22,8 @@ const Home: NextPage = () => {
 
   return (
     <main role="main" className="relative h-screen w-screen bg-iron">
-      <div className={`dark-bg absolute inset-y-0 right-1/2 bg-black ${isClicked ? 'h-full w-1/2' : 'h-0 w-2'}`} />
+      {/* Dark background */}
+      <div className={`dark-bg absolute inset-y-0 right-1/2 bg-dark ${isClicked ? 'h-full w-1/2' : 'h-0 w-2'}`} />
       {/* Bear */}
       <motion.div
         className="flex-center absolute inset-0"
@@ -37,18 +38,18 @@ const Home: NextPage = () => {
       {/* Social Icons */}
       <SocialIcons isClicked={isClicked} />
       {/* Page Navigation */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-2xl font-semibold line-through">
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-2xl font-semibold text-dark line-through">
         Works
       </div>
       <div className="absolute bottom-3 flex w-screen justify-around">
-        <Link href="/about" className={`text-2xl font-semibold ${isClicked ? 'text-iron' : ''}`}>
+        <Link href="/about" className={`text-2xl font-semibold ${isClicked ? 'text-iron' : 'text-dark'}`}>
           About
         </Link>
-        <div className="text-2xl font-semibold line-through">Experience</div>
+        <div className="text-2xl font-semibold text-dark line-through">Experience</div>
       </div>
       <div
         className={`absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-2xl font-semibold line-through ${
-          isClicked ? 'text-iron' : ''
+          isClicked ? 'text-iron' : 'text-dark'
         }`}>
         Gallery
       </div>
