@@ -1,6 +1,10 @@
 import type { FC } from 'react';
 
-const GithubIcon: FC = () => (
+interface Props {
+  isClicked: boolean;
+}
+
+const GithubIcon: FC<Props> = ({ isClicked }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -26,7 +30,7 @@ const GithubIcon: FC = () => (
           strokeDashoffset: 0,
           strokeLinejoin: 'miter',
           strokeMiterlimit: 4,
-          fill: '#fff',
+          fill: '#D2D8D9',
           fillOpacity: 0,
           fillRule: 'nonzero',
           opacity: 1,
@@ -43,7 +47,7 @@ const GithubIcon: FC = () => (
           strokeDashoffset: 0,
           strokeLinejoin: 'miter',
           strokeMiterlimit: 4,
-          fill: '#000',
+          fill: `${isClicked ? '#D2D8D9' : '#000'}`,
           fillRule: 'nonzero',
           opacity: 1,
         }}
