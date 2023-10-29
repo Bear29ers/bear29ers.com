@@ -83,16 +83,10 @@ module.exports = {
           },
         },
         shadow: {
-          '0%': {
+          from: {
             width: '100px',
           },
-          '20%': {
-            width: '100px',
-          },
-          '95%': {
-            width: '75px',
-          },
-          '100%': {
+          to: {
             width: '75px',
           },
         },
