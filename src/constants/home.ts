@@ -9,7 +9,8 @@ export const HOME_TEXT = {
 export const HOME_PROFILE_TEXT = {
   firstName: 'Yuta',
   lastName: 'Okuma',
+  fullName: 'Yuta Okuma',
+  userName: 'Bear29ers',
   email: 'y.earl27.bear@yahoo.ne.jp',
-  altText: 'Bear29ers',
   occupation: 'Frontend Developer & Designer',
 };
