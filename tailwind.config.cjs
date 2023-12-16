@@ -22,6 +22,7 @@ module.exports = {
         gray: '#d0d7de',
         darkGray: '#656d76',
         link: '#0969da',
+        // TODO: delete blow
         frangipani: '#FFDBBA',
         cornflowerLilac: '#FFACA8',
         pinkSalmon: '#FF8894',
