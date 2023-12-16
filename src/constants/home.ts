@@ -5,7 +5,7 @@ export const HOME_TEXT = {
   quote: 'Persistence pays off',
 };
 
-// プロフィールカード
+// プロフィールテキスト
 export const HOME_PROFILE_TEXT = {
   firstName: 'Yuta',
   lastName: 'Okuma',
@@ -13,4 +13,5 @@ export const HOME_PROFILE_TEXT = {
   userName: 'Bear29ers',
   email: 'y.earl27.bear@yahoo.ne.jp',
   occupation: 'Frontend Developer & Designer',
+  profileAlt: 'bear29ers',
 };

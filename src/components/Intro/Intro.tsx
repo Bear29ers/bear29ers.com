@@ -33,7 +33,7 @@ const Intro: FC = () => {
         transition={{ duration: 1, delay: 2 }}>
         <Image
           src={Profile}
-          alt="bear29ers"
+          alt={HOME_PROFILE_TEXT.profileAlt}
           role="img"
           className="absolute bottom-0 left-1/2 h-auto w-full -translate-x-1/2"
         />
