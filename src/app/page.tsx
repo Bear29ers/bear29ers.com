@@ -9,8 +9,6 @@ import Bear from '@/components/Bear/Bear';
 import Intro from '@/components/Intro/Intro';
 import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
-// import { HOME_TEXT } from '@/constants/home';
-
 import type { NextPage } from 'next';
 
 const variants = {
@@ -33,8 +31,8 @@ const Home: NextPage = () => {
         animate={isClicked ? 'clicked' : 'default'}
         variants={variants}
         transition={{
-          duration: 1.0,
-          ease: 'easeInOut',
+          duration: 0.8,
+          ease: 'easeOut',
         }}>
         <Bear setIsClicked={setIsClicked} />
       </motion.div>
