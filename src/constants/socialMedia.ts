@@ -20,6 +20,7 @@ export const SOCIAL_MEDIA_LIST: SocialMedia[] = [
     href: 'https://github.com/Bear29ers',
     describedby: 'navlink-id-1',
     text: 'github',
+    // TODO: componentは削除
     component: GithubIcon,
   },
   {
@@ -27,6 +28,7 @@ export const SOCIAL_MEDIA_LIST: SocialMedia[] = [
     href: 'https://www.instagram.com/bear_27earl',
     describedby: 'navlink-id-2',
     text: 'instagram',
+    // TODO: componentは削除
     component: InstagramIcon,
   },
   {
@@ -34,6 +36,7 @@ export const SOCIAL_MEDIA_LIST: SocialMedia[] = [
     href: 'https://www.threads.net/@bear_27earl',
     describedby: 'navlink-id-3',
     text: 'threads',
+    // TODO: componentは削除
     component: ThreadsIcon,
   },
   {
@@ -41,6 +44,7 @@ export const SOCIAL_MEDIA_LIST: SocialMedia[] = [
     href: 'https://www.facebook.com/kumakuma1129',
     describedby: 'navlink-id-4',
     text: 'facebook',
+    // TODO: componentは削除
     component: FacebookIcon,
   },
 ];

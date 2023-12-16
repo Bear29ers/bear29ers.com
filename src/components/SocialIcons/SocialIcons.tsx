@@ -21,11 +21,13 @@ const SocialIcons: FC<Props> = ({ isClicked }) => {
           className="w-6"
           role="link"
           aria-describedby={socialMedia.describedby}>
+          {/* TODO: textによって直接コンポーネントを呼び出す */}
           {socialMedia.text === 'github' || socialMedia.text === 'threads' ? (
             <socialMedia.component isClicked={isClicked} />
           ) : (
             <socialMedia.component />
           )}
+          {/* TODO: GitHubとThreadsのstoryファイルとtestファイルに条件分岐を対応させる */}
         </motion.a>
       ))}
       <span className={`h-32 w-0.5 ${isClicked ? 'bg-iron' : 'bg-dark'}`} />
