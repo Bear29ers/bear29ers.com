@@ -20,7 +20,10 @@ const SocialIcons: FC<Props> = ({ isClicked }) => {
           target="_blank"
           className="w-6"
           role="link"
-          aria-describedby={socialMedia.describedby}>
+          aria-describedby={socialMedia.describedby}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
           <Icon iconName={socialMedia.text} isClicked={isClicked} />
         </motion.a>
       ))}

@@ -11,6 +11,8 @@ import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
 import type { NextPage } from 'next';
 
+const MotionLink = motion(Link);
+
 const variants = {
   default: { x: '0%', y: '0%' },
   clicked: { x: '40%', y: '32%' },
@@ -38,14 +40,19 @@ const Home: NextPage = () => {
       </motion.div>
       {/* Social Icons */}
       <SocialIcons isClicked={isClicked} />
-      {/* Page Navigation */}
+      {/* Page Navigation TODO: コンポーネント化したい */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-2xl font-semibold text-dark line-through">
         Works
       </div>
       <div className="absolute bottom-3 flex w-screen justify-around">
-        <Link href="/about" className={`text-2xl font-semibold ${isClicked ? 'text-iron' : 'text-dark'}`}>
+        <MotionLink
+          href="/about"
+          className={`text-2xl font-semibold ${isClicked ? 'text-iron' : 'text-dark'}`}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
           About
-        </Link>
+        </MotionLink>
         <div className="text-2xl font-semibold text-dark line-through">Experience</div>
       </div>
       <div
