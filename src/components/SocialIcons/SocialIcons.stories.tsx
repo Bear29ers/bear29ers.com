@@ -10,6 +10,10 @@ export default meta;
 
 type Story = StoryObj<typeof SocialIcons>;
 
-export const Standard: Story = {
-  render: () => <SocialIcons />,
+export const IsClickedTrue: Story = {
+  render: () => <SocialIcons isClicked />,
+};
+
+export const IsClickedFalse: Story = {
+  render: () => <SocialIcons isClicked={false} />,
 };
