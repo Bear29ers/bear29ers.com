@@ -41,6 +41,8 @@ const Home: NextPage = () => {
       {/* Social Icons */}
       <SocialIcons isClicked={isClicked} />
       {/* Page Navigation TODO: コンポーネント化したい */}
+      {/* TODO: AnimatePresenseでtransitionを実装 */}
+      {/* https://maxschmitt.me/posts/nextjs-page-transitions-framer-motion */}
       <motion.div
         className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-2xl font-semibold text-dark line-through"
         initial={{ x: 200, rotate: 90 }}
