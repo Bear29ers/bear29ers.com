@@ -1,10 +1,10 @@
-'use client';
-
 import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
 import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
+
+import Icon from '../Icon/Icon';
 
 interface Props {
   isClicked: boolean;
@@ -21,13 +21,7 @@ const SocialIcons: FC<Props> = ({ isClicked }) => {
           className="w-6"
           role="link"
           aria-describedby={socialMedia.describedby}>
-          {/* TODO: textによって直接コンポーネントを呼び出す */}
-          {socialMedia.text === 'github' || socialMedia.text === 'threads' ? (
-            <socialMedia.component isClicked={isClicked} />
-          ) : (
-            <socialMedia.component />
-          )}
-          {/* TODO: GitHubとThreadsのstoryファイルとtestファイルに条件分岐を対応させる */}
+          <Icon iconName={socialMedia.text} isClicked={isClicked} />
         </motion.a>
       ))}
       <span className={`h-32 w-0.5 ${isClicked ? 'bg-iron' : 'bg-dark'}`} />
