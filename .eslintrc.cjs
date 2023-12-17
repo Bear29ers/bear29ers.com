@@ -89,6 +89,7 @@ const config = {
     'react/react-in-jsx-scope': 'off',
     'react-hooks/exhaustive-deps': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['space'] }],
+    'react/require-default-props': 'off',
     /* import */
     'unused-imports/no-unused-imports': 'error',
     'import/prefer-default-export': 'off',
