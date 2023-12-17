@@ -11,7 +11,8 @@ const GithubIcon: FC<Props> = ({ isClicked }) => (
     height="1em"
     viewBox="0 0 512 512"
     className="h-auto w-full"
-    role="img">
+    role="img"
+    aria-label="GithubIcon">
     <rect width="100%" height="100%" fill="transparent" />
     <g>
       <rect
