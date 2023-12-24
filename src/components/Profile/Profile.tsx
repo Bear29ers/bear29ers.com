@@ -116,7 +116,8 @@ const Profile: FC = () => {
                 transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                 data-testid={`${socialMedia.text}-link`}
                 key={socialMedia.id}>
-                <socialMedia.component />
+                {/* TODO: Iconコンポーネントを使うようにする */}
+                {/* <socialMedia.component /> */}
               </motion.a>
             ))}
           </div>

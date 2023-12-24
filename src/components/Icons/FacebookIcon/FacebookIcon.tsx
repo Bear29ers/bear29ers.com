@@ -7,7 +7,8 @@ const FacebookIcon: FC = () => (
     height="1em"
     viewBox="0 0 512 512"
     className="h-auto w-full"
-    role="img">
+    role="img"
+    aria-label="FacebookIcon">
     <rect width="100%" height="100%" fill="transparent" />
     <g>
       <g transform="matrix(12.5 0 0 12.5 256 254.75)">

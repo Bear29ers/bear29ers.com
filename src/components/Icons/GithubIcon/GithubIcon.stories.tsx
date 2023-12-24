@@ -10,14 +10,26 @@ export default meta;
 
 type Story = StoryObj<typeof GithubIcon>;
 
-export const Standard: Story = {
-  render: () => <GithubIcon />,
+export const IsClickedTrue: Story = {
+  render: () => <GithubIcon isClicked />,
 };
 
-export const W20: Story = {
+export const IsClickedFalse: Story = {
+  render: () => <GithubIcon isClicked={false} />,
+};
+
+export const W20IsClickedTrue: Story = {
   render: () => (
     <div className="w-20">
-      <GithubIcon />
+      <GithubIcon isClicked />
+    </div>
+  ),
+};
+
+export const W20IsClickedFalse: Story = {
+  render: () => (
+    <div className="w-20">
+      <GithubIcon isClicked={false} />
     </div>
   ),
 };
