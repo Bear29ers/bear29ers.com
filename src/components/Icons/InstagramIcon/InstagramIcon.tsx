@@ -8,7 +8,8 @@ const InstagramIcon: FC = () => (
     viewBox="0 0 512 512"
     className="h-auto w-full"
     xmlSpace="preserve"
-    role="img">
+    role="img"
+    aria-label="InstagramIcon">
     <rect x="0" y="0" width="100%" height="100%" fill="transparent" />
     <g transform="matrix(3.8787 0 0 3.8787 256.002 255.9942)" id="672529">
       <g vectorEffect="non-scaling-stroke">

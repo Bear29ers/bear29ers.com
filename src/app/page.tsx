@@ -1,41 +1,83 @@
-import ProfileCard from '@/components/ProfileCard/ProfileCard';
-import Tbd from '@/components/Tbd/Tbd';
-import HomeContentsLayout from '@/components/layouts/HomeContentsLayout/HomeContentsLayout';
-import PageLayout from '@/components/layouts/PageLayout/PageLayout';
+'use client';
 
-import { HOME_TEXT } from '@/constants/home';
+import { useState } from 'react';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+
+import Bear from '@/components/Bear/Bear';
+import Intro from '@/components/Intro/Intro';
+import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
 import type { NextPage } from 'next';
 
+const MotionLink = motion(Link);
+
+const variants = {
+  default: { x: '0%', y: '0%' },
+  clicked: { x: '40%', y: '32%' },
+};
+
 const Home: NextPage = () => {
+  const [isClicked, setIsClicked] = useState<boolean>(false);
+
   return (
-    <div className="bg-iron">
-      <PageLayout isNotHome={false}>
-        <main className="flex min-h-screen w-full items-center" role="main">
-          <HomeContentsLayout>
-            <div className="flex w-full justify-between gap-x-8">
-              <div className="w-[38%]">
-                <ProfileCard />
-              </div>
-              <div className="flex w-[62%] flex-col gap-y-8">
-                <h2 className="text-6xl font-extrabold">{HOME_TEXT.quote}</h2>
-                <div className="flex h-72 w-full gap-x-8 rounded-2xl">
-                  <div className="h-72 w-9/12 rounded-2xl bg-orange-200">Gallery</div>
-                  <div className="flex h-72 w-3/12 flex-col rounded-2xl bg-yellow-200">
-                    <div className="h-1/2 rounded-t-2xl bg-rose-200">Time</div>
-                    <div className="h-1/2 rounded-b-2xl bg-fuchsia-200">Weather</div>
-                  </div>
-                </div>
-                <div className="flex w-full grow gap-x-8 rounded-2xl">
-                  <Tbd width="w-5/12" />
-                  <Tbd width="w-7/12" />
-                </div>
-              </div>
-            </div>
-          </HomeContentsLayout>
-        </main>
-      </PageLayout>
-    </div>
+    <main role="main" className="relative h-screen w-screen bg-iron">
+      {/* Intro */}
+      <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">{isClicked && <Intro />}</div>
+      {/* Dark background */}
+      <div className={`dark-bg absolute inset-y-0 right-1/2 bg-dark ${isClicked ? 'h-full w-1/2' : 'h-0 w-2'}`} />
+      {/* Bear */}
+      <motion.div
+        className="flex-center absolute inset-0"
+        animate={isClicked ? 'clicked' : 'default'}
+        variants={variants}
+        transition={{
+          duration: 0.8,
+          ease: 'easeOut',
+        }}>
+        <Bear setIsClicked={setIsClicked} />
+      </motion.div>
+      {/* Social Icons */}
+      <SocialIcons isClicked={isClicked} />
+      {/* Page Navigation TODO: コンポーネント化したい */}
+      {/* TODO: AnimatePresenseでtransitionを実装 */}
+      {/* https://maxschmitt.me/posts/nextjs-page-transitions-framer-motion */}
+      <motion.div
+        className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-2xl font-semibold text-dark line-through"
+        initial={{ x: 200, rotate: 90 }}
+        animate={{ x: 0, rotate: 90 }}
+        transition={{ type: 'spring', duration: 1.5, delay: 1.0 }}>
+        Works
+      </motion.div>
+      <div className="absolute bottom-3 flex w-screen justify-around">
+        <MotionLink
+          href="/about"
+          className={`text-2xl font-semibold ${isClicked ? 'text-iron' : 'text-dark'}`}
+          initial={{ y: 200 }}
+          animate={{ y: 0, transition: { type: 'spring', duration: 1.5, delay: 1.0 } }}
+          whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
+          whileTap={{ scale: 0.9, transition: { type: 'spring', stiffness: 400, damping: 10 } }}>
+          About
+        </MotionLink>
+        <motion.div
+          className="text-2xl font-semibold text-dark line-through"
+          initial={{ y: 200 }}
+          animate={{ y: 0 }}
+          transition={{ type: 'spring', duration: 1.5, delay: 1.0 }}>
+          Experience
+        </motion.div>
+      </div>
+      <motion.div
+        className={`absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-2xl font-semibold line-through ${
+          isClicked ? 'text-iron' : 'text-dark'
+        }`}
+        initial={{ x: -200, rotate: -90 }}
+        animate={{ x: 0, rotate: -90 }}
+        transition={{ type: 'spring', duration: 1.5, delay: 1.0 }}>
+        Gallery
+      </motion.div>
+    </main>
   );
 };
 
