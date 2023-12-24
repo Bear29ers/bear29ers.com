@@ -36,6 +36,7 @@ const SocialIcons: FC<Props> = ({ isClicked }) => {
         initial={{ height: '0' }}
         animate={{ height: '128px' }}
         transition={{ type: 'spring', duration: 1.0, delay: 0.8 }}
+        data-testid="icons-line"
       />
     </div>
   );
