@@ -36,7 +36,10 @@ const Bear: FC<Props> = ({ setIsClicked }) => {
           </div>
         </div>
       </button>
-      <div className="absolute -bottom-8 left-1/2 m-auto mt-[-12px] block h-4 w-[100px] -translate-x-1/2 animate-shadow rounded-full bg-dark opacity-60 blur-md" />
+      <div
+        className="absolute -bottom-8 left-1/2 m-auto mt-[-12px] block h-4 w-[100px] -translate-x-1/2 animate-shadow rounded-full bg-dark opacity-60 blur-md"
+        data-testid="shadow"
+      />
     </div>
   );
 };
