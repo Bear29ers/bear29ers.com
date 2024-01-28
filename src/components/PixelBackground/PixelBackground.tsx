@@ -11,13 +11,13 @@ const variants = {
   initial: {
     opacity: 0,
   },
-  open: (i) => ({
+  open: (delays: number[]) => ({
     opacity: 1,
-    transition: { duration: 0, delay: 0.025 * i },
+    transition: { duration: 0, delay: 0.02 * delays[0] },
   }),
-  close: (i) => ({
+  close: (delays: number[]) => ({
     opacity: 0,
-    transition: { duration: 0, delay: 0.025 * i },
+    transition: { duration: 0, delay: 0.02 * delays[1] },
   }),
 };
 
@@ -42,20 +42,20 @@ const PixelBackground: FC<Props> = ({ menuIsActive }) => {
     return a;
   };
 
-  const getBlocks = () => {
+  const getBlocks = (indexOfColumn: number) => {
     const { innerWidth, innerHeight } = window;
-    const blockSize = innerWidth * 0.05;
+    const blockSize = innerWidth * 0.04;
     const amountOfBlocks = Math.ceil(innerHeight / blockSize);
     const delays = shuffle([...Array(amountOfBlocks)].map((_, i) => i));
-    return delays.map((randomDelay, i) => {
+    return delays.map((randomDelay: number, i) => {
       return (
         <motion.div
-          className="h-[5vw] w-full bg-pinkSalmon"
+          className="h-[4vw] w-full bg-pinkSalmon"
           key={`block-${i}`}
           variants={variants}
           initial="initial"
           animate={menuIsActive ? 'open' : 'close'}
-          custom={randomDelay}
+          custom={[indexOfColumn + randomDelay, 20 - indexOfColumn + randomDelay]}
         />
       );
     });
@@ -63,10 +63,10 @@ const PixelBackground: FC<Props> = ({ menuIsActive }) => {
 
   return (
     <div className="fixed z-20 flex h-screen overflow-hidden">
-      {[...Array(20)].map((_, i) => {
+      {[...Array(25)].map((_, i) => {
         return (
-          <div className="h-full w-[5vw]" key={`col-${i}`}>
-            {getBlocks()}
+          <div className="h-full w-[4vw]" key={`col-${i}`}>
+            {getBlocks(i)}
           </div>
         );
       })}
