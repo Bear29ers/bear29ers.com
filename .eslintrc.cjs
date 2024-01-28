@@ -44,6 +44,7 @@ const config = {
         message: 'DO NOT DECLARE ENUM',
       },
     ],
+    'no-plusplus': 'off',
     /* typescript */
     '@typescript-eslint/ban-ts-comment': [
       'error',
