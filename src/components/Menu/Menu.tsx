@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 
+import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -9,13 +10,28 @@ interface Props {
   menuIsActive: boolean;
 }
 
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  open: {
+    opacity: 1,
+  },
+  close: {
+    opacity: 0,
+  },
+};
+
 const Menu: FC<Props> = ({ menuIsActive }) => {
   const pathname = usePathname();
 
   return (
-    // TODO: 表示する際にピクセルバックグラウンドに合わせて、少しdelayをつける + opacityでアニメーションする
-    <div className={`relative z-40 h-screen w-screen ${menuIsActive ? 'block' : 'hidden'}`}>
-      <div className="flex-center absolute inset-0 -left-1/4">
+    <motion.div
+      className="relative z-40 w-full"
+      variants={variants}
+      initial="initial"
+      animate={menuIsActive ? 'open' : 'close'}>
+      <div className="flex-center fixed inset-0 -left-1/4">
         <ul className="flex flex-col gap-y-4">
           {MENU_ITEMS.map((menuItem) => (
             // TODO: framer-motionでホバーリンクをアニメーションさせる
@@ -32,7 +48,7 @@ const Menu: FC<Props> = ({ menuIsActive }) => {
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
