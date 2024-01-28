@@ -18,6 +18,8 @@ const About: NextPage = () => {
 
   return (
     <PageTransitionEffect href="about">
+      {/* TODO: MenuIconとMenuコンポーネントを全体配置にし、Homeのみ表示させないようにする */}
+      {/* PixelBackgroundのexitアニメーションが終わったらページ遷移しているようにする */}
       <div className="fixed right-8 top-3 z-50">
         <MenuIcon menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
       </div>
