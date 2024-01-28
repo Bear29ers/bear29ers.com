@@ -18,7 +18,7 @@ const About: NextPage = () => {
   return (
     <PageTransitionEffect href="about">
       <div className="fixed right-8 top-3">
-        <MenuIcon />
+        <MenuIcon menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
       </div>
       {/* <PixelBackground menuIsActive={menuIsActive} /> */}
       <main className="flex-center w-full flex-col bg-light text-dark" role="main">
