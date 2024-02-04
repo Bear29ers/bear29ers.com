@@ -3,7 +3,7 @@
 
 'use client';
 
-import type { FC } from 'react';
+import { type FC } from 'react';
 
 import { motion } from 'framer-motion';
 
@@ -43,9 +43,16 @@ const PixelBackground: FC<Props> = ({ menuIsActive }) => {
   };
 
   const getBlocks = (indexOfColumn: number) => {
-    const { innerWidth, innerHeight } = window;
-    const blockSize = innerWidth * 0.04;
-    const amountOfBlocks = Math.ceil(innerHeight / blockSize);
+    let width: number;
+    let height: number;
+    if (typeof window !== 'undefined') {
+      const { innerWidth, innerHeight } = window;
+      width = innerWidth;
+      height = innerHeight;
+    }
+
+    const blockSize = width * 0.04;
+    const amountOfBlocks = Math.ceil(height / blockSize);
     const delays = shuffle([...Array(amountOfBlocks)].map((_, i) => i));
     return delays.map((randomDelay: number, i) => {
       return (
