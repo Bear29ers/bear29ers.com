@@ -17,6 +17,7 @@ const About: NextPage = () => {
   const [menuIsActive, setMenuIsActive] = useState<boolean>(false);
 
   return (
+    // TODO: ページ遷移の影響でPageTransitionEffectが挟まってテストできないので、後回し
     <PageTransitionEffect href="about">
       {/* TODO: MenuIconとMenuコンポーネントを全体配置にし、Homeのみ表示させないようにする */}
       {/* PixelBackgroundのexitアニメーションが終わったらページ遷移しているようにする */}
