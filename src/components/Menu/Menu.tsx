@@ -37,9 +37,9 @@ const Menu: FC<Props> = ({ menuIsActive }) => {
             // TODO: framer-motionでホバーリンクをアニメーションさせる
             <li key={menuItem.id}>
               <Link
-                className={`text-9xl font-black text-dark opacity-30 transition-opacity hover:opacity-100 ${
-                  !menuItem.isValid ? 'pointer-events-none line-through opacity-10 hover:opacity-10' : ''
-                } ${menuItem.href === pathname ? 'opacity-100' : ''}`}
+                className={`text-9xl font-black text-dark opacity-40 transition-opacity hover:opacity-100 ${
+                  !menuItem.isValid ? 'pointer-events-none line-through !opacity-5' : ''
+                } ${menuItem.href === pathname ? '!opacity-100' : ''}`}
                 href={menuItem.href}
                 aria-disabled={!menuItem.isValid}>
                 {menuItem.title}
