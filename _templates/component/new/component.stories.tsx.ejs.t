@@ -1,5 +1,5 @@
 ---
-to: src/components/<%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.stories.tsx
+to: <%= path %><%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.stories.tsx
 ---
 
 import <%= h.changeCase.pascal(component_name) %> from './<%= h.changeCase.pascal(component_name) %>';

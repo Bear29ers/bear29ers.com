@@ -18,6 +18,7 @@ const config = {
     'plugin:tailwindcss/recommended',
     'plugin:jest/recommended',
     'plugin:jest/style',
+    'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
     'plugin:react/recommended',
     'plugin:storybook/recommended',
@@ -44,6 +45,7 @@ const config = {
         message: 'DO NOT DECLARE ENUM',
       },
     ],
+    'no-plusplus': 'off',
     /* typescript */
     '@typescript-eslint/ban-ts-comment': [
       'error',
@@ -90,6 +92,7 @@ const config = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['space'] }],
     'react/require-default-props': 'off',
+    'react/no-array-index-key': 'warn',
     /* import */
     'unused-imports/no-unused-imports': 'error',
     'import/prefer-default-export': 'off',
@@ -106,10 +109,10 @@ const config = {
     'import/order': [
       'error',
       {
-        'groups': ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
-        'pathGroupsExcludedImportTypes': ['builtin'],
+        groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+        pathGroupsExcludedImportTypes: ['builtin'],
         'newlines-between': 'always',
-        'pathGroups': [
+        pathGroups: [
           {
             pattern: '{react,react-dom/**,react-router-dom}',
             group: 'builtin',
@@ -161,7 +164,7 @@ const config = {
             position: 'before',
           },
         ],
-        'alphabetize': {
+        alphabetize: {
           order: 'asc',
         },
       },
@@ -185,4 +188,5 @@ const config = {
     'jest/require-top-level-describe': ['error'],
   },
 };
+
 module.exports = config;
