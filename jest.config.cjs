@@ -1,6 +1,5 @@
 /** @types {import('@jest/types').Config.InitialOptions} */
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const nextJest = require('next/jest');
 
 const createJestConfig = nextJest({
@@ -9,10 +8,12 @@ const createJestConfig = nextJest({
 });
 
 // Jestのカスタム設定
-const customJestConfig = {
+/** @type {import('jest').Config} */
+const config = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jest-environment-jsdom',
+  preset: 'ts-jest',
 };
 
 // createJestConfigを定義することで、このファイルで定義された設定がNext.jsの設定に反映される
-module.exports = createJestConfig(customJestConfig);
+module.exports = createJestConfig(config);

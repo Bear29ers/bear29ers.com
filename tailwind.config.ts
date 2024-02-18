@@ -1,9 +1,7 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
-const { fontFamily } = require('tailwindcss/defaultTheme');
-
-module.exports = {
-  mode: 'jit',
+const config: Config = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     extend: {
@@ -13,12 +11,6 @@ module.exports = {
       colors: {
         dark: '#202f55',
         light: '#f5f5f5',
-        primary: '#B63E96',
-        primaryDark: '#58E6D9',
-        gray: '#d0d7de',
-        darkGray: '#656d76',
-        link: '#0969da',
-        // TODO: delete blow
         frangipani: '#FFDBBA',
         cornflowerLilac: '#FFACA8',
         pinkSalmon: '#FF8894',
@@ -96,4 +88,7 @@ module.exports = {
       },
     },
   },
+  plugins: [],
 };
+
+export default config;
