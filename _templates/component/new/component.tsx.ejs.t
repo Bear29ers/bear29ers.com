@@ -1,5 +1,5 @@
 ---
-to: <%=path%><%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.tsx
+to: <%= path %><%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pascal(component_name) %>.tsx
 ---
 
 import type { FC } from 'react';
