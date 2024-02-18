@@ -1,0 +1,10 @@
+# config
+*.cjs
+jest.setup.js
+
+# build
+build/
+bin/
+obj/
+out/
+.next/
