@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import Menu from '@/components/Menu/Menu';
 import MenuIcon from '@/components/MenuIcon/MenuIcon';
+import MenuList from '@/components/MenuList/MenuList';
 import PixelBackground from '@/components/PixelBackground/PixelBackground';
 import Profile from '@/components/Profile/Profile';
 import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
@@ -21,7 +21,7 @@ const About: NextPage = () => {
       <div className="fixed right-8 top-3 z-50">
         <MenuIcon menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
       </div>
-      <Menu menuIsActive={menuIsActive} />
+      <MenuList menuIsActive={menuIsActive} />
       <PixelBackground menuIsActive={menuIsActive} />
       <main className="flex-center w-full flex-col bg-light text-dark" role="main">
         <ContentsLayout className="mt-40">

@@ -22,7 +22,7 @@ const variants = {
   },
 };
 
-const Menu: FC<Props> = ({ menuIsActive }) => {
+const MenuList: FC<Props> = ({ menuIsActive }) => {
   const pathname = usePathname();
 
   return (
@@ -52,4 +52,4 @@ const Menu: FC<Props> = ({ menuIsActive }) => {
   );
 };
 
-export default Menu;
+export default MenuList;
