@@ -9,18 +9,15 @@ import Profile from '@/components/Profile/Profile';
 import AnimatedText from '@/components/commons/AnimatedText/AnimatedText';
 import ContentsLayout from '@/components/layouts/ContentsLayout/ContentsLayout';
 
-import PageTransitionEffect from '../PageTransitionEffect';
-
 import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   const [menuIsActive, setMenuIsActive] = useState<boolean>(false);
 
   return (
-    // TODO: ページ遷移の影響でPageTransitionEffectが挟まってテストできないので、後回し
-    <PageTransitionEffect href="about">
-      {/* TODO: MenuIconとMenuコンポーネントを全体配置にし、Homeのみ表示させないようにする */}
-      {/* PixelBackgroundのexitアニメーションが終わったらページ遷移しているようにする */}
+    <>
+      {/* TODO: menuIsActivedでないときはhiddenにする（ページの要素と重なるため） */}
+      {/* TODO: HOMEページ以外で配置するようにlayoutに配置する */}
       <div className="fixed right-8 top-3 z-50">
         <MenuIcon menuIsActive={menuIsActive} setMenuIsActive={setMenuIsActive} />
       </div>
@@ -32,7 +29,7 @@ const About: NextPage = () => {
           <Profile />
         </ContentsLayout>
       </main>
-    </PageTransitionEffect>
+    </>
   );
 };
 
