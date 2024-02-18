@@ -29,6 +29,7 @@ const Home: NextPage = () => {
       <div className={`dark-bg absolute inset-y-0 right-1/2 bg-dark ${isClicked ? 'h-full w-1/2' : 'h-0 w-2'}`} />
       {/* Bear */}
       <motion.div
+        // TODO: アニメーション後に領域がずれるので修正対応する
         className="flex-center absolute inset-0"
         animate={isClicked ? 'clicked' : 'default'}
         variants={variants}
