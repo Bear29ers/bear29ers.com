@@ -13,7 +13,9 @@
     "markuplint": "markuplint './src/**/*.{html,jsx,tsx}'",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "npm run test -- --coverage"
+    "test:coverage": "npm run test -- --coverage",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "next": "14.1.0",
@@ -23,6 +25,14 @@
   "devDependencies": {
     "@markuplint/jsx-parser": "^4.1.1",
     "@markuplint/react-spec": "^4.0.2",
+    "@storybook/addon-essentials": "^7.6.16",
+    "@storybook/addon-interactions": "^7.6.16",
+    "@storybook/addon-links": "^7.6.16",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.16",
+    "@storybook/nextjs": "^7.6.16",
+    "@storybook/react": "^7.6.16",
+    "@storybook/test": "^7.6.16",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.5.2",
@@ -56,6 +66,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sass": "^1.71.0",
+    "storybook": "^7.6.16",
     "stylelint": "^16.2.1",
     "stylelint-config-recess-order": "^4.6.0",
     "stylelint-config-standard-scss": "^13.0.0",
