@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-onboarding',
     '@storybook/addon-interactions',
+    '@storybook/addon-controls',
   ],
   framework: {
     name: '@storybook/nextjs',
@@ -16,11 +17,13 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve?.alias,
       '@': path.resolve(__dirname, '../src'),
+      '~': path.resolve(__dirname, '../public'),
     };
     return config;
   },
