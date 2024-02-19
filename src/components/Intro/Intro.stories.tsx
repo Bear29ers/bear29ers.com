@@ -13,6 +13,4 @@ export default meta;
 
 type Story = StoryObj<typeof Intro>;
 
-export const Standard: Story = (props) => {
-  return <Intro {...props} />;
-};
+export const Default: Story = {};
