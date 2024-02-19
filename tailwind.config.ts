@@ -1,5 +1,6 @@
-import type { Config } from 'tailwindcss';
 import { fontFamily } from 'tailwindcss/defaultTheme';
+
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -72,10 +73,10 @@ const config: Config = {
           },
         },
         shadow: {
-          from: {
+          '10%': {
             width: '100px',
           },
-          to: {
+          '100%': {
             width: '75px',
           },
         },
