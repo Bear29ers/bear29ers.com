@@ -60,14 +60,15 @@
     }
   }
 
-  .dark-bg {
-    transition:
-      height 0.5s ease,
-      width 1s ease 0.5s;
-  }
-
   .intro {
-    &-dark {
+    &-transition {
+      &-bg {
+        transition:
+          height 0.5s ease,
+          width 1s ease 0.5s;
+      }
+    }
+    &-contents {
       &-bg {
         background:
           linear-gradient(to right, #d2d8d9 50%, #202f55 50%) bottom,
