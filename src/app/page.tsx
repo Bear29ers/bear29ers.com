@@ -15,11 +15,7 @@ const Home: NextPage = () => {
         isClicked
       </button>
       {/* Intro */}
-      <div className='absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2'>{isClicked && <Intro />}</div>
-      {/* Dark background */}
-      <div
-        className={`intro-transition-bg absolute inset-y-0 right-1/2 bg-dark ${isClicked ? 'h-full w-1/2' : 'h-0 w-2'}`}
-      />
+      <Intro isClicked={isClicked} />
       <h1>Bear29ers</h1>
     </main>
   );
