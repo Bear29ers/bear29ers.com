@@ -14,6 +14,6 @@ export default meta;
 
 type Story = StoryObj<typeof <%= h.changeCase.pascal(component_name) %>>;
 
-export const Standard: Story = {
+export const Default: Story = {
   render: () => <<%= h.changeCase.pascal(component_name) %> />,
 };
