@@ -20,6 +20,7 @@ const config = {
     'plugin:jest/style',
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
+    'plugin:testing-library/react',
     'plugin:react/recommended',
     'plugin:storybook/recommended',
     'prettier',
@@ -33,7 +34,16 @@ const config = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['import', 'unused-imports', 'jsx-a11y', 'tailwindcss', '@typescript-eslint', 'jest', 'jest-dom'],
+  plugins: [
+    'import',
+    'unused-imports',
+    'jsx-a11y',
+    'tailwindcss',
+    '@typescript-eslint',
+    'jest',
+    'jest-dom',
+    'testing-library',
+  ],
   rules: {
     /* eslint */
     'no-unused-vars': 'off',
@@ -186,6 +196,8 @@ const config = {
       },
     ],
     'jest/require-top-level-describe': ['error'],
+    /* testing-library */
+    'testing-library/no-render-in-lifecycle': 'off',
   },
 };
 
