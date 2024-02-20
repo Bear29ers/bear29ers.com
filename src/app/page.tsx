@@ -11,13 +11,11 @@ const Home: NextPage = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
-    <main className='relative h-screen w-screen bg-iron'>
+    <main className='relative h-screen w-screen bg-iron overflow-hidden'>
       {/* Intro */}
       <Intro isClicked={isClicked} />
       {/* Bear */}
-      <div className='size-full flex-center'>
-        <Bear />
-      </div>
+      <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
     </main>
   );
 };
