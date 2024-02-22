@@ -11,5 +11,11 @@ export default meta;
 type Story = StoryObj<typeof FacebookIcon>;
 
 export const Default: Story = {
-  render: () => <FacebookIcon />,
+  render: () => {
+    return (
+      <div className="w-40">
+        <FacebookIcon />
+      </div>
+    );
+  },
 };
