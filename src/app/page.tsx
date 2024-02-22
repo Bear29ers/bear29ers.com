@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Bear from '@/components/Bear/Bear';
 import Intro from '@/components/Intro/Intro';
+import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
 import type { NextPage } from 'next';
 
@@ -16,6 +17,8 @@ const Home: NextPage = () => {
       <Intro isClicked={isClicked} />
       {/* Bear */}
       <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
+      {/* Social Icons */}
+      <SocialIcons />
     </main>
   );
 };
