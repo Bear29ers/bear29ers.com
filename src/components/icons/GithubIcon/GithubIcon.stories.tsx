@@ -11,5 +11,14 @@ export default meta;
 type Story = StoryObj<typeof GithubIcon>;
 
 export const Default: Story = {
-  render: () => <GithubIcon />,
+  args: {
+    isClicked: false,
+  },
+  render: ({ isClicked }) => {
+    return (
+      <div className="w-40">
+        <GithubIcon isClicked={isClicked} />
+      </div>
+    );
+  },
 };
