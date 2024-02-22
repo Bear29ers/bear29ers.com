@@ -11,7 +11,7 @@ const config = {
   quoteProps: 'consistent',
   bracketSpacing: true,
   arrowParens: 'always',
-  plugins: [require('prettier-plugin-tailwindcss')],
+  plugins: ['prettier-plugin-tailwindcss'],
   overrides: [
     {
       files: ['**/*.css', '**/*.scss', '**/*.html'],

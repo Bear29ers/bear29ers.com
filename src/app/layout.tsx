@@ -20,7 +20,7 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <html lang='en'>
+    <html lang="en">
       <body className={`${montserrat.variable} relative size-full font-mont`}>{children}</body>
     </html>
   );

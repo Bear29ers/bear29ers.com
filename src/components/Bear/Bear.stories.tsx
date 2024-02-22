@@ -17,7 +17,7 @@ export const Default: Story = {
   },
   render: ({ isClicked, setIsClicked }) => {
     return (
-      <div className='relative h-screen w-screen'>
+      <div className="relative h-screen w-screen">
         <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
       </div>
     );
