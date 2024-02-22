@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
-    <main className='relative h-screen w-screen bg-iron overflow-hidden'>
+    <main className="relative h-screen w-screen overflow-hidden bg-iron">
       {/* Intro */}
       <Intro isClicked={isClicked} />
       {/* Bear */}
