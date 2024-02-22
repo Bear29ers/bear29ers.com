@@ -18,7 +18,7 @@ const Home: NextPage = () => {
       {/* Bear */}
       <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
       {/* Social Icons */}
-      <SocialIcons />
+      <SocialIcons isClicked={isClicked} />
     </main>
   );
 };
