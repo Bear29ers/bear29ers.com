@@ -7,5 +7,15 @@
   },
   "specs": {
     ".[jt]sx$": "@markuplint/react-spec"
-  }
+  },
+  "rules": {
+    "ineffective-attr": false,
+    "no-hard-code-id": false,
+    "attr-duplication": false,
+    "invalid-attr": {
+       "options": {
+          "allowAttrs": ["transform", "gradientTransform"]
+        }
+     }
+  },
 }
