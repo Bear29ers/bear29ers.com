@@ -97,10 +97,6 @@
   @apply flex items-center justify-center;
 }
 
-.flex-between {
-  @apply flex items-center justify-between;
-}
-
 .transition-500 {
   @apply transition duration-500 ease-in-out;
 }

@@ -31,3 +31,7 @@ export const PencilIcon: FC = () => {
     </svg>
   );
 };
+
+export const WavingHand: FC = () => {
+  return <div className="wave text-2xl">👋🏻</div>;
+};
