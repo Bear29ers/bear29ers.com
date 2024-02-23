@@ -26,3 +26,8 @@ export interface Achievement {
   alt: string;
   src: StaticImageData;
 }
+
+export interface Resolution {
+  id: number;
+  text: string;
+}

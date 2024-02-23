@@ -1,6 +1,6 @@
 import { OrganizationIcon, LocationIcon, WebsiteIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import type { Achievement, ProfileDetail, ProfileText } from '@/common/types/about';
+import type { Achievement, ProfileDetail, ProfileText, Resolution } from '@/common/types/about';
 
 import arcticCodeVault from '~/images/achievements/arctic-code-vault-contributor-default.png';
 import pullShark from '~/images/achievements/pull-shark-default.png';
@@ -10,7 +10,7 @@ import yolo from '~/images/achievements/yolo-default.png';
 export const PROFILE_TEXT: ProfileText = {
   fullName: 'Yuta Okuma',
   userName: 'Bear29ers',
-  greeting: "Hi, there, I'm Yuta. Nice to see you!",
+  greeting: "Hi, I'm Yuta. Nice to see you!!",
   shortGreeting: "Hi, there, I'm Yuta",
   title: "I'm a front-end developer and designer!!",
   biographyList: [
@@ -80,5 +80,24 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 4,
     alt: 'Arctic Code Vault Contributor',
     src: arcticCodeVault,
+  },
+];
+
+export const RESOLUTIONS: Resolution[] = [
+  {
+    id: 1,
+    text: '💻 Learn higher level of Next.js and master Three.js.',
+  },
+  {
+    id: 2,
+    text: '👬 Collaborate with other digital content creators.',
+  },
+  {
+    id: 3,
+    text: '📝 Obtain qualifications in several engineering fields',
+  },
+  {
+    id: 4,
+    text: '🏋🏻 Lose weight and stay healthy',
   },
 ];
