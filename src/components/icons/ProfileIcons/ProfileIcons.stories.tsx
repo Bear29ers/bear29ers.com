@@ -1,4 +1,4 @@
-import { LocationIcon, OrganizationIcon, WebsiteIcon } from './ProfileIcons';
+import { LocationIcon, OrganizationIcon, PencilIcon, WebsiteIcon } from './ProfileIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -35,6 +35,16 @@ export const Website: Story = {
     return (
       <div className="w-40">
         <WebsiteIcon />
+      </div>
+    );
+  },
+};
+
+export const Pencil: Story = {
+  render: () => {
+    return (
+      <div className="w-40">
+        <PencilIcon />
       </div>
     );
   },
