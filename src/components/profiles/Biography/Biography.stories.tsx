@@ -10,6 +10,4 @@ export default meta;
 
 type Story = StoryObj<typeof Biography>;
 
-export const Default: Story = {
-  render: () => <Biography />,
-};
+export const Default: Story = {};
