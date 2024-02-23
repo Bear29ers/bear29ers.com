@@ -1,15 +1,41 @@
-import ProfileIcons from './ProfileIcons';
+import { LocationIcon, OrganizationIcon, WebsiteIcon } from './ProfileIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof ProfileIcons> = {
-  component: ProfileIcons,
+const meta: Meta<typeof OrganizationIcon> = {
+  component: OrganizationIcon,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof ProfileIcons>;
+type Story = StoryObj<typeof OrganizationIcon>;
 
-export const Default: Story = {
-  render: () => <ProfileIcons />,
+export const Organization: Story = {
+  render: () => {
+    return (
+      <div className="w-40">
+        <OrganizationIcon />
+      </div>
+    );
+  },
+};
+
+export const Location: Story = {
+  render: () => {
+    return (
+      <div className="w-40">
+        <LocationIcon />
+      </div>
+    );
+  },
+};
+
+export const Website: Story = {
+  render: () => {
+    return (
+      <div className="w-40">
+        <WebsiteIcon />
+      </div>
+    );
+  },
 };
