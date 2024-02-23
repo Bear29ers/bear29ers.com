@@ -1,4 +1,6 @@
-import type { Achievement, ProfileText } from '@/common/types/about';
+import { OrganizationIcon, LocationIcon, WebsiteIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
+
+import type { Achievement, ProfileDetail, ProfileText } from '@/common/types/about';
 
 import arcticCodeVault from '~/images/achievements/arctic-code-vault-contributor-default.png';
 import pullShark from '~/images/achievements/pull-shark-default.png';
@@ -37,11 +39,26 @@ export const PROFILE_TEXT: ProfileText = {
       text: 'Gradually became interested in programming through the influence of a friend of mine that I met at one of my internships and started learning on my own from front-end languages. started my career as a developer in 2020 and now I am working as a front-end developer in Tokyo.',
     },
   ],
-  organization: 'Gakken LEAP Co.,Ltd',
-  location: 'Tokyo, Japan',
-  website: 'https://bear29ers.github.io',
   githubStats: 'https://github-readme-stats-bear29ers.vercel.app/api?username=Bear29ers&show_icons=true&theme=bear',
 };
+
+export const PROFILE_DETAILS: ProfileDetail[] = [
+  {
+    type: 'organization',
+    content: 'Gakken LEAP Co.,Ltd',
+    icon: OrganizationIcon,
+  },
+  {
+    type: 'location',
+    content: 'Tokyo, Japan',
+    icon: LocationIcon,
+  },
+  {
+    type: 'website',
+    content: 'https://bear29ers.github.io',
+    icon: WebsiteIcon,
+  },
+];
 
 export const ACHIEVEMENTS: Achievement[] = [
   {
