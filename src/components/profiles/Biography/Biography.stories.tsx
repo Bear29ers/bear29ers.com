@@ -10,4 +10,12 @@ export default meta;
 
 type Story = StoryObj<typeof Biography>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  render: () => {
+    return (
+      <div className="mx-auto w-full max-w-xs">
+        <Biography />
+      </div>
+    );
+  },
+};
