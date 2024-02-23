@@ -31,7 +31,6 @@ const GithubIcon: FC<Props> = ({ isClicked }) => (
           strokeDashoffset: 0,
           strokeLinejoin: 'miter',
           strokeMiterlimit: 4,
-          fill: '#D2D8D9',
           fillOpacity: 0,
           fillRule: 'nonzero',
           opacity: 1,

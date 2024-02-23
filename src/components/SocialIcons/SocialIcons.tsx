@@ -26,13 +26,13 @@ const getIconComponent = (iconName: string, isClicked: boolean) => {
 
 const SocialIcons: FC<Props> = ({ isClicked }) => {
   return (
-    <div className="fixed bottom-0 left-8 flex flex-col items-center gap-y-4">
+    <div className="fixed bottom-0 left-8 z-40 flex flex-col items-center gap-y-4">
       {SOCIAL_MEDIA_LIST.map((socialMedia) => (
         <motion.a
           key={socialMedia.id}
           href={socialMedia.href}
           target="_blank"
-          className="w-6"
+          className="w-7"
           role="link"
           aria-describedby={socialMedia.text}
           initial={{ opacity: 0 }}
