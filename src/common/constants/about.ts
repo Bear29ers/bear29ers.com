@@ -11,7 +11,7 @@ export const PROFILE_TEXT: ProfileText = {
   fullName: 'Yuta Okuma',
   userName: 'Bear29ers',
   greeting: "Hi, there, I'm Yuta. Nice to see you!",
-  shortGreeting: "Hi, there, I'm Yuta 🐻",
+  shortGreeting: "Hi, there, I'm Yuta",
   title: "I'm a front-end developer and designer!!",
   biographyList: [
     {
