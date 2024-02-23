@@ -36,7 +36,7 @@ const Biography: FC = () => {
           </li>
         ))}
       </ul>
-      <hr className="my-8 block h-[1.5px] w-full bg-hitGray" />
+      <hr className="my-8 bg-geyser" />
       <div className="flex flex-col">
         <h3 className="mb-3 text-lg font-bold">Achievements</h3>
         <div className="flex gap-1">
