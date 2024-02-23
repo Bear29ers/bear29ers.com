@@ -11,5 +11,11 @@ export default meta;
 type Story = StoryObj<typeof SkillAndActivity>;
 
 export const Default: Story = {
-  render: () => <SkillAndActivity />,
+  render: () => {
+    return (
+      <div className="mx-auto w-full max-w-[960px]">
+        <SkillAndActivity />
+      </div>
+    );
+  },
 };
