@@ -1,5 +1,6 @@
 # config
 *.cjs
+tailwind.config.ts
 jest.setup.js
 
 # build

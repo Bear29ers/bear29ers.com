@@ -3,6 +3,7 @@ to: <%= path %><%= h.changeCase.pascal(component_name) %>/<%= h.changeCase.pasca
 ---
 
 import { render } from '@testing-library/react';
+import '@testing-library/jest-dom';
 
 import <%= h.changeCase.pascal(component_name) %> from './<%= h.changeCase.pascal(component_name) %>';
 
