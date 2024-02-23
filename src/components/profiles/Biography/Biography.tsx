@@ -29,7 +29,7 @@ const Biography: FC = () => {
       <ul>
         {PROFILE_DETAILS.map((profileDetail: ProfileDetail) => (
           <li className="flex items-center gap-x-3" key={profileDetail.type}>
-            <div className="w-[18px]">
+            <div className="size-[18px]">
               <profileDetail.icon />
             </div>
             <span>{profileDetail.content}</span>
