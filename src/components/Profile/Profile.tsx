@@ -11,7 +11,7 @@ const Profile: FC = () => {
         {/* Biography */}
         <Biography />
       </div>
-      <div className="grow bg-lime-300">
+      <div className="grow bg-lime-100">
         {/* Skill and Activity */}
         <SkillAndActivity />
       </div>
