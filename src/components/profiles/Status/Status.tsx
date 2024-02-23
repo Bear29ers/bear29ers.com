@@ -12,7 +12,7 @@ import ProfileIcon from '~/images/profile.jpg';
 
 const FramerImage = motion(Image);
 
-const Biography: FC = () => {
+const Status: FC = () => {
   return (
     <div className="flex flex-col px-4">
       <div className="flex-center relative mb-6 w-full max-w-xs">
@@ -57,4 +57,4 @@ const Biography: FC = () => {
   );
 };
 
-export default Biography;
+export default Status;

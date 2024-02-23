@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 
 import { PROFILE_TEXT } from '@/common/constants/about';
 
-import Biography from './Biography';
+import Status from './Status';
 
 import type { RenderResult } from '@testing-library/react';
 
@@ -11,7 +11,7 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<Biography />);
+    renderResult = render(<Status />);
   });
 
   afterEach(() => {
