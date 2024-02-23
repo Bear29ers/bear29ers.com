@@ -1,3 +1,4 @@
+import Biography from '@/components/profiles/Biography/Biography';
 import Edit from '@/components/profiles/Edit/Edit';
 import Status from '@/components/profiles/Status/Status';
 
@@ -14,6 +15,9 @@ const About: NextPage = () => {
         <div className="grow rounded-lg border border-geyser bg-lime-100 p-6">
           {/* Edit */}
           <Edit />
+          <div className="flex flex-col gap-y-16">
+            <Biography />
+          </div>
         </div>
       </div>
     </main>
