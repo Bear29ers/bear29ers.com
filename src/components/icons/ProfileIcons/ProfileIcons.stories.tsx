@@ -1,4 +1,4 @@
-import { LocationIcon, OrganizationIcon, PencilIcon, WebsiteIcon } from './ProfileIcons';
+import { LocationIcon, OrganizationIcon, PencilIcon, WebsiteIcon, WavingHand } from './ProfileIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
@@ -9,6 +9,7 @@ const meta: Meta<typeof OrganizationIcon> = {
 export default meta;
 
 type Story = StoryObj<typeof OrganizationIcon>;
+type StoryWave = StoryObj<typeof WavingHand>;
 
 export const Organization: Story = {
   render: () => {
@@ -48,4 +49,8 @@ export const Pencil: Story = {
       </div>
     );
   },
+};
+
+export const WaveHand: StoryWave = {
+  render: () => <WavingHand />,
 };
