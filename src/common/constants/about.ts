@@ -55,6 +55,7 @@ export const PROFILE_DETAILS: ProfileDetail[] = [
   },
   {
     type: 'website',
+    // TODO: サイトデプロイ後に修正
     content: 'https://bear29ers.github.io',
     icon: WebsiteIcon,
   },

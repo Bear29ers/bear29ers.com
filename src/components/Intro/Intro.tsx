@@ -37,6 +37,7 @@ const Intro: FC<Props> = ({ isClicked }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 2 }}>
+              {/* TODO: 画像が荒いので修正 */}
               <Image
                 src={Memoji}
                 alt={HOME_PROFILE_TEXT.profileAlt}
