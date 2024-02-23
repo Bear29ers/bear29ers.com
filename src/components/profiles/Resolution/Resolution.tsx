@@ -3,7 +3,7 @@ import type { FC } from 'react';
 const Resolution: FC = () => {
   return (
     <div>
-      <h1>Resolution</h1>
+      <h3 className="mb-4 text-xl font-bold">🏁 My Resolution</h3>
     </div>
   );
 };

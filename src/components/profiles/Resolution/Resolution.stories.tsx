@@ -11,5 +11,11 @@ export default meta;
 type Story = StoryObj<typeof Resolution>;
 
 export const Default: Story = {
-  render: () => <Resolution />,
+  render: () => {
+    return (
+      <div className="mx-auto w-full max-w-[960px]">
+        <Resolution />
+      </div>
+    );
+  },
 };

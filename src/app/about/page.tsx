@@ -1,5 +1,6 @@
 import Biography from '@/components/profiles/Biography/Biography';
 import Edit from '@/components/profiles/Edit/Edit';
+import Resolution from '@/components/profiles/Resolution/Resolution';
 import Status from '@/components/profiles/Status/Status';
 
 import type { NextPage } from 'next';
@@ -18,6 +19,8 @@ const About: NextPage = () => {
           <div className="flex flex-col gap-y-16">
             {/* Biography */}
             <Biography />
+            {/* Resolution */}
+            <Resolution />
           </div>
         </div>
       </div>
