@@ -11,5 +11,10 @@ export default meta;
 type Story = StoryObj<typeof PageNavigation>;
 
 export const Default: Story = {
-  render: () => <PageNavigation />,
+  args: {
+    isClicked: false,
+  },
+  render: ({ isClicked }) => {
+    return <PageNavigation isClicked={isClicked} />;
+  },
 };
