@@ -6,7 +6,7 @@ import Bear from './Bear';
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/Bear/Bear.test.tsx', () => {
-  describe('when isClicked is false', () => {
+  describe('when isClicked props is false', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
@@ -55,7 +55,7 @@ describe('src/components/Bear/Bear.test.tsx', () => {
     });
   });
 
-  describe('when isClicked is true', () => {
+  describe('when isClicked props is true', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
