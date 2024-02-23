@@ -4,6 +4,7 @@ import { useState } from 'react';
 
 import Bear from '@/components/Bear/Bear';
 import Intro from '@/components/Intro/Intro';
+import PageNavigation from '@/components/PageNavigation/PageNavigation';
 import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
 import type { NextPage } from 'next';
@@ -19,6 +20,8 @@ const Home: NextPage = () => {
       <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
       {/* Social Icons */}
       <SocialIcons isClicked={isClicked} />
+      {/* Page Navigation */}
+      <PageNavigation isClicked={isClicked} />
     </main>
   );
 };
