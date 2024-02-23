@@ -20,7 +20,7 @@ export const PROFILE_TEXT: ProfileText = {
     },
     {
       id: 2,
-      text: 'I played baseball for about 9 years as a child and my favorite teams are the Los Angeles Angeles and the New York Yankees. Shohei Ohtani, a two-way player, gives me courage and energy.',
+      text: 'I played baseball for about 9 years as a child and my favorite teams are the Los Angeles Angeles and the New York Yankees.',
     },
     {
       id: 3,
