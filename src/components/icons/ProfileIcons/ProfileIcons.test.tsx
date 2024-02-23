@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
-import { LocationIcon, OrganizationIcon, WebsiteIcon } from './ProfileIcons';
+import { LocationIcon, OrganizationIcon, PencilIcon, WebsiteIcon } from './ProfileIcons';
 
 describe('src/components/icons/ProfileIcons/ProfileIcons.test.tsx', () => {
   it('should render the OrganizationIcon svg', () => {
@@ -17,5 +17,10 @@ describe('src/components/icons/ProfileIcons/ProfileIcons.test.tsx', () => {
   it('should render the WebsiteIcon svg', () => {
     render(<WebsiteIcon />);
     expect(screen.getByRole('img', { name: 'WebsiteIcon' })).toBeInTheDocument();
+  });
+
+  it('should render the PencilIcon svg', () => {
+    render(<PencilIcon />);
+    expect(screen.getByRole('img', { name: 'PencilIcon' })).toBeInTheDocument();
   });
 });
