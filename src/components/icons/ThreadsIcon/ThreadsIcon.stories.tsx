@@ -11,5 +11,14 @@ export default meta;
 type Story = StoryObj<typeof ThreadsIcon>;
 
 export const Default: Story = {
-  render: () => <ThreadsIcon />,
+  args: {
+    isClicked: false,
+  },
+  render: ({ isClicked }) => {
+    return (
+      <div className="w-40">
+        <ThreadsIcon isClicked={isClicked} />
+      </div>
+    );
+  },
 };
