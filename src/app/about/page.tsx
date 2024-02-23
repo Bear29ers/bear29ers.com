@@ -8,7 +8,7 @@ const About: NextPage = () => {
   return (
     <main className="flex-center w-full flex-col bg-iron text-dark">
       <div className="mx-auto flex w-full max-w-screen-xl pt-24 font-sans">
-        <div className="col-span-3 w-full max-w-xs bg-light">
+        <div className="w-full max-w-xs bg-light">
           {/* Status */}
           <Status />
         </div>
@@ -16,6 +16,7 @@ const About: NextPage = () => {
           {/* Edit */}
           <Edit />
           <div className="flex flex-col gap-y-16">
+            {/* Biography */}
             <Biography />
           </div>
         </div>
