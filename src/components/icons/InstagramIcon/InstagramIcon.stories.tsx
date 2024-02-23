@@ -11,5 +11,11 @@ export default meta;
 type Story = StoryObj<typeof InstagramIcon>;
 
 export const Default: Story = {
-  render: () => <InstagramIcon />,
+  render: () => {
+    return (
+      <div className="w-40">
+        <InstagramIcon />
+      </div>
+    );
+  },
 };
