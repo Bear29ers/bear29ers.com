@@ -1,20 +1,20 @@
-import Biography from './Biography';
+import Status from './Status';
 
 import type { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof Biography> = {
-  component: Biography,
+const meta: Meta<typeof Status> = {
+  component: Status,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof Biography>;
+type Story = StoryObj<typeof Status>;
 
 export const Default: Story = {
   render: () => {
     return (
       <div className="mx-auto w-full max-w-xs">
-        <Biography />
+        <Status />
       </div>
     );
   },
