@@ -119,10 +119,10 @@ const config = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
-        pathGroupsExcludedImportTypes: ['builtin'],
+        'groups': ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+        'pathGroupsExcludedImportTypes': ['builtin'],
         'newlines-between': 'always',
-        pathGroups: [
+        'pathGroups': [
           {
             pattern: '{react,react-dom/**,react-router-dom}',
             group: 'builtin',
@@ -174,7 +174,7 @@ const config = {
             position: 'before',
           },
         ],
-        alphabetize: {
+        'alphabetize': {
           order: 'asc',
         },
       },
@@ -198,6 +198,7 @@ const config = {
     'jest/require-top-level-describe': ['error'],
     /* testing-library */
     'testing-library/no-render-in-lifecycle': 'off',
+    'testing-library/no-node-access': 'off',
   },
 };
 
