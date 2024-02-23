@@ -1,3 +1,5 @@
+import type { FC } from 'react';
+
 import type { StaticImageData } from 'next/image';
 
 export interface ProfileText {
@@ -10,10 +12,13 @@ export interface ProfileText {
     id: number;
     text: string;
   }[];
-  organization: string;
-  location: string;
-  website: string;
   githubStats: string;
+}
+
+export interface ProfileDetail {
+  type: string;
+  content: string;
+  icon: FC;
 }
 
 export interface Achievement {
