@@ -26,7 +26,7 @@ const getIconComponent = (iconName: string, isClicked: boolean) => {
 
 const SocialIcons: FC<Props> = ({ isClicked }) => {
   return (
-    <div className="fixed left-0 top-8 z-40 flex flex-row-reverse items-center gap-x-4">
+    <div className="fixed left-0 top-5 z-40 flex flex-row-reverse items-center gap-x-4">
       {SOCIAL_MEDIA_LIST.map((socialMedia) => (
         <motion.a
           key={socialMedia.id}
