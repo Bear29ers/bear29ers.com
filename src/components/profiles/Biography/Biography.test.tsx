@@ -24,7 +24,7 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     expect(screen.getByRole('heading', { level: 2, name: PROFILE_TEXT.title })).toBeInTheDocument();
   });
 
-  it('should render first paragraph of biography', () => {
+  it('should render the first paragraph of biography', () => {
     if (!biographyList[0]) {
       it.skip('biographyList[0] is empty or undefined');
     } else {
@@ -33,7 +33,7 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     }
   });
 
-  it('should render second paragraph of biography', () => {
+  it('should render the second paragraph of biography', () => {
     if (!biographyList[1]) {
       it.skip('biographyList[1] is empty or undefined');
     } else {
@@ -42,7 +42,7 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     }
   });
 
-  it('should render third paragraph of biography', () => {
+  it('should render the third paragraph of biography', () => {
     if (!biographyList[2]) {
       it.skip('biographyList[2] is empty or undefined');
     } else {
@@ -51,7 +51,7 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     }
   });
 
-  it('should render fourth paragraph of biography', () => {
+  it('should render the fourth paragraph of biography', () => {
     if (!biographyList[3]) {
       it.skip('biographyList[3] is empty or undefined');
     } else {
@@ -60,7 +60,7 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     }
   });
 
-  it('should render fifth paragraph of biography', () => {
+  it('should render the fifth paragraph of biography', () => {
     if (!biographyList[4]) {
       it.skip('biographyList[4] is empty or undefined');
     } else {
@@ -69,7 +69,7 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     }
   });
 
-  it('should render sixth paragraph of biography', () => {
+  it('should render the sixth paragraph of biography', () => {
     if (!biographyList[5]) {
       it.skip('biographyList[5] is empty or undefined');
     } else {
