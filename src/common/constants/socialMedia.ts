@@ -13,12 +13,12 @@ export const SOCIAL_MEDIA_LIST: SocialMedia[] = [
   },
   {
     id: 3,
-    href: 'https://www.threads.net/@bear_27earl',
-    text: 'threads',
+    href: 'https://www.facebook.com/kumakuma1129',
+    text: 'facebook',
   },
   {
     id: 4,
-    href: 'https://www.facebook.com/kumakuma1129',
-    text: 'facebook',
+    href: 'https://www.threads.net/@bear_27earl',
+    text: 'threads',
   },
 ];
