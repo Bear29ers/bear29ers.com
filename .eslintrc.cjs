@@ -20,6 +20,7 @@ const config = {
     'plugin:jest/style',
     'plugin:testing-library/react',
     'plugin:jest-dom/recommended',
+    'plugin:testing-library/react',
     'plugin:react/recommended',
     'plugin:storybook/recommended',
     'prettier',
@@ -33,7 +34,16 @@ const config = {
     sourceType: 'module',
     project: './tsconfig.json',
   },
-  plugins: ['import', 'unused-imports', 'jsx-a11y', 'tailwindcss', '@typescript-eslint', 'jest', 'jest-dom'],
+  plugins: [
+    'import',
+    'unused-imports',
+    'jsx-a11y',
+    'tailwindcss',
+    '@typescript-eslint',
+    'jest',
+    'jest-dom',
+    'testing-library',
+  ],
   rules: {
     /* eslint */
     'no-unused-vars': 'off',
@@ -109,10 +119,10 @@ const config = {
     'import/order': [
       'error',
       {
-        groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
-        pathGroupsExcludedImportTypes: ['builtin'],
+        'groups': ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
+        'pathGroupsExcludedImportTypes': ['builtin'],
         'newlines-between': 'always',
-        pathGroups: [
+        'pathGroups': [
           {
             pattern: '{react,react-dom/**,react-router-dom}',
             group: 'builtin',
@@ -164,7 +174,7 @@ const config = {
             position: 'before',
           },
         ],
-        alphabetize: {
+        'alphabetize': {
           order: 'asc',
         },
       },
@@ -186,6 +196,9 @@ const config = {
       },
     ],
     'jest/require-top-level-describe': ['error'],
+    /* testing-library */
+    'testing-library/no-render-in-lifecycle': 'off',
+    'testing-library/no-node-access': 'off',
   },
 };
 

@@ -4,14 +4,22 @@ const config = {
   printWidth: 120,
   tabWidth: 2,
   semi: true,
-  singleQuote: true,
   jsxSingleQuote: false,
+  singleQuote: true,
   bracketSameLine: true,
   trailingComma: 'es5',
   quoteProps: 'consistent',
   bracketSpacing: true,
   arrowParens: 'always',
-  plugins: [require('prettier-plugin-tailwindcss')],
+  plugins: ['prettier-plugin-tailwindcss'],
+  overrides: [
+    {
+      files: ['**/*.css', '**/*.scss', '**/*.html'],
+      options: {
+        singleQuote: false,
+      },
+    },
+  ],
 };
 
 module.exports = config;
