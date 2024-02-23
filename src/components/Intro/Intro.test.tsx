@@ -10,7 +10,7 @@ import Intro from './Intro';
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/Intro/Intro.test.tsx', () => {
-  describe('when isClicked is false', () => {
+  describe('when isClicked props is false', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
@@ -34,7 +34,7 @@ describe('src/components/Intro/Intro.test.tsx', () => {
     });
   });
 
-  describe('when isClicked is true', () => {
+  describe('when isClicked props is true', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
