@@ -1,10 +1,14 @@
 import {
   AWSIcon,
+  AfterEffectsIcon,
+  AppleIcon,
   AtomIcon,
   BabelIcon,
   BashIcon,
   BootstrapIcon,
   CSSIcon,
+  CodepenIcon,
+  DiscordIcon,
   DockerIcon,
   EmotionIcon,
   ExpressIcon,
@@ -14,6 +18,7 @@ import {
   GitHubIcon,
   GitIcon,
   HTMLIcon,
+  IllustratorIcon,
   JQueryIcon,
   JavaScriptIcon,
   JestIcon,
@@ -29,13 +34,18 @@ import {
   NpmIcon,
   NuxtJsIcon,
   PHPIcon,
+  PhotoshopIcon,
   PiniaIcon,
   PnpmIcon,
+  PostmanIcon,
+  PremiereProIcon,
   ReactIcon,
   RegexIcon,
   SQLiteIcon,
   SVGIcon,
   SassIcon,
+  SentryIcon,
+  StackOverflowIcon,
   StyledComponentsIcon,
   TailwindCSSIcon,
   ThreeJsIcon,
@@ -223,6 +233,38 @@ export const Default: Story = {
           </div>
           <div className="w-24">
             <XDIcon />
+          </div>
+        </div>
+        <div className="flex gap-x-4">
+          <div className="w-24">
+            <PhotoshopIcon />
+          </div>
+          <div className="w-24">
+            <IllustratorIcon />
+          </div>
+          <div className="w-24">
+            <PremiereProIcon />
+          </div>
+          <div className="w-24">
+            <AfterEffectsIcon />
+          </div>
+          <div className="w-24">
+            <PostmanIcon />
+          </div>
+          <div className="w-24">
+            <SentryIcon />
+          </div>
+          <div className="w-24">
+            <CodepenIcon />
+          </div>
+          <div className="w-24">
+            <StackOverflowIcon />
+          </div>
+          <div className="w-24">
+            <DiscordIcon />
+          </div>
+          <div className="w-24">
+            <AppleIcon />
           </div>
         </div>
       </div>
