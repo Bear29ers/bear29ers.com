@@ -1,10 +1,22 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Skills from './Skills';
 
+import type { RenderResult } from '@testing-library/react';
+
 describe('src/components/profiles/Skills/Skills.test.tsx', () => {
-  it('should render the Skills component', () => {
-    const { getByRole } = render(<Skills />);
+  let renderResult: RenderResult;
+
+  beforeEach(() => {
+    renderResult = render(<Skills />);
+  });
+
+  afterEach(() => {
+    renderResult.unmount();
+  });
+
+  it('should render the title', () => {
+    expect(screen.getByRole('heading', { level: 3, name: /Skills and Tools/ })).toBeInTheDocument();
   });
 });
