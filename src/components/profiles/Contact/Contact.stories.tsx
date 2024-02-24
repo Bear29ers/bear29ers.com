@@ -11,5 +11,11 @@ export default meta;
 type Story = StoryObj<typeof Contact>;
 
 export const Default: Story = {
-  render: () => <Contact />,
+  render: () => {
+    return (
+      <div className="mx-auto w-full max-w-[960px]">
+        <Contact />
+      </div>
+    );
+  },
 };
