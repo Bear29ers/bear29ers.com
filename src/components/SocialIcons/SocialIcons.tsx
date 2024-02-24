@@ -2,29 +2,14 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-import FacebookIcon from '@/components/icons/FacebookIcon/FacebookIcon';
-import GithubIcon from '@/components/icons/GithubIcon/GithubIcon';
-import InstagramIcon from '@/components/icons/InstagramIcon/InstagramIcon';
-import ThreadsIcon from '@/components/icons/ThreadsIcon/ThreadsIcon';
-
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
+import getIconComponent from '@/common/functions/getIconComponent';
 
 interface Props {
-  isClicked: boolean;
+  darkMode: boolean;
 }
 
-const getIconComponent = (iconName: string, isClicked: boolean) => {
-  return (
-    <>
-      {iconName === 'github' && <GithubIcon isClicked={isClicked} />}
-      {iconName === 'instagram' && <InstagramIcon />}
-      {iconName === 'threads' && <ThreadsIcon isClicked={isClicked} />}
-      {iconName === 'facebook' && <FacebookIcon />}
-    </>
-  );
-};
-
-const SocialIcons: FC<Props> = ({ isClicked }) => {
+const SocialIcons: FC<Props> = ({ darkMode }) => {
   return (
     <div className="fixed left-0 top-5 z-40 flex flex-row-reverse items-center gap-x-4">
       {SOCIAL_MEDIA_LIST.map((socialMedia) => (
@@ -42,11 +27,11 @@ const SocialIcons: FC<Props> = ({ isClicked }) => {
           }}
           whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
           whileTap={{ scale: 0.9, transition: { type: 'spring', stiffness: 400, damping: 10 } }}>
-          {getIconComponent(socialMedia.text, isClicked)}
+          {getIconComponent(socialMedia.text, darkMode)}
         </motion.a>
       ))}
       <motion.span
-        className={`h-0.5 w-32 ${isClicked ? 'bg-iron' : 'bg-dark'}`}
+        className={`h-0.5 w-32 ${darkMode ? 'bg-iron' : 'bg-dark'}`}
         initial={{ width: '0' }}
         animate={{ width: '128px' }}
         transition={{ type: 'spring', duration: 1.0, delay: 0.8 }}

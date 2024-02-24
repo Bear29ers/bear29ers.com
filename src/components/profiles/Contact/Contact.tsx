@@ -2,23 +2,8 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-import FacebookIcon from '@/components/icons/FacebookIcon/FacebookIcon';
-import GithubIcon from '@/components/icons/GithubIcon/GithubIcon';
-import InstagramIcon from '@/components/icons/InstagramIcon/InstagramIcon';
-import ThreadsIcon from '@/components/icons/ThreadsIcon/ThreadsIcon';
-
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
-
-const getIconComponent = (iconName: string, isClicked: boolean) => {
-  return (
-    <>
-      {iconName === 'github' && <GithubIcon isClicked={isClicked} />}
-      {iconName === 'instagram' && <InstagramIcon />}
-      {iconName === 'threads' && <ThreadsIcon isClicked={isClicked} />}
-      {iconName === 'facebook' && <FacebookIcon />}
-    </>
-  );
-};
+import getIconComponent from '@/common/functions/getIconComponent';
 
 const Contact: FC = () => {
   return (

@@ -12,9 +12,9 @@ type Story = StoryObj<typeof SocialIcons>;
 
 export const Default: Story = {
   args: {
-    isClicked: false,
+    darkMode: false,
   },
-  render: ({ isClicked }) => {
-    return <SocialIcons isClicked={isClicked} />;
+  render: ({ darkMode }) => {
+    return <SocialIcons darkMode={darkMode} />;
   },
 };

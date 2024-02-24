@@ -12,12 +12,12 @@ type Story = StoryObj<typeof GithubIcon>;
 
 export const Default: Story = {
   args: {
-    isClicked: false,
+    darkMode: false,
   },
-  render: ({ isClicked }) => {
+  render: ({ darkMode }) => {
     return (
       <div className="w-40">
-        <GithubIcon isClicked={isClicked} />
+        <GithubIcon darkMode={darkMode} />
       </div>
     );
   },
