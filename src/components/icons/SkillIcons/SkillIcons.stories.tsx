@@ -1,15 +1,23 @@
 import {
+  AWSIcon,
   BabelIcon,
   BootstrapIcon,
   CSSIcon,
+  DockerIcon,
   EmotionIcon,
   ExpressIcon,
+  FirebaseIcon,
+  GitHubActionsIcon,
+  GitHubIcon,
+  GitIcon,
   HTMLIcon,
   JQueryIcon,
   JavaScriptIcon,
   JestIcon,
   LaravelIcon,
   MaterialUIIcon,
+  MySQLIcon,
+  NeovimIcon,
   NextJsIcon,
   NodeJsIcon,
   NpmIcon,
@@ -19,12 +27,14 @@ import {
   PnpmIcon,
   ReactIcon,
   RegexIcon,
+  SQLiteIcon,
   SassIcon,
   StyledComponentsIcon,
   TailwindCSSIcon,
   ThreeJsIcon,
   TypeScriptIcon,
   VercelIcon,
+  VimIcon,
   ViteIcon,
   VitestIcon,
   VueJsIcon,
@@ -139,6 +149,38 @@ export const Default: Story = {
           </div>
           <div className="w-24">
             <LaravelIcon />
+          </div>
+        </div>
+        <div className="flex gap-x-4">
+          <div className="w-24">
+            <MySQLIcon />
+          </div>
+          <div className="w-24">
+            <SQLiteIcon />
+          </div>
+          <div className="w-24">
+            <DockerIcon />
+          </div>
+          <div className="w-24">
+            <GitIcon />
+          </div>
+          <div className="w-24">
+            <GitHubIcon />
+          </div>
+          <div className="w-24">
+            <GitHubActionsIcon />
+          </div>
+          <div className="w-24">
+            <AWSIcon />
+          </div>
+          <div className="w-24">
+            <FirebaseIcon />
+          </div>
+          <div className="w-24">
+            <VimIcon />
+          </div>
+          <div className="w-24">
+            <NeovimIcon />
           </div>
         </div>
       </div>
