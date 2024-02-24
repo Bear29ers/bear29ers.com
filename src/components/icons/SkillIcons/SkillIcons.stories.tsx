@@ -1,11 +1,14 @@
 import {
   AWSIcon,
+  AtomIcon,
   BabelIcon,
+  BashIcon,
   BootstrapIcon,
   CSSIcon,
   DockerIcon,
   EmotionIcon,
   ExpressIcon,
+  FigmaIcon,
   FirebaseIcon,
   GitHubActionsIcon,
   GitHubIcon,
@@ -15,6 +18,9 @@ import {
   JavaScriptIcon,
   JestIcon,
   LaravelIcon,
+  LinuxIcon,
+  LuaIcon,
+  MarkdownIcon,
   MaterialUIIcon,
   MySQLIcon,
   NeovimIcon,
@@ -28,17 +34,21 @@ import {
   ReactIcon,
   RegexIcon,
   SQLiteIcon,
+  SVGIcon,
   SassIcon,
   StyledComponentsIcon,
   TailwindCSSIcon,
   ThreeJsIcon,
   TypeScriptIcon,
+  VSCodeIcon,
   VercelIcon,
   VimIcon,
   ViteIcon,
   VitestIcon,
   VueJsIcon,
+  WebStormIcon,
   WebpackIcon,
+  XDIcon,
 } from './SkillIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -181,6 +191,38 @@ export const Default: Story = {
           </div>
           <div className="w-24">
             <NeovimIcon />
+          </div>
+        </div>
+        <div className="flex gap-x-4">
+          <div className="w-24">
+            <LinuxIcon />
+          </div>
+          <div className="w-24">
+            <BashIcon />
+          </div>
+          <div className="w-24">
+            <LuaIcon />
+          </div>
+          <div className="w-24">
+            <MarkdownIcon />
+          </div>
+          <div className="w-24">
+            <SVGIcon />
+          </div>
+          <div className="w-24">
+            <WebStormIcon />
+          </div>
+          <div className="w-24">
+            <VSCodeIcon />
+          </div>
+          <div className="w-24">
+            <AtomIcon />
+          </div>
+          <div className="w-24">
+            <FigmaIcon />
+          </div>
+          <div className="w-24">
+            <XDIcon />
           </div>
         </div>
       </div>
