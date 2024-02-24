@@ -1,4 +1,5 @@
 import Biography from '@/components/profiles/Biography/Biography';
+import Contact from '@/components/profiles/Contact/Contact';
 import Edit from '@/components/profiles/Edit/Edit';
 import Resolution from '@/components/profiles/Resolution/Resolution';
 import Status from '@/components/profiles/Status/Status';
@@ -7,9 +8,9 @@ import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   return (
-    <main className="flex-center w-full flex-col bg-iron text-dark">
+    <main className="flex-center w-full flex-col bg-light text-dark">
       <div className="mx-auto flex w-full max-w-screen-xl pt-24 font-sans">
-        <div className="w-full max-w-xs bg-light">
+        <div className="w-full max-w-xs">
           {/* Status */}
           <Status />
         </div>
@@ -21,6 +22,8 @@ const About: NextPage = () => {
             <Biography />
             {/* Resolution */}
             <Resolution />
+            {/* Contact */}
+            <Contact />
           </div>
         </div>
       </div>
