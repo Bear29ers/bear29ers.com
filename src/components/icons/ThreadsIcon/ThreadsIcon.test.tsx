@@ -6,11 +6,11 @@ import ThreadsIcon from './ThreadsIcon';
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/icons/ThreadsIcon/ThreadsIcon.test.tsx', () => {
-  describe('when isClicked props is false', () => {
+  describe('when darkMode props is false', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<ThreadsIcon isClicked={false} />);
+      renderResult = render(<ThreadsIcon darkMode={false} />);
     });
 
     afterEach(() => {
@@ -34,7 +34,7 @@ describe('src/components/icons/ThreadsIcon/ThreadsIcon.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<ThreadsIcon isClicked />);
+      renderResult = render(<ThreadsIcon darkMode />);
     });
 
     afterEach(() => {
