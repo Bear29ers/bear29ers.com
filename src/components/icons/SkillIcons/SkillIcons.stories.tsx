@@ -1,14 +1,24 @@
 import {
   BootstrapIcon,
   CSSIcon,
+  EmotionIcon,
+  ExpressIcon,
   HTMLIcon,
   JQueryIcon,
   JavaScriptIcon,
+  MaterialUIIcon,
+  NextJsIcon,
+  NodeJsIcon,
+  NuxtJsIcon,
+  PiniaIcon,
   ReactIcon,
   SassIcon,
+  StyledComponentsIcon,
   TailwindCSSIcon,
   ThreeJsIcon,
   TypeScriptIcon,
+  VercelIcon,
+  VueJsIcon,
 } from './SkillIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -55,6 +65,38 @@ export const Default: Story = {
           </div>
           <div className="w-24">
             <ReactIcon />
+          </div>
+        </div>
+        <div className="flex gap-x-4">
+          <div className="w-24">
+            <StyledComponentsIcon />
+          </div>
+          <div className="w-24">
+            <EmotionIcon />
+          </div>
+          <div className="w-24">
+            <MaterialUIIcon />
+          </div>
+          <div className="w-24">
+            <NextJsIcon />
+          </div>
+          <div className="w-24">
+            <VercelIcon />
+          </div>
+          <div className="w-24">
+            <VueJsIcon />
+          </div>
+          <div className="w-24">
+            <NuxtJsIcon />
+          </div>
+          <div className="w-24">
+            <PiniaIcon />
+          </div>
+          <div className="w-24">
+            <NodeJsIcon />
+          </div>
+          <div className="w-24">
+            <ExpressIcon />
           </div>
         </div>
       </div>
