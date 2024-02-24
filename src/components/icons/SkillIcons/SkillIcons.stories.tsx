@@ -1,4 +1,5 @@
 import {
+  BabelIcon,
   BootstrapIcon,
   CSSIcon,
   EmotionIcon,
@@ -6,19 +7,28 @@ import {
   HTMLIcon,
   JQueryIcon,
   JavaScriptIcon,
+  JestIcon,
+  LaravelIcon,
   MaterialUIIcon,
   NextJsIcon,
   NodeJsIcon,
+  NpmIcon,
   NuxtJsIcon,
+  PHPIcon,
   PiniaIcon,
+  PnpmIcon,
   ReactIcon,
+  RegexIcon,
   SassIcon,
   StyledComponentsIcon,
   TailwindCSSIcon,
   ThreeJsIcon,
   TypeScriptIcon,
   VercelIcon,
+  ViteIcon,
+  VitestIcon,
   VueJsIcon,
+  WebpackIcon,
 } from './SkillIcons';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -97,6 +107,38 @@ export const Default: Story = {
           </div>
           <div className="w-24">
             <ExpressIcon />
+          </div>
+        </div>
+        <div className="flex gap-x-4">
+          <div className="w-24">
+            <WebpackIcon />
+          </div>
+          <div className="w-24">
+            <ViteIcon />
+          </div>
+          <div className="w-24">
+            <JestIcon />
+          </div>
+          <div className="w-24">
+            <VitestIcon />
+          </div>
+          <div className="w-24">
+            <BabelIcon />
+          </div>
+          <div className="w-24">
+            <RegexIcon />
+          </div>
+          <div className="w-24">
+            <NpmIcon />
+          </div>
+          <div className="w-24">
+            <PnpmIcon />
+          </div>
+          <div className="w-24">
+            <PHPIcon />
+          </div>
+          <div className="w-24">
+            <LaravelIcon />
           </div>
         </div>
       </div>
