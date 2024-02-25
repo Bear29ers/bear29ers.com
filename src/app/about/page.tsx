@@ -3,6 +3,7 @@ import Contact from '@/components/profiles/Contact/Contact';
 import Edit from '@/components/profiles/Edit/Edit';
 import Resolution from '@/components/profiles/Resolution/Resolution';
 import Skills from '@/components/profiles/Skills/Skills';
+import Stats from '@/components/profiles/Stats/Stats';
 import Status from '@/components/profiles/Status/Status';
 
 import type { NextPage } from 'next';
@@ -27,6 +28,8 @@ const About: NextPage = () => {
             <Contact />
             {/* Skills */}
             <Skills />
+            {/* Stats */}
+            <Stats />
           </div>
         </div>
       </div>
