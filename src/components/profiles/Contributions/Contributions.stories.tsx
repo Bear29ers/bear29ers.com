@@ -11,5 +11,11 @@ export default meta;
 type Story = StoryObj<typeof Contributions>;
 
 export const Default: Story = {
-  render: () => <Contributions />,
+  render: () => {
+    return (
+      <div className="mx-auto w-full max-w-[960px]">
+        <Contributions />
+      </div>
+    );
+  },
 };
