@@ -1,9 +1,8 @@
-import type { FC } from 'react';
-import React from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
 
 interface Props {
   isClicked: boolean;
-  setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsClicked: Dispatch<SetStateAction<boolean>>;
 }
 
 const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
