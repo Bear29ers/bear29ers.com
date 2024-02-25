@@ -3,13 +3,13 @@
 import { useState } from 'react';
 import type { Dispatch, SetStateAction, FC } from 'react';
 
-import { useMotionValue, motion, useSpring } from 'framer-motion';
+import { useMotionValue, motion, useSpring } from 'framer-motion-8';
 import { distance } from 'popmotion';
 
 import { ICON_GAP_PC, ICON_SIZE_PC, SKILL_ICONS_PC } from '@/common/constants/skillIcons';
-import type { SkillIcon } from '@/common/types/skillIcons';
+import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
-import type { MotionValue } from 'framer-motion';
+import type { MotionValue } from 'framer-motion-8';
 
 const size: number = ICON_SIZE_PC;
 const gap: number = ICON_GAP_PC;
@@ -30,8 +30,8 @@ const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, rowIndex, 
   const isDragging = rowIndex === active.row && colIndex === active.col;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
-    stiffness: Math.max(1500 - d * 150, 0),
-    damping: 20 + d * 7,
+    stiffness: Math.max(1800 - d * 150, 0),
+    damping: 20 + d * numberOfColumns,
   };
   const dx = useSpring(x, springConfig) as MotionValue<number>;
   const dy = useSpring(y, springConfig) as MotionValue<number>;
@@ -67,7 +67,7 @@ const Skills: FC = () => {
   return (
     <div>
       <h3 className="mb-4 text-xl font-bold">🛠️ Skills and Tools</h3>
-      <div className="m-0 flex place-content-center place-items-center p-0 text-center" style={{ perspective: 1000 }}>
+      <div style={{ perspective: 1000 }}>
         <motion.div
           transition={{ duration: 10, loop: Infinity, ease: 'linear' }}
           className="size-full"
@@ -79,7 +79,20 @@ const Skills: FC = () => {
               height: (size + gap) * numberOfRows - gap,
               perspective: 700,
             }}>
-            Skills
+            {SKILL_ICONS_PC.map((items: SkillIcons, rowIndex: number) =>
+              items.icons.map((item: SkillIcon, colIndex: number) => (
+                <Square
+                  item={item}
+                  active={active}
+                  setActive={setActive}
+                  rowIndex={rowIndex}
+                  colIndex={colIndex}
+                  x={x}
+                  y={y}
+                  key={`${items.row}-${item.column}`}
+                />
+              ))
+            )}
           </motion.div>
         </motion.div>
       </div>
