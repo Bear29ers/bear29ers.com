@@ -11,5 +11,11 @@ export default meta;
 type Story = StoryObj<typeof Footer>;
 
 export const Default: Story = {
-  render: () => <Footer />,
+  render: () => {
+    return (
+      <div className="w-full">
+        <Footer />
+      </div>
+    );
+  },
 };
