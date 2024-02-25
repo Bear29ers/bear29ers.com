@@ -61,9 +61,13 @@ import {
   XDIcon,
 } from '@/components/icons/SkillIcons/SkillIcons';
 
-import type { SkillIcon } from '@/common/types/skillIcons';
+import type { SkillIcons } from '@/common/types/skillIcons';
 
-export const SKILL_ICONS_PC: SkillIcon[] = [
+export const ICON_SIZE_PC: number = 60;
+
+export const ICON_GAP_PC: number = 15;
+
+export const SKILL_ICONS_PC: SkillIcons[] = [
   {
     row: 1,
     icons: [
