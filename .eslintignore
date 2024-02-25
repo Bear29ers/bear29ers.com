@@ -2,6 +2,7 @@
 *.cjs
 tailwind.config.ts
 jest.setup.js
+next.config.js
 
 # build
 build/

@@ -6,11 +6,11 @@ import GithubIcon from './GithubIcon';
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/icons/GithubIcon/GithubIcon.test.tsx', () => {
-  describe('when isClicked props is false', () => {
+  describe('when darkMode props is false', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<GithubIcon isClicked={false} />);
+      renderResult = render(<GithubIcon darkMode={false} />);
     });
 
     afterEach(() => {
@@ -26,11 +26,11 @@ describe('src/components/icons/GithubIcon/GithubIcon.test.tsx', () => {
     });
   });
 
-  describe('when isClicked props is true', () => {
+  describe('when darkMode props is true', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<GithubIcon isClicked />);
+      renderResult = render(<GithubIcon darkMode />);
     });
 
     afterEach(() => {

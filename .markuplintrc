@@ -17,5 +17,6 @@
           "allowAttrs": ["transform", "gradientTransform"]
         }
      }
+     "heading-levels": false,
   },
 }
