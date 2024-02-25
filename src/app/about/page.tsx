@@ -17,7 +17,7 @@ const About: NextPage = () => {
           {/* Status */}
           <Status />
         </div>
-        <div className="grow rounded-lg border border-geyser bg-lime-100 p-6">
+        <div className="grow rounded-lg border border-geyser p-6">
           {/* Edit */}
           <Edit />
           <div className="flex flex-col gap-y-16">
