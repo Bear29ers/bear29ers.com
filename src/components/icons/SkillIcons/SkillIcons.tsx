@@ -581,7 +581,7 @@ export const JestIcon: FC = () => (
 
 // Vitest
 export const VitestIcon: FC = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="JestIcon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="VitestIcon">
     <rect width={256} height={256} fill="#242938" rx={60} />
     <path
       fill="#FCC72B"
