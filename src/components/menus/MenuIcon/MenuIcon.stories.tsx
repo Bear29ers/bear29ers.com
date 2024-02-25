@@ -11,5 +11,15 @@ export default meta;
 type Story = StoryObj<typeof MenuIcon>;
 
 export const Default: Story = {
-  render: () => <MenuIcon />,
+  args: {
+    isOpen: false,
+    setIsOpen: () => {},
+  },
+  render: ({ isOpen, setIsOpen }) => {
+    return (
+      <div className="flex-center h-screen w-screen">
+        <MenuIcon isOpen={isOpen} setIsOpen={setIsOpen} />
+      </div>
+    );
+  },
 };
