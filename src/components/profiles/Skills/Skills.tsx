@@ -26,7 +26,7 @@ interface SquareProps {
   y: MotionValue<number>;
 }
 
-const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, rowIndex, x, y }) => {
+export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, rowIndex, x, y }) => {
   const isDragging = rowIndex === active.row && colIndex === active.col;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
