@@ -1,5 +1,6 @@
 import Biography from '@/components/profiles/Biography/Biography';
 import Contact from '@/components/profiles/Contact/Contact';
+import Contributions from '@/components/profiles/Contributions/Contributions';
 import Edit from '@/components/profiles/Edit/Edit';
 import Resolution from '@/components/profiles/Resolution/Resolution';
 import Skills from '@/components/profiles/Skills/Skills';
@@ -30,6 +31,8 @@ const About: NextPage = () => {
             <Skills />
             {/* Stats */}
             <Stats />
+            {/* Contributions */}
+            <Contributions />
           </div>
         </div>
       </div>
