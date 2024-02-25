@@ -19,7 +19,7 @@ const Home: NextPage = () => {
       {/* Bear */}
       <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
       {/* Social Icons */}
-      <SocialIcons isClicked={isClicked} />
+      <SocialIcons darkMode={isClicked} />
       {/* Page Navigation */}
       <PageNavigation isClicked={isClicked} />
     </main>
