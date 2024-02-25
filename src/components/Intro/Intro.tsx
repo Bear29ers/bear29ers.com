@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { HOME_PROFILE_TEXT } from '@/common/constants/home';
 
-import Profile from '~/images/memoji.png';
+import Memoji from '~/images/memoji.png';
 
 interface Props {
   isClicked: boolean;
@@ -37,8 +37,9 @@ const Intro: FC<Props> = ({ isClicked }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 2 }}>
+              {/* TODO: 画像が荒いので修正 */}
               <Image
-                src={Profile}
+                src={Memoji}
                 alt={HOME_PROFILE_TEXT.profileAlt}
                 role="img"
                 className="absolute bottom-0 left-1/2 h-auto w-full -translate-x-1/2"

@@ -5,11 +5,11 @@ import SocialIcons from './SocialIcons';
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/SocialIcons/SocialIcons.test.tsx', () => {
-  describe('when isClicked props is false', () => {
+  describe('when darkMode props is false', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<SocialIcons isClicked={false} />);
+      renderResult = render(<SocialIcons darkMode={false} />);
     });
 
     afterEach(() => {
@@ -45,11 +45,11 @@ describe('src/components/SocialIcons/SocialIcons.test.tsx', () => {
     });
   });
 
-  describe('when isClicked props is true', () => {
+  describe('when darkMode props is true', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<SocialIcons isClicked />);
+      renderResult = render(<SocialIcons darkMode />);
     });
 
     afterEach(() => {

@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 
 interface Props {
-  isClicked: boolean;
+  darkMode: boolean;
 }
 
-const GithubIcon: FC<Props> = ({ isClicked }) => (
+const GithubIcon: FC<Props> = ({ darkMode }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -47,7 +47,7 @@ const GithubIcon: FC<Props> = ({ isClicked }) => (
           strokeDashoffset: 0,
           strokeLinejoin: 'miter',
           strokeMiterlimit: 4,
-          fill: `${isClicked ? '#D2D8D9' : '#000'}`,
+          fill: `${darkMode ? '#D2D8D9' : '#000'}`,
           fillRule: 'nonzero',
           opacity: 1,
         }}
