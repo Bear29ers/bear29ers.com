@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer/Footer';
 import Biography from '@/components/profiles/Biography/Biography';
 import Contact from '@/components/profiles/Contact/Contact';
 import Contributions from '@/components/profiles/Contributions/Contributions';
@@ -36,6 +37,8 @@ const About: NextPage = () => {
           </div>
         </div>
       </div>
+      {/* Footer */}
+      <Footer />
     </main>
   );
 };
