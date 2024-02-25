@@ -1,9 +1,11 @@
 import type { FC } from 'react';
 
 export interface SkillIcon {
+  column: number;
+  component: FC;
+}
+
+export interface SkillIcons {
   row: number;
-  icons: {
-    column: number;
-    component: FC;
-  }[];
+  icons: SkillIcon[];
 }
