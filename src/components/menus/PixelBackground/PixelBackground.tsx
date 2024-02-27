@@ -69,7 +69,7 @@ const PixelBackground: FC<Props> = ({ isDisplay }) => {
   };
 
   return (
-    <div className="fixed z-20 flex h-screen overflow-hidden">
+    <div className="fixed z-30 flex h-screen w-screen overflow-hidden">
       {[...Array(25)].map((_, i) => {
         return (
           <div className="h-full w-[4vw]" key={`col-${i}`}>
