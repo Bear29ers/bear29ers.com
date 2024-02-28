@@ -5,6 +5,7 @@ import { useState, type FC } from 'react';
 import { usePathname } from 'next/navigation';
 
 import MenuIcon from '@/components/menus/MenuIcon/MenuIcon';
+import MenuWindow from '@/components/menus/MenuWindow/MenuWindow';
 
 const Menu: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -13,8 +14,9 @@ const Menu: FC = () => {
   return (
     <div>
       {pathname !== '/' && (
-        <div>
-          <div className="fixed right-10 top-6 z-50">
+        <div className="fixed right-10 top-8 z-50">
+          <MenuWindow isOpen={isOpen} />
+          <div className="absolute right-0 top-0">
             <MenuIcon isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
         </div>
