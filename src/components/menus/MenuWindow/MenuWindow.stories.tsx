@@ -11,5 +11,14 @@ export default meta;
 type Story = StoryObj<typeof MenuWindow>;
 
 export const Default: Story = {
-  render: () => <MenuWindow />,
+  args: {
+    isOpen: false,
+  },
+  render: ({ isOpen }) => {
+    return (
+      <div className="flex-center h-screen w-screen">
+        <MenuWindow isOpen={isOpen} />
+      </div>
+    );
+  },
 };
