@@ -10,6 +10,4 @@ export default meta;
 
 type Story = StoryObj<typeof MenuList>;
 
-export const Default: Story = {
-  render: () => <MenuList />,
-};
+export const Default: Story = {};

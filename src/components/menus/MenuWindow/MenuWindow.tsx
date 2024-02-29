@@ -1,6 +1,8 @@
 import type { FC } from 'react';
 
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
+
+import MenuList from '../MenuList/MenuList';
 
 const variants = {
   opened: {
@@ -32,8 +34,9 @@ const MenuWindow: FC<Props> = ({ isOpen }) => {
       animate={isOpen ? 'opened' : 'closed'}
       data-isOpen={isOpen}
       style={{ borderRadius: 30 }}
-      className="relative h-[650px] w-[500px] bg-poloBlue"
-    />
+      className="relative h-[650px] w-[500px] bg-poloBlue">
+      <AnimatePresence>{isOpen && <MenuList />}</AnimatePresence>
+    </motion.div>
   );
 };
 
