@@ -32,7 +32,6 @@ const MenuWindow: FC<Props> = ({ isOpen }) => {
       variants={variants}
       initial="closed"
       animate={isOpen ? 'opened' : 'closed'}
-      data-isOpen={isOpen}
       style={{ borderRadius: 30 }}
       className="relative h-[650px] w-[500px] bg-poloBlue">
       <AnimatePresence>{isOpen && <MenuList />}</AnimatePresence>
