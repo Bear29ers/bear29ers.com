@@ -2,8 +2,11 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-import { menuItems } from '@/common/constants/menuItems';
+import { MENU_ITEMS } from '@/common/constants/menuItems';
+import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
+import getIconComponent from '@/common/functions/getIconComponent';
 import type { MenuItem } from '@/common/types/menuItems';
+import type { SocialMedia } from '@/common/types/socialMedia';
 
 const variants = {
   initial: {
@@ -31,9 +34,9 @@ const variants = {
 
 const MenuList: FC = () => {
   return (
-    <div className="flex-center relative h-full">
+    <div className="flex-center relative h-full flex-col">
       <div className="flex w-fit flex-col items-start gap-y-5">
-        {menuItems.map((menuItem: MenuItem, index: number) => (
+        {MENU_ITEMS.map((menuItem: MenuItem, index: number) => (
           <div key={menuItem.id}>
             <motion.div
               custom={index}
@@ -45,6 +48,20 @@ const MenuList: FC = () => {
               <a href={menuItem.href}>{menuItem.text}</a>
             </motion.div>
           </div>
+        ))}
+      </div>
+      <div className="flex items-center gap-x-6 pt-20">
+        {SOCIAL_MEDIA_LIST.map((socialMedia: SocialMedia) => (
+          <motion.a
+            href={socialMedia.href}
+            target="_blank"
+            className="size-10"
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+            key={socialMedia.id}>
+            {getIconComponent(socialMedia.text, false)}
+          </motion.a>
         ))}
       </div>
     </div>
