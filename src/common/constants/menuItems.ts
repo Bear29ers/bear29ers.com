@@ -1,6 +1,6 @@
 import type { MenuItem } from '../types/menuItems';
 
-export const menuItems: MenuItem[] = [
+export const MENU_ITEMS: MenuItem[] = [
   {
     id: 1,
     href: '/',

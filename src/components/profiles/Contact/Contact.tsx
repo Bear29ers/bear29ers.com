@@ -6,13 +6,14 @@ import { motion } from 'framer-motion';
 
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
 import getIconComponent from '@/common/functions/getIconComponent';
+import type { SocialMedia } from '@/common/types/socialMedia';
 
 const Contact: FC = () => {
   return (
     <div>
       <h3 className="mb-4 text-xl font-bold">🤝 Connect with me</h3>
       <div className="flex gap-x-6">
-        {SOCIAL_MEDIA_LIST.map((socialMedia) => (
+        {SOCIAL_MEDIA_LIST.map((socialMedia: SocialMedia) => (
           <motion.a
             href={socialMedia.href}
             target="_blank"
