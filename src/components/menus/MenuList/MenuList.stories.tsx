@@ -10,4 +10,12 @@ export default meta;
 
 type Story = StoryObj<typeof MenuList>;
 
-export const Default: Story = {};
+export const Default: Story = {
+  render: () => {
+    return (
+      <div className="relative h-[650px] w-[500px] bg-poloBlue">
+        <MenuList />
+      </div>
+    );
+  },
+};
