@@ -82,6 +82,9 @@ const MenuList: FC = () => {
               custom={i}
               animate="enter"
               exit="exit"
+              whileHover={{ scale: menuItem.isAvaliable ? 1.1 : 1.0 }}
+              whileTap={{ scale: menuItem.isAvaliable ? 0.9 : 1.0 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               className="text-5xl font-bold">
               <a href={menuItem.href} className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
