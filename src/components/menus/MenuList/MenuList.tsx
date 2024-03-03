@@ -8,7 +8,7 @@ import getIconComponent from '@/common/functions/getIconComponent';
 import type { MenuItem } from '@/common/types/menuItems';
 import type { SocialMedia } from '@/common/types/socialMedia';
 
-const menuVariants = {
+const activeMenuVariants = {
   initial: {
     opacity: 0,
     translateY: 80,
@@ -16,6 +16,28 @@ const menuVariants = {
   },
   enter: (i: number) => ({
     opacity: 1,
+    translateY: 0,
+    translateX: 0,
+    transition: {
+      duration: 0.65,
+      delay: 0.5 + i * 0.1,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  }),
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.5, type: 'linear', ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
+const inactiveMenuVariants = {
+  initial: {
+    opacity: 0,
+    translateY: 80,
+    translateX: -20,
+  },
+  enter: (i: number) => ({
+    opacity: 0.25,
     translateY: 0,
     translateX: 0,
     transition: {
@@ -38,7 +60,7 @@ const socialVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      delay: 0.95 + i * 0.2,
+      delay: 0.75 + i * 0.2,
       ease: [0.215, 0.61, 0.355, 1],
     },
   }),
@@ -55,13 +77,15 @@ const MenuList: FC = () => {
         {MENU_ITEMS.map((menuItem: MenuItem, i: number) => (
           <div key={menuItem.id}>
             <motion.div
-              variants={menuVariants}
+              variants={menuItem.isAvaliable ? activeMenuVariants : inactiveMenuVariants}
               initial="initial"
               custom={i}
               animate="enter"
               exit="exit"
               className="text-5xl font-bold">
-              <a href={menuItem.href}>{menuItem.text}</a>
+              <a href={menuItem.href} className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
+                {menuItem.text}
+              </a>
             </motion.div>
           </div>
         ))}
