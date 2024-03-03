@@ -1,6 +1,9 @@
 import { Montserrat } from 'next/font/google';
 
+import Menu from '@/components/Menu/Menu';
+
 import type { Metadata } from 'next';
+
 import '@/app/globals.scss';
 
 const montserrat = Montserrat({
@@ -21,7 +24,10 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} relative size-full font-mont`}>{children}</body>
+      <body className={`${montserrat.variable} relative size-full font-mont`}>
+        <Menu />
+        {children}
+      </body>
     </html>
   );
 };
