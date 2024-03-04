@@ -1,5 +1,7 @@
 import { Montserrat } from 'next/font/google';
 
+import TransitionProvider from '@/app/TransitionProvider';
+
 import Menu from '@/components/Menu/Menu';
 
 import type { Metadata } from 'next';
@@ -26,7 +28,7 @@ const RootLayout = ({
     <html lang="en">
       <body className={`${montserrat.variable} relative size-full font-mont`}>
         <Menu />
-        {children}
+        <TransitionProvider>{children}</TransitionProvider>
       </body>
     </html>
   );
