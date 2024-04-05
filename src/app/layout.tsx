@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react';
+
 import { Montserrat } from 'next/font/google';
 
 import Menu from '@/components/Menu/Menu';
@@ -20,7 +22,7 @@ export const metadata: Metadata = {
 const RootLayout = ({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) => {
   return (
     <html lang="en">
