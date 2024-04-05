@@ -14,7 +14,7 @@ const Home: NextPage = () => {
 
   return (
     // TODO: ページをバウンスさせないようにする
-    <main className="relative h-screen w-screen overflow-hidden bg-iron">
+    <div className="relative h-screen w-screen overflow-hidden bg-iron">
       {/* Intro */}
       <Intro isClicked={isClicked} />
       {/* Bear */}
@@ -23,7 +23,7 @@ const Home: NextPage = () => {
       <SocialIcons darkMode={isClicked} />
       {/* Page Navigation */}
       <PageNavigation isClicked={isClicked} />
-    </main>
+    </div>
   );
 };
 

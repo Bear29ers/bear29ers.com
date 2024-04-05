@@ -12,7 +12,7 @@ import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   return (
-    <main className="flex-center w-full flex-col bg-light text-dark">
+    <div className="flex-center w-full flex-col bg-light text-dark">
       <div className="mx-auto flex w-full max-w-screen-xl pt-24 font-sans">
         <div className="w-full max-w-xs">
           {/* Status */}
@@ -39,7 +39,7 @@ const About: NextPage = () => {
       </div>
       {/* Footer */}
       <Footer />
-    </main>
+    </div>
   );
 };
 
