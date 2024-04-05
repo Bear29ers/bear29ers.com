@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 
 import { Montserrat } from 'next/font/google';
 
+import PageAnimatePresence from '@/components/HOC/PageAnimatePresence/PageAnimatePresence';
 import Menu from '@/components/Menu/Menu';
 
 import type { Metadata } from 'next';
@@ -28,7 +29,7 @@ const RootLayout = ({
     <html lang="en">
       <body className={`${montserrat.variable} relative size-full font-mont`}>
         <Menu />
-        {children}
+        <PageAnimatePresence>{children}</PageAnimatePresence>
       </body>
     </html>
   );
