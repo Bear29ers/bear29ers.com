@@ -5,8 +5,8 @@ import type { ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 const variants = {
-  hidden: { opacity: 0, x: 0, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
+  hidden: { opacity: 0 },
+  enter: { opacity: 1 },
 };
 
 const Template = ({ children }: { children: ReactNode }) => {
@@ -15,7 +15,7 @@ const Template = ({ children }: { children: ReactNode }) => {
       variants={variants}
       initial="hidden"
       animate="enter"
-      transition={{ type: 'linear', duration: 0.25 }}
+      transition={{ type: 'spring', duration: 0.65 }}
       key="Bear29ers">
       {children}
     </motion.main>
