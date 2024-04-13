@@ -15,9 +15,8 @@ const Menu: FC = () => {
   return (
     <div>
       {pathname !== '/' && (
-        <div className="fixed right-10 top-8 z-50">
-          {/* <MenuIcon ref={stickyElement} isOpen={isOpen} setIsOpen={setIsOpen} /> */}
-          <NavIcon />
+        <div>
+          <NavIcon ref={stickyElement} />
         </div>
       )}
       <StickyCursor stickyElement={stickyElement} />

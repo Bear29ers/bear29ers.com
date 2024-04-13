@@ -71,7 +71,7 @@ const StickyCursor: FC<Props> = ({ stickyElement }) => {
       <motion.div
         style={{ left: smoothMouse.x, top: smoothMouse.y }}
         animate={{ width: cursorSize, height: cursorSize }}
-        className="pointer-events-none fixed size-[15px] rounded-full bg-black"
+        className="pointer-events-none fixed size-[15px] rounded-full bg-dark"
       />
     </div>
   );

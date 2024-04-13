@@ -133,6 +133,14 @@
       transform: rotate(0deg);
     }
   }
+
+  .pointer-events-all {
+    pointer-events: all;
+  }
+
+  .z-1 {
+    z-index: 1;
+  }
 }
 
 .flex-center {
@@ -141,4 +149,8 @@
 
 .transition-500 {
   @apply transition duration-500 ease-in-out;
+}
+
+.sticky-cursor {
+  @apply pointer-events-none fixed size-[15px] rounded-full bg-dark;
 }
