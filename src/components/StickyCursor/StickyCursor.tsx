@@ -1,10 +1,15 @@
 'use client';
 
-import { useEffect, type FC } from 'react';
+import { useEffect } from 'react';
+import type { RefObject, FC } from 'react';
 
 import { useMotionValue, useSpring, motion } from 'framer-motion';
 
-const StickyCursor: FC = ({ stickyElement }) => {
+interface Props {
+  stickyElement: RefObject<HTMLDivElement | undefined>;
+}
+
+const StickyCursor: FC<Props> = ({ stickyElement }) => {
   const cursorSize = 15;
   const mouse = {
     x: useMotionValue(0),
