@@ -39,7 +39,7 @@ const StickyCursor: FC<Props> = ({ stickyElement }) => {
     <div>
       <motion.div
         style={{ left: smoothMouse.x, top: smoothMouse.y }}
-        className="pointer-events-none fixed z-50 size-[15px] rounded-full bg-black"
+        className="pointer-events-none fixed z-50 size-[15px] rounded-full bg-dark"
       />
     </div>
   );
