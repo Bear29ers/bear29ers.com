@@ -13,7 +13,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
   return (
     <>
       <motion.div
-        className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-2xl font-semibold text-dark line-through"
+        className="absolute right-0 top-1/2 -translate-y-1/2 rotate-90 text-2xl font-semibold text-white line-through"
         initial={{ x: 200, rotate: 90 }}
         animate={{ x: 0, rotate: 90 }}
         transition={{ type: 'spring', duration: 1.5, delay: 1.0 }}>
@@ -22,7 +22,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
       <div className="absolute bottom-3 flex w-screen justify-around">
         <MotionLink
           href="/about"
-          className={`z-40 text-2xl font-semibold ${isClicked ? 'text-iron' : 'text-dark'}`}
+          className={`z-40 text-2xl font-semibold ${isClicked ? 'text-dark' : 'text-white'}`}
           initial={{ y: 200 }}
           animate={{ y: 0, transition: { type: 'spring', duration: 1.5, delay: 1.0 } }}
           whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
@@ -30,7 +30,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
           About
         </MotionLink>
         <motion.div
-          className="text-2xl font-semibold text-dark line-through"
+          className="text-2xl font-semibold text-white line-through"
           initial={{ y: 200 }}
           animate={{ y: 0 }}
           transition={{ type: 'spring', duration: 1.5, delay: 1.0 }}>
@@ -38,7 +38,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
         </motion.div>
       </div>
       <motion.div
-        className={`absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-2xl font-semibold line-through ${isClicked ? 'text-iron' : 'text-dark'}`}
+        className={`absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-2xl font-semibold line-through ${isClicked ? 'text-dark' : 'text-white'}`}
         initial={{ x: -200, rotate: -90 }}
         animate={{ x: 0, rotate: -90 }}
         transition={{ type: 'spring', duration: 1.5, delay: 1.0 }}>
