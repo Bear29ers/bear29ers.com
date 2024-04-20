@@ -20,6 +20,9 @@ const config: Config = {
         mantis: '#75BD53',
         pastelOrange: '#F1B457',
         pastelRed: '#F86B62',
+        millbrook: '#634538',
+        coffeeBean: '#2D120F',
+        tan: '#D1A68F',
       },
       keyframes: {
         updown: {
