@@ -12,9 +12,9 @@ type Story = StoryObj<typeof SocialIcons>;
 
 export const Default: Story = {
   args: {
-    darkMode: false,
+    lightMode: false,
   },
-  render: ({ darkMode }) => {
-    return <SocialIcons darkMode={darkMode} />;
+  render: ({ lightMode }) => {
+    return <SocialIcons lightMode={lightMode} />;
   },
 };
