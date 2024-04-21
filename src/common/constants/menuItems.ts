@@ -17,7 +17,7 @@ export const MENU_ITEMS: MenuItem[] = [
     id: 3,
     href: '/experience',
     text: 'Experience',
-    isAvaliable: false,
+    isAvaliable: true,
   },
   {
     id: 4,
