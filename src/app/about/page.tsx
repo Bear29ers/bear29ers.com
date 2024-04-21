@@ -12,13 +12,13 @@ import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   return (
-    <div className="flex-center w-full flex-col bg-light text-dark">
+    <div className="flex-center w-full flex-col bg-dark text-white">
       <div className="mx-auto flex w-full max-w-screen-xl pt-24 font-sans">
         <div className="w-full max-w-xs">
           {/* Status */}
           <Status />
         </div>
-        <div className="grow rounded-lg border border-geyser p-6">
+        <div className="grow rounded-lg border border-hitGray p-6">
           {/* Edit */}
           <Edit />
           <div className="flex flex-col gap-y-16">
