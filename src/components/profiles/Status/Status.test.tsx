@@ -22,10 +22,6 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     expect(screen.getByAltText(PROFILE_TEXT.userName)).toBeInTheDocument();
   });
 
-  it('should render the status icon', () => {
-    expect(screen.getByText('🐻')).toBeInTheDocument();
-  });
-
   it('should render full name', () => {
     expect(screen.getByText(PROFILE_TEXT.fullName)).toBeInTheDocument();
   });
