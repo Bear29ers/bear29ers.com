@@ -25,12 +25,12 @@ describe('src/components/PageNavigation/PageNavigation.test.tsx', () => {
       expect(screen.getByRole('link', { name: 'About' })).toBeInTheDocument();
     });
 
-    it('should have text-white class with the About link', () => {
+    it('should have text-white class with the About page link', () => {
       expect(screen.getByRole('link', { name: 'About' })).toHaveClass('text-white');
     });
 
-    it('should render the Experience text', () => {
-      expect(screen.getByText('Experience')).toBeInTheDocument();
+    it('should have text-white class with the Experience page link', () => {
+      expect(screen.getByRole('link', { name: 'Experience' })).toHaveClass('text-white');
     });
 
     it('should render the Gallery text', () => {
@@ -61,12 +61,12 @@ describe('src/components/PageNavigation/PageNavigation.test.tsx', () => {
       expect(screen.getByRole('link', { name: 'About' })).toBeInTheDocument();
     });
 
-    it('should have text-dark class with the About link', () => {
+    it('should have text-dark class with the About page link', () => {
       expect(screen.getByRole('link', { name: 'About' })).toHaveClass('text-dark');
     });
 
-    it('should render the Experience text', () => {
-      expect(screen.getByText('Experience')).toBeInTheDocument();
+    it('should have text-dark class with the Experience page link', () => {
+      expect(screen.getByRole('link', { name: 'Experience' })).toHaveClass('text-dark');
     });
 
     it('should render the Gallery text', () => {
