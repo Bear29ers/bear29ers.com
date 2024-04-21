@@ -36,8 +36,8 @@ describe('src/components/menus/MenuList/MenuList.test.tsx', () => {
     expect(screen.getByRole('link', { name: 'Experience' })).toBeInTheDocument();
   });
 
-  it('should have pointer-events-none and line-through class with the Experience menu item', () => {
-    expect(screen.getByRole('link', { name: 'Experience' })).toHaveClass('pointer-events-none line-through');
+  it('should not have pointer-events-none and line-through class with the Experience menu item', () => {
+    expect(screen.getByRole('link', { name: 'Experience' })).not.toHaveClass('pointer-events-none line-through');
   });
 
   it('should render the Works menu item', () => {
