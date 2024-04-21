@@ -28,8 +28,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      {/* TODO: ページをバウンスさせないようにする */}
-      <body className={`${montserrat.variable} relative size-full font-mont`}>
+      <body className={`${montserrat.variable} relative size-full overscroll-y-none font-mont`}>
         <Menu />
         <PageAnimatePresence>{children}</PageAnimatePresence>
         <Cursor />
