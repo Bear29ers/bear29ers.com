@@ -12,12 +12,12 @@ type Story = StoryObj<typeof ThreadsIcon>;
 
 export const Default: Story = {
   args: {
-    darkMode: false,
+    lightMode: false,
   },
-  render: ({ darkMode }) => {
+  render: ({ lightMode }) => {
     return (
       <div className="w-40">
-        <ThreadsIcon darkMode={darkMode} />
+        <ThreadsIcon lightMode={lightMode} />
       </div>
     );
   },

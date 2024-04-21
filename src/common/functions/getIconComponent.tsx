@@ -3,12 +3,12 @@ import GithubIcon from '@/components/icons/GithubIcon/GithubIcon';
 import InstagramIcon from '@/components/icons/InstagramIcon/InstagramIcon';
 import ThreadsIcon from '@/components/icons/ThreadsIcon/ThreadsIcon';
 
-const getIconComponent = (iconName: string, darkMode: boolean) => {
+const getIconComponent = (iconName: string, lightMode: boolean) => {
   return (
     <>
-      {iconName === 'github' && <GithubIcon darkMode={darkMode} />}
+      {iconName === 'github' && <GithubIcon lightMode={lightMode} />}
       {iconName === 'instagram' && <InstagramIcon />}
-      {iconName === 'threads' && <ThreadsIcon darkMode={darkMode} />}
+      {iconName === 'threads' && <ThreadsIcon lightMode={lightMode} />}
       {iconName === 'facebook' && <FacebookIcon />}
     </>
   );

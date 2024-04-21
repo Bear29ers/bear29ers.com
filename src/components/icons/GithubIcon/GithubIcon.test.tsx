@@ -10,27 +10,7 @@ describe('src/components/icons/GithubIcon/GithubIcon.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<GithubIcon darkMode={false} />);
-    });
-
-    afterEach(() => {
-      renderResult.unmount();
-    });
-
-    it('should render the GithubIcon component', () => {
-      expect(screen.getByRole('img', { name: 'GithubIcon' })).toBeInTheDocument();
-    });
-
-    it('should have style that fill is #000', () => {
-      expect(screen.getByRole('img', { name: 'GithubIcon' }).querySelector('path')).toHaveStyle('fill: #000');
-    });
-  });
-
-  describe('when darkMode props is true', () => {
-    let renderResult: RenderResult;
-
-    beforeEach(() => {
-      renderResult = render(<GithubIcon darkMode />);
+      renderResult = render(<GithubIcon lightMode={false} />);
     });
 
     afterEach(() => {
@@ -43,6 +23,26 @@ describe('src/components/icons/GithubIcon/GithubIcon.test.tsx', () => {
 
     it('should have style that fill is #D2D8D9', () => {
       expect(screen.getByRole('img', { name: 'GithubIcon' }).querySelector('path')).toHaveStyle('fill: #D2D8D9');
+    });
+  });
+
+  describe('when darkMode props is true', () => {
+    let renderResult: RenderResult;
+
+    beforeEach(() => {
+      renderResult = render(<GithubIcon lightMode />);
+    });
+
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should render the GithubIcon component', () => {
+      expect(screen.getByRole('img', { name: 'GithubIcon' })).toBeInTheDocument();
+    });
+
+    it('should have style that fill is #000', () => {
+      expect(screen.getByRole('img', { name: 'GithubIcon' }).querySelector('path')).toHaveStyle('fill: #000');
     });
   });
 });

@@ -15,7 +15,7 @@ const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
       <div
         className={`bear-motion absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 ${isClicked ? 'left-[92%] top-[85%] scale-100' : 'left-1/2 top-1/2 scale-150'}`}
         data-testid="bear-wrapper">
-        <button type="button" className="w-full animate-updown" onClick={handleClick}>
+        <button type="button" className="z-20 w-full animate-updown" onClick={handleClick}>
           <span className="hidden">Animated Bear</span>
           <span className="flex translate-y-[5px] animate-updown justify-between">
             <span className="h-10 w-11 skew-y-[-5deg] rounded-[50%] bg-millbrook" data-testid="bear-left-ear" />
@@ -40,7 +40,7 @@ const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
           </span>
         </button>
         <div
-          className="absolute -bottom-8 left-1/2 m-auto -mt-3 block h-4 w-[100px] -translate-x-1/2 animate-shadow rounded-full bg-dark opacity-60 blur-md"
+          className="absolute -bottom-10 left-1/2 z-10 m-auto -mt-3 block h-4 w-[100px] -translate-x-1/2 animate-shadow rounded-full bg-white opacity-30 blur-md"
           data-testid="bear-shadow"
         />
       </div>

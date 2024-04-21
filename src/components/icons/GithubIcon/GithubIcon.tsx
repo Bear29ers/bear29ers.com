@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 
 interface Props {
-  darkMode: boolean;
+  lightMode: boolean;
 }
 
-const GithubIcon: FC<Props> = ({ darkMode }) => (
+const GithubIcon: FC<Props> = ({ lightMode }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -47,7 +47,7 @@ const GithubIcon: FC<Props> = ({ darkMode }) => (
           strokeDashoffset: 0,
           strokeLinejoin: 'miter',
           strokeMiterlimit: 4,
-          fill: `${darkMode ? '#D2D8D9' : '#000'}`,
+          fill: `${lightMode ? '#000' : '#D2D8D9'}`,
           fillRule: 'nonzero',
           opacity: 1,
         }}

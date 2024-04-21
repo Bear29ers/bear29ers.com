@@ -13,14 +13,13 @@ const Home: NextPage = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
-    // TODO: ページをバウンスさせないようにする
-    <div className="relative h-screen w-screen overflow-hidden bg-iron">
+    <div className="relative h-screen w-screen overflow-hidden bg-dark">
       {/* Intro */}
       <Intro isClicked={isClicked} />
       {/* Bear */}
       <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
       {/* Social Icons */}
-      <SocialIcons darkMode={isClicked} />
+      <SocialIcons lightMode={isClicked} />
       {/* Page Navigation */}
       <PageNavigation isClicked={isClicked} />
     </div>

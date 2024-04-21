@@ -34,7 +34,7 @@ const Cursor: FC = () => {
   return (
     <motion.div
       style={{ left: smoothMouse.x, top: smoothMouse.y }}
-      className="pointer-events-none fixed z-50 size-4 rounded-full bg-dark"
+      className="pointer-events-none fixed z-50 size-4 rounded-full bg-white"
       data-testid="cursor"
     />
   );
