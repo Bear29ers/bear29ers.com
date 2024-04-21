@@ -16,10 +16,7 @@ const Status: FC = () => {
   return (
     <div className="flex flex-col px-4">
       <div className="flex-center relative mb-6 w-full max-w-xs">
-        <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-full rounded-full border border-geyser" />
-        <div className="flex-center absolute bottom-7 right-7 size-10 rounded-full border border-geyser bg-light text-xl">
-          <span>🐻</span>
-        </div>
+        <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-full rounded-full border border-hitGray" />
       </div>
       <div className="mb-6 flex flex-col">
         <h2 className="text-2xl font-bold">{PROFILE_TEXT.fullName}</h2>
@@ -36,7 +33,7 @@ const Status: FC = () => {
           </li>
         ))}
       </ul>
-      <hr className="my-8 bg-geyser" />
+      <hr className="my-8 bg-hitGray" />
       <div className="flex flex-col">
         <h3 className="mb-3 text-lg font-bold">Achievements</h3>
         <div className="flex gap-1">

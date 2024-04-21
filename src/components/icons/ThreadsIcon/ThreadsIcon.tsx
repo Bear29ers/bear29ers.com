@@ -1,10 +1,10 @@
 import type { FC } from 'react';
 
 interface Props {
-  darkMode: boolean;
+  lightMode: boolean;
 }
 
-const ThreadsIcon: FC<Props> = ({ darkMode }) => (
+const ThreadsIcon: FC<Props> = ({ lightMode }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="1em"
@@ -25,7 +25,7 @@ const ThreadsIcon: FC<Props> = ({ darkMode }) => (
           strokeDashoffset: 0,
           strokeLinejoin: 'miter',
           strokeMiterlimit: 4,
-          fill: `${darkMode ? '#D2D8D9' : '#000'}`,
+          fill: `${lightMode ? '#000' : '#D2D8D9'}`,
           fillRule: 'evenodd',
           opacity: 1,
         }}
@@ -42,7 +42,7 @@ const ThreadsIcon: FC<Props> = ({ darkMode }) => (
           strokeDashoffset: 0,
           strokeLinejoin: 'miter',
           strokeMiterlimit: 4,
-          fill: `${darkMode ? '#000' : '#D2D8D9'}`,
+          fill: `${lightMode ? '#D2D8D9' : '#000'}`,
           fillRule: 'nonzero',
           opacity: 1,
         }}
