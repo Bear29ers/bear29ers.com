@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 
 import { Montserrat } from 'next/font/google';
 
-import Cursor from '@/components/Cursor/Cursor';
 import PageAnimatePresence from '@/components/HOC/PageAnimatePresence/PageAnimatePresence';
 import Menu from '@/components/Menu/Menu';
 
@@ -31,7 +30,7 @@ const RootLayout = ({
       <body className={`${montserrat.variable} relative size-full overscroll-y-none font-mont`}>
         <Menu />
         <PageAnimatePresence>{children}</PageAnimatePresence>
-        <Cursor />
+        {/* <Cursor /> */}
       </body>
     </html>
   );
