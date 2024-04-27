@@ -14,7 +14,7 @@ import type { NextPage } from 'next';
 const About: NextPage = () => {
   return (
     <div className="flex-center w-full flex-col bg-dark text-white">
-      <div className="flex gap-x-5">
+      <div className="my-24 flex gap-x-5">
         <div>
           <AnimatedText text="About" />
         </div>
@@ -22,7 +22,7 @@ const About: NextPage = () => {
           <AnimatedText text="me" />
         </div>
       </div>
-      <div className="mx-auto flex w-full max-w-screen-xl pt-24 font-sans">
+      <div className="mx-auto flex w-full max-w-screen-xl font-sans">
         <div className="w-full max-w-xs">
           {/* Status */}
           <Status />

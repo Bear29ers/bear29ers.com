@@ -10,7 +10,6 @@ interface Props {
 
 const AnimatedText: FC<Props> = ({ text }) => {
   const lettersRef = useRef<(HTMLHeadingElement | null)[]>([]);
-  console.log('text: ', text.split(''));
 
   useEffect(() => {
     // sets up mouse movement interaction for the letters.
@@ -27,7 +26,7 @@ const AnimatedText: FC<Props> = ({ text }) => {
           const proximity = Math.max(0, maxDistance - distance) / maxDistance;
 
           // modify the font properties based on proximity to the mouse.
-          letterElement.style.fontWeight = `${300 + proximity * 1000}`;
+          letterElement.style.fontWeight = `${500 + proximity * 1300}`;
           letterElement.style.fontVariationSettings = `"wdth" ${20 * proximity + 100}`;
         }
       });
