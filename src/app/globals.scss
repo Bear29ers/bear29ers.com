@@ -3,6 +3,18 @@
 @tailwind utilities;
 
 @layer utilities {
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+
+  .transition-500 {
+    @apply transition duration-500 ease-in-out;
+  }
+
+  .writing-mode-vertical {
+    writing-mode: vertical-lr;
+  }
+
   .animation-delay-2000 {
     animation-delay: 2s;
   }
@@ -133,12 +145,4 @@
       transform: rotate(0deg);
     }
   }
-}
-
-.flex-center {
-  @apply flex items-center justify-center;
-}
-
-.transition-500 {
-  @apply transition duration-500 ease-in-out;
 }
