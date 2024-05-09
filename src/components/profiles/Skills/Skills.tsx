@@ -38,7 +38,7 @@ export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, row
 
   return (
     <motion.div
-      className="absolute cursor-pointer"
+      className="absolute cursor-grab active:cursor-grabbing"
       drag
       dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
       dragTransition={{ bounceStiffness: 2000, bounceDamping: 20 }}
