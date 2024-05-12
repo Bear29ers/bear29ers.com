@@ -23,9 +23,24 @@ const Project: FC = () => {
     setIsShow(!isShow);
   };
 
+  const bgVariants = {
+    opened: {
+      backgroundColor: '#75BD53',
+      transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
+    },
+    closed: {
+      backgroundColor: '#7F848B',
+      transition: { duration: 0.8, type: 'tween', ease: [0.76, 0, 0.24, 1] },
+    },
+  };
+
   return (
-    <div className="flex w-full max-w-lg grow flex-col bg-blue-900">
-      <div className="5 flex flex-col gap-y-3 pt-8">
+    <motion.div
+      className="flex w-full max-w-xl grow flex-col rounded-2xl px-8"
+      variants={bgVariants}
+      initial="closed"
+      animate={isShow ? 'opened' : 'closed'}>
+      <div className="flex flex-col gap-y-3 pt-8">
         <div className="flex gap-x-1.5 text-xs font-medium">
           <time>2023</time>
           <span>−</span>
@@ -96,7 +111,7 @@ const Project: FC = () => {
           )
         </AnimatePresence>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 
