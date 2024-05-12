@@ -10,7 +10,7 @@ const Experience: NextPage = () => {
         <AnimatedText text="Experience" />
       </div>
       <div className="mx-auto min-h-screen w-full max-w-screen-lg bg-stone-700">
-        <div className="flex justify-around">
+        <div className="flex items-center justify-around">
           <div className="writing-mode-vertical flex items-center gap-x-6 text-4xl font-black">
             <time>2023</time>
             <span>−</span>
@@ -53,7 +53,7 @@ const Experience: NextPage = () => {
               className="inline w-fit rounded-xl bg-pink-500 px-4 py-1 text-sm font-medium uppercase">
               Show More
             </button>
-            <div className="flex flex-col">
+            <div className="mt-4 flex flex-col gap-y-6">
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus cum ipsam? Laborum
                 voluptatem est debitis dignissimos autem necessitatibus, expedita distinctio possimus deserunt eum
@@ -62,8 +62,18 @@ const Experience: NextPage = () => {
                 consequuntur ullam, eum deleniti voluptates, qui exercitationem sit quo quam voluptatum blanditiis,
                 beatae ipsum voluptatem voluptas maiores natus facilis consequatur?
               </p>
-              <div className="flex flex-col">
+              <div className="flex flex-col gap-y-5">
                 <h3 className="text-xl font-bold">Some Highlights</h3>
+                <div className="flex flex-col gap-y-2">
+                  <span className="flex w-fit items-center gap-x-2 rounded-xl bg-amber-950 px-4 py-2">
+                    <span>&#127775;</span>
+                    <span className="font-medium">tennant-theming for an existing component library</span>
+                  </span>
+                  <span className="flex w-fit items-center gap-x-2 rounded-xl bg-amber-950 px-4 py-2">
+                    <span>&#127775;</span>
+                    <span className="font-medium">Introduced Designed Tokens</span>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
