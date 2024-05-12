@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import { Project } from '@/common/types/experience';
+import type { Project as ProjectType } from '@/common/types/experience';
 
 import ProjectHighlight from '../projects/ProjectHighlight/ProjectHighlight';
 import ProjectTag from '../projects/ProjectTag/ProjectTag';
@@ -34,7 +34,7 @@ const variants = {
 };
 
 interface Props {
-  project: Project;
+  project: ProjectType;
 }
 
 const Project: FC<Props> = ({ project }) => {
