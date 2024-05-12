@@ -5,13 +5,13 @@ import type { NextPage } from 'next';
 
 const Experience: NextPage = () => {
   return (
-    <div className="flex-center w-full flex-col bg-dark text-white">
+    <div className="flex min-h-screen w-full flex-col items-center bg-dark text-white">
       <div className="my-24">
         <AnimatedText text="Experience" />
       </div>
-      <div className="mx-auto min-h-screen w-full max-w-screen-lg bg-hitGray">
-        <div className="flex items-center justify-around">
-          <div className="writing-mode-vertical flex items-center gap-x-6 text-4xl font-black">
+      <div className="mx-auto w-full max-w-screen-lg">
+        <div className="flex items-center justify-between">
+          <div className="writing-mode-vertical flex items-center gap-x-6 pl-12 text-4xl font-black">
             <time>2023</time>
             <span>−</span>
             <time>now</time>

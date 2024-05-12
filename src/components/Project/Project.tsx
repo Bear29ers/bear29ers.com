@@ -6,6 +6,17 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
+const bgVariants = {
+  opened: {
+    backgroundColor: '#75BD53',
+    transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
+  },
+  closed: {
+    backgroundColor: '#232A36',
+    transition: { duration: 0.9, type: 'tween', ease: [0.76, 0, 0.24, 1] },
+  },
+};
+
 const variants = {
   opened: {
     height: 'auto',
@@ -23,24 +34,13 @@ const Project: FC = () => {
     setIsShow(!isShow);
   };
 
-  const bgVariants = {
-    opened: {
-      backgroundColor: '#75BD53',
-      transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
-    },
-    closed: {
-      backgroundColor: '#7F848B',
-      transition: { duration: 0.8, type: 'tween', ease: [0.76, 0, 0.24, 1] },
-    },
-  };
-
   return (
     <motion.div
-      className="flex w-full max-w-xl grow flex-col rounded-2xl px-8"
+      className="flex w-full max-w-3xl grow flex-col rounded-2xl px-8"
       variants={bgVariants}
       initial="closed"
       animate={isShow ? 'opened' : 'closed'}>
-      <div className="flex flex-col gap-y-3 pt-8">
+      <div className="mx-auto flex max-w-xl flex-col gap-y-3 pt-8">
         <div className="flex gap-x-1.5 text-xs font-medium">
           <time>2023</time>
           <span>−</span>
@@ -61,6 +61,7 @@ const Project: FC = () => {
             <span className="font-medium">Tokyo, Japan</span>
           </div>
         </div>
+        {/* TODO: コンポーネント化 */}
         <div className="flex flex-wrap gap-1.5 text-sm font-semibold text-dark">
           <span className="rounded-md bg-pink-200 px-1.5 py-0.5">HTML</span>
           <span className="rounded-md bg-pink-200 px-1.5 py-0.5">(S)CSS</span>
@@ -79,8 +80,9 @@ const Project: FC = () => {
           Show More
         </button>
       </div>
+      {/* TODO: コンポーネント化 */}
       <motion.div
-        className="flex-col gap-y-6 overflow-hidden"
+        className="mx-auto max-w-xl flex-col gap-y-6 overflow-hidden"
         layout
         variants={variants}
         initial="closed"
@@ -97,6 +99,7 @@ const Project: FC = () => {
               voluptas maiores natus facilis consequatur?
             </p>
             <h3 className="mt-2 text-xl font-bold">Some Highlights</h3>
+            {/* TODO: コンポーネント化 */}
             <div className="flex flex-col gap-y-2">
               <span className="flex w-fit items-center gap-x-2 rounded-xl bg-amber-950 px-4 py-2">
                 <span>&#127775;</span>
