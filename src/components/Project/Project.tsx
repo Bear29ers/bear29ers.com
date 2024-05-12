@@ -6,9 +6,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
+import ProjectTag from '../projects/ProjectTag/ProjectTag';
+
 const bgVariants = {
   opened: {
-    backgroundColor: '#75BD53',
+    backgroundColor: '#29313D',
     transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
   },
   closed: {
@@ -28,6 +30,9 @@ const variants = {
   },
 };
 
+// TODO: データ化
+const tagNameList = ['HTML', '(S)CSS', 'Tailwind', 'JavaScript', 'TypeScript', 'React', 'NextJS', 'Figma', 'UI', 'UX'];
+
 const Project: FC = () => {
   const [isShow, setIsShow] = useState<boolean>(false);
   const handleClick = () => {
@@ -41,7 +46,7 @@ const Project: FC = () => {
       initial="closed"
       animate={isShow ? 'opened' : 'closed'}>
       <div className="mx-auto flex max-w-xl flex-col gap-y-3 pt-8">
-        <div className="flex gap-x-1.5 text-xs font-medium">
+        <div className="flex gap-x-1.5 text-xs font-medium text-gray-400">
           <time>2023</time>
           <span>−</span>
           <time>now</time>
@@ -61,17 +66,11 @@ const Project: FC = () => {
             <span className="font-medium">Tokyo, Japan</span>
           </div>
         </div>
-        {/* TODO: コンポーネント化 */}
-        <div className="flex flex-wrap gap-1.5 text-sm font-semibold text-dark">
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">HTML</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">(S)CSS</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">Tailwind</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">JavaScript</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">TypeScript</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">React</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">NextJS</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">UI</span>
-          <span className="rounded-md bg-pink-200 px-1.5 py-0.5">UX</span>
+        {/* ProjectTag */}
+        <div className="flex flex-wrap gap-1.5">
+          {tagNameList.map((tagName: string, index: number) => (
+            <ProjectTag tagName={tagName} key={index} />
+          ))}
         </div>
         <button
           type="button"
