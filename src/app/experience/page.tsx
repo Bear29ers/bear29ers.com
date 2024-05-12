@@ -9,7 +9,7 @@ const Experience: NextPage = () => {
       <div className="my-24">
         <AnimatedText text="Experience" />
       </div>
-      <div className="mx-auto min-h-screen w-full max-w-screen-lg bg-stone-700">
+      <div className="mx-auto min-h-screen w-full max-w-screen-lg bg-hitGray">
         <div className="flex items-center justify-around">
           <div className="writing-mode-vertical flex items-center gap-x-6 text-4xl font-black">
             <time>2023</time>
