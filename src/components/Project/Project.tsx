@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
+import ProjectHighlight from '../projects/ProjectHighlight/ProjectHighlight';
 import ProjectTag from '../projects/ProjectTag/ProjectTag';
 
 const bgVariants = {
@@ -32,6 +33,7 @@ const variants = {
 
 // TODO: データ化
 const tagNameList = ['HTML', '(S)CSS', 'Tailwind', 'JavaScript', 'TypeScript', 'React', 'NextJS', 'Figma', 'UI', 'UX'];
+const highlightList = ['tennant-theming for an existing component library', 'Introduced Designed Tokens'];
 
 const Project: FC = () => {
   const [isShow, setIsShow] = useState<boolean>(false);
@@ -46,6 +48,7 @@ const Project: FC = () => {
       initial="closed"
       animate={isShow ? 'opened' : 'closed'}>
       <div className="mx-auto flex max-w-xl flex-col gap-y-3 pt-8">
+        {/* Period */}
         <div className="flex gap-x-1.5 text-xs font-medium text-gray-400">
           <time>2023</time>
           <span>−</span>
@@ -53,12 +56,14 @@ const Project: FC = () => {
         </div>
         <h2 className=" text-5xl font-extrabold">Frontend Developer</h2>
         <div className="flex flex-col gap-y-1">
+          {/* Campany */}
           <div className="flex items-center gap-x-3">
             <div className="size-[18px]">
               <OrganizationIcon />
             </div>
             <span className="font-medium">Gakken LEAP Co.,Ltd</span>
           </div>
+          {/* Location */}
           <div className="flex items-center gap-x-3">
             <div className="size-[18px]">
               <LocationIcon />
@@ -79,7 +84,6 @@ const Project: FC = () => {
           Show More
         </button>
       </div>
-      {/* TODO: コンポーネント化 */}
       <motion.div
         className="mx-auto max-w-xl flex-col gap-y-6 overflow-hidden"
         layout
@@ -89,6 +93,7 @@ const Project: FC = () => {
         <AnimatePresence>
           (isShow &&
           <div className="mb-8 flex flex-col gap-y-5">
+            {/* ProjectDescription */}
             <p className="mt-6">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam doloribus cum ipsam? Laborum
               voluptatem est debitis dignissimos autem necessitatibus, expedita distinctio possimus deserunt eum dolore
@@ -98,16 +103,11 @@ const Project: FC = () => {
               voluptas maiores natus facilis consequatur?
             </p>
             <h3 className="mt-2 text-xl font-bold">Some Highlights</h3>
-            {/* TODO: コンポーネント化 */}
+            {/* ProjectHiglight */}
             <div className="flex flex-col gap-y-2">
-              <span className="flex w-fit items-center gap-x-2 rounded-xl bg-amber-950 px-4 py-2">
-                <span>&#127775;</span>
-                <span className="font-medium">tennant-theming for an existing component library</span>
-              </span>
-              <span className="flex w-fit items-center gap-x-2 rounded-xl bg-amber-950 px-4 py-2">
-                <span>&#127775;</span>
-                <span className="font-medium">Introduced Designed Tokens</span>
-              </span>
+              {highlightList.map((highlight: string, index: number) => (
+                <ProjectHighlight highlight={highlight} key={index} />
+              ))}
             </div>
           </div>
           )
