@@ -56,6 +56,7 @@ const Project: FC<Props> = ({ project }) => {
           <span>−</span>
           <time>{project.endAt}</time>
         </div>
+        {/* Role */}
         <h2 className=" text-5xl font-extrabold">{project.role}</h2>
         <div className="flex flex-col gap-y-1">
           {/* Campany */}
