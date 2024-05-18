@@ -29,6 +29,11 @@ describe('src/components/Project/Project.test.tsx', () => {
   });
 
   describe('Initial state', () => {
+    it('should render the container with #232A36 background color', () => {
+      expect(screen.getByTestId('project-container')).toBeInTheDocument();
+      expect(screen.getByTestId('project-container')).toHaveStyle('backgroundColor: #232A36');
+    });
+
     it('should render the period', () => {
       expect(screen.getByText(projectData.startAt)).toBeInTheDocument();
       expect(screen.getByText(projectData.endAt)).toBeInTheDocument();
@@ -52,6 +57,15 @@ describe('src/components/Project/Project.test.tsx', () => {
       projectData.tagList.forEach((tag) => {
         expect(screen.getByText(tag)).toBeInTheDocument();
       });
+    });
+
+    it('should render the Show More button', () => {
+      expect(screen.getByRole('button', { name: 'Show More' })).toBeInTheDocument();
+    });
+
+    it('should render the description and the highlights section with height 0 style', () => {
+      expect(screen.getByTestId('project-info-more')).toBeInTheDocument();
+      expect(screen.getByTestId('project-info-more')).toHaveStyle('height: 0');
     });
   });
 });

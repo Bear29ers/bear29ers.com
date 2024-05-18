@@ -48,7 +48,8 @@ const Project: FC<Props> = ({ project }) => {
       className="flex w-full max-w-3xl grow flex-col rounded-2xl px-8"
       variants={bgVariants}
       initial="closed"
-      animate={isShow ? 'opened' : 'closed'}>
+      animate={isShow ? 'opened' : 'closed'}
+      data-testid="project-container">
       <div className="flex max-w-xl flex-col gap-y-3 pt-8">
         {/* Period */}
         <div className="flex gap-x-1.5 text-xs font-medium text-gray-400">
@@ -82,9 +83,9 @@ const Project: FC<Props> = ({ project }) => {
         </div>
         <button
           type="button"
-          className="inline w-fit rounded-xl bg-pink-500 px-4 py-1 text-sm font-medium uppercase"
+          className="transition-500 inline w-fit rounded-xl bg-pink-500 px-4 py-1 text-sm font-medium uppercase hover:bg-pink-400"
           onClick={handleClick}>
-          Show More
+          {isShow ? 'Show Less' : 'Show More'}
         </button>
       </div>
       <motion.div
@@ -92,7 +93,8 @@ const Project: FC<Props> = ({ project }) => {
         layout
         variants={variants}
         initial="closed"
-        animate={isShow ? 'opened' : 'closed'}>
+        animate={isShow ? 'opened' : 'closed'}
+        data-testid="project-info-more">
         <AnimatePresence>
           (isShow &&
           <div className="mb-8 flex flex-col gap-y-5">
