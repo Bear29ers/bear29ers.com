@@ -1,10 +1,23 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import ProjectTag from './ProjectTag';
 
+import type { RenderResult } from '@testing-library/react';
+
 describe('src/components/projects/ProjectTag/ProjectTag.test.tsx', () => {
-  it('should render the ProjectTag component', () => {
-    const { getByRole } = render(<ProjectTag />);
+  const tagName = 'HTML';
+  let renderResult: RenderResult;
+
+  beforeEach(() => {
+    renderResult = render(<ProjectTag tagName={tagName} />);
+  });
+
+  afterEach(() => {
+    renderResult.unmount();
+  });
+
+  it('should render a project tag', () => {
+    expect(screen.getByText(tagName)).toBeInTheDocument();
   });
 });
