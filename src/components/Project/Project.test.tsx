@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import Project from './Project';
@@ -18,17 +18,17 @@ describe('src/components/Project/Project.test.tsx', () => {
     highlightList: ['Highlight 1', 'Highlight 2'],
   };
 
-  let renderResult: RenderResult;
+  describe('initial state', () => {
+    let renderResult: RenderResult;
 
-  beforeEach(() => {
-    renderResult = render(<Project project={projectData} />);
-  });
+    beforeEach(() => {
+      renderResult = render(<Project project={projectData} />);
+    });
 
-  afterEach(() => {
-    renderResult.unmount();
-  });
+    afterEach(() => {
+      renderResult.unmount();
+    });
 
-  describe('Initial state', () => {
     it('should render the container with #232A36 background color', () => {
       expect(screen.getByTestId('project-container')).toBeInTheDocument();
       expect(screen.getByTestId('project-container')).toHaveStyle('backgroundColor: #232A36');
@@ -63,9 +63,46 @@ describe('src/components/Project/Project.test.tsx', () => {
       expect(screen.getByRole('button', { name: 'Show More' })).toBeInTheDocument();
     });
 
+    it('should render the description', () => {
+      expect(screen.getByText(projectData.description)).toBeInTheDocument();
+    });
+
+    it('should render all highlights', () => {
+      projectData.highlightList.forEach((highlight) => {
+        expect(screen.getByText(highlight)).toBeInTheDocument();
+      });
+    });
+
     it('should render the description and the highlights section with height 0 style', () => {
       expect(screen.getByTestId('project-info-more')).toBeInTheDocument();
       expect(screen.getByTestId('project-info-more')).toHaveStyle('height: 0');
+    });
+  });
+
+  describe('when click the Show More button', () => {
+    let renderResult: RenderResult;
+
+    beforeEach(() => {
+      renderResult = render(<Project project={projectData} />);
+      fireEvent.click(screen.getByRole('button', { name: 'Show More' }));
+    });
+
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should render the container with #29313D background color', async () => {
+      await waitFor(() => {
+        expect(screen.getByTestId('project-container')).toHaveStyle('backgroundColor: #29313D');
+      });
+    });
+
+    it('should change button text to Show Less', () => {
+      expect(screen.getByRole('button', { name: 'Show Less' })).toBeInTheDocument();
+    });
+
+    it('should render the description and the highlights section with height auto style', () => {
+      expect(screen.getByTestId('project-info-more')).toHaveStyle('height: auto');
     });
   });
 });
