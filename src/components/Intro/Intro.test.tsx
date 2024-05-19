@@ -14,7 +14,7 @@ describe('src/components/Intro/Intro.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<Intro isClicked={false} />);
+      renderResult = render(<Intro isClicked={false} homeProfileText={HOME_PROFILE_TEXT} />);
     });
 
     afterEach(() => {
@@ -38,7 +38,7 @@ describe('src/components/Intro/Intro.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<Intro isClicked />);
+      renderResult = render(<Intro isClicked homeProfileText={HOME_PROFILE_TEXT} />);
     });
 
     afterEach(() => {
