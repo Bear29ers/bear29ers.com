@@ -15,6 +15,7 @@ const config: Config = {
         darkGray: '#2C3641',
         darkerGray: '#29313D',
         hitGray: '#7F848B',
+        lightGray: '#D2D8D9',
         maximumBlue: '#3AAFC9',
         mediumSlateBlue: '#676CDB',
         mantis: '#75BD53',
