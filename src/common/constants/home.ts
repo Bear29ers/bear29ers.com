@@ -1,10 +1,8 @@
+import type { HomeText } from '@/common/types/home';
+
 // プロフィールテキスト
-export const HOME_PROFILE_TEXT = {
-  firstName: 'Yuta',
-  lastName: 'Okuma',
-  fullName: 'Yuta Okuma',
+export const HOME_PROFILE_TEXT: HomeText = {
   userName: 'Bear29ers',
-  email: 'y.earl27.bear@yahoo.ne.jp',
   occupation: 'Frontend Developer & Designer',
   profileAlt: 'bear29ers',
 };
