@@ -98,10 +98,10 @@ const Project: FC<Props> = ({ project }) => {
         <AnimatePresence>
           (isShow &&
           <div className="mb-8 flex flex-col gap-y-5">
-            {/* ProjectDescription */}
+            {/* Description */}
             <p className="mt-6">{project.description}</p>
             <h3 className="mt-2 text-xl font-bold">Some Highlights</h3>
-            {/* ProjectHiglight */}
+            {/* Higlights */}
             <div className="flex flex-col gap-y-2">
               {project.highlightList.map((highlight: string, index: number) => (
                 <ProjectHighlight highlight={highlight} key={index} />
