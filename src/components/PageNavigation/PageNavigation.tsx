@@ -31,7 +31,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
         </MotionLink>
         <MotionLink
           href="/experience"
-          className={`z-40 text-2xl font-semibold ${isClicked ? 'text-dark' : 'text-white'}`}
+          className="z-40 text-2xl font-semibold text-white"
           initial={{ y: 200 }}
           animate={{ y: 0, transition: { type: 'spring', duration: 1.5, delay: 1.0 } }}
           whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
