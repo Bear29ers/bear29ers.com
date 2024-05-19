@@ -15,10 +15,10 @@ const AnimatedText: FC<Props> = ({ text }) => {
     // sets up mouse movement interaction for the letters.
     const handleMouseMove = (e: MouseEvent) => {
       // handle mouse movement to change font properties based on proximity to the mouse.
-      lettersRef.current.forEach((letter: HTMLHeadingElement) => {
-        const letterElement = letter;
+      lettersRef.current.forEach((letter: HTMLHeadingElement | null) => {
+        const letterElement = letter as HTMLHeadingElement;
         if (letterElement) {
-          const rect = letter.getBoundingClientRect();
+          const rect = letterElement.getBoundingClientRect();
           const dx = e.clientX - (rect.left + rect.width / 2);
           const dy = e.clientY - (rect.top + rect.height / 2);
           const distance = Math.sqrt(dx * dx + dy * dy);
