@@ -7,6 +7,8 @@ import Intro from '@/components/Intro/Intro';
 import PageNavigation from '@/components/PageNavigation/PageNavigation';
 import SocialIcons from '@/components/SocialIcons/SocialIcons';
 
+import { HOME_PROFILE_TEXT } from '@/common/constants/home';
+
 import type { NextPage } from 'next';
 
 const Home: NextPage = () => {
@@ -15,7 +17,7 @@ const Home: NextPage = () => {
   return (
     <div className="relative h-screen w-screen overflow-hidden bg-dark">
       {/* Intro */}
-      <Intro isClicked={isClicked} />
+      <Intro isClicked={isClicked} homeProfileText={HOME_PROFILE_TEXT} />
       {/* Bear */}
       <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
       {/* Social Icons */}
