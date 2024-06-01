@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
 import Footer from '@/components/Footer/Footer';
 import Biography from '@/components/profiles/Biography/Biography';
@@ -9,7 +11,11 @@ import Skills from '@/components/profiles/Skills/Skills';
 import Stats from '@/components/profiles/Stats/Stats';
 import Status from '@/components/profiles/Status/Status';
 
+import { PROFILE_TEXT } from '@/common/constants/about';
+
 import type { NextPage } from 'next';
+
+import ProfileIcon from '~/images/profile.png';
 
 const About: NextPage = () => {
   return (
@@ -22,6 +28,21 @@ const About: NextPage = () => {
           <AnimatedText text="me" />
         </div>
       </div>
+      {/* new */}
+      <div className="flex flex-col">
+        <div className="flex-center relative size-[345px] rounded-full bg-darkGray">
+          <div className="flex-center size-80 rounded-full bg-darker">
+            <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-52" />
+          </div>
+          <span className="absolute left-32 top-12 size-3 rounded-full bg-mantis" />
+          <span className="absolute left-6 top-16 size-9 rotate-[60deg] rounded-lg bg-maximumBlue" />
+          <span className="absolute bottom-36 left-4 size-4 rounded-full bg-mediumSlateBlue" />
+          <span className="absolute right-0 top-9 size-12 rotate-[30deg] rounded-lg bg-mediumSlateBlue" />
+          <span className="absolute bottom-28 right-16 size-2.5 rounded-full bg-maximumBlue" />
+          <span className="absolute bottom-6 right-24 size-6 rotate-[15deg] rounded-lg bg-mantis" />
+        </div>
+      </div>
+      {/* old */}
       <div className="mx-auto flex w-full max-w-screen-xl font-sans">
         <div className="w-full max-w-xs">
           {/* Status */}
