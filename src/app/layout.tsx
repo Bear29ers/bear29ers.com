@@ -1,19 +1,13 @@
 import type { ReactNode } from 'react';
 
-import { Montserrat } from 'next/font/google';
-
 import PageAnimatePresence from '@/components/HOC/PageAnimatePresence/PageAnimatePresence';
 import Menu from '@/components/Menu/Menu';
+
+import { montserrat } from '@/common/utils/fonts';
 
 import type { Metadata } from 'next';
 
 import '@/app/globals.scss';
-
-const montserrat = Montserrat({
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
-  subsets: ['latin'],
-  variable: '--font-mont',
-});
 
 export const metadata: Metadata = {
   title: 'Bear29ers',
