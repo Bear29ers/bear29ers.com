@@ -1,3 +1,6 @@
+'use client';
+
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
@@ -11,11 +14,14 @@ import Skills from '@/components/profiles/Skills/Skills';
 import Stats from '@/components/profiles/Stats/Stats';
 import Status from '@/components/profiles/Status/Status';
 
-import { PROFILE_TEXT } from '@/common/constants/about';
+import { ACHIEVEMENTS, PROFILE_DETAILS, PROFILE_TEXT } from '@/common/constants/about';
+import type { Achievement, ProfileDetail } from '@/common/types/about';
 
 import type { NextPage } from 'next';
 
 import ProfileIcon from '~/images/profile.png';
+
+const FramerImage = motion(Image);
 
 const About: NextPage = () => {
   return (
@@ -29,8 +35,8 @@ const About: NextPage = () => {
         </div>
       </div>
       {/* new */}
-      <div className="flex flex-col">
-        <div className="flex-center relative size-[345px] rounded-full bg-darkGray">
+      <div className="flex h-[360px] items-center">
+        <div className="flex-center relative -mr-32 size-[360px] rounded-full bg-darkGray">
           <div className="flex-center size-80 rounded-full bg-darker">
             <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-52" />
           </div>
@@ -40,6 +46,43 @@ const About: NextPage = () => {
           <span className="absolute right-0 top-9 size-12 rotate-[30deg] rounded-lg bg-mediumSlateBlue" />
           <span className="absolute bottom-28 right-16 size-2.5 rounded-full bg-maximumBlue" />
           <span className="absolute bottom-6 right-24 size-6 rotate-[15deg] rounded-lg bg-mantis" />
+        </div>
+        <div>
+          <div className="flex gap-x-10 rounded-3xl bg-darkGray py-10 pl-48 pr-16">
+            <div className="flex flex-col gap-y-8">
+              <div>
+                <h2 className="text-2xl font-bold">Yuta Okuma</h2>
+                <h4 className="text-xl text-lightGray">Bear29ers</h4>
+              </div>
+              <ul className="flex flex-col gap-y-2">
+                {PROFILE_DETAILS.map((profileDetail: ProfileDetail) => (
+                  <li className="flex items-center gap-x-3" key={profileDetail.type}>
+                    <div className="size-[18px]">
+                      <profileDetail.icon />
+                    </div>
+                    <span>{profileDetail.content}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <span className="w-0.5 bg-white" />
+            <div className="flex flex-col">
+              <h3 className="mb-5 text-xl font-bold">My Favorite Teams</h3>
+              <div className="flex gap-1">
+                {ACHIEVEMENTS.map((achievement: Achievement) => (
+                  <FramerImage
+                    src={achievement.src}
+                    alt={`Achievement: ${achievement.alt}`}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                    key={achievement.id}
+                    className="h-auto w-16 cursor-pointer"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* old */}
