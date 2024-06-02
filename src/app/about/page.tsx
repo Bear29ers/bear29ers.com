@@ -5,15 +5,16 @@ import Image from 'next/image';
 
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
 import Footer from '@/components/Footer/Footer';
+import Ambition from '@/components/profiles/Ambition/Ambition';
 import Biography from '@/components/profiles/Biography/Biography';
+import SectionTitle from '@/components/profiles/SectionTitle/SectionTitle';
 import Skills from '@/components/profiles/Skills/Skills';
 
-import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS, RESOLUTIONS } from '@/common/constants/about';
+import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/common/constants/about';
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
 import getIconComponent from '@/common/functions/getIconComponent';
 import type { ProfileDetail, Team } from '@/common/types/about';
 import type { SocialMedia } from '@/common/types/socialMedia';
-import { damion } from '@/common/utils/fonts';
 
 import type { NextPage } from 'next';
 
@@ -106,36 +107,27 @@ const About: NextPage = () => {
         </div>
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-48">
           {/* Biography */}
-          <Biography />
+          <div className="flex flex-col items-center gap-y-16">
+            <div className="-rotate-12">
+              <SectionTitle title="Biography" />
+            </div>
+            <Biography />
+          </div>
           {/* Skills */}
           <div className="flex flex-col items-center gap-y-16">
-            {/* section title */}
-            <div className="relative w-fit -rotate-12">
-              <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Skills</h2>
-              <h4
-                className={`${damion.variable} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-damion text-8xl text-hitGray`}>
-                Skills
-              </h4>
+            <div className="-rotate-12">
+              <SectionTitle title="Skills" />
             </div>
             <Skills />
           </div>
           {/* Ambition */}
           <div className="flex items-center">
-            {/* section title */}
-            <div className="relative w-fit -rotate-12">
-              <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Ambition</h2>
-              <h4
-                className={`${damion.variable} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-damion text-8xl text-hitGray`}>
-                Ambition
-              </h4>
+            <div className="-rotate-12">
+              <SectionTitle title="Ambition" />
             </div>
-            <ul className="z-10 list-inside list-disc space-y-3">
-              {RESOLUTIONS.map((resolution) => (
-                <li key={resolution.id} className="text-xl">
-                  {resolution.text}
-                </li>
-              ))}
-            </ul>
+            <div className="z-10">
+              <Ambition />
+            </div>
           </div>
         </div>
       </div>

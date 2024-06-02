@@ -33,7 +33,7 @@ export interface Team {
   src: StaticImageData;
 }
 
-export interface Resolution {
+export interface Ambition {
   id: number;
   text: string;
 }
