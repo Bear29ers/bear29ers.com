@@ -5,6 +5,7 @@ import Image from 'next/image';
 
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
 import Footer from '@/components/Footer/Footer';
+import { WavingHand } from '@/components/icons/ProfileIcons/ProfileIcons';
 import Biography from '@/components/profiles/Biography/Biography';
 import Contact from '@/components/profiles/Contact/Contact';
 import Contributions from '@/components/profiles/Contributions/Contributions';
@@ -87,16 +88,61 @@ const About: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center">
-          {/* section title */}
-          <div className="relative w-fit -rotate-12">
-            <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Biography</h2>
-            <h4
-              className={`${damion.variable} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-damion text-8xl text-hitGray`}>
-              Biography
-            </h4>
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-y-24">
+          {/* Biography */}
+          <div className="flex flex-col items-center gap-y-16">
+            {/* section title */}
+            <div className="relative w-fit -rotate-12">
+              <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Biography</h2>
+              <h4
+                className={`${damion.variable} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-damion text-8xl text-hitGray`}>
+                Biography
+              </h4>
+            </div>
+            <div>
+              <div className="flex flex-col gap-y-6">
+                <div className="flex items-end gap-x-3">
+                  <h4 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
+                  <WavingHand />
+                </div>
+                <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
+                <div className="mt-5 flex flex-col gap-y-5">
+                  {PROFILE_TEXT.biographyList.map((biography) => (
+                    <p key={biography.id} className="text-lg">
+                      {biography.text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-          <p>biography</p>
+          {/* Biography */}
+          <div className="flex flex-col items-center gap-y-16">
+            {/* section title */}
+            <div className="relative w-fit -rotate-12">
+              <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Biography</h2>
+              <h4
+                className={`${damion.variable} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-damion text-8xl text-hitGray`}>
+                Biography
+              </h4>
+            </div>
+            <div>
+              <div className="flex flex-col gap-y-6">
+                <div className="flex items-end gap-x-3">
+                  <h4 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
+                  <WavingHand />
+                </div>
+                <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
+                <div className="mt-5 flex flex-col gap-y-5">
+                  {PROFILE_TEXT.biographyList.map((biography) => (
+                    <p key={biography.id} className="text-lg">
+                      {biography.text}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* old */}
