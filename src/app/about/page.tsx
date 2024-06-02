@@ -14,7 +14,7 @@ import Resolution from '@/components/profiles/Resolution/Resolution';
 import Skills from '@/components/profiles/Skills/Skills';
 import Stats from '@/components/profiles/Stats/Stats';
 
-import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/common/constants/about';
+import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS, RESOLUTIONS } from '@/common/constants/about';
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
 import getIconComponent from '@/common/functions/getIconComponent';
 import type { ProfileDetail, Team } from '@/common/types/about';
@@ -158,22 +158,13 @@ const About: NextPage = () => {
                 Ambition
               </h4>
             </div>
-            <div>
-              <div className="flex flex-col gap-y-6">
-                <div className="flex items-end gap-x-3">
-                  <h4 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
-                  <WavingHand />
-                </div>
-                <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
-                <div className="mt-5 flex flex-col gap-y-5">
-                  {PROFILE_TEXT.biographyList.map((biography) => (
-                    <p key={biography.id} className="text-lg">
-                      {biography.text}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
+            <ul className="list-inside list-disc space-y-3">
+              {RESOLUTIONS.map((resolution) => (
+                <li key={resolution.id} className="text-xl">
+                  {resolution.text}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
