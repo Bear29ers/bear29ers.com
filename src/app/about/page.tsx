@@ -15,7 +15,10 @@ import Skills from '@/components/profiles/Skills/Skills';
 import Stats from '@/components/profiles/Stats/Stats';
 
 import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/common/constants/about';
+import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
+import getIconComponent from '@/common/functions/getIconComponent';
 import type { ProfileDetail, Team } from '@/common/types/about';
+import type { SocialMedia } from '@/common/types/socialMedia';
 import { damion } from '@/common/utils/fonts';
 
 import type { NextPage } from 'next';
@@ -69,26 +72,45 @@ const About: NextPage = () => {
                 </ul>
               </div>
               <span className="w-0.5 bg-white" />
-              <div className="flex flex-col">
-                <h3 className="mb-10 text-xl font-bold">My Favorite Teams</h3>
-                <div className="flex gap-1">
-                  {TEAMS.map((team: Team) => (
-                    <FramerImage
-                      src={team.src}
-                      alt={`${team.alt}`}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                      transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                      key={team.id}
-                      className="size-[70px] cursor-pointer rounded-full"
-                    />
-                  ))}
+              <div className="flex flex-col gap-y-4">
+                <div className="flex flex-col gap-y-2">
+                  <h3 className="text-xl font-bold">Contacts</h3>
+                  <div className="flex gap-x-4">
+                    {SOCIAL_MEDIA_LIST.map((socialMedia: SocialMedia) => (
+                      <motion.a
+                        href={socialMedia.href}
+                        target="_blank"
+                        className="size-14"
+                        whileHover={{ scale: 1.2 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                        key={socialMedia.id}>
+                        {getIconComponent(socialMedia.text, false)}
+                      </motion.a>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-col gap-y-2">
+                  <h3 className="text-xl font-bold">My Favorite Teams</h3>
+                  <div className="flex gap-x-2">
+                    {TEAMS.map((team: Team) => (
+                      <FramerImage
+                        src={team.src}
+                        alt={`${team.alt}`}
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 10 }}
+                        key={team.id}
+                        className="size-16 cursor-pointer rounded-full"
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-y-24">
+        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-y-48">
           {/* Biography */}
           <div className="flex flex-col items-center gap-y-16">
             {/* section title */}
@@ -99,31 +121,41 @@ const About: NextPage = () => {
                 Biography
               </h4>
             </div>
-            <div>
-              <div className="flex flex-col gap-y-6">
-                <div className="flex items-end gap-x-3">
-                  <h4 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
-                  <WavingHand />
-                </div>
-                <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
-                <div className="mt-5 flex flex-col gap-y-5">
-                  {PROFILE_TEXT.biographyList.map((biography) => (
-                    <p key={biography.id} className="text-lg">
-                      {biography.text}
-                    </p>
-                  ))}
-                </div>
+            <div className="flex flex-col gap-y-6">
+              <div className="flex items-end gap-x-3">
+                <h4 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
+                <WavingHand />
+              </div>
+              <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
+              <div className="mt-5 flex flex-col gap-y-5">
+                {PROFILE_TEXT.biographyList.map((biography) => (
+                  <p key={biography.id} className="text-lg">
+                    {biography.text}
+                  </p>
+                ))}
               </div>
             </div>
           </div>
-          {/* Biography */}
+          {/* Skills */}
           <div className="flex flex-col items-center gap-y-16">
             {/* section title */}
             <div className="relative w-fit -rotate-12">
-              <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Biography</h2>
+              <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Skills</h2>
               <h4
                 className={`${damion.variable} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-damion text-8xl text-hitGray`}>
-                Biography
+                Skills
+              </h4>
+            </div>
+            <Skills />
+          </div>
+          {/* Ambition */}
+          <div className="flex flex-col items-center gap-y-16">
+            {/* section title */}
+            <div className="relative w-fit -rotate-12">
+              <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Ambition</h2>
+              <h4
+                className={`${damion.variable} absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 font-damion text-8xl text-hitGray`}>
+                Ambition
               </h4>
             </div>
             <div>
