@@ -8,6 +8,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         mont: ['var(--font-mont)', ...fontFamily.sans],
+        damion: ['var(--font-damion)', ...fontFamily.sans],
       },
       colors: {
         dark: '#232A36',
