@@ -14,8 +14,8 @@ import Skills from '@/components/profiles/Skills/Skills';
 import Stats from '@/components/profiles/Stats/Stats';
 import Status from '@/components/profiles/Status/Status';
 
-import { ACHIEVEMENTS, PROFILE_DETAILS, PROFILE_TEXT } from '@/common/constants/about';
-import type { Achievement, ProfileDetail } from '@/common/types/about';
+import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/common/constants/about';
+import type { ProfileDetail, Team } from '@/common/types/about';
 
 import type { NextPage } from 'next';
 
@@ -67,17 +67,17 @@ const About: NextPage = () => {
             </div>
             <span className="w-0.5 bg-white" />
             <div className="flex flex-col">
-              <h3 className="mb-5 text-xl font-bold">My Favorite Teams</h3>
+              <h3 className="mb-10 text-xl font-bold">My Favorite Teams</h3>
               <div className="flex gap-1">
-                {ACHIEVEMENTS.map((achievement: Achievement) => (
+                {TEAMS.map((team: Team) => (
                   <FramerImage
-                    src={achievement.src}
-                    alt={`Achievement: ${achievement.alt}`}
+                    src={team.src}
+                    alt={`${team.alt}`}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-                    key={achievement.id}
-                    className="h-auto w-16 cursor-pointer"
+                    key={team.id}
+                    className="size-[70px] cursor-pointer rounded-full"
                   />
                 ))}
               </div>

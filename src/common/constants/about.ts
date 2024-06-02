@@ -6,6 +6,10 @@ import arcticCodeVault from '~/images/achievements/arctic-code-vault-contributor
 import pullShark from '~/images/achievements/pull-shark-default.png';
 import quickdraw from '~/images/achievements/quickdraw-default--light.png';
 import yolo from '~/images/achievements/yolo-default.png';
+import bluejays from '~/images/teams/bluejays.png';
+import dodgers from '~/images/teams/dodgers.png';
+import giants from '~/images/teams/giants.png';
+import yankees from '~/images/teams/yankees.png';
 
 export const PROFILE_TEXT: ProfileText = {
   fullName: 'Yuta Okuma',
@@ -81,6 +85,29 @@ export const ACHIEVEMENTS: Achievement[] = [
     id: 4,
     alt: 'Arctic Code Vault Contributor',
     src: arcticCodeVault,
+  },
+];
+
+export const TEAMS: Team[] = [
+  {
+    id: 1,
+    alt: 'Los Angeles Dodgers',
+    src: dodgers,
+  },
+  {
+    id: 2,
+    alt: 'New York Yankees',
+    src: yankees,
+  },
+  {
+    id: 3,
+    alt: 'Toronto Blue Jays',
+    src: bluejays,
+  },
+  {
+    id: 4,
+    alt: 'Tokyo Yomiuri Giants',
+    src: giants,
   },
 ];
 

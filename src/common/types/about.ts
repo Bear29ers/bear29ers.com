@@ -27,6 +27,12 @@ export interface Achievement {
   src: StaticImageData;
 }
 
+export interface Team {
+  id: number;
+  alt: string;
+  src: StaticImageData;
+}
+
 export interface Resolution {
   id: number;
   text: string;
