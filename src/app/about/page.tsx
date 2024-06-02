@@ -6,13 +6,7 @@ import Image from 'next/image';
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
 import Footer from '@/components/Footer/Footer';
 import { WavingHand } from '@/components/icons/ProfileIcons/ProfileIcons';
-import Biography from '@/components/profiles/Biography/Biography';
-import Contact from '@/components/profiles/Contact/Contact';
-import Contributions from '@/components/profiles/Contributions/Contributions';
-import Edit from '@/components/profiles/Edit/Edit';
-import Resolution from '@/components/profiles/Resolution/Resolution';
 import Skills from '@/components/profiles/Skills/Skills';
-import Stats from '@/components/profiles/Stats/Stats';
 
 import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS, RESOLUTIONS } from '@/common/constants/about';
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
@@ -40,7 +34,7 @@ const About: NextPage = () => {
       </div>
       {/* new */}
       <div className="flex flex-col gap-y-28">
-        <div className="flex h-[360px] items-center">
+        <div className="flex-center h-[360px]">
           <div className="flex-center relative -mr-32 size-[360px] rounded-full bg-darkGray">
             <div className="flex-center size-80 rounded-full bg-darker">
               <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-52" />
@@ -110,7 +104,7 @@ const About: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-y-48">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-48">
           {/* Biography */}
           <div className="flex flex-col items-center gap-y-16">
             {/* section title */}
@@ -121,7 +115,7 @@ const About: NextPage = () => {
                 Biography
               </h4>
             </div>
-            <div className="flex flex-col gap-y-6">
+            <div className="flex w-full max-w-5xl flex-col gap-y-6">
               <div className="flex items-end gap-x-3">
                 <h4 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
                 <WavingHand />
@@ -149,7 +143,7 @@ const About: NextPage = () => {
             <Skills />
           </div>
           {/* Ambition */}
-          <div className="flex flex-col items-center gap-y-16">
+          <div className="flex items-center">
             {/* section title */}
             <div className="relative w-fit -rotate-12">
               <h2 className={`${damion.variable} font-damion text-[200px] text-darkerGray`}>Ambition</h2>
@@ -158,38 +152,13 @@ const About: NextPage = () => {
                 Ambition
               </h4>
             </div>
-            <ul className="list-inside list-disc space-y-3">
+            <ul className="z-10 list-inside list-disc space-y-3">
               {RESOLUTIONS.map((resolution) => (
                 <li key={resolution.id} className="text-xl">
                   {resolution.text}
                 </li>
               ))}
             </ul>
-          </div>
-        </div>
-      </div>
-      {/* old */}
-      <div className="mx-auto mt-24 flex w-full max-w-screen-xl font-sans">
-        {/* <div className="w-full max-w-xs"> */}
-        {/* Status */}
-        {/* <Status /> */}
-        {/* </div> */}
-        <div className="grow rounded-lg border border-hitGray p-6">
-          {/* Edit */}
-          <Edit />
-          <div className="flex flex-col gap-y-16">
-            {/* Biography */}
-            <Biography />
-            {/* Resolution */}
-            <Resolution />
-            {/* Contact */}
-            <Contact />
-            {/* Skills */}
-            <Skills />
-            {/* Stats */}
-            <Stats />
-            {/* Contributions */}
-            <Contributions />
           </div>
         </div>
       </div>
