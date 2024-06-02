@@ -1,6 +1,6 @@
 import { OrganizationIcon, LocationIcon, WebsiteIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import type { Achievement, ProfileDetail, ProfileText, Resolution } from '@/common/types/about';
+import type { Achievement, Ambition, ProfileDetail, ProfileText, Team } from '@/common/types/about';
 
 import arcticCodeVault from '~/images/achievements/arctic-code-vault-contributor-default.png';
 import pullShark from '~/images/achievements/pull-shark-default.png';
@@ -111,7 +111,7 @@ export const TEAMS: Team[] = [
   },
 ];
 
-export const RESOLUTIONS: Resolution[] = [
+export const AMBITIONS: Ambition[] = [
   {
     id: 1,
     text: '💻 Learn higher level of Next.js and master Three.js.',
