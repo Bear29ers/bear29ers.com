@@ -20,8 +20,12 @@ describe('src/components/profiles/Biography/Biography.test.tsx', () => {
     renderResult.unmount();
   });
 
+  it('should render the short greeting text', () => {
+    expect(screen.getByRole('heading', { level: 4, name: PROFILE_TEXT.shortGreeting })).toBeInTheDocument();
+  });
+
   it('should render the title', () => {
-    expect(screen.getByRole('heading', { level: 2, name: PROFILE_TEXT.title })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 3, name: PROFILE_TEXT.title })).toBeInTheDocument();
   });
 
   it('should render the first paragraph of biography', () => {

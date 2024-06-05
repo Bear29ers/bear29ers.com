@@ -183,7 +183,7 @@ const config = {
     'tailwindcss/no-custom-classname': [
       'warn',
       {
-        config: 'tailwind.config.cjs',
+        config: 'tailwind.config.ts',
         cssFiles: ['**/*.scss', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
       },
     ],
