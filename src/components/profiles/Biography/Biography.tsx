@@ -6,16 +6,17 @@ import { PROFILE_TEXT } from '@/common/constants/about';
 
 const Biography: FC = () => {
   return (
-    <div>
-      <div className="mb-6 flex items-end gap-x-3">
-        <h3 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h3>
+    <div className="flex w-full max-w-5xl flex-col gap-y-6">
+      <div className="flex items-end gap-x-3">
+        <h4 className="text-xl font-bold">{PROFILE_TEXT.shortGreeting}</h4>
         <WavingHand />
       </div>
-      <h2 className="text-2xl font-bold">{PROFILE_TEXT.title}</h2>
-      <hr className="mb-6 mt-2 bg-hitGray" />
-      <div className="flex flex-col gap-y-4">
+      <h3 className="text-2xl font-bold">{PROFILE_TEXT.title}</h3>
+      <div className="mt-5 flex flex-col gap-y-5">
         {PROFILE_TEXT.biographyList.map((biography) => (
-          <p key={biography.id}>{biography.text}</p>
+          <p key={biography.id} className="text-lg">
+            {biography.text}
+          </p>
         ))}
       </div>
     </div>

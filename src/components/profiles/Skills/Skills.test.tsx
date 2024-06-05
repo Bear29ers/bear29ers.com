@@ -17,10 +17,6 @@ describe('src/components/profiles/Skills/Skills.test.tsx', () => {
       renderResult.unmount();
     });
 
-    it('should render the title', () => {
-      expect(screen.getByRole('heading', { level: 3, name: /Skills and Tools/ })).toBeInTheDocument();
-    });
-
     it('should render the Skills component', () => {
       expect(screen.getByTestId('skills')).toBeInTheDocument();
     });

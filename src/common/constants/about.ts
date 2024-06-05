@@ -1,11 +1,15 @@
 import { OrganizationIcon, LocationIcon, WebsiteIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import type { Achievement, ProfileDetail, ProfileText, Resolution } from '@/common/types/about';
+import type { Achievement, Ambition, ProfileDetail, ProfileText, Team } from '@/common/types/about';
 
 import arcticCodeVault from '~/images/achievements/arctic-code-vault-contributor-default.png';
 import pullShark from '~/images/achievements/pull-shark-default.png';
 import quickdraw from '~/images/achievements/quickdraw-default--light.png';
 import yolo from '~/images/achievements/yolo-default.png';
+import bluejays from '~/images/teams/bluejays.png';
+import dodgers from '~/images/teams/dodgers.png';
+import giants from '~/images/teams/giants.png';
+import yankees from '~/images/teams/yankees.png';
 
 export const PROFILE_TEXT: ProfileText = {
   fullName: 'Yuta Okuma',
@@ -84,7 +88,30 @@ export const ACHIEVEMENTS: Achievement[] = [
   },
 ];
 
-export const RESOLUTIONS: Resolution[] = [
+export const TEAMS: Team[] = [
+  {
+    id: 1,
+    alt: 'Los Angeles Dodgers',
+    src: dodgers,
+  },
+  {
+    id: 2,
+    alt: 'New York Yankees',
+    src: yankees,
+  },
+  {
+    id: 3,
+    alt: 'Toronto Blue Jays',
+    src: bluejays,
+  },
+  {
+    id: 4,
+    alt: 'Tokyo Yomiuri Giants',
+    src: giants,
+  },
+];
+
+export const AMBITIONS: Ambition[] = [
   {
     id: 1,
     text: '💻 Learn higher level of Next.js and master Three.js.',

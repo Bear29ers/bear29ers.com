@@ -66,11 +66,10 @@ const Skills: FC = () => {
 
   return (
     <div>
-      <h3 className="mb-4 text-xl font-bold">🛠️ Skills and Tools</h3>
       <div style={{ perspective: 1000 }}>
         <motion.div
           transition={{ duration: 10, loop: Infinity, ease: 'linear' }}
-          className="size-full"
+          className="size-fit"
           data-testid="skills">
           <motion.div
             className="relative flex"
