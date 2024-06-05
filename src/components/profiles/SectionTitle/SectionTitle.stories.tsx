@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof SectionTitle> = {
   component: SectionTitle,
+  tags: ['autodocs'],
 };
 
 export default meta;
@@ -11,5 +12,10 @@ export default meta;
 type Story = StoryObj<typeof SectionTitle>;
 
 export const Default: Story = {
-  render: () => <SectionTitle />,
+  args: {
+    title: 'Biography',
+  },
+  render: ({ title }) => {
+    return <SectionTitle title={title} />;
+  },
 };
