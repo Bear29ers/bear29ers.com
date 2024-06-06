@@ -13,7 +13,7 @@ type Story = StoryObj<typeof MenuList>;
 export const Default: Story = {
   render: () => {
     return (
-      <div className="relative h-[650px] w-[500px] rounded-3xl bg-poloBlue">
+      <div className="relative h-[650px] w-[500px] rounded-3xl bg-dark">
         <MenuList />
       </div>
     );
