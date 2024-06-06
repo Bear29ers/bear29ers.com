@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof PageNavigation> = {
   component: PageNavigation,
+  tags: ['autodocs'],
 };
 
 export default meta;
