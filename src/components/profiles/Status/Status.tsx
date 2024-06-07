@@ -20,13 +20,27 @@ const Status: FC = () => {
         <div className="flex-center size-80 rounded-full bg-darker">
           <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-52" />
         </div>
-        {/* TODO: ホバーアニメーション入れたい */}
         <span className="absolute left-32 top-12 size-3 rounded-full bg-mantis" />
-        <span className="absolute left-6 top-16 size-9 rotate-[60deg] rounded-lg bg-maximumBlue" />
+        <motion.span
+          className="absolute left-6 top-16 size-9 rounded-lg bg-maximumBlue"
+          initial={{ rotate: 60 }}
+          whileHover={{ scale: 1.2, rotate: 240 }}
+          transition={{ type: 'spring', stiffness: 400 }}
+        />
         <span className="absolute bottom-36 left-4 size-4 rounded-full bg-mediumSlateBlue" />
-        <span className="absolute right-0 top-9 size-12 rotate-[30deg] rounded-lg bg-mediumSlateBlue" />
+        <motion.span
+          className="absolute right-0 top-9 size-12 rounded-lg bg-mediumSlateBlue"
+          initial={{ rotate: 30 }}
+          whileHover={{ scale: 1.2, rotate: 210 }}
+          transition={{ type: 'spring', stiffness: 400 }}
+        />
         <span className="absolute bottom-28 right-16 size-2.5 rounded-full bg-maximumBlue" />
-        <span className="absolute bottom-6 right-24 size-6 rotate-[15deg] rounded-lg bg-mantis" />
+        <motion.span
+          className="absolute bottom-6 right-24 size-7 rounded-md bg-mantis"
+          initial={{ rotate: 15 }}
+          whileHover={{ scale: 1.2, rotate: 195 }}
+          transition={{ type: 'spring', stiffness: 400 }}
+        />
       </div>
       <div>
         <div className="flex gap-x-10 rounded-3xl bg-darkGray py-10 pl-48 pr-16">
