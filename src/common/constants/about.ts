@@ -1,11 +1,7 @@
 import { OrganizationIcon, LocationIcon, WebsiteIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import type { Achievement, Ambition, ProfileDetail, ProfileText, Team } from '@/common/types/about';
+import type { Ambition, ProfileDetail, ProfileText, Team } from '@/common/types/about';
 
-import arcticCodeVault from '~/images/achievements/arctic-code-vault-contributor-default.png';
-import pullShark from '~/images/achievements/pull-shark-default.png';
-import quickdraw from '~/images/achievements/quickdraw-default--light.png';
-import yolo from '~/images/achievements/yolo-default.png';
 import bluejays from '~/images/teams/bluejays.png';
 import dodgers from '~/images/teams/dodgers.png';
 import giants from '~/images/teams/giants.png';
@@ -62,29 +58,6 @@ export const PROFILE_DETAILS: ProfileDetail[] = [
     // TODO: サイトデプロイ後に修正
     content: 'https://bear29ers.github.io',
     icon: WebsiteIcon,
-  },
-];
-
-export const ACHIEVEMENTS: Achievement[] = [
-  {
-    id: 1,
-    alt: 'YOLO',
-    src: yolo,
-  },
-  {
-    id: 2,
-    alt: 'Quickdraw',
-    src: quickdraw,
-  },
-  {
-    id: 3,
-    alt: 'Pull Shark',
-    src: pullShark,
-  },
-  {
-    id: 4,
-    alt: 'Arctic Code Vault Contributor',
-    src: arcticCodeVault,
   },
 ];
 
