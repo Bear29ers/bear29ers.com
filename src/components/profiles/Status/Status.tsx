@@ -46,8 +46,8 @@ const Status: FC = () => {
         <div className="flex gap-x-10 rounded-3xl bg-darkGray py-10 pl-48 pr-16">
           <div className="flex flex-col gap-y-8">
             <div>
-              <h2 className="text-2xl font-bold">Yuta Okuma</h2>
-              <h4 className="text-xl text-lightGray">Bear29ers</h4>
+              <h2 className="text-2xl font-bold">{PROFILE_TEXT.fullName}</h2>
+              <h4 className="text-xl text-lightGray">{PROFILE_TEXT.userName}</h4>
             </div>
             <ul className="flex flex-col gap-y-2">
               {PROFILE_DETAILS.map((profileDetail: ProfileDetail) => (

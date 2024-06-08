@@ -21,12 +21,6 @@ export interface ProfileDetail {
   icon: FC;
 }
 
-export interface Achievement {
-  id: number;
-  alt: string;
-  src: StaticImageData;
-}
-
 export interface Team {
   id: number;
   alt: string;
