@@ -40,12 +40,11 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 2 }}>
-              {/* TODO: 画像が荒いので修正 */}
               <Image
                 src={Memoji}
                 alt={homeProfileText.profileAlt}
                 role="img"
-                className="absolute bottom-0 left-1/2 h-auto w-full -translate-x-1/2 pb-1"
+                className="absolute bottom-0 left-1/2 h-auto w-10/12 -translate-x-1/2 pb-1"
               />
             </motion.div>
           </motion.div>
