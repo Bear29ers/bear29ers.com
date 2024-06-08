@@ -12,7 +12,7 @@ const middleware = (req: NextRequest): NextResponse => {
     const url = req.nextUrl;
     if (basicAuth) {
       const authValue = basicAuth.split(' ')[1];
-      const [user, pwd] = atob(authValue).split(':');
+      const [user, pwd] = atob(String(authValue)).split(':');
 
       if (user === process.env.BASIC_USERNAME && pwd === process.env.BASIC_PASSWORD) {
         return NextResponse.next();
