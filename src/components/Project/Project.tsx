@@ -45,12 +45,12 @@ const Project: FC<Props> = ({ project }) => {
 
   return (
     <motion.div
-      className="flex w-full max-w-3xl grow flex-col rounded-2xl px-8"
+      className="flex w-full grow flex-col rounded-2xl px-8"
       variants={bgVariants}
       initial="closed"
       animate={isShow ? 'opened' : 'closed'}
       data-testid="project-container">
-      <div className="flex max-w-xl flex-col gap-y-3 pt-8">
+      <div className="flex flex-col gap-y-3 pt-8">
         {/* Period */}
         <div className="flex gap-x-1.5 text-xs font-medium text-gray-400">
           <time>{project.startAt}</time>
@@ -89,7 +89,7 @@ const Project: FC<Props> = ({ project }) => {
         </button>
       </div>
       <motion.div
-        className="mx-auto max-w-xl flex-col gap-y-6 overflow-hidden"
+        className="mx-auto flex-col gap-y-6 overflow-hidden"
         layout
         variants={variants}
         initial="closed"
