@@ -6,7 +6,7 @@ export interface Project {
   company: string;
   location: string;
   tagList: string[];
-  description: string;
+  description: string[];
   highlightList: string[];
 }
 
