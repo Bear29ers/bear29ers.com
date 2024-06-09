@@ -15,8 +15,8 @@ const FramerImage = motion(Image);
 
 const Status: FC = () => {
   return (
-    <div className="flex-center h-[360px]">
-      <div className="flex-center relative -mr-32 size-[360px] rounded-full bg-darkGray">
+    <div className="flex-center flex-col xl:flex-row">
+      <div className="flex-center relative -mb-40 mr-0 size-[360px] rounded-full bg-darkGray xl:-mr-32 xl:mb-0">
         <div className="flex-center size-80 rounded-full bg-darker">
           <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-52" />
         </div>
@@ -43,7 +43,7 @@ const Status: FC = () => {
         />
       </div>
       <div>
-        <div className="flex gap-x-10 rounded-3xl bg-darkGray py-10 pl-48 pr-16">
+        <div className="flex w-full gap-x-16 rounded-3xl bg-darkGray px-16 pb-16 pt-48 xl:w-fit xl:max-w-none xl:gap-x-10 xl:py-10 xl:pl-48 xl:pr-16">
           <div className="flex flex-col gap-y-8">
             <div>
               <h2 className="text-2xl font-bold">{PROFILE_TEXT.fullName}</h2>

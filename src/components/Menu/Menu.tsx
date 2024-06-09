@@ -14,7 +14,7 @@ const Menu: FC = () => {
   return (
     <div>
       {pathname !== '/' && (
-        <div className="fixed right-10 top-8 z-50">
+        <div className="fixed right-8 top-8 z-50 lg:right-10">
           <MenuWindow isOpen={isOpen} />
           <div className="absolute right-0 top-0">
             <MenuIcon isOpen={isOpen} setIsOpen={setIsOpen} />
