@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 
-import PageAnimatePresence from '@/components/HOC/PageAnimatePresence/PageAnimatePresence';
 import Menu from '@/components/Menu/Menu';
 
 import { montserrat } from '@/common/utils/fonts';
@@ -23,8 +22,7 @@ const RootLayout = ({
     <html lang="en">
       <body className={`${montserrat.variable} relative size-full overscroll-y-none font-mont`}>
         <Menu />
-        <PageAnimatePresence>{children}</PageAnimatePresence>
-        {/* <Cursor /> */}
+        {children}
       </body>
     </html>
   );
