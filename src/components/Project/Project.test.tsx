@@ -14,7 +14,7 @@ describe('src/components/Project/Project.test.tsx', () => {
     company: 'Acme Inc.',
     location: 'New York, US',
     tagList: ['React', 'Node.js', 'TypeScript'],
-    description: 'Description of the project.',
+    description: ['Description of the project.', 'or description of the company'],
     highlightList: ['Highlight 1', 'Highlight 2'],
   };
 
@@ -63,8 +63,10 @@ describe('src/components/Project/Project.test.tsx', () => {
       expect(screen.getByRole('button', { name: 'Show More' })).toBeInTheDocument();
     });
 
-    it('should render the description', () => {
-      expect(screen.getByText(projectData.description)).toBeInTheDocument();
+    it('should render the all description', () => {
+      projectData.description.forEach((description) => {
+        expect(screen.getByText(description)).toBeInTheDocument();
+      });
     });
 
     it('should render all highlights', () => {
