@@ -99,7 +99,11 @@ const Project: FC<Props> = ({ project }) => {
           (isShow &&
           <div className="mb-8 flex flex-col gap-y-5">
             {/* Description */}
-            <p className="mt-6">{project.description}</p>
+            <div className="mt-6 flex flex-col gap-y-3">
+              {project.description.map((paragraph: string, index: number) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
             <h3 className="mt-2 text-xl font-bold">Some Highlights</h3>
             {/* Higlights */}
             <div className="flex flex-col gap-y-2">

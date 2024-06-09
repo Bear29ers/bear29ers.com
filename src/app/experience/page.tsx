@@ -1,4 +1,5 @@
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
+import Footer from '@/components/Footer/Footer';
 import Project from '@/components/Project/Project';
 import Period from '@/components/projects/Period/Period';
 
@@ -10,7 +11,7 @@ import type { NextPage } from 'next';
 
 const Experience: NextPage = () => {
   return (
-    <div className="flex min-h-screen w-full flex-col items-center bg-dark pb-24 text-white">
+    <div className="flex w-full flex-col items-center bg-dark text-white">
       <div className="my-24">
         <AnimatedText text="Experience" />
       </div>
@@ -28,6 +29,8 @@ const Experience: NextPage = () => {
           </div>
         ))}
       </div>
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };
