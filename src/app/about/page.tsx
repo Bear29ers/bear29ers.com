@@ -21,7 +21,8 @@ const About: NextPage = () => {
           <AnimatedText text="me" />
         </div>
       </div>
-      <div className="flex flex-col gap-y-28">
+      <div className="flex w-full max-w-screen-lg flex-col gap-y-28 px-5 xl:max-w-none xl:px-0">
+        {/* Status */}
         <Status />
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-48">
           {/* Biography */}
@@ -39,7 +40,7 @@ const About: NextPage = () => {
             <Skills />
           </div>
           {/* Ambition */}
-          <div className="flex items-center">
+          <div className="flex flex-col items-center gap-y-16 xl:flex-row">
             <div className="-rotate-12">
               <SectionTitle title="Ambition" />
             </div>
