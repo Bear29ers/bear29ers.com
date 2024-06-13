@@ -43,7 +43,7 @@ const Status: FC = () => {
         />
       </div>
       <div>
-        <div className="flex w-full gap-x-16 rounded-3xl bg-darkGray px-16 pb-16 pt-48 xl:w-fit xl:max-w-none xl:gap-x-10 xl:py-10 xl:pl-48 xl:pr-16">
+        <div className="flex w-full gap-x-10 rounded-3xl bg-darkGray px-16 pb-16 pt-48 lg:gap-x-16 xl:w-fit xl:max-w-none xl:gap-x-10 xl:py-10 xl:pl-48 xl:pr-16">
           <div className="flex flex-col gap-y-8">
             <div>
               <h2 className="text-2xl font-bold">{PROFILE_TEXT.fullName}</h2>
