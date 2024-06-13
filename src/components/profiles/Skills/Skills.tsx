@@ -1,18 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction, FC } from 'react';
 
 import { useMotionValue, motion, useSpring } from 'framer-motion-8';
 import { distance } from 'popmotion';
 
-import { ICON_GAP_PC, ICON_SIZE_LG, SKILL_ICONS_PC } from '@/common/constants/skillIcons';
+import { ICON_GAP_PC, ICON_SIZE_LG, ICON_SIZE_MD, SKILL_ICONS_PC } from '@/common/constants/skillIcons';
 import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';
 
-const iconSize: number = ICON_SIZE_LG;
-const iconGap: number = ICON_GAP_PC;
 const numberOfRows: number = SKILL_ICONS_PC.length;
 const numberOfColumns: number = SKILL_ICONS_PC[0]?.icons.length || 0;
 
@@ -66,13 +64,24 @@ export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, row
 };
 
 const Skills: FC<Props> = ({ width }) => {
-  const [active, setActive] = useState({ row: 0, col: 0 });
+  const [active, setActive] = useState<{ row: number; col: number }>({ row: 0, col: 0 });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const [iconSize, setIconSize] = useState<number>(ICON_SIZE_LG);
+  const iconGap = ICON_GAP_PC;
+
+  useEffect(() => {
+    if (width < 800) {
+      setIconSize(ICON_SIZE_MD);
+    } else {
+      setIconSize(ICON_SIZE_LG);
+    }
+
+    setActive({ row: 0, col: 0 });
+  }, [width]);
 
   return (
     <div>
-      {width}
       <div style={{ perspective: 1000 }}>
         <motion.div
           transition={{ duration: 10, loop: Infinity, ease: 'linear' }}
