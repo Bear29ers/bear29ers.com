@@ -1,5 +1,7 @@
 'use client';
 
+import { useCallback, useRef, useSyncExternalStore } from 'react';
+
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
 import Footer from '@/components/Footer/Footer';
 import Ambition from '@/components/profiles/Ambition/Ambition';
@@ -11,8 +13,28 @@ import Status from '@/components/profiles/Status/Status';
 import type { NextPage } from 'next';
 
 const About: NextPage = () => {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  const subscribe = useCallback((onStoreChange: () => void) => {
+    const observer = new ResizeObserver((entries) => {
+      entries.forEach((el) => {
+        onStoreChange();
+      });
+    });
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  const width = useSyncExternalStore(subscribe, () => {
+    return ref.current?.offsetWidth;
+  });
+
   return (
-    <div className="flex-center w-full flex-col bg-dark text-white">
+    <div ref={ref} className="flex-center w-full flex-col bg-dark text-white">
       <div className="my-24 flex gap-x-5">
         <div>
           <AnimatedText text="About" />
@@ -22,8 +44,10 @@ const About: NextPage = () => {
         </div>
       </div>
       <div className="flex w-full max-w-screen-lg flex-col gap-y-28 px-5 xl:max-w-none xl:px-0">
-        {/* Status */}
-        <Status />
+        <div className="mx-auto w-full max-w-[95%] lg:max-w-none">
+          {/* Status */}
+          <Status />
+        </div>
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-48">
           {/* Biography */}
           <div className="flex flex-col items-center gap-y-16">
@@ -37,7 +61,7 @@ const About: NextPage = () => {
             <div className="-rotate-12">
               <SectionTitle title="Skills" />
             </div>
-            <Skills />
+            <Skills width={Number(width)} />
           </div>
           {/* Ambition */}
           <div className="flex flex-col items-center gap-y-16 xl:flex-row">

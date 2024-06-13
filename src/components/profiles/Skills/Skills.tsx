@@ -6,13 +6,13 @@ import type { Dispatch, SetStateAction, FC } from 'react';
 import { useMotionValue, motion, useSpring } from 'framer-motion-8';
 import { distance } from 'popmotion';
 
-import { ICON_GAP_PC, ICON_SIZE_PC, SKILL_ICONS_PC } from '@/common/constants/skillIcons';
+import { ICON_GAP_PC, ICON_SIZE_LG, SKILL_ICONS_PC } from '@/common/constants/skillIcons';
 import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';
 
-const size: number = ICON_SIZE_PC;
-const gap: number = ICON_GAP_PC;
+const iconSize: number = ICON_SIZE_LG;
+const iconGap: number = ICON_GAP_PC;
 const numberOfRows: number = SKILL_ICONS_PC.length;
 const numberOfColumns: number = SKILL_ICONS_PC[0]?.icons.length || 0;
 
@@ -24,9 +24,15 @@ interface SquareProps {
   rowIndex: number;
   x: MotionValue<number>;
   y: MotionValue<number>;
+  size: number;
+  gap: number;
 }
 
-export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, rowIndex, x, y }) => {
+interface Props {
+  width: number;
+}
+
+export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, rowIndex, x, y, size, gap }) => {
   const isDragging = rowIndex === active.row && colIndex === active.col;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
@@ -59,13 +65,14 @@ export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, row
   );
 };
 
-const Skills: FC = () => {
+const Skills: FC<Props> = ({ width }) => {
   const [active, setActive] = useState({ row: 0, col: 0 });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
   return (
     <div>
+      {width}
       <div style={{ perspective: 1000 }}>
         <motion.div
           transition={{ duration: 10, loop: Infinity, ease: 'linear' }}
@@ -74,8 +81,8 @@ const Skills: FC = () => {
           <motion.div
             className="relative flex"
             style={{
-              width: (size + gap) * numberOfColumns - gap,
-              height: (size + gap) * numberOfRows - gap,
+              width: (iconSize + iconGap) * numberOfColumns - iconGap,
+              height: (iconSize + iconGap) * numberOfRows - iconGap,
               perspective: 700,
             }}>
             {SKILL_ICONS_PC.map((items: SkillIcons, rowIndex: number) =>
@@ -88,6 +95,8 @@ const Skills: FC = () => {
                   colIndex={colIndex}
                   x={x}
                   y={y}
+                  size={iconSize}
+                  gap={iconGap}
                   key={`${items.row}-${item.column}`}
                 />
               ))

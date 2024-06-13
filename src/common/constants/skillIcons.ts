@@ -63,7 +63,8 @@ import {
 
 import type { SkillIcons } from '@/common/types/skillIcons';
 
-export const ICON_SIZE_PC: number = 60;
+export const ICON_SIZE_LG: number = 60;
+export const ICON_SIZE_MD: number = 50;
 
 export const ICON_GAP_PC: number = 15;
 
