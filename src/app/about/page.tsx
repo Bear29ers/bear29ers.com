@@ -44,7 +44,7 @@ const About: NextPage = () => {
         </div>
       </div>
       <div className="flex w-full max-w-screen-lg flex-col gap-y-28 px-5 xl:max-w-none xl:px-0">
-        <div className="mx-auto w-full max-w-[95%] lg:max-w-none">
+        <div className="w-full">
           {/* Status */}
           <Status />
         </div>

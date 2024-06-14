@@ -16,9 +16,9 @@ const FramerImage = motion(Image);
 const Status: FC = () => {
   return (
     <div className="flex-center flex-col xl:flex-row">
-      <div className="flex-center relative -mb-40 mr-0 size-[360px] rounded-full bg-darkGray xl:-mr-32 xl:mb-0">
-        <div className="flex-center size-80 rounded-full bg-darker">
-          <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-52" />
+      <div className="flex-center relative -mb-40 mr-0 size-[328px] rounded-full bg-darkGray md:size-[360px] xl:-mr-32 xl:mb-0">
+        <div className="flex-center size-72 rounded-full bg-darker md:size-80">
+          <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-44 md:w-52" />
         </div>
         <span className="absolute left-32 top-12 size-3 rounded-full bg-mantis" />
         <motion.span
@@ -42,8 +42,8 @@ const Status: FC = () => {
           transition={{ type: 'spring', stiffness: 400 }}
         />
       </div>
-      <div>
-        <div className="flex w-full gap-x-10 rounded-3xl bg-darkGray px-16 pb-16 pt-48 lg:gap-x-16 xl:w-fit xl:max-w-none xl:gap-x-10 xl:py-10 xl:pl-48 xl:pr-16">
+      <div className="w-full xl:w-fit">
+        <div className="flex flex-col items-center justify-center gap-10 rounded-3xl bg-darkGray px-16 pb-16 pt-48 md:flex-row lg:gap-x-16 xl:gap-x-10 xl:py-10 xl:pl-48 xl:pr-16">
           <div className="flex flex-col gap-y-8">
             <div>
               <h2 className="text-2xl font-bold">{PROFILE_TEXT.fullName}</h2>
@@ -60,11 +60,10 @@ const Status: FC = () => {
               ))}
             </ul>
           </div>
-          <span className="w-0.5 bg-white" />
-          <div className="flex flex-col gap-y-4">
-            <div className="flex flex-col gap-y-2">
+          <div className="flex flex-col gap-y-10 md:gap-y-4">
+            <div className="flex flex-col gap-y-4 md:gap-y-2">
               <h3 className="text-xl font-bold">Contacts</h3>
-              <div className="flex gap-x-4">
+              <div className="flex gap-x-5 md:gap-x-4">
                 {SOCIAL_MEDIA_LIST.map((socialMedia: SocialMedia) => (
                   <motion.a
                     href={socialMedia.href}
@@ -79,9 +78,9 @@ const Status: FC = () => {
                 ))}
               </div>
             </div>
-            <div className="flex flex-col gap-y-2">
+            <div className="flex flex-col gap-y-4 md:gap-y-2">
               <h3 className="text-xl font-bold">My Favorite Teams</h3>
-              <div className="flex gap-x-2">
+              <div className="flex gap-x-3 md:gap-x-2">
                 {TEAMS.map((team: Team) => (
                   <FramerImage
                     src={team.src}
