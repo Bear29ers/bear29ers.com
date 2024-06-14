@@ -6,13 +6,10 @@ import type { Dispatch, SetStateAction, FC } from 'react';
 import { useMotionValue, motion, useSpring } from 'framer-motion-8';
 import { distance } from 'popmotion';
 
-import { ICON_GAP_PC, ICON_SIZE_LG, ICON_SIZE_MD, SKILL_ICONS_PC } from '@/common/constants/skillIcons';
+import { ICON_GAP_PC, ICON_SIZE_LG, ICON_SIZE_MD, SKILL_ICONS_PC, SKILL_ICONS_SP } from '@/common/constants/skillIcons';
 import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';
-
-const numberOfRows: number = SKILL_ICONS_PC.length;
-const numberOfColumns: number = SKILL_ICONS_PC[0]?.icons.length || 0;
 
 interface SquareProps {
   item: SkillIcon;
@@ -20,6 +17,7 @@ interface SquareProps {
   setActive: Dispatch<SetStateAction<{ row: number; col: number }>>;
   colIndex: number;
   rowIndex: number;
+  numberOfColumns: number;
   x: MotionValue<number>;
   y: MotionValue<number>;
   size: number;
@@ -30,7 +28,18 @@ interface Props {
   width: number;
 }
 
-export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, rowIndex, x, y, size, gap }) => {
+export const Square: FC<SquareProps> = ({
+  item,
+  active,
+  setActive,
+  colIndex,
+  rowIndex,
+  numberOfColumns,
+  x,
+  y,
+  size,
+  gap,
+}) => {
   const isDragging = rowIndex === active.row && colIndex === active.col;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
@@ -69,15 +78,24 @@ const Skills: FC<Props> = ({ width }) => {
   const y = useMotionValue(0);
   const [iconSize, setIconSize] = useState<number>(ICON_SIZE_LG);
   const iconGap = ICON_GAP_PC;
+  const [iconList, setIconList] = useState<SkillIcons[]>(SKILL_ICONS_PC);
+  const numberOfRows: number = iconList.length;
+  const numberOfColumns: number = iconList[0]?.icons.length || 0;
 
   useEffect(() => {
-    if (width < 800) {
+    if (width < 700) {
+      setIconList(SKILL_ICONS_SP);
       setIconSize(ICON_SIZE_MD);
+      setActive({ row: 0, col: 0 });
+    } else if (width < 800) {
+      setIconList(SKILL_ICONS_PC);
+      setIconSize(ICON_SIZE_MD);
+      setActive({ row: 0, col: 0 });
     } else {
+      setIconList(SKILL_ICONS_PC);
       setIconSize(ICON_SIZE_LG);
+      setActive({ row: 0, col: 0 });
     }
-
-    setActive({ row: 0, col: 0 });
   }, [width]);
 
   return (
@@ -94,7 +112,7 @@ const Skills: FC<Props> = ({ width }) => {
               height: (iconSize + iconGap) * numberOfRows - iconGap,
               perspective: 700,
             }}>
-            {SKILL_ICONS_PC.map((items: SkillIcons, rowIndex: number) =>
+            {iconList.map((items: SkillIcons, rowIndex: number) =>
               items.icons.map((item: SkillIcon, colIndex: number) => (
                 <Square
                   item={item}
@@ -102,6 +120,7 @@ const Skills: FC<Props> = ({ width }) => {
                   setActive={setActive}
                   rowIndex={rowIndex}
                   colIndex={colIndex}
+                  numberOfColumns={numberOfColumns}
                   x={x}
                   y={y}
                   size={iconSize}

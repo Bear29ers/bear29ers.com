@@ -160,3 +160,116 @@ export const SKILL_ICONS_PC: SkillIcons[] = [
     ],
   },
 ];
+
+export const SKILL_ICONS_SP: SkillIcons[] = [
+  {
+    row: 1,
+    icons: [
+      { column: 1, component: HTMLIcon },
+      { column: 2, component: CSSIcon },
+      { column: 3, component: SassIcon },
+      { column: 4, component: BootstrapIcon },
+      { column: 5, component: TailwindCSSIcon },
+      { column: 6, component: JavaScriptIcon },
+    ],
+  },
+  {
+    row: 2,
+    icons: [
+      { column: 1, component: TypeScriptIcon },
+      { column: 2, component: JQueryIcon },
+      { column: 3, component: ThreeJsIcon },
+      { column: 4, component: ReactIcon },
+      { column: 5, component: StyledComponentsIcon },
+      { column: 6, component: EmotionIcon },
+    ],
+  },
+  {
+    row: 3,
+    icons: [
+      { column: 1, component: MaterialUIIcon },
+      { column: 2, component: NextJsIcon },
+      { column: 3, component: VercelIcon },
+      { column: 4, component: VueJsIcon },
+      { column: 5, component: NuxtJsIcon },
+      { column: 6, component: PiniaIcon },
+    ],
+  },
+  {
+    row: 4,
+    icons: [
+      { column: 1, component: NodeJsIcon },
+      { column: 2, component: ExpressIcon },
+      { column: 3, component: WebpackIcon },
+      { column: 4, component: ViteIcon },
+      { column: 5, component: JestIcon },
+      { column: 6, component: VitestIcon },
+    ],
+  },
+  {
+    row: 5,
+    icons: [
+      { column: 1, component: BabelIcon },
+      { column: 2, component: RegexIcon },
+      { column: 3, component: NpmIcon },
+      { column: 4, component: PnpmIcon },
+      { column: 5, component: PHPIcon },
+      { column: 6, component: LaravelIcon },
+    ],
+  },
+  {
+    row: 6,
+    icons: [
+      { column: 1, component: MySQLIcon },
+      { column: 2, component: SQLiteIcon },
+      { column: 3, component: DockerIcon },
+      { column: 4, component: GitIcon },
+      { column: 5, component: GitHubIcon },
+      { column: 6, component: GitHubActionsIcon },
+    ],
+  },
+  {
+    row: 7,
+    icons: [
+      { column: 1, component: AWSIcon },
+      { column: 2, component: FirebaseIcon },
+      { column: 3, component: VimIcon },
+      { column: 4, component: NeovimIcon },
+      { column: 5, component: LinuxIcon },
+      { column: 6, component: BashIcon },
+    ],
+  },
+  {
+    row: 8,
+    icons: [
+      { column: 1, component: LuaIcon },
+      { column: 2, component: MarkdownIcon },
+      { column: 3, component: SVGIcon },
+      { column: 4, component: WebStormIcon },
+      { column: 5, component: VSCodeIcon },
+      { column: 6, component: AtomIcon },
+    ],
+  },
+  {
+    row: 9,
+    icons: [
+      { column: 1, component: FigmaIcon },
+      { column: 2, component: XDIcon },
+      { column: 3, component: PhotoshopIcon },
+      { column: 4, component: IllustratorIcon },
+      { column: 5, component: PremiereProIcon },
+      { column: 6, component: AfterEffectsIcon },
+    ],
+  },
+  {
+    row: 10,
+    icons: [
+      { column: 1, component: PostmanIcon },
+      { column: 2, component: SentryIcon },
+      { column: 3, component: CodepenIcon },
+      { column: 4, component: StackOverflowIcon },
+      { column: 5, component: DiscordIcon },
+      { column: 6, component: AppleIcon },
+    ],
+  },
+];
