@@ -11,7 +11,7 @@ const MenuIcon: FC<Props> = ({ isOpen, setIsOpen }) => {
   };
 
   return (
-    <button className="flex-center relative size-14 rounded-full bg-darkGray" type="button" onClick={handleClick}>
+    <button className="flex-center relative size-14 rounded-full bg-darkerGray" type="button" onClick={handleClick}>
       <div className="group relative overflow-hidden">
         <div className="flex h-7 w-8 origin-center flex-col justify-between transition-all duration-300">
           <div
