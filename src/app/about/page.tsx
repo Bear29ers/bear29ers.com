@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useRef, useSyncExternalStore } from 'react';
+import { useRef } from 'react';
 
 import AnimatedText from '@/components/AnimatedText/AnimatedText';
 import Footer from '@/components/Footer/Footer';
@@ -10,28 +10,13 @@ import SectionTitle from '@/components/profiles/SectionTitle/SectionTitle';
 import Skills from '@/components/profiles/Skills/Skills';
 import Status from '@/components/profiles/Status/Status';
 
+import useWindowSize from '@/common/hooks/useWindowSize';
+
 import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   const ref = useRef<HTMLDivElement | null>(null);
-
-  const subscribe = useCallback((onStoreChange: () => void) => {
-    const observer = new ResizeObserver((entries) => {
-      entries.forEach((el) => {
-        onStoreChange();
-      });
-    });
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  const width = useSyncExternalStore(subscribe, () => {
-    return ref.current?.offsetWidth;
-  });
+  const size = useWindowSize();
 
   return (
     <div ref={ref} className="flex-center w-full flex-col bg-dark text-white">
@@ -48,7 +33,7 @@ const About: NextPage = () => {
           {/* Status */}
           <Status />
         </div>
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-48">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-28 sm:gap-y-36 md:gap-y-48">
           {/* Biography */}
           <div className="flex flex-col items-center gap-y-16">
             <div className="-rotate-12">
@@ -61,7 +46,7 @@ const About: NextPage = () => {
             <div className="-rotate-12">
               <SectionTitle title="Skills" />
             </div>
-            <Skills width={Number(width)} />
+            <Skills width={Number(size.width)} />
           </div>
           {/* Ambition */}
           <div className="flex flex-col items-center gap-y-16 xl:flex-row">

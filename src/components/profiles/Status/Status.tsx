@@ -16,27 +16,27 @@ const FramerImage = motion(Image);
 const Status: FC = () => {
   return (
     <div className="flex-center flex-col xl:flex-row">
-      <div className="flex-center relative -mb-40 mr-0 size-[328px] rounded-full bg-darkGray md:size-[360px] xl:-mr-32 xl:mb-0">
-        <div className="flex-center size-72 rounded-full bg-darker md:size-80">
-          <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-44 md:w-52" />
+      <div className="flex-center relative -mb-40 mr-0 size-[294px] rounded-full bg-darkGray ssm:size-[328px] md:size-[360px] xl:-mr-32 xl:mb-0">
+        <div className="flex-center size-64 rounded-full bg-darker ssm:size-72 md:size-80">
+          <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-36 ssm:w-44 md:w-52" />
         </div>
         <span className="absolute left-32 top-12 size-3 rounded-full bg-mantis" />
         <motion.span
-          className="absolute left-6 top-16 size-9 rounded-lg bg-maximumBlue"
+          className="absolute left-6 top-16 size-7 rounded-lg bg-maximumBlue ssm:size-9"
           initial={{ rotate: 60 }}
           whileHover={{ scale: 1.2, rotate: 240 }}
           transition={{ type: 'spring', stiffness: 400 }}
         />
         <span className="absolute bottom-36 left-4 size-4 rounded-full bg-mediumSlateBlue" />
         <motion.span
-          className="absolute right-0 top-9 size-12 rounded-lg bg-mediumSlateBlue"
+          className="absolute right-0 top-9 size-10 rounded-lg bg-mediumSlateBlue ssm:size-12"
           initial={{ rotate: 30 }}
           whileHover={{ scale: 1.2, rotate: 210 }}
           transition={{ type: 'spring', stiffness: 400 }}
         />
         <span className="absolute bottom-28 right-16 size-2.5 rounded-full bg-maximumBlue" />
         <motion.span
-          className="absolute bottom-6 right-24 size-7 rounded-md bg-mantis"
+          className="absolute bottom-6 right-24 size-5 rounded-md bg-mantis ssm:size-7"
           initial={{ rotate: 15 }}
           whileHover={{ scale: 1.2, rotate: 195 }}
           transition={{ type: 'spring', stiffness: 400 }}
@@ -68,7 +68,7 @@ const Status: FC = () => {
                   <motion.a
                     href={socialMedia.href}
                     target="_blank"
-                    className="size-14"
+                    className="size-12 ssm:size-14"
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
@@ -79,7 +79,7 @@ const Status: FC = () => {
               </div>
             </div>
             <div className="flex flex-col gap-y-4 md:gap-y-2">
-              <h3 className="text-xl font-bold">My Favorite Teams</h3>
+              <h3 className="text-xl font-bold">Favorite Teams</h3>
               <div className="flex gap-x-3 md:gap-x-2">
                 {TEAMS.map((team: Team) => (
                   <FramerImage
@@ -89,7 +89,7 @@ const Status: FC = () => {
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                     key={team.id}
-                    className="size-16 cursor-pointer rounded-full"
+                    className="size-14 cursor-pointer rounded-full ssm:size-16"
                   />
                 ))}
               </div>
