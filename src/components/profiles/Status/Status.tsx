@@ -16,25 +16,25 @@ const FramerImage = motion(Image);
 const Status: FC = () => {
   return (
     <div className="flex-center flex-col xl:flex-row">
-      <div className="flex-center relative -mb-40 mr-0 size-[294px] rounded-full bg-darkGray ssm:size-[328px] md:size-[360px] xl:-mr-32 xl:mb-0">
-        <div className="flex-center size-64 rounded-full bg-darker ssm:size-72 md:size-80">
-          <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-36 ssm:w-44 md:w-52" />
+      <div className="flex-center relative -mb-40 mr-0 size-[250px] rounded-full bg-darkGray xs:size-[294px] ssm:size-[328px] md:size-[360px] xl:-mr-32 xl:mb-0">
+        <div className="flex-center size-56 rounded-full bg-darker xs:size-64 ssm:size-72 md:size-80">
+          <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-28 xs:w-36 ssm:w-44 md:w-52" />
         </div>
-        <span className="absolute left-32 top-12 size-3 rounded-full bg-mantis" />
+        <span className="absolute left-32 top-9 size-2 rounded-full bg-mantis xs:top-12 xs:size-3" />
         <motion.span
-          className="absolute left-6 top-16 size-7 rounded-lg bg-maximumBlue ssm:size-9"
+          className="absolute left-6 top-12 size-7 rounded-lg bg-maximumBlue xs:top-16 ssm:size-9"
           initial={{ rotate: 60 }}
           whileHover={{ scale: 1.2, rotate: 240 }}
           transition={{ type: 'spring', stiffness: 400 }}
         />
-        <span className="absolute bottom-36 left-4 size-4 rounded-full bg-mediumSlateBlue" />
+        <span className="absolute bottom-24 left-4 size-3 rounded-full bg-mediumSlateBlue xs:bottom-36 xs:size-4" />
         <motion.span
           className="absolute right-0 top-9 size-10 rounded-lg bg-mediumSlateBlue ssm:size-12"
           initial={{ rotate: 30 }}
           whileHover={{ scale: 1.2, rotate: 210 }}
           transition={{ type: 'spring', stiffness: 400 }}
         />
-        <span className="absolute bottom-28 right-16 size-2.5 rounded-full bg-maximumBlue" />
+        <span className="absolute bottom-28 right-10 size-1.5 rounded-full bg-maximumBlue xs:right-16 xs:size-2.5" />
         <motion.span
           className="absolute bottom-6 right-24 size-5 rounded-md bg-mantis ssm:size-7"
           initial={{ rotate: 15 }}

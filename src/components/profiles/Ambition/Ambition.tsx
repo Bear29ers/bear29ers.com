@@ -5,7 +5,7 @@ import type { Ambition as AmbitionType } from '@/common/types/about';
 
 const Ambition: FC = () => {
   return (
-    <ul className="list-inside list-disc space-y-3">
+    <ul className="space-y-3">
       {AMBITIONS.map((ambition: AmbitionType) => (
         <li key={ambition.id} className="ssm:text-lg sm:text-xl">
           {ambition.text}
