@@ -33,10 +33,6 @@ interface SquareProps {
   gap: number;
 }
 
-interface Props {
-  width: number;
-}
-
 export const Square: FC<SquareProps> = ({
   item,
   active,
@@ -81,7 +77,7 @@ export const Square: FC<SquareProps> = ({
   );
 };
 
-const Skills: FC<Props> = ({ width }) => {
+const Skills: FC = () => {
   const [active, setActive] = useState<{ row: number; col: number }>({ row: 0, col: 0 });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -91,43 +87,39 @@ const Skills: FC<Props> = ({ width }) => {
   const numberOfRows: number = iconList.length;
   const numberOfColumns: number = iconList[0]?.icons.length || 0;
 
-  const isUnder400 = useMediaQuery('(max-width: 400px)');
-  const isUnder700 = useMediaQuery('(max-width: 700px)');
-  const isUnder800 = useMediaQuery('(max-width: 800px)');
-  // const isMobile = useMediaQuery('(max-width: 540px)');
+  const isSmall = useMediaQuery('(max-width: 400px)');
+  const isMedium = useMediaQuery('(max-width: 700px)');
+  const isLarge = useMediaQuery('(max-width: 800px)');
 
   useEffect(() => {
     // set icon gap value
-    if (width < 400) {
+    if (isSmall) {
       setIconGap(ICON_GAP_SM);
     } else {
       setIconGap(ICON_GAP_LG);
     }
 
     // set icon size value
-    if (width < 800) {
+    if (isLarge) {
       setIconSize(ICON_SIZE_SM);
     } else {
       setIconSize(ICON_SIZE_LG);
     }
 
     // set icon list value
-    if (width < 400) {
+    if (isSmall) {
       setIconList(SKILL_ICONS_SM);
-    } else if (width < 700) {
+    } else if (isMedium) {
       setIconList(SKILL_ICONS_MD);
     } else {
       setIconList(SKILL_ICONS_LG);
     }
 
     setActive({ row: 0, col: 0 });
-  }, [width]);
+  }, [isSmall, isMedium, isLarge]);
 
   return (
     <div>
-      <div>{isUnder400 ? 'under400' : 'not under400'}</div>
-      <div>{isUnder700 ? 'under700' : 'not under700'}</div>
-      <div>{isUnder800 ? 'under800' : 'not under800'}</div>
       <div style={{ perspective: 1000 }}>
         <motion.div
           transition={{ duration: 10, loop: Infinity, ease: 'linear' }}

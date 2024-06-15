@@ -10,13 +10,10 @@ import SectionTitle from '@/components/profiles/SectionTitle/SectionTitle';
 import Skills from '@/components/profiles/Skills/Skills';
 import Status from '@/components/profiles/Status/Status';
 
-import useWindowSize from '@/common/hooks/useWindowSize';
-
 import type { NextPage } from 'next';
 
 const About: NextPage = () => {
   const ref = useRef<HTMLDivElement | null>(null);
-  const size = useWindowSize();
 
   return (
     <div ref={ref} className="flex-center w-full flex-col bg-dark text-white">
@@ -46,7 +43,7 @@ const About: NextPage = () => {
             <div className="-rotate-12">
               <SectionTitle title="Skills" />
             </div>
-            <Skills width={Number(size.width)} />
+            <Skills />
           </div>
           {/* Ambition */}
           <div className="flex flex-col items-center gap-y-16 xl:flex-row">
