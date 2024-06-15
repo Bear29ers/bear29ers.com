@@ -28,12 +28,12 @@ const About: NextPage = () => {
           <AnimatedText text="me" />
         </div>
       </div>
-      <div className="flex w-full max-w-screen-lg flex-col gap-y-28 px-5 xl:max-w-none xl:px-0">
+      <div className="flex w-full max-w-screen-lg flex-col gap-y-20 px-2.5 xs:gap-y-28 xs:px-5 xl:max-w-none xl:px-0">
         <div className="w-full">
           {/* Status */}
           <Status />
         </div>
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-28 sm:gap-y-36 md:gap-y-48">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-y-20 xs:gap-y-28 sm:gap-y-36 md:gap-y-48">
           {/* Biography */}
           <div className="flex flex-col items-center gap-y-16">
             <div className="-rotate-12">

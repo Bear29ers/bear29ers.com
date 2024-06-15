@@ -6,7 +6,15 @@ import type { Dispatch, SetStateAction, FC } from 'react';
 import { useMotionValue, motion, useSpring } from 'framer-motion-8';
 import { distance } from 'popmotion';
 
-import { ICON_GAP_PC, ICON_SIZE_LG, ICON_SIZE_MD, SKILL_ICONS_PC, SKILL_ICONS_SP } from '@/common/constants/skillIcons';
+import {
+  ICON_GAP_LG,
+  ICON_GAP_SM,
+  ICON_SIZE_LG,
+  ICON_SIZE_SM,
+  SKILL_ICONS_LG,
+  SKILL_ICONS_MD,
+  SKILL_ICONS_SM,
+} from '@/common/constants/skillIcons';
 import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';
@@ -77,25 +85,36 @@ const Skills: FC<Props> = ({ width }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const [iconSize, setIconSize] = useState<number>(ICON_SIZE_LG);
-  const iconGap = ICON_GAP_PC;
-  const [iconList, setIconList] = useState<SkillIcons[]>(SKILL_ICONS_PC);
+  const [iconGap, setIconGap] = useState<number>(ICON_GAP_LG);
+  const [iconList, setIconList] = useState<SkillIcons[]>(SKILL_ICONS_MD);
   const numberOfRows: number = iconList.length;
   const numberOfColumns: number = iconList[0]?.icons.length || 0;
 
   useEffect(() => {
-    if (width < 700) {
-      setIconList(SKILL_ICONS_SP);
-      setIconSize(ICON_SIZE_MD);
-      setActive({ row: 0, col: 0 });
-    } else if (width < 800) {
-      setIconList(SKILL_ICONS_PC);
-      setIconSize(ICON_SIZE_MD);
-      setActive({ row: 0, col: 0 });
+    // set icon gap value
+    if (width < 400) {
+      setIconGap(ICON_GAP_SM);
     } else {
-      setIconList(SKILL_ICONS_PC);
-      setIconSize(ICON_SIZE_LG);
-      setActive({ row: 0, col: 0 });
+      setIconGap(ICON_GAP_LG);
     }
+
+    // set icon size value
+    if (width < 800) {
+      setIconSize(ICON_SIZE_SM);
+    } else {
+      setIconSize(ICON_SIZE_LG);
+    }
+
+    // set icon list value
+    if (width < 400) {
+      setIconList(SKILL_ICONS_SM);
+    } else if (width < 700) {
+      setIconList(SKILL_ICONS_MD);
+    } else {
+      setIconList(SKILL_ICONS_LG);
+    }
+
+    setActive({ row: 0, col: 0 });
   }, [width]);
 
   return (
