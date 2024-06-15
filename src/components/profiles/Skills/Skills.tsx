@@ -15,6 +15,7 @@ import {
   SKILL_ICONS_MD,
   SKILL_ICONS_SM,
 } from '@/common/constants/skillIcons';
+import useMediaQuery from '@/common/hooks/useMediaQuery';
 import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';
@@ -90,6 +91,11 @@ const Skills: FC<Props> = ({ width }) => {
   const numberOfRows: number = iconList.length;
   const numberOfColumns: number = iconList[0]?.icons.length || 0;
 
+  const isUnder400 = useMediaQuery('(max-width: 400px)');
+  const isUnder700 = useMediaQuery('(max-width: 700px)');
+  const isUnder800 = useMediaQuery('(max-width: 800px)');
+  // const isMobile = useMediaQuery('(max-width: 540px)');
+
   useEffect(() => {
     // set icon gap value
     if (width < 400) {
@@ -119,6 +125,9 @@ const Skills: FC<Props> = ({ width }) => {
 
   return (
     <div>
+      <div>{isUnder400 ? 'under400' : 'not under400'}</div>
+      <div>{isUnder700 ? 'under700' : 'not under700'}</div>
+      <div>{isUnder800 ? 'under800' : 'not under800'}</div>
       <div style={{ perspective: 1000 }}>
         <motion.div
           transition={{ duration: 10, loop: Infinity, ease: 'linear' }}
