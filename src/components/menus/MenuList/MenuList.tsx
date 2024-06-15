@@ -85,7 +85,7 @@ const MenuList: FC = () => {
               whileHover={{ scale: menuItem.isAvaliable ? 1.1 : 1.0 }}
               whileTap={{ scale: menuItem.isAvaliable ? 0.9 : 1.0 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
-              className="text-5xl font-bold text-white">
+              className="text-3xl font-bold text-white xsm:text-5xl">
               <a href={menuItem.href} className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
               </a>
