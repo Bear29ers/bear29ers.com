@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/extensions
-import nextJest from 'next/jest.js';
+import nextJest from 'next/jest';
 
 import type { Config } from 'jest';
 
