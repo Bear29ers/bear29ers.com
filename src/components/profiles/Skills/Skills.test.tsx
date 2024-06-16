@@ -5,6 +5,8 @@ import Skills, { Square } from './Skills';
 
 import type { RenderResult } from '@testing-library/react';
 
+import '@/common/hooks/useMediaQueryMock';
+
 describe('src/components/profiles/Skills/Skills.test.tsx', () => {
   describe('Skills component', () => {
     let renderResult: RenderResult;
@@ -34,8 +36,11 @@ describe('src/components/profiles/Skills/Skills.test.tsx', () => {
         setActive: jest.fn(),
         colIndex: 0,
         rowIndex: 0,
+        numberOfColumns: 10,
         x: 0,
         y: 0,
+        size: 60,
+        gap: 15,
       };
 
       render(<Square {...props} />);
@@ -53,8 +58,11 @@ describe('src/components/profiles/Skills/Skills.test.tsx', () => {
         setActive: jest.fn(),
         colIndex: 9,
         rowIndex: 5,
+        numberOfColumns: 10,
         x: 0,
         y: 0,
+        size: 60,
+        gap: 15,
       };
 
       render(<Square {...props} />);
