@@ -1,11 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import '@/common/hooks/useMediaQueryMock';
 
 import Skills, { Square } from './Skills';
 
 import type { RenderResult } from '@testing-library/react';
-
-import '@/common/hooks/useMediaQueryMock';
 
 describe('src/components/profiles/Skills/Skills.test.tsx', () => {
   describe('Skills component', () => {

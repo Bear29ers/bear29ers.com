@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 import { LocationIcon, OrganizationIcon, PencilIcon, WavingHand, WebsiteIcon } from './ProfileIcons';
 
