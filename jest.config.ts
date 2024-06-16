@@ -1,19 +1,19 @@
-import nextJest from 'next/jest';
+// eslint-disable-next-line import/extensions
+import nextJest from 'next/jest.js';
 
 import type { Config } from 'jest';
 
 const createJestConfig = nextJest({
-  // next.config.cjsとテスト環境用の.envファイルが配置されたディレクトリを設定
+  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
   dir: './',
 });
 
-// Jestのカスタム設定
-/** @type {import('jest').Config} */
+// Add any custom config to be passed to Jest
 const config: Config = {
   coverageProvider: 'v8',
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
 };
 
-// createJestConfigを定義することで、このファイルで定義された設定がNext.jsの設定に反映される
+// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
 export default createJestConfig(config);
