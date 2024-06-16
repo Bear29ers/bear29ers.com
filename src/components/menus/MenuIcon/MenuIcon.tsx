@@ -11,23 +11,26 @@ const MenuIcon: FC<Props> = ({ isOpen, setIsOpen }) => {
   };
 
   return (
-    <button className="flex-center relative size-14 rounded-full bg-darkerGray" type="button" onClick={handleClick}>
+    <button
+      className="flex-center relative size-12 rounded-full bg-darkerGray xsm:size-14"
+      type="button"
+      onClick={handleClick}>
       <div className="group relative overflow-hidden">
-        <div className="flex h-7 w-8 origin-center flex-col justify-between transition-all duration-300">
+        <div className="flex h-6 w-7 origin-center flex-col justify-between transition-all duration-300 xsm:h-7 xsm:w-8">
           <div
-            className={`h-1 w-8 origin-left rounded bg-white transition-all duration-300 ${
+            className={`h-[3px] w-7 origin-left rounded bg-white transition-all duration-300 xsm:h-1 xsm:w-8 ${
               isOpen ? 'translate-x-10' : ''
             }`}
             data-testid="menu-icon-top-line"
           />
           <div
-            className={`h-1 w-8 origin-left rounded bg-white transition-all delay-75 duration-300 ${
+            className={`h-[3px] w-7 origin-left rounded bg-white transition-all delay-75 duration-300 xsm:h-1 xsm:w-8 ${
               isOpen ? 'translate-x-10' : ''
             }`}
             data-testid="menu-icon-middle-line"
           />
           <div
-            className={`h-1 w-8 origin-left rounded bg-white transition-all delay-150 duration-300 ${
+            className={`h-[3px] w-7 origin-left rounded bg-white transition-all delay-150 duration-300 xsm:h-1 xsm:w-8 ${
               isOpen ? 'translate-x-10' : ''
             }`}
             data-testid="menu-icon-bottom-line"
@@ -38,13 +41,13 @@ const MenuIcon: FC<Props> = ({ isOpen, setIsOpen }) => {
             }`}
             data-testid="menu-icon-close">
             <div
-              className={`absolute h-1 w-8 rotate-0 rounded bg-white transition-all delay-300 duration-500 ${
+              className={`absolute h-[3px] w-7 rotate-0 rounded bg-white transition-all delay-300 duration-500 xsm:h-1 xsm:w-8 ${
                 isOpen ? 'rotate-45' : ''
               }`}
               data-testid="menu-icon-close-top"
             />
             <div
-              className={`absolute h-1 w-8 -rotate-0 rounded bg-white transition-all delay-300 duration-500 ${
+              className={`absolute h-[3px] w-7 -rotate-0 rounded bg-white transition-all delay-300 duration-500 xsm:h-1 xsm:w-8 ${
                 isOpen ? '-rotate-45' : ''
               }`}
               data-testid="menu-icon-close-bottom"

@@ -10,13 +10,13 @@ const getVariants = (isMobile: boolean) => {
         opened: {
           width: '310px',
           height: '500px',
-          top: '-3px',
-          right: '-3px',
+          top: '-10px',
+          right: '-8px',
           transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
         },
         closed: {
-          width: '56px',
-          height: '56px',
+          width: '48px',
+          height: '48px',
           top: '0px',
           right: '0px',
           transition: { duration: 0.75, delay: 0.35, type: 'tween', ease: [0.76, 0, 0.24, 1] },
