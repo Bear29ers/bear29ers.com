@@ -1,5 +1,4 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 import Project from './Project';
 
@@ -103,8 +102,10 @@ describe('src/components/Project/Project.test.tsx', () => {
       expect(screen.getByRole('button', { name: 'Show Less' })).toBeInTheDocument();
     });
 
-    it('should render the description and the highlights section with height auto style', () => {
-      expect(screen.getByTestId('project-info-more')).toHaveStyle('height: auto');
+    it('should render the description and the highlights section with height auto style', async () => {
+      await waitFor(() => {
+        expect(screen.getByTestId('project-info-more')).toHaveStyle('height: auto');
+      });
     });
   });
 });
