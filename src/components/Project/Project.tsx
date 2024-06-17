@@ -45,12 +45,12 @@ const Project: FC<Props> = ({ project }) => {
 
   return (
     <motion.div
-      className="flex w-full grow flex-col rounded-2xl px-8"
+      className="flex w-full grow flex-col rounded-2xl p-5 md:p-8"
       variants={bgVariants}
       initial="closed"
       animate={isShow ? 'opened' : 'closed'}
       data-testid="project-container">
-      <div className="flex flex-col gap-y-3 pt-8">
+      <div className="flex flex-col gap-y-3">
         {/* Period */}
         <div className="flex gap-x-1.5 text-xs font-medium text-gray-400">
           <time>{project.startAt}</time>
@@ -58,21 +58,21 @@ const Project: FC<Props> = ({ project }) => {
           <time>{project.endAt}</time>
         </div>
         {/* Role */}
-        <h2 className=" text-5xl font-extrabold">{project.role}</h2>
+        <h2 className="text-4xl font-extrabold md:text-5xl">{project.role}</h2>
         <div className="flex flex-col gap-y-1">
           {/* Campany */}
           <div className="flex items-center gap-x-3">
-            <div className="size-[18px]">
+            <div className="size-4">
               <OrganizationIcon />
             </div>
-            <span className="font-medium">{project.company}</span>
+            <span className="text-sm font-medium md:text-base">{project.company}</span>
           </div>
           {/* Location */}
           <div className="flex items-center gap-x-3">
-            <div className="size-[18px]">
+            <div className="size-4">
               <LocationIcon />
             </div>
-            <span className="font-medium">{project.location}</span>
+            <span className="text-sm font-medium md:text-base">{project.location}</span>
           </div>
         </div>
         {/* ProjectTag */}
@@ -97,14 +97,14 @@ const Project: FC<Props> = ({ project }) => {
         data-testid="project-info-more">
         <AnimatePresence>
           (isShow &&
-          <div className="mb-8 flex flex-col gap-y-5">
+          <div className="flex flex-col gap-y-5">
             {/* Description */}
             <div className="mt-6 flex flex-col gap-y-3">
               {project.description.map((paragraph: string, index: number) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
-            <h3 className="mt-2 text-xl font-bold">Some Highlights</h3>
+            <h3 className="mt-2 text-lg font-bold md:text-xl">Some Highlights</h3>
             {/* Higlights */}
             <div className="flex flex-col gap-y-2">
               {project.highlightList.map((highlight: string, index: number) => (
