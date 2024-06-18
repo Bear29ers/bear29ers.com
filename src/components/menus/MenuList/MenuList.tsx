@@ -72,7 +72,7 @@ const socialVariants = {
 
 const MenuList: FC = () => {
   return (
-    <div className="flex-center relative h-full flex-col overflow-y-scroll">
+    <div className="flex-center relative h-full flex-col">
       <div className="flex w-fit flex-col items-start gap-y-5">
         {MENU_ITEMS.map((menuItem: MenuItem, i: number) => (
           <div key={menuItem.id}>
