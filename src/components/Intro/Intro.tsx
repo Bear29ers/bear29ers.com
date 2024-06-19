@@ -18,7 +18,7 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
       <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
         {isClicked && (
           <motion.div
-            className="intro-contents-bg flex max-h-64 min-h-64 w-[60vw] min-w-[780px] max-w-[1600px] xl:h-[35vh] xl:max-h-96 xl:min-w-[1000px]"
+            className="intro-contents-bg flex flex-col lg:max-h-64 lg:min-h-64 lg:w-[60vw] lg:min-w-[780px] lg:flex-row xl:h-[35vh] xl:max-h-96 xl:min-w-[1000px] xl:max-w-[1600px]"
             initial={{ height: 0 }}
             animate={{ height: '35vh' }}
             transition={{ type: 'spring', duration: 2, delay: 1 }}>
@@ -51,7 +51,7 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
         )}
       </div>
       <div
-        className={`intro-transition-bg absolute inset-y-0 right-1/2 bg-hitGray ${isClicked ? 'h-full w-1/2' : 'h-0 w-2'}`}
+        className={`intro-transition-bg absolute inset-y-0 bg-hitGray lg:right-1/2 ${isClicked ? 'h-1/2 w-full lg:h-full lg:w-1/2' : 'size-0 lg:w-2'}`}
       />
     </>
   );
