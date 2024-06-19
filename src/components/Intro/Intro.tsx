@@ -18,17 +18,17 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
       <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
         {isClicked && (
           <motion.div
-            className="intro-contents-bg max-w[1600px] flex h-[35vh] max-h-96 min-h-64 w-[60vw] min-w-[1000px]"
+            className="intro-contents-bg flex max-h-64 min-h-64 w-[60vw] min-w-[780px] max-w-[1600px] xl:h-[35vh] xl:max-h-96 xl:min-w-[1000px]"
             initial={{ height: 0 }}
             animate={{ height: '35vh' }}
             transition={{ type: 'spring', duration: 2, delay: 1 }}>
-            <div className="relative flex w-1/2 flex-col justify-evenly p-5">
+            <div className="relative flex w-1/2 flex-col justify-center gap-y-3 p-3 xl:justify-evenly xl:gap-y-0 xl:p-5">
               <div className="flex flex-col gap-y-1.5">
-                <h1 className="text-7xl font-bold text-dark">Hi,</h1>
-                <h1 className="text-6xl font-semibold text-dark">I&apos;m, {homeProfileText.userName}.</h1>
+                <h1 className="text-6xl font-bold text-dark xl:text-7xl">Hi,</h1>
+                <h1 className="text-5xl font-semibold text-dark xl:text-6xl">I&apos;m, {homeProfileText.userName}.</h1>
               </div>
               <motion.h2
-                className="text-4xl font-semibold text-lightGray"
+                className="text-3xl font-semibold text-lightGray xl:text-4xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.5 }}>
@@ -44,7 +44,7 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
                 src={Memoji}
                 alt={homeProfileText.profileAlt}
                 role="img"
-                className="absolute bottom-0 left-1/2 h-auto w-10/12 -translate-x-1/2 pb-1"
+                className="absolute bottom-0 left-1/2 h-auto w-80 -translate-x-1/2 pb-1 xl:w-10/12"
               />
             </motion.div>
           </motion.div>
