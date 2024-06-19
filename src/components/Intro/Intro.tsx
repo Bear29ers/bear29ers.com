@@ -18,20 +18,24 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
       <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
         {isClicked && (
           <motion.div
-            className="intro-contents-bg flex flex-col lg:max-h-64 lg:min-h-64 lg:w-[60vw] lg:min-w-[780px] lg:flex-row xl:h-[35vh] xl:max-h-96 xl:min-w-[1000px] xl:max-w-[1600px]"
+            className="intro-contents-bg flex w-[1000px]"
             initial={{ height: 0 }}
-            animate={{ height: '35vh' }}
+            animate={{ height: '294px' }}
             transition={{ type: 'spring', duration: 2, delay: 1 }}>
-            <div className="relative flex w-1/2 flex-col justify-center gap-y-3 p-3 xl:justify-evenly xl:gap-y-0 xl:p-5">
-              <div className="flex flex-col gap-y-1.5">
+            <div className="relative flex w-1/2 flex-col justify-center gap-y-3 px-5 py-8">
+              <motion.div
+                className="flex flex-col gap-y-1.5"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5, delay: 1.5 }}>
                 <h1 className="text-6xl font-bold text-dark xl:text-7xl">Hi,</h1>
                 <h1 className="text-5xl font-semibold text-dark xl:text-6xl">I&apos;m, {homeProfileText.userName}.</h1>
-              </div>
+              </motion.div>
               <motion.h2
                 className="text-3xl font-semibold text-lightGray xl:text-4xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.5, delay: 1.5 }}>
+                transition={{ duration: 0.5, delay: 2 }}>
                 I&apos;m, {homeProfileText.occupation}.
               </motion.h2>
             </div>
