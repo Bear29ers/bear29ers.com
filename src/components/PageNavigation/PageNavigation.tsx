@@ -22,7 +22,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
       <div className="absolute bottom-3 flex w-screen justify-around">
         <MotionLink
           href="/about"
-          className={`z-40 text-2xl font-semibold ${isClicked ? 'text-dark' : 'text-white'}`}
+          className={`z-40 text-2xl font-semibold ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
           initial={{ y: 200 }}
           animate={{ y: 0, transition: { type: 'spring', duration: 1.5, delay: 1.0 } }}
           whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
@@ -40,7 +40,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
         </MotionLink>
       </div>
       <motion.div
-        className={`absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-2xl font-semibold line-through ${isClicked ? 'text-dark' : 'text-white'}`}
+        className={`absolute left-0 top-1/2 -translate-y-1/2 -rotate-90 text-2xl font-semibold line-through ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
         initial={{ x: -200, rotate: -90 }}
         animate={{ x: 0, rotate: -90 }}
         transition={{ type: 'spring', duration: 1.5, delay: 1.0 }}>
