@@ -13,7 +13,7 @@ const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
   return (
     <div className="relative z-30 size-full ">
       <div
-        className={`bear-motion absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 ${isClicked ? 'left-[92%] top-[85%] scale-100' : 'left-1/2 top-1/2 scale-150'}`}
+        className={`bear-motion absolute left-1/2 top-1/2 w-[120px] -translate-x-1/2 -translate-y-1/2 ${isClicked ? 'left-[92%] top-[85%] scale-[0.8] lg:scale-100' : 'left-1/2 top-1/2 scale-[1.2] lg:scale-150'}`}
         data-testid="bear-wrapper">
         <button type="button" className="z-20 w-full animate-updown" onClick={handleClick}>
           <span className="hidden">Animated Bear</span>
