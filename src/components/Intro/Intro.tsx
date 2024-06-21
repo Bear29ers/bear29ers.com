@@ -14,7 +14,8 @@ interface Props {
 }
 
 const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
-  const [introHeight, setIntroHeight] = useState<number>(294);
+  const initialIntroHeight = 294;
+  const [introHeight, setIntroHeight] = useState<number>(initialIntroHeight);
   const heightUnderXL = useMediaQuery('(max-width: 1279px)');
   const heightUnderLg = useMediaQuery('(max-width: 1023px)');
   const heightUnderSm = useMediaQuery('(max-width: 539px)');
@@ -27,7 +28,7 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
     } else if (heightUnderXL) {
       setIntroHeight(230);
     } else {
-      setIntroHeight(294);
+      setIntroHeight(initialIntroHeight);
     }
   }, [heightUnderXL, heightUnderLg, heightUnderSm]);
 
@@ -36,11 +37,11 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
       <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
         {isClicked && (
           <motion.div
-            className="intro-contents-bg flex w-80 flex-col items-center justify-center xsm:w-96 sm:w-[500px] lg:w-[800px] lg:flex-row lg:items-end xl:w-[1000px]"
+            className="intro-contents-bg flex w-60 flex-col items-center justify-center xs:w-80 xsm:w-96 sm:w-[500px] lg:w-[800px] lg:flex-row lg:items-end xl:w-[1000px]"
             initial={{ height: 0 }}
             animate={{ height: `${introHeight}px` }}
             transition={{ type: 'spring', duration: 2, delay: 1 }}>
-            <div className="flex h-60 w-full flex-col items-start justify-center gap-y-3 p-6 xsm:h-72 lg:h-fit lg:w-1/2 lg:p-3 xl:px-5 xl:py-8">
+            <div className="flex h-60 w-full flex-col items-start justify-center gap-y-3 p-2 xs:p-6 xsm:h-72 lg:h-fit lg:w-1/2 lg:p-3 xl:px-5 xl:py-8">
               <motion.div
                 className="flex flex-col gap-y-1.5"
                 initial={{ opacity: 0 }}
@@ -52,7 +53,7 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
                 </h1>
               </motion.div>
               <motion.h2
-                className="text-xl font-semibold text-lightGray xsm:text-2xl lg:text-3xl xl:text-4xl"
+                className="text-lg font-semibold text-lightGray xs:text-xl xsm:text-2xl lg:text-3xl xl:text-4xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 2 }}>
@@ -68,7 +69,7 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
                 src={Memoji}
                 alt={homeProfileText.profileAlt}
                 role="img"
-                className="h-56 w-fit xsm:h-64 lg:h-auto lg:w-80 lg:pb-1 xl:w-10/12"
+                className="h-48 w-fit xs:h-56 xsm:h-64 lg:h-auto lg:w-80 lg:pb-1 xl:w-10/12"
               />
             </motion.div>
           </motion.div>
