@@ -13,8 +13,8 @@ interface Props {
 const SocialIcons: FC<Props> = ({ lightMode }) => {
   const initialBarWidth = 128;
   const [barWidth, setBarWidth] = useState<number>(initialBarWidth);
-  const isUnderSsm = useMediaQuery('(max-width: 499px)');
   const isUnderXs = useMediaQuery('(max-width: 399px)');
+  const isUnderSsm = useMediaQuery('(max-width: 499px)');
 
   useEffect(() => {
     if (isUnderXs) {
