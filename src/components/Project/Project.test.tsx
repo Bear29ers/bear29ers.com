@@ -92,9 +92,9 @@ describe('src/components/Project/Project.test.tsx', () => {
       renderResult.unmount();
     });
 
-    it('should render the container with #29313D background color', async () => {
+    it('should render the container with #2C3641 background color', async () => {
       await waitFor(() => {
-        expect(screen.getByTestId('project-container')).toHaveStyle('backgroundColor: #29313D');
+        expect(screen.getByTestId('project-container')).toHaveStyle('backgroundColor: #2C3641');
       });
     });
 
