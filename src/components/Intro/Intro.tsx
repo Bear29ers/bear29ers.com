@@ -14,23 +14,37 @@ interface Props {
 }
 
 const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
+  const initialIntroWidth = 1000;
   const initialIntroHeight = 294;
+  const [introWidth, setIntroWidth] = useState<number>(initialIntroWidth);
   const [introHeight, setIntroHeight] = useState<number>(initialIntroHeight);
-  const heightUnderXL = useMediaQuery('(max-width: 1279px)');
-  const heightUnderLg = useMediaQuery('(max-width: 1023px)');
-  const heightUnderSm = useMediaQuery('(max-width: 539px)');
+  const isUnderXs = useMediaQuery('(max-width: 399px)');
+  const isUnderXsm = useMediaQuery('(max-width: 539px)');
+  const isUnderSm = useMediaQuery('(max-width: 639px)');
+  const isUnderLg = useMediaQuery('(max-width: 1023px)');
+  const isUnderXl = useMediaQuery('(max-width: 1279px)');
 
   useEffect(() => {
-    if (heightUnderSm) {
+    if (isUnderXs) {
+      setIntroWidth(240);
       setIntroHeight(480);
-    } else if (heightUnderLg) {
+    } else if (isUnderXsm) {
+      setIntroWidth(320);
+      setIntroHeight(480);
+    } else if (isUnderSm) {
+      setIntroWidth(384);
       setIntroHeight(576);
-    } else if (heightUnderXL) {
+    } else if (isUnderLg) {
+      setIntroWidth(500);
+      setIntroHeight(576);
+    } else if (isUnderXl) {
+      setIntroWidth(800);
       setIntroHeight(230);
     } else {
+      setIntroWidth(initialIntroWidth);
       setIntroHeight(initialIntroHeight);
     }
-  }, [heightUnderXL, heightUnderLg, heightUnderSm]);
+  }, [isUnderXl, isUnderLg, isUnderSm, isUnderXsm, isUnderXs]);
 
   return (
     <>
@@ -38,9 +52,12 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
         {isClicked && (
           <motion.div
             className="intro-contents-bg flex w-60 flex-col items-center justify-center xs:w-80 xsm:w-96 sm:w-[500px] lg:w-[800px] lg:flex-row lg:items-end xl:w-[1000px]"
-            initial={{ height: 0 }}
-            animate={{ height: `${introHeight}px` }}
-            transition={{ type: 'spring', duration: 2, delay: 1 }}>
+            initial={{ width: 0, height: 0 }}
+            animate={{ width: `${introWidth}px`, height: `${introHeight}px` }}
+            transition={{
+              width: { type: 'tween', duration: 0.8, ease: [0.76, 0, 0.24, 1] },
+              height: { type: 'spring', duration: 2, delay: 1 },
+            }}>
             <div className="flex h-60 w-full flex-col items-start justify-center gap-y-3 p-2 xs:p-6 xsm:h-72 lg:h-fit lg:w-1/2 lg:p-3 xl:px-5 xl:py-8">
               <motion.div
                 className="flex flex-col gap-y-1.5"
