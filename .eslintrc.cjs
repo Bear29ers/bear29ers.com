@@ -184,7 +184,7 @@ const config = {
       'warn',
       {
         config: 'tailwind.config.ts',
-        cssFiles: ['**/*.scss', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
+        cssFiles: ['**/*.scss', '**/*.css', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
       },
     ],
     'tailwindcss/classnames-order': 'off',

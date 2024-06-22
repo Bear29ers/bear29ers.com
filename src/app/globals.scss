@@ -15,14 +15,6 @@
     writing-mode: vertical-lr;
   }
 
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
-
   .trapezoid {
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
   }
@@ -94,12 +86,24 @@
     &-contents {
       &-bg {
         background:
-          linear-gradient(to right, #232a36 50%, #d2d8d9 50%) bottom,
-          linear-gradient(to right, #232a36 50%, #d2d8d9 50%) top;
+          linear-gradient(to right, #232a36 50%, #7f848b 50%) bottom,
+          linear-gradient(to right, #232a36 50%, #7f848b 50%) top;
         background-repeat: no-repeat;
         background-size: 100% 4px;
-        border-right: 4px solid #d2d8d9;
+        border-right: 4px solid #7f848b;
         border-left: 4px solid #232a36;
+
+        @media screen and (width <= 1023px) {
+          background:
+            linear-gradient(to bottom, #232a36 50%, #7f848b 50%) right,
+            linear-gradient(to bottom, #232a36 50%, #7f848b 50%) left;
+          background-repeat: no-repeat;
+          background-size: 4px 100%;
+          border-top: 4px solid #232a36;
+          border-right: none;
+          border-bottom: 4px solid #7f848b;
+          border-left: none;
+        }
       }
     }
   }
