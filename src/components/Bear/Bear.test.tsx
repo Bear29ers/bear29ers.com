@@ -49,8 +49,8 @@ describe('src/components/Bear/Bear.test.tsx', () => {
       expect(screen.getByTestId('bear-wrapper')).toHaveClass('left-1/2');
     });
 
-    it('should be bigger than default', () => {
-      expect(screen.getByTestId('bear-wrapper')).toHaveClass('scale-150');
+    it('should be bigger than default size', () => {
+      expect(screen.getByTestId('bear-wrapper')).toHaveClass('lg:scale-150');
     });
   });
 
@@ -66,12 +66,12 @@ describe('src/components/Bear/Bear.test.tsx', () => {
     });
 
     it('should position right-bottom corner', () => {
-      expect(screen.getByTestId('bear-wrapper')).toHaveClass('top-[85%]');
-      expect(screen.getByTestId('bear-wrapper')).toHaveClass('left-[92%]');
+      expect(screen.getByTestId('bear-wrapper')).toHaveClass('lg:top-[calc(100%-130px)]');
+      expect(screen.getByTestId('bear-wrapper')).toHaveClass('lg:left-[calc(100%-100px)]');
     });
 
     it('should be default size', () => {
-      expect(screen.getByTestId('bear-wrapper')).toHaveClass('scale-100');
+      expect(screen.getByTestId('bear-wrapper')).toHaveClass('lg:scale-100');
     });
   });
 
