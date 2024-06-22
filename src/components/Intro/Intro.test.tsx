@@ -1,4 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import '@/common/hooks/useMediaQueryMock';
 
 import { HOME_PROFILE_TEXT } from '@/common/constants/home';
 
