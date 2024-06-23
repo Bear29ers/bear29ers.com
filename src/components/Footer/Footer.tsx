@@ -6,7 +6,7 @@ const Footer: FC = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mb-4 mt-24 flex w-full justify-center" aria-label="Footer">
+    <footer className="mb-4 mt-36 flex w-full justify-center ssm:mt-48" aria-label="Footer">
       <small className="text-center">&copy; {`${year} ${PROFILE_TEXT.userName}`} All Rights Reserved</small>
     </footer>
   );

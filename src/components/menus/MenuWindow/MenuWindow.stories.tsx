@@ -14,11 +14,12 @@ type Story = StoryObj<typeof MenuWindow>;
 export const Default: Story = {
   args: {
     isOpen: false,
+    isMobile: false,
   },
-  render: ({ isOpen }) => {
+  render: ({ isOpen, isMobile }) => {
     return (
       <div className="flex-center h-screen w-screen">
-        <MenuWindow isOpen={isOpen} />
+        <MenuWindow isOpen={isOpen} isMobile={isMobile} />
       </div>
     );
   },

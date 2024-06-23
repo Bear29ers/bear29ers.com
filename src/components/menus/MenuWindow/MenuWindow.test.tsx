@@ -9,7 +9,7 @@ describe('src/components/menus/MenuWindow/MenuWindow.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen={false} />);
+      renderResult = render(<MenuWindow isOpen={false} isMobile={false} />);
     });
 
     afterEach(() => {
@@ -37,11 +37,35 @@ describe('src/components/menus/MenuWindow/MenuWindow.test.tsx', () => {
     });
   });
 
+  describe('when isMobile props is true', () => {
+    let renderResult: RenderResult;
+
+    beforeEach(() => {
+      renderResult = render(<MenuWindow isOpen={false} isMobile />);
+    });
+
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should render the MenuWindow component', () => {
+      expect(screen.getByTestId('menu-window')).toBeInTheDocument();
+    });
+
+    it('should have 56px of width style', () => {
+      expect(screen.getByTestId('menu-window')).toHaveStyle('width: 48px');
+    });
+
+    it('should have 56px of height style', () => {
+      expect(screen.getByTestId('menu-window')).toHaveStyle('height: 48px');
+    });
+  });
+
   describe('when isOpen props is true', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen />);
+      renderResult = render(<MenuWindow isOpen isMobile={false} />);
     });
 
     afterEach(() => {
@@ -73,6 +97,42 @@ describe('src/components/menus/MenuWindow/MenuWindow.test.tsx', () => {
     it('should have -15px of right op style', async () => {
       await waitFor(() => {
         expect(screen.getByTestId('menu-window')).toHaveStyle('right: -15px');
+      });
+    });
+  });
+
+  describe('when isOpen and isMobile props are true', () => {
+    let renderResult: RenderResult;
+
+    beforeEach(() => {
+      renderResult = render(<MenuWindow isOpen isMobile />);
+    });
+
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should have 310px of width style', async () => {
+      await waitFor(() => {
+        expect(screen.getByTestId('menu-window')).toHaveStyle('width: 310px');
+      });
+    });
+
+    it('should have 500px of height style', async () => {
+      await waitFor(() => {
+        expect(screen.getByTestId('menu-window')).toHaveStyle('height: 500px');
+      });
+    });
+
+    it('should have -10px of top style', async () => {
+      await waitFor(() => {
+        expect(screen.getByTestId('menu-window')).toHaveStyle('top: -10px');
+      });
+    });
+
+    it('should have -8px of right op style', async () => {
+      await waitFor(() => {
+        expect(screen.getByTestId('menu-window')).toHaveStyle('right: -8px');
       });
     });
   });
