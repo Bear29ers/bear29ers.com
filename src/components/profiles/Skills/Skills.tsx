@@ -87,9 +87,9 @@ const Skills: FC = () => {
   const numberOfRows: number = iconList.length;
   const numberOfColumns: number = iconList[0]?.icons.length || 0;
 
-  const isSmall = useMediaQuery('(max-width: 400px)');
-  const isMedium = useMediaQuery('(max-width: 700px)');
-  const isLarge = useMediaQuery('(max-width: 800px)');
+  const isSmall = useMediaQuery('(max-width: 399px)');
+  const isMedium = useMediaQuery('(max-width: 699px)');
+  const isLarge = useMediaQuery('(max-width: 799px)');
 
   useEffect(() => {
     // set icon gap value

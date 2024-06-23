@@ -57,7 +57,8 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
             transition={{
               width: { type: 'tween', duration: 0.8, ease: [0.76, 0, 0.24, 1] },
               height: { type: 'spring', duration: 2, delay: 1 },
-            }}>
+            }}
+            data-testid="intro-contents">
             <div className="flex h-60 w-full flex-col items-start justify-center gap-y-3 p-2 xs:p-6 xsm:h-72 lg:h-fit lg:w-1/2 lg:p-3 xl:px-5 xl:py-8">
               <motion.div
                 className="flex flex-col gap-y-1.5"
