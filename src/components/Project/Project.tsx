@@ -13,7 +13,7 @@ import ProjectTag from '../projects/ProjectTag/ProjectTag';
 
 const bgVariants = {
   opened: {
-    backgroundColor: '#29313D',
+    backgroundColor: '#2C3641',
     transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
   },
   closed: {
@@ -45,12 +45,12 @@ const Project: FC<Props> = ({ project }) => {
 
   return (
     <motion.div
-      className="flex w-full grow flex-col rounded-2xl px-8"
+      className="flex w-full grow flex-col rounded-2xl p-5 md:p-8"
       variants={bgVariants}
       initial="closed"
       animate={isShow ? 'opened' : 'closed'}
       data-testid="project-container">
-      <div className="flex flex-col gap-y-3 pt-8">
+      <div className="flex flex-col gap-y-3">
         {/* Period */}
         <div className="flex gap-x-1.5 text-xs font-medium text-gray-400">
           <time>{project.startAt}</time>
@@ -58,21 +58,21 @@ const Project: FC<Props> = ({ project }) => {
           <time>{project.endAt}</time>
         </div>
         {/* Role */}
-        <h2 className=" text-5xl font-extrabold">{project.role}</h2>
+        <h2 className="text-4xl font-extrabold md:text-5xl">{project.role}</h2>
         <div className="flex flex-col gap-y-1">
           {/* Campany */}
           <div className="flex items-center gap-x-3">
-            <div className="size-[18px]">
+            <div className="size-4">
               <OrganizationIcon />
             </div>
-            <span className="font-medium">{project.company}</span>
+            <span className="text-sm font-medium md:text-base">{project.company}</span>
           </div>
           {/* Location */}
           <div className="flex items-center gap-x-3">
-            <div className="size-[18px]">
+            <div className="size-4">
               <LocationIcon />
             </div>
-            <span className="font-medium">{project.location}</span>
+            <span className="text-sm font-medium md:text-base">{project.location}</span>
           </div>
         </div>
         {/* ProjectTag */}
@@ -83,7 +83,7 @@ const Project: FC<Props> = ({ project }) => {
         </div>
         <button
           type="button"
-          className="transition-500 inline w-fit rounded-xl bg-pink-500 px-4 py-1 text-sm font-medium uppercase hover:bg-pink-400"
+          className="transition-500 inline w-fit rounded-xl bg-pink-500 px-4 py-1 text-xs font-medium uppercase hover:bg-pink-400 xs:text-sm"
           onClick={handleClick}>
           {isShow ? 'Show Less' : 'Show More'}
         </button>
@@ -97,14 +97,14 @@ const Project: FC<Props> = ({ project }) => {
         data-testid="project-info-more">
         <AnimatePresence>
           (isShow &&
-          <div className="mb-8 flex flex-col gap-y-5">
+          <div className="flex flex-col gap-y-5">
             {/* Description */}
-            <div className="mt-6 flex flex-col gap-y-3">
+            <div className="mt-6 flex flex-col gap-y-3 text-sm xs:text-base">
               {project.description.map((paragraph: string, index: number) => (
                 <p key={index}>{paragraph}</p>
               ))}
             </div>
-            <h3 className="mt-2 text-xl font-bold">Some Highlights</h3>
+            <h3 className="mt-2 text-lg font-bold md:text-xl">Some Highlights</h3>
             {/* Higlights */}
             <div className="flex flex-col gap-y-2">
               {project.highlightList.map((highlight: string, index: number) => (

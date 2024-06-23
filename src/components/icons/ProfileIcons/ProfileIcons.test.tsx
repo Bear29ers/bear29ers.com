@@ -1,7 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
-import { LocationIcon, OrganizationIcon, PencilIcon, WavingHand, WebsiteIcon } from './ProfileIcons';
+import { LocationIcon, OrganizationIcon, WavingHand, WebsiteIcon } from './ProfileIcons';
 
 describe('src/components/icons/ProfileIcons/ProfileIcons.test.tsx', () => {
   it('should render the OrganizationIcon svg', () => {
@@ -17,11 +16,6 @@ describe('src/components/icons/ProfileIcons/ProfileIcons.test.tsx', () => {
   it('should render the WebsiteIcon svg', () => {
     render(<WebsiteIcon />);
     expect(screen.getByRole('img', { name: 'WebsiteIcon' })).toBeInTheDocument();
-  });
-
-  it('should render the PencilIcon svg', () => {
-    render(<PencilIcon />);
-    expect(screen.getByRole('img', { name: 'PencilIcon' })).toBeInTheDocument();
   });
 
   it('should render the Waving hand animation', () => {

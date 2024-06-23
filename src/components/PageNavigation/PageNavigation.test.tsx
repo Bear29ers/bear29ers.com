@@ -1,5 +1,4 @@
 import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 import PageNavigation from './PageNavigation';
 
@@ -57,12 +56,20 @@ describe('src/components/PageNavigation/PageNavigation.test.tsx', () => {
       renderResult.unmount();
     });
 
-    it('should have text-dark class with the About page link', () => {
-      expect(screen.getByRole('link', { name: 'About' })).toHaveClass('text-dark');
+    it('should have lg:text-dark class with the About page link', () => {
+      expect(screen.getByRole('link', { name: 'About' })).toHaveClass('lg:text-dark');
     });
 
-    it('should have text-dark class with the Gallery text', () => {
-      expect(screen.getByText('Gallery')).toHaveClass('text-dark');
+    it('should have text-white class with the About page link', () => {
+      expect(screen.getByRole('link', { name: 'About' })).toHaveClass('text-white');
+    });
+
+    it('should have lg:text-dark class with the Gallery text', () => {
+      expect(screen.getByText('Gallery')).toHaveClass('lg:text-dark');
+    });
+
+    it('should have text-white class with the Gallery text', () => {
+      expect(screen.getByText('Gallery')).toHaveClass('text-white');
     });
   });
 });

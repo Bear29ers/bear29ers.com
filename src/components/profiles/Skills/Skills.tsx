@@ -1,20 +1,24 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction, FC } from 'react';
 
 import { useMotionValue, motion, useSpring } from 'framer-motion-8';
 import { distance } from 'popmotion';
 
-import { ICON_GAP_PC, ICON_SIZE_PC, SKILL_ICONS_PC } from '@/common/constants/skillIcons';
+import {
+  ICON_GAP_LG,
+  ICON_GAP_SM,
+  ICON_SIZE_LG,
+  ICON_SIZE_SM,
+  SKILL_ICONS_LG,
+  SKILL_ICONS_MD,
+  SKILL_ICONS_SM,
+} from '@/common/constants/skillIcons';
+import useMediaQuery from '@/common/hooks/useMediaQuery';
 import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';
-
-const size: number = ICON_SIZE_PC;
-const gap: number = ICON_GAP_PC;
-const numberOfRows: number = SKILL_ICONS_PC.length;
-const numberOfColumns: number = SKILL_ICONS_PC[0]?.icons.length || 0;
 
 interface SquareProps {
   item: SkillIcon;
@@ -22,11 +26,25 @@ interface SquareProps {
   setActive: Dispatch<SetStateAction<{ row: number; col: number }>>;
   colIndex: number;
   rowIndex: number;
+  numberOfColumns: number;
   x: MotionValue<number>;
   y: MotionValue<number>;
+  size: number;
+  gap: number;
 }
 
-export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, rowIndex, x, y }) => {
+export const Square: FC<SquareProps> = ({
+  item,
+  active,
+  setActive,
+  colIndex,
+  rowIndex,
+  numberOfColumns,
+  x,
+  y,
+  size,
+  gap,
+}) => {
   const isDragging = rowIndex === active.row && colIndex === active.col;
   const d = distance({ x: active.col, y: active.row }, { x: colIndex, y: rowIndex });
   const springConfig = {
@@ -60,9 +78,45 @@ export const Square: FC<SquareProps> = ({ item, active, setActive, colIndex, row
 };
 
 const Skills: FC = () => {
-  const [active, setActive] = useState({ row: 0, col: 0 });
+  const [active, setActive] = useState<{ row: number; col: number }>({ row: 0, col: 0 });
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+  const [iconSize, setIconSize] = useState<number>(ICON_SIZE_LG);
+  const [iconGap, setIconGap] = useState<number>(ICON_GAP_LG);
+  const [iconList, setIconList] = useState<SkillIcons[]>(SKILL_ICONS_MD);
+  const numberOfRows: number = iconList.length;
+  const numberOfColumns: number = iconList[0]?.icons.length || 0;
+
+  const isSmall = useMediaQuery('(max-width: 399px)');
+  const isMedium = useMediaQuery('(max-width: 699px)');
+  const isLarge = useMediaQuery('(max-width: 799px)');
+
+  useEffect(() => {
+    // set icon gap value
+    if (isSmall) {
+      setIconGap(ICON_GAP_SM);
+    } else {
+      setIconGap(ICON_GAP_LG);
+    }
+
+    // set icon size value
+    if (isLarge) {
+      setIconSize(ICON_SIZE_SM);
+    } else {
+      setIconSize(ICON_SIZE_LG);
+    }
+
+    // set icon list value
+    if (isSmall) {
+      setIconList(SKILL_ICONS_SM);
+    } else if (isMedium) {
+      setIconList(SKILL_ICONS_MD);
+    } else {
+      setIconList(SKILL_ICONS_LG);
+    }
+
+    setActive({ row: 0, col: 0 });
+  }, [isSmall, isMedium, isLarge]);
 
   return (
     <div>
@@ -74,11 +128,11 @@ const Skills: FC = () => {
           <motion.div
             className="relative flex"
             style={{
-              width: (size + gap) * numberOfColumns - gap,
-              height: (size + gap) * numberOfRows - gap,
+              width: (iconSize + iconGap) * numberOfColumns - iconGap,
+              height: (iconSize + iconGap) * numberOfRows - iconGap,
               perspective: 700,
             }}>
-            {SKILL_ICONS_PC.map((items: SkillIcons, rowIndex: number) =>
+            {iconList.map((items: SkillIcons, rowIndex: number) =>
               items.icons.map((item: SkillIcon, colIndex: number) => (
                 <Square
                   item={item}
@@ -86,8 +140,11 @@ const Skills: FC = () => {
                   setActive={setActive}
                   rowIndex={rowIndex}
                   colIndex={colIndex}
+                  numberOfColumns={numberOfColumns}
                   x={x}
                   y={y}
+                  size={iconSize}
+                  gap={iconGap}
                   key={`${items.row}-${item.column}`}
                 />
               ))

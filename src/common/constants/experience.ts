@@ -3,7 +3,7 @@ import type { Experience } from '@/common/types/experience';
 // 経歴情報
 export const EXPERIENCE_INFO: Experience[] = [
   {
-    id: 2,
+    id: 3,
     startAt: '2023',
     endAt: 'current',
     projects: [

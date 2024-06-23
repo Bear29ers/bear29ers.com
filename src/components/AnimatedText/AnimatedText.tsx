@@ -49,7 +49,7 @@ const AnimatedText: FC<Props> = ({ text }) => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0, transition: { duration: 0.8, delay: index * 0.1 } }}
           exit={{ opacity: 0 }}
-          className="inline-block cursor-default whitespace-nowrap text-[80px] transition-all delay-[-30ms] duration-100"
+          className="inline-block cursor-default whitespace-nowrap text-[48px] transition-all delay-[-30ms] duration-100 xs:text-[60px] xsm:text-[80px]"
           ref={(el: HTMLHeadingElement) => {
             lettersRef.current[index] = el;
           }}>

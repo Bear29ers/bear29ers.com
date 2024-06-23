@@ -7,7 +7,7 @@ interface Props {
 
 const Period: FC<Props> = ({ startAt, endAt }) => {
   return (
-    <div className="flex items-center gap-x-6">
+    <div className="flex items-center gap-x-4 xsm:gap-x-6">
       <time>{startAt}</time>
       <span>−</span>
       <time>{endAt}</time>
