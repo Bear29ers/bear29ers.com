@@ -1,6 +1,8 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
 import type { Config } from 'tailwindcss';
+import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
@@ -92,7 +94,15 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        '.flex-center': {
+          '@apply flex items-center justify-center': {},
+        },
+      });
+    }),
+  ],
 };
 
 export default config;
