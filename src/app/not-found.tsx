@@ -27,13 +27,15 @@ const NotFoundPage: NextPage = () => {
           />
         </svg>
       </div>
-      <div className="mt-24 flex-col gap-y-5 flex-center">
+      <div className="mt-24 flex-col gap-y-8 flex-center">
         <h2 className="text-5xl font-semibold">Page Not Found</h2>
         <div className="flex-col flex-center">
           <p className="text-xl">I&apos;m sorry, the page you requested could not be found.</p>
           <p className="text-xl">Please go back to the homepage.</p>
         </div>
-        <Link href="/" className="uppercase text-white">
+        <Link
+          href="/"
+          className="w-fit rounded-2xl bg-pink-500 px-8 py-1 text-lg font-medium uppercase text-white transition-colors duration-500 ease-in-out hover:bg-pink-400">
           Go Home
         </Link>
       </div>
