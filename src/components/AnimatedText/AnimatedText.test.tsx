@@ -10,7 +10,7 @@ describe('src/components/AnimatedText/AnimatedText.test.tsx', () => {
     const text = 'Hello World';
 
     beforeEach(() => {
-      renderResult = render(<AnimatedText text={text} />);
+      renderResult = render(<AnimatedText text={text} classes="" />);
     });
 
     afterEach(() => {
@@ -26,8 +26,10 @@ describe('src/components/AnimatedText/AnimatedText.test.tsx', () => {
     });
 
     it('should apply correct styles on mouse move', async () => {
-      const letters = screen.getAllByRole('heading', { level: 1 });
-      const firstLetter = letters[0];
+      const letters: HTMLElement[] = screen.getAllByRole('heading', { level: 1 });
+      if (!letters[0]) throw new Error('letters[0] is not found');
+
+      const firstLetter: HTMLElement = letters[0];
 
       fireEvent.mouseMove(firstLetter, { clientX: 100, clientY: 100 });
 
