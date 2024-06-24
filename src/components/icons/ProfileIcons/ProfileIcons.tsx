@@ -25,5 +25,5 @@ export const WebsiteIcon: FC = () => {
 };
 
 export const WavingHand: FC = () => {
-  return <div className="wave text-2xl">👋🏻</div>;
+  return <div className="inline-block origin-70 animate-wave text-2xl">👋🏻</div>;
 };
