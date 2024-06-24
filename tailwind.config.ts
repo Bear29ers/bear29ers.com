@@ -1,19 +1,20 @@
 import { fontFamily } from 'tailwindcss/defaultTheme';
+import plugin from 'tailwindcss/plugin';
 
 import type { Config } from 'tailwindcss';
+import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     screens: {
-      xs: '400px',
-      ssm: '500px',
-      xsm: '540px',
-      sm: '640px',
-      md: '768px',
-      xmd: '800px',
-      lg: '1024px',
       xl: '1280px',
+      lg: '1024px',
+      md: '768px',
+      sm: '640px',
+      xsm: '540px',
+      xxs: '500px',
+      xs: '400px',
     },
     extend: {
       fontFamily: {
@@ -35,6 +36,15 @@ const config: Config = {
         millbrook: '#634538',
         coffeeBean: '#2D120F',
         tan: '#D1A68F',
+      },
+      transformOrigin: {
+        '70': '70% 70%',
+      },
+      transitionTimingFunction: {
+        ease: 'ease',
+      },
+      transitionDuration: {
+        '400': '400ms',
       },
       keyframes: {
         updown: {
@@ -84,16 +94,84 @@ const config: Config = {
             width: '75px',
           },
         },
+        wave: {
+          '0%': { transform: 'rotate(0deg)' },
+          '10%': { transform: 'rotate(14deg)' },
+          '20%': { transform: 'rotate(-8deg)' },
+          '30%': { transform: 'rotate(14deg)' },
+          '40%': { transform: 'rotate(-4deg)' },
+          '50%': { transform: 'rotate(10deg)' },
+          '60%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(0deg)' },
+        },
       },
       animation: {
         updown: 'updown 2s infinite alternate',
         blink: 'blink 1s infinite alternate',
         nose: 'nose 3s infinite',
         shadow: 'shadow 2s infinite alternate',
+        wave: 'wave 2.5s infinite alternate',
       },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        '.flex-center': {
+          '@apply flex items-center justify-center': {},
+        },
+        '.writing-mode-vertical': {
+          'writing-mode': 'vertical-lr',
+        },
+        '.intro-transition-bg': {
+          transition: 'height 0.5s ease, width 1s ease 0.5s',
+        },
+        '.bear-body-radius': {
+          'border-radius': '50% / 40% 40% 60% 60%',
+        },
+        '.bear-nose-radius': {
+          'border-radius': '50% / 60% 60% 30% 30%',
+        },
+        '.bear-nose-inner-radius': {
+          'border-radius': '50% / 40% 40% 60% 60%',
+          '&::after': {
+            'position': 'absolute',
+            'bottom': '-5px',
+            'left': '50%',
+            'width': '10px',
+            'height': '10px',
+            'content': '""',
+            'background': '#2d120f',
+            'border-radius': '50%',
+            'box-shadow': '9px 2.4px 0 #d1a68f, -9px 2.4px 0 #d1a68f',
+            'transform': 'translateX(-50%)',
+          },
+        },
+        '.intro-contents-border': {
+          'background': `
+            linear-gradient(to right, #232a36 50%, #7f848b 50%) bottom,
+            linear-gradient(to right, #232a36 50%, #7f848b 50%) top
+          `,
+          'background-repeat': 'no-repeat',
+          'background-size': '100% 4px',
+          'border-right': '4px solid #7f848b',
+          'border-left': '4px solid #232a36',
+          '@media screen and (max-width: 1023px)': {
+            'background': `
+              linear-gradient(to bottom, #232a36 50%, #7f848b 50%) right,
+              linear-gradient(to bottom, #232a36 50%, #7f848b 50%) left
+            `,
+            'background-repeat': 'no-repeat',
+            'background-size': '4px 100%',
+            'border-top': '4px solid #232a36',
+            'border-right': 'none',
+            'border-bottom': '4px solid #7f848b',
+            'border-left': 'none',
+          },
+        },
+      });
+    }),
+  ],
 };
 
 export default config;

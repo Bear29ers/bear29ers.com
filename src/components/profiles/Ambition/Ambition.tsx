@@ -7,7 +7,7 @@ const Ambition: FC = () => {
   return (
     <ul className="space-y-3">
       {AMBITIONS.map((ambition: AmbitionType) => (
-        <li key={ambition.id} className="ssm:text-lg sm:text-xl">
+        <li key={ambition.id} className="xxs:text-lg sm:text-xl">
           {ambition.text}
         </li>
       ))}
