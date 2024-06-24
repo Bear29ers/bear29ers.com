@@ -83,7 +83,7 @@ const Project: FC<Props> = ({ project }) => {
         </div>
         <button
           type="button"
-          className="transition-500 inline w-fit rounded-xl bg-pink-500 px-4 py-1 text-xs font-medium uppercase hover:bg-pink-400 xs:text-sm"
+          className="inline w-fit rounded-xl bg-pink-500 px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out hover:bg-pink-400 xs:text-sm"
           onClick={handleClick}>
           {isShow ? 'Show Less' : 'Show More'}
         </button>

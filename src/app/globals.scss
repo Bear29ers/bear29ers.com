@@ -3,22 +3,6 @@
 @tailwind utilities;
 
 @layer utilities {
-  // .flex-center {
-  //   @apply flex items-center justify-center;
-  // }
-
-  .transition-500 {
-    @apply transition duration-500 ease-in-out;
-  }
-
-  .writing-mode-vertical {
-    writing-mode: vertical-lr;
-  }
-
-  .trapezoid {
-    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-  }
-
   .bear {
     &-body {
       &-radius {
@@ -71,40 +55,6 @@
 
     &-motion {
       transition: all 1s ease;
-    }
-  }
-
-  .intro {
-    &-transition {
-      &-bg {
-        transition:
-          height 0.5s ease,
-          width 1s ease 0.5s;
-      }
-    }
-
-    &-contents {
-      &-bg {
-        background:
-          linear-gradient(to right, #232a36 50%, #7f848b 50%) bottom,
-          linear-gradient(to right, #232a36 50%, #7f848b 50%) top;
-        background-repeat: no-repeat;
-        background-size: 100% 4px;
-        border-right: 4px solid #7f848b;
-        border-left: 4px solid #232a36;
-
-        @media screen and (width <= 1023px) {
-          background:
-            linear-gradient(to bottom, #232a36 50%, #7f848b 50%) right,
-            linear-gradient(to bottom, #232a36 50%, #7f848b 50%) left;
-          background-repeat: no-repeat;
-          background-size: 4px 100%;
-          border-top: 4px solid #232a36;
-          border-right: none;
-          border-bottom: 4px solid #7f848b;
-          border-left: none;
-        }
-      }
     }
   }
 
