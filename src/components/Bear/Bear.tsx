@@ -13,7 +13,7 @@ const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
   return (
     <div className="relative z-30 size-full ">
       <div
-        className={`bear-motion absolute -translate-x-1/2 -translate-y-1/2 ${isClicked ? 'left-1/2 top-32 scale-[0.65] ssm:left-[calc(100%-60px)] ssm:top-[calc(100%-115px)] xsm:top-[calc(100%-100px)] md:left-[calc(100%-80px)] md:top-[calc(100%-110px)] md:scale-[0.8] lg:left-[calc(100%-100px)] lg:top-[calc(100%-130px)] lg:scale-100' : 'left-1/2 top-1/2 scale-100 md:scale-[1.2] lg:scale-150'}`}
+        className={`bear-motion absolute -translate-x-1/2 -translate-y-1/2 ${isClicked ? 'left-1/2 top-32 scale-[0.65] xxs:left-[calc(100%-60px)] xxs:top-[calc(100%-115px)] xsm:top-[calc(100%-100px)] md:left-[calc(100%-80px)] md:top-[calc(100%-110px)] md:scale-[0.8] lg:left-[calc(100%-100px)] lg:top-[calc(100%-130px)] lg:scale-100' : 'left-1/2 top-1/2 scale-100 md:scale-[1.2] lg:scale-150'}`}
         data-testid="bear-wrapper">
         <div className="flex w-[120px] flex-col gap-y-3.5">
           <button type="button" className="z-20 w-full animate-updown" onClick={handleClick}>
@@ -41,7 +41,7 @@ const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
             </span>
           </button>
           <span
-            className={`z-10 m-auto block h-4 w-[100px] animate-shadow rounded-full opacity-30 blur-md ${isClicked ? 'bg-dark ssm:bg-white' : 'bg-white'}`}
+            className={`z-10 m-auto block h-4 w-[100px] animate-shadow rounded-full opacity-30 blur-md ${isClicked ? 'bg-dark xxs:bg-white' : 'bg-white'}`}
             data-testid="bear-shadow"
           />
         </div>

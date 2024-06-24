@@ -14,20 +14,20 @@ const SocialIcons: FC<Props> = ({ lightMode }) => {
   const initialBarWidth = 128;
   const [barWidth, setBarWidth] = useState<number>(initialBarWidth);
   const isUnderXs = useMediaQuery('(max-width: 399px)');
-  const isUnderSsm = useMediaQuery('(max-width: 499px)');
+  const isUnderXxs = useMediaQuery('(max-width: 499px)');
 
   useEffect(() => {
     if (isUnderXs) {
       setBarWidth(96);
-    } else if (isUnderSsm) {
+    } else if (isUnderXxs) {
       setBarWidth(112);
     } else {
       setBarWidth(initialBarWidth);
     }
-  }, [isUnderXs, isUnderSsm]);
+  }, [isUnderXs, isUnderXxs]);
 
   return (
-    <div className="fixed left-1/2 top-5 z-40 flex -translate-x-1/2 flex-row-reverse items-center gap-x-4 ssm:left-0 ssm:translate-x-0">
+    <div className="fixed left-1/2 top-5 z-40 flex -translate-x-1/2 flex-row-reverse items-center gap-x-4 xxs:left-0 xxs:translate-x-0">
       {SOCIAL_MEDIA_LIST.map((socialMedia) => (
         <motion.a
           key={socialMedia.id}
@@ -47,7 +47,7 @@ const SocialIcons: FC<Props> = ({ lightMode }) => {
         </motion.a>
       ))}
       <motion.span
-        className={`hidden h-0.5 w-full ssm:block ${lightMode ? 'bg-dark' : 'bg-white'}`}
+        className={`hidden h-0.5 w-full xxs:block ${lightMode ? 'bg-dark' : 'bg-white'}`}
         initial={{ width: '0' }}
         animate={{ width: `${barWidth}px` }}
         transition={{ type: 'spring', duration: 1.0, delay: 0.8 }}
