@@ -143,7 +143,7 @@ const config: Config = {
             'content': '""',
             'background': '#2d120f',
             'border-radius': '50%',
-            'box-shadow': '10px 2.4px 0 #d1a68f, -10px 2.4px 0 #d1a68f',
+            'box-shadow': '9px 2.4px 0 #d1a68f, -9px 2.4px 0 #d1a68f',
             'transform': 'translateX(-50%)',
           },
         },

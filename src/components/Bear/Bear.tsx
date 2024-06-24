@@ -36,7 +36,7 @@ const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
               <span
                 className="relative m-auto block h-[50px] w-10 translate-y-[40px] animate-nose bg-tan transition-all duration-400 ease-ease bear-nose-radius"
                 data-testid="bear-nose">
-                <span className="after:bear-nose-inner-after absolute left-1/2 top-1/2 h-[13px] w-[25px] -translate-x-1/2 -translate-y-1/2 bg-coffeeBean bear-nose-inner-radius" />
+                <span className="absolute left-1/2 top-1/2 h-[13px] w-[25px] -translate-x-1/2 -translate-y-1/2 bg-coffeeBean bear-nose-inner-radius" />
               </span>
             </span>
           </button>
