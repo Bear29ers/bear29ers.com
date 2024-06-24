@@ -2,32 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-#ball {
-  position: absolute;
-  right: 56px;
-  bottom: 50px;
-  width: 64px;
-  height: 64px;
-  animation: bounce 0.4s cubic-bezier(0.63, 0.09, 0.76, 0.45) infinite alternate;
-}
-
-#bat {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  animation: hit 0.4s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite alternate;
-}
-
-@keyframes hit {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(-10deg);
-  }
-}
-
+// NOTE: この設定を外すとアニメーションの動きがおかしくなるので残しておく
 @keyframes bounce {
   0% {
     bottom: 200px;
