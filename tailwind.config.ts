@@ -104,6 +104,10 @@ const config: Config = {
           '60%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(0deg)' },
         },
+        hit: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(-10deg)' },
+        },
       },
       animation: {
         updown: 'updown 2s infinite alternate',
@@ -111,6 +115,8 @@ const config: Config = {
         nose: 'nose 3s infinite',
         shadow: 'shadow 2s infinite alternate',
         wave: 'wave 2.5s infinite alternate',
+        hit: 'hit 0.4s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite alternate',
+        bounce: 'bounce 0.4s cubic-bezier(0.63, 0.09, 0.76, 0.45) infinite alternate',
       },
     },
   },
