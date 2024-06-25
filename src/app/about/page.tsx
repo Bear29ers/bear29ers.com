@@ -16,13 +16,13 @@ const About: NextPage = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div ref={ref} className="flex-center w-full flex-col bg-dark text-white">
+    <div ref={ref} className="w-full flex-col bg-dark text-white flex-center">
       <div className="my-24 flex gap-x-5">
         <div>
-          <AnimatedText text="About" />
+          <AnimatedText text="About" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
         </div>
         <div>
-          <AnimatedText text="me" />
+          <AnimatedText text="me" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
         </div>
       </div>
       <div className="flex w-full max-w-screen-lg flex-col gap-y-20 px-2.5 xs:gap-y-28 xs:px-5 xl:max-w-none xl:px-0">
