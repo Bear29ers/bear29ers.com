@@ -6,12 +6,12 @@ import type { NextPage } from 'next';
 
 const NotFoundPage: NextPage = () => {
   return (
-    <div className="h-screen w-screen flex-col bg-dark text-white flex-center">
-      <div className="gap-x-28 flex-center sm:gap-x-36">
-        <AnimatedText text="4" classes="text-[120px] sm:text-[150px]" />
-        <AnimatedText text="4" classes="text-[120px] sm:text-[150px]" />
+    <div className="h-screen w-screen flex-col bg-dark px-2 text-white flex-center sm:px-0">
+      <div className="gap-x-20 flex-center xs:gap-x-28 sm:gap-x-36">
+        <AnimatedText text="4" classes="text-[100px] xs:text-[120px] sm:text-[150px]" />
+        <AnimatedText text="4" classes="text-[100px] xs:text-[120px] sm:text-[150px]" />
       </div>
-      <div className="relative mr-32 h-20 w-[350px] scale-75 sm:mr-44 sm:h-28 sm:scale-100">
+      <div className="relative mr-24 h-20 w-[350px] scale-[0.6] xs:mr-32 xs:scale-75 sm:mr-44 sm:h-28 sm:scale-100">
         <svg className="absolute bottom-0 left-0 animate-hit" viewBox="0 0 337.4 42.6">
           <path
             d="M95.2 12.7c-36.4 1.4-74.9-.2-85-.7C8.9 7.1 6 7.3 6 7.3s-6 1-6 13.8 4.7 14.8 6.5 14.8c2.5 0 3.4-4.2 3.6-5.2 10.1-.5 48.6-2.1 85-.7 15.5.6 42.9 2 72 3.6V9.1c-29.1 1.6-56.5 3-71.9 3.6zM323 .1s-33.5 1.7-43.1 2.5c-5.3.5-47.8 3-92 5.4v26.6c44.2 2.4 86.7 4.9 92 5.4 9.6.8 43.1 2.5 43.1 2.5s14.4 2.5 14.4-21v-.4c0-23.5-14.4-21-14.4-21z"
@@ -29,7 +29,7 @@ const NotFoundPage: NextPage = () => {
       </div>
       <div className="mt-24 flex-col gap-y-8 flex-center">
         <h2 className="text-3xl font-semibold sm:text-5xl">Page Not Found</h2>
-        <div className="flex-col flex-center">
+        <div className="hidden flex-col xxs:flex">
           <p className="sm:text-xl">I&apos;m sorry, the page you requested could not be found.</p>
           <p className="sm:text-xl">Please go back to the homepage.</p>
         </div>
