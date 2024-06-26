@@ -17,7 +17,7 @@ const profileDetails = {
   },
   website: {
     icon: 'WebsiteIcon',
-    text: 'https://bear29ers.github.io',
+    text: 'https://bear29ers.com',
   },
 };
 
