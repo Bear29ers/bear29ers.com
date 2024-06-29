@@ -4,7 +4,7 @@ import ProjectTag from './ProjectTag';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/projects/ProjectTag/ProjectTag.test.tsx', () => {
+describe('src/components/ui/projects/ProjectTag/ProjectTag.test.tsx', () => {
   const tagName = 'HTML';
   let renderResult: RenderResult;
 

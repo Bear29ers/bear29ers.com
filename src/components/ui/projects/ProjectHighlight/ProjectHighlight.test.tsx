@@ -4,7 +4,7 @@ import ProjectHighlight from './ProjectHighlight';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/projects/ProjectHighlight/ProjectHighlight.test.tsx', () => {
+describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx', () => {
   const highlight = 'Dockerize the project';
   let renderResult: RenderResult;
 
