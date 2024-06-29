@@ -94,7 +94,7 @@ const Intro: FC<Props> = ({ isClicked, homeProfileText }) => {
         )}
       </div>
       <div
-        className={`absolute inset-y-0 bg-hitGray bg-noise-pattern bg-cover bg-center bg-repeat intro-transition-bg lg:right-1/2 ${isClicked ? 'h-1/2 w-full lg:h-full lg:w-1/2' : 'size-0 lg:w-2'}`}
+        className={`absolute inset-y-0 bg-hitGray bg-noise-pattern bg-auto bg-center bg-repeat intro-transition-bg lg:right-1/2 ${isClicked ? 'h-1/2 w-full lg:h-full lg:w-1/2' : 'size-0 lg:w-2'}`}
       />
     </>
   );
