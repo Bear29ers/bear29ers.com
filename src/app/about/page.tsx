@@ -3,12 +3,12 @@
 import { useRef } from 'react';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
+import SectionTitle from '@/components/common/SectionTitle/SectionTitle';
 import Footer from '@/components/layout/Footer/Footer';
-import Ambition from '@/components/profiles/Ambition/Ambition';
-import Biography from '@/components/profiles/Biography/Biography';
-import SectionTitle from '@/components/profiles/SectionTitle/SectionTitle';
-import Skills from '@/components/profiles/Skills/Skills';
-import Status from '@/components/profiles/Status/Status';
+import Ambition from '@/components/ui/Ambition/Ambition';
+import Biography from '@/components/ui/Biography/Biography';
+import Skills from '@/components/ui/Skills/Skills';
+import Status from '@/components/ui/Status/Status';
 
 import type { NextPage } from 'next';
 

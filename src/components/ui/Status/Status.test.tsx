@@ -36,7 +36,7 @@ const teams = {
   },
 };
 
-describe('src/components/profiles/Status/Status.test.tsx', () => {
+describe('src/components/ui/Status/Status.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
