@@ -15,9 +15,9 @@ const FramerImage = motion(Image);
 
 const Status: FC = () => {
   return (
-    <div className="flex-center flex-col xl:flex-row">
-      <div className="flex-center relative -mb-40 mr-0 size-[250px] rounded-full bg-darkGray xs:size-[294px] xxs:size-[328px] md:size-[360px] xl:-mr-32 xl:mb-0">
-        <div className="flex-center size-56 rounded-full bg-darker xs:size-64 xxs:size-72 md:size-80">
+    <div className="flex-col flex-center xl:flex-row">
+      <div className="relative -mb-40 mr-0 size-[250px] rounded-full bg-darkGray flex-center xs:size-[294px] xxs:size-[328px] md:size-[360px] xl:-mr-32 xl:mb-0">
+        <div className="size-56 rounded-full bg-darker flex-center xs:size-64 xxs:size-72 md:size-80">
           <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-28 xs:w-36 xxs:w-44 md:w-52" />
         </div>
         <span className="absolute left-32 top-9 size-2 rounded-full bg-mantis xs:top-12 xs:size-3" />
@@ -55,7 +55,15 @@ const Status: FC = () => {
                   <div className="size-[18px]">
                     <profileDetail.icon />
                   </div>
-                  <span>{profileDetail.content}</span>
+                  {profileDetail.type === 'website' ? (
+                    <a
+                      href={profileDetail.content}
+                      className="transition-all duration-300 hover:underline hover:opacity-80">
+                      {profileDetail.content}
+                    </a>
+                  ) : (
+                    <span>{profileDetail.content}</span>
+                  )}
                 </li>
               ))}
             </ul>
