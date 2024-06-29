@@ -3,10 +3,12 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+
+import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/constants/about';
+import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
+
 import getIconComponent from '@/utils/getIconComponent';
 
-import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/common/constants/about';
-import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
 import type { ProfileDetail, Team } from '@/common/types/about';
 import type { SocialMedia } from '@/common/types/socialMedia';
 

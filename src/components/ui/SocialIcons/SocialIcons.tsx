@@ -4,9 +4,10 @@ import { motion } from 'framer-motion';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
+import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
+
 import getIconComponent from '@/utils/getIconComponent';
 
-import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
 
 interface Props {
   lightMode: boolean;

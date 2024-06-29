@@ -1,4 +1,4 @@
-import { HOME_PROFILE_TEXT } from '@/common/constants/home';
+import { HOME_PROFILE_TEXT } from '@/constants/home';
 
 import Intro from './Intro';
 

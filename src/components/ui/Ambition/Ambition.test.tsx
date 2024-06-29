@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { AMBITIONS } from '@/common/constants/about';
+import { AMBITIONS } from '@/constants/about';
 
 import Ambition from './Ambition';
 

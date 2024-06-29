@@ -3,7 +3,8 @@ import Footer from '@/components/layout/Footer/Footer';
 import Project from '@/components/ui/Project/Project';
 import Period from '@/components/ui/projects/Period/Period';
 
-import { EXPERIENCE_INFO } from '@/common/constants/experience';
+import { EXPERIENCE_INFO } from '@/constants/experience';
+
 import type { Project as ProjectType } from '@/common/types/experience';
 import { Experience } from '@/common/types/experience';
 

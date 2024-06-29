@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
-import { AMBITIONS } from '@/common/constants/about';
+import { AMBITIONS } from '@/constants/about';
+
 import type { Ambition as AmbitionType } from '@/common/types/about';
 
 const Ambition: FC = () => {

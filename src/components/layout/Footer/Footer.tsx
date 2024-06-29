@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { PROFILE_TEXT } from '@/common/constants/about';
+import { PROFILE_TEXT } from '@/constants/about';
 
 const Footer: FC = () => {
   const year = new Date().getFullYear();
