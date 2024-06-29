@@ -1,14 +1,15 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import '@/common/hooks/useMediaQueryMock';
+import '@/hooks/useMediaQuery/useMediaQueryMock';
+
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import { HOME_PROFILE_TEXT } from '@/common/constants/home';
-import useMediaQuery from '@/common/hooks/useMediaQuery';
 
 import Intro from './Intro';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('../../../common/hooks/useMediaQuery.ts');
+jest.mock('../../../hooks/useMediaQuery/useMediaQuery.ts');
 
 describe('src/components/ui/Intro/Intro.test.tsx', () => {
   describe('when isClicked props is false', () => {

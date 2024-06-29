@@ -1,6 +1,8 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import '@/common/hooks/useMediaQueryMock';
+import '@/hooks/useMediaQuery/useMediaQueryMock';
 import { motionValue } from 'framer-motion';
+
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import {
   ICON_GAP_LG,
@@ -11,13 +13,12 @@ import {
   SKILL_ICONS_MD,
   SKILL_ICONS_SM,
 } from '@/common/constants/skillIcons';
-import useMediaQuery from '@/common/hooks/useMediaQuery';
 
 import Skills, { Square } from './Skills';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('../../../common/hooks/useMediaQuery.ts');
+jest.mock('../../../hooks/useMediaQuery/useMediaQuery.ts');
 
 describe('src/components/ui/Skills/Skills.test.tsx', () => {
   describe('Skills component', () => {

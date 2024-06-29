@@ -3,7 +3,8 @@ import { useState, type FC, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-import useMediaQuery from '@/common/hooks/useMediaQuery';
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
+
 import type { HomeText } from '@/common/types/home';
 
 import Memoji from '~/images/memoji.png';

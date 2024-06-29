@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 import MenuIcon from '@/components/common/menus/MenuIcon/MenuIcon';
 import MenuWindow from '@/components/common/menus/MenuWindow/MenuWindow';
 
-import useMediaQuery from '@/common/hooks/useMediaQuery';
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 const Menu: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);

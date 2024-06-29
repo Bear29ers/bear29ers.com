@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import '@/common/hooks/useMediaQueryMock';
+import '@/hooks/useMediaQuery/useMediaQueryMock';
 
 import Menu from './Menu';
 
