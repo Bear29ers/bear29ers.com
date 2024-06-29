@@ -4,7 +4,7 @@ import MenuWindow from './MenuWindow';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/menus/MenuWindow/MenuWindow.test.tsx', () => {
+describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
   describe('when isOpen props is false', () => {
     let renderResult: RenderResult;
 
