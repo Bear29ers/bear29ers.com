@@ -5,7 +5,7 @@ import Menu from './Menu';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/Menu/Menu.test.tsx', () => {
+describe('src/components/common/Menu/Menu.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {

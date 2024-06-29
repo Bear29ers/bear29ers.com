@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 
-import Menu from '@/components/Menu/Menu';
+import Menu from '@/components/common/Menu/Menu';
 
 import { montserrat } from '@/common/utils/fonts';
 
