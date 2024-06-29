@@ -10,7 +10,8 @@ import '@/app/globals.scss';
 
 export const metadata: Metadata = {
   title: 'Bear29ers',
-  description: '[WIP]A brand-new portfolio site "bear29ers.com".',
+  description: 'A new portfolio website by Bear29ers.',
+  appleWebApp: true,
 };
 
 const RootLayout = ({
@@ -20,7 +21,8 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} relative size-full overscroll-y-none font-mont`}>
+      <body
+        className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-noise-pattern bg-auto bg-center bg-repeat font-mont`}>
         <Menu />
         {children}
       </body>
