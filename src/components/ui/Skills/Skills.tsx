@@ -6,6 +6,8 @@ import type { Dispatch, SetStateAction, FC } from 'react';
 import { useMotionValue, motion, useSpring } from 'framer-motion-8';
 import { distance } from 'popmotion';
 
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
+
 import {
   ICON_GAP_LG,
   ICON_GAP_SM,
@@ -15,7 +17,6 @@ import {
   SKILL_ICONS_MD,
   SKILL_ICONS_SM,
 } from '@/common/constants/skillIcons';
-import useMediaQuery from '@/common/hooks/useMediaQuery';
 import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';

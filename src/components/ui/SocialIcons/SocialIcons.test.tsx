@@ -1,13 +1,13 @@
 import { render, screen, waitFor } from '@testing-library/react';
-import '@/common/hooks/useMediaQueryMock';
+import '@/hooks/useMediaQuery/useMediaQueryMock';
 
-import useMediaQuery from '@/common/hooks/useMediaQuery';
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import SocialIcons from './SocialIcons';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('../../../common/hooks/useMediaQuery.ts');
+jest.mock('../../../hooks/useMediaQuery/useMediaQuery.ts');
 
 describe('src/components/ui/SocialIcons/SocialIcons.test.tsx', () => {
   describe('when darkMode props is false', () => {

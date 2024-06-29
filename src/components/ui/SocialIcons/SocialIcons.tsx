@@ -2,9 +2,10 @@ import { useState, type FC, useEffect } from 'react';
 
 import { motion } from 'framer-motion';
 
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
+
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
 import getIconComponent from '@/common/functions/getIconComponent';
-import useMediaQuery from '@/common/hooks/useMediaQuery';
 
 interface Props {
   lightMode: boolean;

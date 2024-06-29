@@ -2,7 +2,7 @@ import { act, renderHook } from '@testing-library/react';
 
 import useMediaQuery from './useMediaQuery';
 
-describe('src/common/hooks/useMediaQuery', () => {
+describe('src/hooks/useMediaQuery/useMediaQuery', () => {
   let matchMedia: jest.Mock;
   let addEventListenerMock: jest.Mock;
   let removeEventListenerMock: jest.Mock;
