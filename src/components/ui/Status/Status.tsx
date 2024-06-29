@@ -3,9 +3,10 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
+import getIconComponent from '@/utils/getIconComponent';
+
 import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/common/constants/about';
 import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
-import getIconComponent from '@/common/functions/getIconComponent';
 import type { ProfileDetail, Team } from '@/common/types/about';
 import type { SocialMedia } from '@/common/types/socialMedia';
 
