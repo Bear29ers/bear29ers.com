@@ -4,7 +4,7 @@ import Period from './Period';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/projects/Period/Period.test.tsx', () => {
+describe('src/components/ui/projects/Period/Period.test.tsx', () => {
   const startAt = '2022';
   const endAt = 'current';
   let renderResult: RenderResult;

@@ -1,7 +1,7 @@
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
-import Period from '@/components/projects/Period/Period';
 import Project from '@/components/ui/Project/Project';
+import Period from '@/components/ui/projects/Period/Period';
 
 import { EXPERIENCE_INFO } from '@/common/constants/experience';
 import type { Project as ProjectType } from '@/common/types/experience';
