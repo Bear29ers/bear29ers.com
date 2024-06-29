@@ -10,7 +10,8 @@ import '@/app/globals.scss';
 
 export const metadata: Metadata = {
   title: 'Bear29ers',
-  description: '[WIP]A brand-new portfolio site "bear29ers.com".',
+  description: 'A new portfolio website by Bear29ers.',
+  appleWebApp: true,
 };
 
 const RootLayout = ({
