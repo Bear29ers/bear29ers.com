@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { damion } from '@/common/utils/fonts';
+import { damion } from '@/utils/fonts';
 
 interface Props {
   title: string;

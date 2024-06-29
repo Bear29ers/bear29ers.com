@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 
 import Menu from '@/components/common/Menu/Menu';
 
-import { montserrat } from '@/common/utils/fonts';
+import { montserrat } from '@/utils/fonts';
 
 import type { Metadata } from 'next';
 
