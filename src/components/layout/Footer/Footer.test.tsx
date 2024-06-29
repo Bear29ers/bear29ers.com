@@ -6,7 +6,7 @@ import Footer from './Footer';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/Footer/Footer.test.tsx', () => {
+describe('src/components/layout/Footer/Footer.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
