@@ -61,7 +61,7 @@ import {
   XDIcon,
 } from '@/components/icons/SkillIcons/SkillIcons';
 
-import type { SkillIcons } from '@/common/types/skillIcons';
+import type { SkillIcons } from '@/types/skillIcons';
 
 export const ICON_SIZE_LG: number = 60;
 export const ICON_SIZE_SM: number = 50;

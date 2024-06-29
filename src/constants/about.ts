@@ -1,6 +1,6 @@
 import { OrganizationIcon, LocationIcon, WebsiteIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import type { Ambition, ProfileDetail, ProfileText, Team } from '@/common/types/about';
+import type { Ambition, ProfileDetail, ProfileText, Team } from '@/types/about';
 
 import bluejays from '~/images/teams/bluejays.png';
 import dodgers from '~/images/teams/dodgers.png';

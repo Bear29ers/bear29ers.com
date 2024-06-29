@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import type { Project as ProjectType } from '@/common/types/experience';
+import type { Project as ProjectType } from '@/types/experience';
 
 import ProjectHighlight from '../projects/ProjectHighlight/ProjectHighlight';
 import ProjectTag from '../projects/ProjectTag/ProjectTag';
