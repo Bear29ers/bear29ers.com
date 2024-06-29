@@ -4,7 +4,7 @@ import AnimatedText from './AnimatedText';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/AnimatedText/AnimatedText.test.tsx', () => {
+describe('src/components/common/AnimatedText/AnimatedText.test.tsx', () => {
   describe('when text props is "Hello World"', () => {
     let renderResult: RenderResult;
     const text = 'Hello World';
