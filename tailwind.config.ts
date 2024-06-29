@@ -37,6 +37,9 @@ const config: Config = {
         coffeeBean: '#2D120F',
         tan: '#D1A68F',
       },
+      backgroundImage: {
+        'noise-pattern': "url('/images/noise-pattern.png')",
+      },
       transformOrigin: {
         '70': '70% 70%',
       },

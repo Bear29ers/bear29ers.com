@@ -21,7 +21,8 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark font-mont`}>
+      <body
+        className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-noise-pattern bg-auto bg-center bg-repeat font-mont`}>
         <Menu />
         {children}
       </body>
