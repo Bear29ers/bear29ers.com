@@ -15,7 +15,7 @@ const Home: NextPage = () => {
   const [isClicked, setIsClicked] = useState<boolean>(false);
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-dark">
+    <div className="relative h-screen w-screen overflow-hidden">
       {/* Intro */}
       <Intro isClicked={isClicked} homeProfileText={HOME_PROFILE_TEXT} />
       {/* Bear */}
