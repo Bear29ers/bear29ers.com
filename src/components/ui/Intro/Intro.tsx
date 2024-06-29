@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
-import type { HomeText } from '@/common/types/home';
+import type { HomeText } from '@/types/home';
 
 import Memoji from '~/images/memoji.png';
 

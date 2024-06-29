@@ -1,4 +1,4 @@
-import type { HomeText } from '@/common/types/home';
+import type { HomeText } from '@/types/home';
 
 // プロフィールテキスト
 export const HOME_PROFILE_TEXT: HomeText = {

@@ -1,4 +1,4 @@
-import type { Experience } from '@/common/types/experience';
+import type { Experience } from '@/types/experience';
 
 // 経歴情報
 export const EXPERIENCE_INFO: Experience[] = [

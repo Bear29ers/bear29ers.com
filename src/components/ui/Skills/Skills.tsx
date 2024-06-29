@@ -18,7 +18,7 @@ import {
   SKILL_ICONS_SM,
 } from '@/constants/skillIcons';
 
-import type { SkillIcon, SkillIcons } from '@/common/types/skillIcons';
+import type { SkillIcon, SkillIcons } from '@/types/skillIcons';
 
 import type { MotionValue } from 'framer-motion-8';
 
