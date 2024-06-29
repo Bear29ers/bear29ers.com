@@ -79,8 +79,8 @@ describe('src/components/profiles/Status/Status.test.tsx', () => {
     expect(screen.getByRole('img', { name: profileDetails.website.icon })).toBeInTheDocument();
   });
 
-  it('should render the website url', () => {
-    expect(screen.getByText(profileDetails.website.text)).toBeInTheDocument();
+  it('should render the website link', () => {
+    expect(screen.getByRole('link', { name: profileDetails.website.text })).toBeInTheDocument();
   });
 
   it('should render the GithubIcon component', () => {
