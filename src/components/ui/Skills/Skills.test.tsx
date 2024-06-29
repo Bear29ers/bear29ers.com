@@ -19,7 +19,7 @@ import type { RenderResult } from '@testing-library/react';
 
 jest.mock('../../../common/hooks/useMediaQuery.ts');
 
-describe('src/components/profiles/Skills/Skills.test.tsx', () => {
+describe('src/components/ui/Skills/Skills.test.tsx', () => {
   describe('Skills component', () => {
     let renderResult: RenderResult;
 

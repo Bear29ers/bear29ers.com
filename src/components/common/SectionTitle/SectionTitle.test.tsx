@@ -4,7 +4,7 @@ import SectionTitle from './SectionTitle';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/profiles/SectionTitle/SectionTitle.test.tsx', () => {
+describe('src/components/common/SectionTitle/SectionTitle.test.tsx', () => {
   const title = 'Biography';
   let renderResult: RenderResult;
 

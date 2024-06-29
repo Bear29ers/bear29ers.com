@@ -8,7 +8,7 @@ import type { RenderResult } from '@testing-library/react';
 
 const { biographyList } = PROFILE_TEXT;
 
-describe('src/components/profiles/Biography/Biography.test.tsx', () => {
+describe('src/components/ui/Biography/Biography.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
