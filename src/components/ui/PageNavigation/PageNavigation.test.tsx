@@ -4,7 +4,7 @@ import PageNavigation from './PageNavigation';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/PageNavigation/PageNavigation.test.tsx', () => {
+describe('src/components/ui/PageNavigation/PageNavigation.test.tsx', () => {
   describe('when isClicked props is false', () => {
     let renderResult: RenderResult;
 
