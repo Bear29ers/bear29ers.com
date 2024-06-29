@@ -1,6 +1,6 @@
-import Footer from '@/components/Footer/Footer';
 import Project from '@/components/Project/Project';
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
+import Footer from '@/components/layout/Footer/Footer';
 import Period from '@/components/projects/Period/Period';
 
 import { EXPERIENCE_INFO } from '@/common/constants/experience';
