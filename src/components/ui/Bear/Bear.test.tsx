@@ -4,7 +4,7 @@ import Bear from './Bear';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/Bear/Bear.test.tsx', () => {
+describe('src/components/ui/Bear/Bear.test.tsx', () => {
   describe('when isClicked props is false', () => {
     let renderResult: RenderResult;
 
