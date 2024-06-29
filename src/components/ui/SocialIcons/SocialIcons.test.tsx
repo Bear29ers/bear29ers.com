@@ -7,9 +7,9 @@ import SocialIcons from './SocialIcons';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('../../common/hooks/useMediaQuery.ts');
+jest.mock('../../../common/hooks/useMediaQuery.ts');
 
-describe('src/components/SocialIcons/SocialIcons.test.tsx', () => {
+describe('src/components/ui/SocialIcons/SocialIcons.test.tsx', () => {
   describe('when darkMode props is false', () => {
     let renderResult: RenderResult;
 
