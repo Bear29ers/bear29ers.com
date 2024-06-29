@@ -2,8 +2,8 @@
 
 import { useRef } from 'react';
 
-import AnimatedText from '@/components/AnimatedText/AnimatedText';
 import Footer from '@/components/Footer/Footer';
+import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Ambition from '@/components/profiles/Ambition/Ambition';
 import Biography from '@/components/profiles/Biography/Biography';
 import SectionTitle from '@/components/profiles/SectionTitle/SectionTitle';
