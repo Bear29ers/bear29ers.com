@@ -18,7 +18,7 @@ export const Default: Story = {
   },
   render: ({ isOpen, setIsOpen }) => {
     return (
-      <div className="flex-center h-screen w-screen">
+      <div className="h-screen w-screen flex-center">
         <MenuIcon isOpen={isOpen} setIsOpen={setIsOpen} />
       </div>
     );

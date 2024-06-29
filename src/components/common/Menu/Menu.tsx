@@ -4,8 +4,8 @@ import { useState, type FC } from 'react';
 
 import { usePathname } from 'next/navigation';
 
-import MenuIcon from '@/components/menus/MenuIcon/MenuIcon';
-import MenuWindow from '@/components/menus/MenuWindow/MenuWindow';
+import MenuIcon from '@/components/common/menus/MenuIcon/MenuIcon';
+import MenuWindow from '@/components/common/menus/MenuWindow/MenuWindow';
 
 import useMediaQuery from '@/common/hooks/useMediaQuery';
 

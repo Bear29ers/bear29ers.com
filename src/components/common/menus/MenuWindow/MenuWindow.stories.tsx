@@ -18,7 +18,7 @@ export const Default: Story = {
   },
   render: ({ isOpen, isMobile }) => {
     return (
-      <div className="flex-center h-screen w-screen">
+      <div className="h-screen w-screen flex-center">
         <MenuWindow isOpen={isOpen} isMobile={isMobile} />
       </div>
     );

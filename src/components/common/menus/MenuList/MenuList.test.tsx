@@ -4,7 +4,7 @@ import MenuList from './MenuList';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/menus/MenuList/MenuList.test.tsx', () => {
+describe('src/components/common/menus/MenuList/MenuList.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {

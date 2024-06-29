@@ -4,7 +4,7 @@ import MenuIcon from './MenuIcon';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/menus/MenuIcon/MenuIcon.test.tsx', () => {
+describe('src/components/common/menus/MenuIcon/MenuIcon.test.tsx', () => {
   describe('when isOpen props is false', () => {
     let renderResult: RenderResult;
 
