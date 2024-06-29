@@ -16,7 +16,7 @@ const About: NextPage = () => {
   const ref = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div ref={ref} className="w-full flex-col bg-dark text-white flex-center">
+    <div ref={ref} className="w-full flex-col text-white flex-center">
       <div className="my-24 flex gap-x-5">
         <div>
           <AnimatedText text="About" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
