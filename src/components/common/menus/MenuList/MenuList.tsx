@@ -2,10 +2,12 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
+
+import { MENU_ITEMS } from '@/constants/menuItems';
+import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
+
 import getIconComponent from '@/utils/getIconComponent';
 
-import { MENU_ITEMS } from '@/common/constants/menuItems';
-import { SOCIAL_MEDIA_LIST } from '@/common/constants/socialMedia';
 import type { MenuItem } from '@/common/types/menuItems';
 import type { SocialMedia } from '@/common/types/socialMedia';
 

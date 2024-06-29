@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 
-import { PROFILE_TEXT } from '@/common/constants/about';
+import { PROFILE_TEXT } from '@/constants/about';
 
 import Biography from './Biography';
 

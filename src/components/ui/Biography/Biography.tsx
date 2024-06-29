@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 import { WavingHand } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import { PROFILE_TEXT } from '@/common/constants/about';
+import { PROFILE_TEXT } from '@/constants/about';
 
 const Biography: FC = () => {
   return (

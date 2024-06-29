@@ -12,7 +12,7 @@ import {
   SKILL_ICONS_LG,
   SKILL_ICONS_MD,
   SKILL_ICONS_SM,
-} from '@/common/constants/skillIcons';
+} from '@/constants/skillIcons';
 
 import Skills, { Square } from './Skills';
 
