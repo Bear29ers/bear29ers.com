@@ -8,9 +8,9 @@ import Intro from './Intro';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('../../common/hooks/useMediaQuery.ts');
+jest.mock('../../../common/hooks/useMediaQuery.ts');
 
-describe('src/components/Intro/Intro.test.tsx', () => {
+describe('src/components/ui/Intro/Intro.test.tsx', () => {
   describe('when isClicked props is false', () => {
     let renderResult: RenderResult;
 
