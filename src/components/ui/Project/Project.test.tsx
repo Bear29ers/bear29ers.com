@@ -4,7 +4,7 @@ import Project from './Project';
 
 import type { RenderResult } from '@testing-library/react';
 
-describe('src/components/Project/Project.test.tsx', () => {
+describe('src/components/ui/Project/Project.test.tsx', () => {
   const projectData = {
     id: 1,
     startAt: '2022.1',

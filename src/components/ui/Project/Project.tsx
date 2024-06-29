@@ -8,8 +8,8 @@ import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/
 
 import type { Project as ProjectType } from '@/common/types/experience';
 
-import ProjectHighlight from '../projects/ProjectHighlight/ProjectHighlight';
-import ProjectTag from '../projects/ProjectTag/ProjectTag';
+import ProjectHighlight from '../../projects/ProjectHighlight/ProjectHighlight';
+import ProjectTag from '../../projects/ProjectTag/ProjectTag';
 
 const bgVariants = {
   opened: {
