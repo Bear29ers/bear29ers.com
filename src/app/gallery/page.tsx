@@ -33,8 +33,6 @@ const Gallery: NextPage = () => {
       });
   }, []);
 
-  if (!data) return <div>No data</div>;
-
   return (
     <div className="flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
       <div className="my-24">
