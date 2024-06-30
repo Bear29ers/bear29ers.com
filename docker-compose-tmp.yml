@@ -1,4 +1,3 @@
-version: '3.9'
 services:
   app:
     container_name: app
@@ -9,6 +8,9 @@ services:
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
+      - GRAPH_API_BASE_URL=https://graph.facebook.com/
+      - GRAPH_API_INSTAGRAM_ID=dummy
+      - GRAPH_API_ACCESS_TOKEN=dummy
     volumes:
       - .:/app
       - /app/node_modules
