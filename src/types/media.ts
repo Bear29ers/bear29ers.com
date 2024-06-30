@@ -14,6 +14,7 @@ interface MediaData {
   permalink: string;
   likeCount: number;
   timestamp: string;
+  username: string;
   id: string;
 }
 
