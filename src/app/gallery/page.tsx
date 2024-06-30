@@ -16,8 +16,6 @@ import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     fetch('/api/instagram')
@@ -29,17 +27,12 @@ const Gallery: NextPage = () => {
       })
       .then((data) => {
         setData(data);
-        setLoading(false);
       })
       .catch((err) => {
-        setError('Error fetching data');
-        setLoading(false);
         console.error(err);
       });
   }, []);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
   if (!data) return <div>No data</div>;
 
   return (
@@ -48,17 +41,24 @@ const Gallery: NextPage = () => {
         <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
       </div>
       <div>
-        {data.media.data.map((post, index) => (
-          <div key={index}>
-            <img src={post.media_url} alt={post.caption} />
-            <p>{post.caption}</p>
-            <p>Likes: {post.like_count}</p>
-            <p>Posted by: {post.username}</p>
-            <a href={post.permalink} target="_blank" rel="noopener noreferrer">
-              View on Instagram
-            </a>
+        <h1>Instagram Gallery</h1>
+        {!data || !data.media.data.length ? (
+          <div>No data available</div>
+        ) : (
+          <div className="gallery">
+            {data.media.data.map((post, index) => (
+              <div key={index} className="post">
+                <img src={post.media_url} alt={post.caption} />
+                <p>{post.caption}</p>
+                <p>Likes: {post.like_count}</p>
+                <p>Posted by: {post.username}</p>
+                <a href={post.permalink} target="_blank" rel="noopener noreferrer">
+                  View on Instagram
+                </a>
+              </div>
+            ))}
           </div>
-        ))}
+        )}
       </div>
       {/* Footer */}
       <Footer />
