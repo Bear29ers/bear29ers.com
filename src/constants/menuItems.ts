@@ -21,14 +21,14 @@ export const MENU_ITEMS: MenuItem[] = [
   },
   {
     id: 4,
-    href: '/works',
-    text: 'Works',
-    isAvaliable: false,
+    href: '/gallery',
+    text: 'Gallery',
+    isAvaliable: true,
   },
   {
     id: 5,
-    href: '/gallery',
-    text: 'Gallery',
+    href: '/works',
+    text: 'Works',
     isAvaliable: false,
   },
 ];
