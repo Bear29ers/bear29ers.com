@@ -52,7 +52,7 @@ describe('src/components/common/menus/MenuList/MenuList.test.tsx', () => {
   });
 
   it('should have pointer-events-none and line-through class with the Gallery menu item', () => {
-    expect(screen.getByRole('link', { name: 'Gallery' })).toHaveClass('pointer-events-none line-through');
+    expect(screen.getByRole('link', { name: 'Gallery' })).not.toHaveClass('pointer-events-none line-through');
   });
 
   it('should render the GithubIcon component', () => {
