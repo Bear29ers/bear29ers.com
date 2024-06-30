@@ -36,11 +36,11 @@ describe('src/components/ui/PageNavigation/PageNavigation.test.tsx', () => {
       expect(screen.getByRole('link', { name: 'Experience' })).toHaveClass('text-white');
     });
 
-    it('should render the Gallery text', () => {
-      expect(screen.getByText('Gallery')).toBeInTheDocument();
+    it('should render the Gallery link', () => {
+      expect(screen.getByRole('link', { name: 'Gallery' })).toBeInTheDocument();
     });
 
-    it('should have text-white class with the Gallery text', () => {
+    it('should have text-white class with the Gallery page link', () => {
       expect(screen.getByText('Gallery')).toHaveClass('text-white');
     });
   });
@@ -64,12 +64,12 @@ describe('src/components/ui/PageNavigation/PageNavigation.test.tsx', () => {
       expect(screen.getByRole('link', { name: 'About' })).toHaveClass('text-white');
     });
 
-    it('should have lg:text-dark class with the Gallery text', () => {
-      expect(screen.getByText('Gallery')).toHaveClass('lg:text-dark');
+    it('should have lg:text-dark class with the Gallery page link', () => {
+      expect(screen.getByRole('link', { name: 'Gallery' })).toHaveClass('lg:text-dark');
     });
 
-    it('should have text-white class with the Gallery text', () => {
-      expect(screen.getByText('Gallery')).toHaveClass('text-white');
+    it('should have text-white class with the Gallery page link', () => {
+      expect(screen.getByRole('link', { name: 'Gallery' })).toHaveClass('text-white');
     });
   });
 });

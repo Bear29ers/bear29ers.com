@@ -10,6 +10,7 @@ import getIconComponent from '@/utils/getIconComponent';
 import type { MenuItem } from '@/types/menuItems';
 import type { SocialMedia } from '@/types/socialMedia';
 
+// TODO: すべてリンクが有効になったらvariatnsを修正する（whileHoverやwhileTapもvariantsに含める）
 const activeMenuVariants = {
   initial: {
     opacity: 0,
