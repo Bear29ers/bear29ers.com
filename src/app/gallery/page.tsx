@@ -1,10 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable react/no-array-index-key */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable no-shadow */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -19,13 +12,13 @@ import type { Media } from '@/types/media';
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
-  const [data, setData] = useState<Media | null>(null);
+  const [mediaData, setMediaData] = useState<Media | null>(null);
 
   const loadMediaData = () => {
     fetchMedia()
       .then((data) => {
-        setData(data);
-        console.log('data: ', data);
+        setMediaData(data);
+        console.log('data: ', mediaData);
       })
       .catch((err) => {
         console.error(err);
@@ -43,11 +36,11 @@ const Gallery: NextPage = () => {
       </div>
       <div>
         <h1>Instagram Gallery</h1>
-        {!data || !data.media.data.length ? (
+        {!mediaData || !mediaData.media.data.length ? (
           <div>No data available</div>
         ) : (
           <div>
-            {data.media.data.map((post, index) => (
+            {mediaData.media.data.map((post, index) => (
               <div key={index}>
                 <img src={post.mediaUrl} alt={post.caption} />
                 <p>{post.caption}</p>
