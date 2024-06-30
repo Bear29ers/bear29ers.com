@@ -16,11 +16,11 @@ const Gallery: NextPage = () => {
 
   const loadMediaData = () => {
     fetchMedia()
-      .then((data) => {
+      .then((data: Media) => {
         setMediaData(data);
-        console.log('data: ', mediaData);
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.error(err);
       });
   };
