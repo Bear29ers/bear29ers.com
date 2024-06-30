@@ -12,25 +12,28 @@ import { useEffect, useState } from 'react';
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 
+import fetchMedia from '@/libs/fetchMedia';
+
+import type { Media } from '@/types/media';
+
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Media | null>(null);
 
-  useEffect(() => {
-    fetch('/api/instagram')
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        return res.json();
-      })
+  const loadMediaData = () => {
+    fetchMedia()
       .then((data) => {
         setData(data);
+        console.log('data: ', data);
       })
       .catch((err) => {
         console.error(err);
       });
+  };
+
+  useEffect(() => {
+    loadMediaData();
   }, []);
 
   return (
@@ -43,12 +46,12 @@ const Gallery: NextPage = () => {
         {!data || !data.media.data.length ? (
           <div>No data available</div>
         ) : (
-          <div className="gallery">
+          <div>
             {data.media.data.map((post, index) => (
-              <div key={index} className="post">
-                <img src={post.media_url} alt={post.caption} />
+              <div key={index}>
+                <img src={post.mediaUrl} alt={post.caption} />
                 <p>{post.caption}</p>
-                <p>Likes: {post.like_count}</p>
+                <p>Likes: {post.likeCount}</p>
                 <p>Posted by: {post.username}</p>
                 <a href={post.permalink} target="_blank" rel="noopener noreferrer">
                   View on Instagram
