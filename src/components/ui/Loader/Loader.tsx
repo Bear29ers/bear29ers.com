@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 import Image1 from '~/images/example/image-1.jpg';
+import Image3 from '~/images/example/image-3.jpg';
 
 const MotionImage = motion(Image);
 
@@ -94,7 +95,12 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
       <motion.div variants={mainVisualVariants} className="flex-center">
         <motion.img layoutId="main-visual" src="/images/example/image-2.jpg" alt="Main Image" className="w-5/12" />
       </motion.div>
-      {/* <ImageBlock variants={imageVariants} id="image-3" width={300} /> */}
+      <MotionImage
+        variants={imageVariants}
+        src={Image3}
+        alt="image-3"
+        className="absolute right-[18%] top-[-12%] w-[12%]"
+      />
       {/* <ImageBlock variants={imageVariants} id="image-4" width={400} /> */}
       {/* <ImageBlock variants={imageVariants} id="image-5" width={280} /> */}
     </motion.div>
