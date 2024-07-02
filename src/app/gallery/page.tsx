@@ -51,14 +51,18 @@ const Gallery: NextPage = () => {
         ) : (
           <div>
             {!loading && (
-              <div className="flex-center">
-                <motion.img
-                  transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.6 }}
-                  src="/images/example/image-2.jpg"
-                  layoutId="main-image-1"
-                  alt="Final Image"
-                  className="w-10/12"
-                />
+              <div>
+                <div className="flex-col flex-center">
+                  <h1 className="text-9xl">brand</h1>
+                  <h1 className="mb-20 text-9xl">experience</h1>
+                  <motion.img
+                    transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.6 }}
+                    src="/images/example/image-2.jpg"
+                    layoutId="main-image-1"
+                    alt="Final Image"
+                    className="w-10/12"
+                  />
+                </div>
               </div>
             )}
           </div>
