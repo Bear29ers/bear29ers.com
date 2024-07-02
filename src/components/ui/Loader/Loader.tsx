@@ -56,12 +56,14 @@ const itemMain = {
   },
 };
 
+// TODO: 削除予定
 interface ImageBlockProps {
   variants: any;
   id: string;
   width: number;
 }
 
+// TODO: これは消す
 export const ImageBlock: React.FC<ImageBlockProps> = ({ variants, id, width }) => {
   return (
     <motion.div variants={variants} className={`image-block ${id}`}>
