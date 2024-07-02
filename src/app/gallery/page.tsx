@@ -12,6 +12,7 @@ import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
   // const [mediaData, setMediaData] = useState<Media | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
   //
   // const loadMediaData = () => {
   //   fetchMedia()
@@ -27,16 +28,6 @@ const Gallery: NextPage = () => {
   // useEffect(() => {
   //   // loadMediaData();
   // }, []);
-
-  const [loading, setLoading] = useState(true);
-
-  // useEffect(() => {
-  //   if (typeof document !== 'undefined') {
-  //     loading
-  //       ? document.querySelector('body')?.classList.add('loading')
-  //       : document.querySelector('body')?.classList.remove('loading');
-  //   }
-  // }, [loading]);
 
   return (
     <div className="flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
@@ -59,7 +50,7 @@ const Gallery: NextPage = () => {
                   <motion.img
                     transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.6 }}
                     src="/images/example/image-2.jpg"
-                    layoutId="main-image-1"
+                    layoutId="main-visual"
                     alt="Final Image"
                     className="w-10/12"
                   />
