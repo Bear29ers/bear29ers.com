@@ -55,6 +55,7 @@ const Gallery: NextPage = () => {
                 <div className="flex-col flex-center">
                   <h1 className="text-9xl">brand</h1>
                   <h1 className="mb-20 text-9xl">experience</h1>
+                  {/* TODO: MainVisualコンポーネントにする layoutIdはpropsで渡す */}
                   <motion.img
                     transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.6 }}
                     src="/images/example/image-2.jpg"
