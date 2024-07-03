@@ -10,6 +10,8 @@ import Image from 'next/image';
 
 import Image1 from '~/images/example/image-1.jpg';
 import Image3 from '~/images/example/image-3.jpg';
+import Image4 from '~/images/example/image-4.jpg';
+import Image5 from '~/images/example/image-5.jpg';
 
 const MotionImage = motion(Image);
 
@@ -27,7 +29,6 @@ const imageVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'tween',
       ease: [0.83, 0, 0.17, 1],
       duration: 1.6,
     },
@@ -36,9 +37,7 @@ const imageVariants = {
     opacity: 0,
     y: -200,
     transition: {
-      type: 'tween',
       ease: 'easeInOut',
-      // ease: [0, 0.55, 0.45, 1],
       duration: 0.8,
     },
   },
@@ -51,26 +50,9 @@ const mainVisualVariants = {
     y: 0,
     transition: {
       duration: 1.6,
-      type: 'tween',
       ease: [0.83, 0, 0.17, 1],
     },
   },
-};
-
-// TODO: 削除予定
-interface ImageBlockProps {
-  variants: any;
-  id: string;
-  width: number;
-}
-
-// TODO: これは消す
-export const ImageBlock: React.FC<ImageBlockProps> = ({ variants, id, width }) => {
-  return (
-    <motion.div variants={variants} className={`image-block ${id}`}>
-      <Image src={`/images/example/${id}.jpg`} width={width} height={100} alt={id} />
-    </motion.div>
-  );
 };
 
 interface LoaderProps {
@@ -81,6 +63,7 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
   return (
     <motion.div
       variants={loaderVariants}
+      // TODO: onAnimationStartで一定秒数後にsetLoadingを更新する？
       onAnimationComplete={() => setLoading(false)}
       initial="initial"
       animate="animate"
@@ -90,9 +73,9 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
         variants={imageVariants}
         src={Image1}
         alt="image-1"
-        className="absolute bottom-[-20%] left-[15%] w-2/12"
+        className="absolute bottom-[-20%] left-[13%] w-[18%]"
       />
-      <motion.div variants={mainVisualVariants} className="flex-center">
+      <motion.div variants={mainVisualVariants} className="z-0 flex-center">
         <motion.img layoutId="main-visual" src="/images/example/image-2.jpg" alt="Main Image" className="w-5/12" />
       </motion.div>
       <MotionImage
@@ -101,8 +84,18 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
         alt="image-3"
         className="absolute right-[18%] top-[-12%] w-[12%]"
       />
-      {/* <ImageBlock variants={imageVariants} id="image-4" width={400} /> */}
-      {/* <ImageBlock variants={imageVariants} id="image-5" width={280} /> */}
+      <MotionImage
+        variants={imageVariants}
+        src={Image4}
+        alt="image-4"
+        className="absolute bottom-[-30%] right-[20%] w-[20%]"
+      />
+      <MotionImage
+        variants={imageVariants}
+        src={Image5}
+        alt="image-5"
+        className="absolute left-[18%] top-[-25%] w-[14%]"
+      />
     </motion.div>
   );
 };
