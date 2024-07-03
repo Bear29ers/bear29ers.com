@@ -48,6 +48,7 @@ const Gallery: NextPage = () => {
                   <h1 className="mb-20 text-9xl">experience</h1>
                   {/* TODO: MainVisualコンポーネントにする layoutIdはpropsで渡す */}
                   <motion.img
+                    layout
                     transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.6 }}
                     src="/images/example/image-2.jpg"
                     layoutId="main-visual"
