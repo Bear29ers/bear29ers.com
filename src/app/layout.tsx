@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 
 import Menu from '@/components/common/Menu/Menu';
 
+import GoogleAnalytics from '@/libs/ga/GoogleAnalytics';
+
 import { montserrat } from '@/styles/fonts';
 
 import type { Metadata } from 'next';
@@ -21,6 +23,9 @@ const RootLayout = ({
 }>) => {
   return (
     <html lang="en">
+      <head>
+        <GoogleAnalytics />
+      </head>
       <body
         className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-noise-pattern bg-auto bg-center bg-repeat font-mont`}>
         <Menu />
