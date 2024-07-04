@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
 
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 import Menu from '@/components/common/Menu/Menu';
 
 import { montserrat } from '@/styles/fonts';
@@ -25,6 +27,7 @@ const RootLayout = ({
         className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-noise-pattern bg-auto bg-center bg-repeat font-mont`}>
         <Menu />
         {children}
+        <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
     </html>
   );
