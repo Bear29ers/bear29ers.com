@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import AnimatedText from '@/components/AnimatedText/AnimatedText';
+import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 
 import type { NextPage } from 'next';
 
