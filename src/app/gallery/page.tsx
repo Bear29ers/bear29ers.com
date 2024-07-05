@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
-import Loader from '@/components/ui/Loader/Loader';
+import GalleryLoader from '@/components/ui/GalleryLoader/GalleryLoader';
 
 import type { NextPage } from 'next';
 
@@ -37,7 +37,7 @@ const Gallery: NextPage = () => {
       <AnimatePresence mode="wait">
         {loading ? (
           <motion.div key="loader">
-            <Loader setLoading={setLoading} />
+            <GalleryLoader setLoading={setLoading} />
           </motion.div>
         ) : (
           <div>

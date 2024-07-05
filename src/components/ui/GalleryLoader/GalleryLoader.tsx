@@ -56,21 +56,20 @@ interface LoaderProps {
   setLoading: (loading: boolean) => void;
 }
 
-const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
+const GalleryLoader: React.FC<LoaderProps> = ({ setLoading }) => {
   return (
     <motion.div
       variants={loaderVariants}
-      // TODO: onAnimationStartで一定秒数後にsetLoadingを更新する？
       onAnimationComplete={() => setLoading(false)}
       initial="initial"
       animate="animate"
       exit="exit"
-      className="relative size-full">
+      className="relative">
       <MotionImage
         variants={imageVariants}
         src={Image1}
         alt="image-1"
-        className="absolute bottom-[-20%] left-[13%] w-[18%]"
+        className="absolute bottom-[-20%] left-[13%] z-10 w-[18%]"
       />
       <motion.div variants={mainVisualVariants} className="z-0 flex-center">
         <motion.img layoutId="main-visual" src="/images/example/image-2.jpg" alt="Main Image" className="w-5/12" />
@@ -79,22 +78,22 @@ const Loader: React.FC<LoaderProps> = ({ setLoading }) => {
         variants={imageVariants}
         src={Image3}
         alt="image-3"
-        className="absolute right-[18%] top-[-12%] w-[12%]"
+        className="absolute right-[18%] top-[-12%] z-10 w-[12%]"
       />
       <MotionImage
         variants={imageVariants}
         src={Image4}
         alt="image-4"
-        className="absolute bottom-[-30%] right-[20%] w-[20%]"
+        className="absolute bottom-[-30%] right-[20%] z-10 w-[20%]"
       />
       <MotionImage
         variants={imageVariants}
         src={Image5}
         alt="image-5"
-        className="absolute left-[18%] top-[-25%] w-[14%]"
+        className="absolute left-[18%] top-[-25%] z-10 w-[14%]"
       />
     </motion.div>
   );
 };
 
-export default Loader;
+export default GalleryLoader;
