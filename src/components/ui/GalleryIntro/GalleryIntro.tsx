@@ -7,15 +7,22 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 import Image1 from '~/images/polaroid/image-1.jpg';
+import Image2 from '~/images/polaroid/image-2.jpg';
+import Image3 from '~/images/polaroid/image-3.jpg';
+import Image4 from '~/images/polaroid/image-4.jpg';
+import Image5 from '~/images/polaroid/image-5.jpg';
+import Image6 from '~/images/polaroid/image-6.jpg';
 
 const MotionImage = motion(Image);
 
-const loaderVariants = {
+const galleryIntroVariants = {
+  initial: {},
   animate: {
     transition: {
-      staggerChildren: 0.35,
+      staggerChildren: 0.4,
     },
   },
+  exit: {},
 };
 
 const imageVariants = {
@@ -23,31 +30,28 @@ const imageVariants = {
   animate: {
     y: 0,
     transition: {
-      ease: [0.83, 0, 0.17, 1],
-      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1],
+      duration: 1.3,
     },
   },
   exit: {
     opacity: 0,
-    y: -200,
     transition: {
-      ease: 'easeInOut',
-      duration: 0.8,
+      duration: 0.1,
     },
   },
 };
 
-// const mainVisualVariants = {
-//   initial: { opacity: 0, y: 200 },
-//   animate: {
-//     opacity: 1,
-//     y: 0,
-//     transition: {
-//       duration: 1.6,
-//       ease: [0.83, 0, 0.17, 1],
-//     },
-//   },
-// };
+const mainVisualVariants = {
+  initial: { y: '100%' },
+  animate: {
+    y: 0,
+    transition: {
+      ease: [0.16, 1, 0.3, 1],
+      duration: 1.3,
+    },
+  },
+};
 
 interface LoaderProps {
   setLoading: (loading: boolean) => void;
@@ -56,39 +60,25 @@ interface LoaderProps {
 const GalleryIntro: FC<LoaderProps> = ({ setLoading }) => {
   return (
     <motion.div
-      variants={loaderVariants}
+      className="relative overflow-hidden flex-center"
+      variants={galleryIntroVariants}
       onAnimationComplete={() => setLoading(false)}
       initial="initial"
       animate="animate"
-      exit="exit"
-      className="overflow-hidden">
-      <MotionImage
-        variants={imageVariants}
-        src={Image1}
-        alt="image-1"
-        className="absolute bottom-[-20%] left-[13%] z-10 w-[18%]"
+      exit="exit">
+      <MotionImage src={Image1} alt="image-1" className="w-1/2" variants={imageVariants} />
+      <MotionImage src={Image2} alt="image-2" className="absolute w-1/2" variants={imageVariants} />
+      <MotionImage src={Image3} alt="image-3" className="absolute w-1/2" variants={imageVariants} />
+      <MotionImage src={Image4} alt="image-4" className="absolute w-1/2" variants={imageVariants} />
+      <MotionImage src={Image5} alt="image-5" className="absolute w-1/2" variants={imageVariants} />
+      <MotionImage src={Image6} alt="image-6" className="absolute w-1/2" variants={imageVariants} />
+      <motion.img
+        layoutId="main-visual"
+        src="/images/polaroid/image-0.jpg"
+        alt="main-visual"
+        className="absolute w-1/2"
+        variants={mainVisualVariants}
       />
-      {/* <motion.div variants={mainVisualVariants} className="z-0 flex-center"> */}
-      {/*   <motion.img layoutId="main-visual" src="/images/polaroid/image-0.jpg" alt="Main Image" className="w-3/12" /> */}
-      {/* </motion.div> */}
-      {/* <MotionImage */}
-      {/*   variants={imageVariants} */}
-      {/*   src={Image3} */}
-      {/*   alt="image-3" */}
-      {/*   className="absolute right-[18%] top-[-12%] z-10 w-[12%]" */}
-      {/* /> */}
-      {/* <MotionImage */}
-      {/*   variants={imageVariants} */}
-      {/*   src={Image4} */}
-      {/*   alt="image-4" */}
-      {/*   className="absolute bottom-[-30%] right-[20%] z-10 w-[20%]" */}
-      {/* /> */}
-      {/* <MotionImage */}
-      {/*   variants={imageVariants} */}
-      {/*   src={Image5} */}
-      {/*   alt="image-5" */}
-      {/*   className="absolute left-[18%] top-[-25%] z-10 w-[14%]" */}
-      {/* /> */}
     </motion.div>
   );
 };
