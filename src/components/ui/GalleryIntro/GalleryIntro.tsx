@@ -66,17 +66,17 @@ const GalleryIntro: FC<LoaderProps> = ({ setLoading }) => {
       initial="initial"
       animate="animate"
       exit="exit">
-      <MotionImage src={Image1} alt="image-1" className="w-1/2" variants={imageVariants} />
-      <MotionImage src={Image2} alt="image-2" className="absolute w-1/2" variants={imageVariants} />
-      <MotionImage src={Image3} alt="image-3" className="absolute w-1/2" variants={imageVariants} />
-      <MotionImage src={Image4} alt="image-4" className="absolute w-1/2" variants={imageVariants} />
-      <MotionImage src={Image5} alt="image-5" className="absolute w-1/2" variants={imageVariants} />
-      <MotionImage src={Image6} alt="image-6" className="absolute w-1/2" variants={imageVariants} />
+      <MotionImage src={Image1} alt="image-1" className="w-full max-w-[250px]" variants={imageVariants} />
+      <MotionImage src={Image2} alt="image-2" className="absolute w-full max-w-[250px]" variants={imageVariants} />
+      <MotionImage src={Image3} alt="image-3" className="absolute w-full max-w-[250px]" variants={imageVariants} />
+      <MotionImage src={Image4} alt="image-4" className="absolute w-full max-w-[250px]" variants={imageVariants} />
+      <MotionImage src={Image5} alt="image-5" className="absolute w-full max-w-[250px]" variants={imageVariants} />
+      <MotionImage src={Image6} alt="image-6" className="absolute w-full max-w-[250px]" variants={imageVariants} />
       <motion.img
         layoutId="main-visual"
         src="/images/polaroid/image-0.jpg"
         alt="main-visual"
-        className="absolute w-1/2"
+        className="absolute w-full max-w-[250px]"
         variants={mainVisualVariants}
       />
     </motion.div>
