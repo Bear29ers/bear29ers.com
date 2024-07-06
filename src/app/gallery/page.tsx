@@ -107,7 +107,6 @@ const Gallery: NextPage = () => {
       {/*     </div> */}
       {/*   )} */}
       {/* </div> */}
-      {/* Footer */}
       <Footer />
     </div>
   );
