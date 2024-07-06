@@ -3,16 +3,12 @@
 import { useState } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
-import Image from 'next/image';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
+import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
 
 import type { NextPage } from 'next';
-
-import Image1 from '~/images/polaroid/image-1.jpg';
-
-const MotionImage = motion(Image);
 
 const Gallery: NextPage = () => {
   // const [mediaData, setMediaData] = useState<Media | null>(null);
@@ -48,70 +44,45 @@ const Gallery: NextPage = () => {
     },
   };
 
-  const imageVariants = {
-    initial: { y: '100%' },
-    animate: {
-      y: 0,
-      transition: {
-        ease: [0.16, 1, 0.3, 1],
-        duration: 1.2,
-      },
-    },
-  };
-
   return (
     <div className="relative flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
-      <div className="z-10 my-24">
+      <div className="my-24">
         <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
       </div>
-      {/* <button type="button" onClick={() => setOpen(!open)} className="z-10 bg-blue-400"> */}
-      {/*   OPEN */}
-      {/* </button> */}
-      {/* <motion.div */}
-      {/*   className="fixed flex h-screen w-full flex-col items-center bg-pink-700" */}
-      {/*   variants={variants} */}
-      {/*   initial="initial" */}
-      {/*   animate={open ? 'animate' : 'initial'}> */}
-      {/*   intro */}
-      {/* </motion.div> */}
+      <div className="z-10 flex-col flex-center" />
+      <motion.div
+        className="fixed flex h-screen w-full flex-col items-center bg-pink-700"
+        variants={variants}
+        initial="initial"
+        animate={open ? 'animate' : 'initial'}>
+        <button type="button" onClick={() => setOpen(!open)} className="z-10 bg-green-500">
+          OPEN
+        </button>
+        <h1 className="text-9xl">brand</h1>
+        <h1 className="mb-20 text-9xl">experience</h1>
+      </motion.div>
 
       <AnimatePresence mode="wait">
-        <motion.div className="overflow-hidden flex-center">
-          <MotionImage
-            src={Image1}
-            alt="image-1"
-            className="w-1/2"
-            variants={imageVariants}
-            initial="initial"
-            animate="animate"
-          />
-        </motion.div>
-
-        {/* {loading ? ( */}
-        {/*   <motion.div key="loader"> */}
-        {/*     <GalleryIntro setLoading={setLoading} /> */}
-        {/*   </motion.div> */}
-        {/* ) : ( */}
-        {/*   <div> */}
-        {/*     {!loading && ( */}
-        {/*       <div> */}
-        {/*         <div className="flex-col flex-center"> */}
-        {/*           <h1 className="text-9xl">brand</h1> */}
-        {/*           <h1 className="mb-20 text-9xl">experience</h1> */}
-        {/*           TODO: MainVisualコンポーネントにする layoutIdはpropsで渡す */}
-        {/*           <motion.img */}
-        {/*             layout */}
-        {/*             transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.6 }} */}
-        {/*             src="/images/polaroid/image-0.jpg" */}
-        {/*             layoutId="main-visual" */}
-        {/*             alt="Final Image" */}
-        {/*             className="w-1/2" */}
-        {/*           /> */}
-        {/*         </div> */}
-        {/*       </div> */}
-        {/*     )} */}
-        {/*   </div> */}
-        {/* )} */}
+        {loading ? (
+          <motion.div key="loader">
+            <GalleryIntro setLoading={setLoading} />
+          </motion.div>
+        ) : (
+          <div className="z-10">
+            {!loading && (
+              <div className="flex-col flex-center">
+                <motion.img
+                  layout
+                  transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.4 }}
+                  src="/images/polaroid/image-0.jpg"
+                  layoutId="main-visual"
+                  alt="Final Image"
+                  className="w-1/2"
+                />
+              </div>
+            )}
+          </div>
+        )}
       </AnimatePresence>
 
       {/* <div> */}
