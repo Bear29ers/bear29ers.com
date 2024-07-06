@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
+import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 
 import type { NextPage } from 'next';
 
@@ -30,7 +31,7 @@ const Gallery: NextPage = () => {
   //   // loadMediaData();
   // }, []);
 
-  const variants = {
+  const bgVariants = {
     initial: {
       y: 0,
     },
@@ -51,14 +52,16 @@ const Gallery: NextPage = () => {
       </div>
       <div className="z-10 flex-col flex-center" />
       <motion.div
-        className="fixed flex h-screen w-full flex-col items-center bg-pink-700"
-        variants={variants}
+        className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern"
+        variants={bgVariants}
         initial="initial"
         animate={open ? 'animate' : 'initial'}>
-        <button type="button" onClick={() => setOpen(!open)} className="z-10 bg-green-500">
-          OPEN
-        </button>
-        <h1 className="text-9xl">brand</h1>
+        {!loading && (
+          <div className="mt-40 flex flex-col items-center gap-y-2">
+            <StaggeredText textList={['Life', 'in', 'Pixels']} />
+            <h2 className="text-3xl font-medium text-lightGray">Capturing Moments, Creating Memories.</h2>
+          </div>
+        )}
       </motion.div>
 
       <AnimatePresence mode="wait">
@@ -68,6 +71,9 @@ const Gallery: NextPage = () => {
           </motion.div>
         ) : (
           <div className="fixed z-10 h-screen w-full">
+            <button type="button" onClick={() => setOpen(!open)} className="bg-green-500">
+              OPEN
+            </button>
             <motion.img
               layout
               layoutId="main-visual"
