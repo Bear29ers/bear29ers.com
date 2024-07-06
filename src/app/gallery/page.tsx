@@ -59,7 +59,6 @@ const Gallery: NextPage = () => {
           OPEN
         </button>
         <h1 className="text-9xl">brand</h1>
-        <h1 className="mb-20 text-9xl">experience</h1>
       </motion.div>
 
       <AnimatePresence mode="wait">
@@ -68,19 +67,16 @@ const Gallery: NextPage = () => {
             <GalleryIntro setLoading={setLoading} />
           </motion.div>
         ) : (
-          <div className="z-10">
-            {!loading && (
-              <div className="flex-col flex-center">
-                <motion.img
-                  layout
-                  transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.4 }}
-                  src="/images/polaroid/image-0.jpg"
-                  layoutId="main-visual"
-                  alt="Final Image"
-                  className="w-1/2"
-                />
-              </div>
-            )}
+          <div className="fixed z-10 h-screen w-full">
+            <motion.img
+              layout
+              layoutId="main-visual"
+              transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.4 }}
+              onLayoutAnimationComplete={() => console.log('layout animation completed')}
+              src="/images/polaroid/image-0.jpg"
+              alt="Final Image"
+              className="absolute inset-x-0 bottom-0 mx-auto w-full max-w-[400px]"
+            />
           </div>
         )}
       </AnimatePresence>
