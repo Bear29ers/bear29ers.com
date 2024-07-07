@@ -59,7 +59,13 @@ const Gallery: NextPage = () => {
         {!loading && (
           <div className="mt-40 flex flex-col items-center gap-y-2">
             <StaggeredText textList={['Life', 'in', 'Pixels']} />
-            <h2 className="text-3xl font-medium text-lightGray">Capturing Moments, Creating Memories.</h2>
+            <motion.h2
+              initial={{ y: 50, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ ease: [0.16, 1, 0.3, 1], duration: 1.2, delay: 1.2 }}
+              className="text-3xl font-medium text-lightGray">
+              Capturing Moments, Creating Memories.
+            </motion.h2>
           </div>
         )}
       </motion.div>
