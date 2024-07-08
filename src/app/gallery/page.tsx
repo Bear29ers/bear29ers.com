@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
-import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 
 import type { NextPage } from 'next';
@@ -56,7 +55,7 @@ const Gallery: NextPage = () => {
         variants={bgVariants}
         initial="initial"
         animate={open ? 'animate' : 'initial'}>
-        {!loading && (
+        {loading && (
           <div className="mt-40 flex flex-col items-center gap-y-2">
             <StaggeredText textList={['Life', 'in', 'Pixels']} />
             <motion.h2
@@ -71,15 +70,16 @@ const Gallery: NextPage = () => {
       </motion.div>
 
       <AnimatePresence mode="wait">
-        {loading ? (
-          <motion.div key="loader">
-            <GalleryIntro setLoading={setLoading} />
-          </motion.div>
-        ) : (
-          <div className="fixed z-10 h-screen w-full">
-            <button type="button" onClick={() => setOpen(!open)} className="bg-green-500">
-              OPEN
-            </button>
+        {/* {loading ? ( */}
+        {/*   <motion.div key="loader"> */}
+        {/*     <GalleryIntro setLoading={setLoading} /> */}
+        {/*   </motion.div> */}
+        {/* ) : ( */}
+        <div className="fixed z-10 h-screen w-full">
+          <button type="button" onClick={() => setOpen(!open)} className="absolute z-10 bg-green-500">
+            OPEN
+          </button>
+          <div className="relative h-screen w-full">
             <motion.img
               layout
               layoutId="main-visual"
@@ -87,10 +87,43 @@ const Gallery: NextPage = () => {
               onLayoutAnimationComplete={() => console.log('layout animation completed')}
               src="/images/polaroid/image-0.jpg"
               alt="Final Image"
-              className="absolute inset-x-0 bottom-0 mx-auto w-full max-w-[400px]"
+              className="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[400px]"
             />
+            <motion.div>
+              <motion.img
+                animate={{ x: '-30%', y: -90, rotate: 5 }}
+                src="/images/polaroid/image-2.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+              <motion.img
+                animate={{ x: '-105%', y: 120, rotate: -20 }}
+                src="/images/polaroid/image-1.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+              <motion.img
+                animate={{ x: '-5%', y: 40, rotate: 12 }}
+                src="/images/polaroid/image-3.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+              <motion.img
+                animate={{ x: '5%', y: 160, rotate: 15 }}
+                src="/images/polaroid/image-6.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+              <motion.img
+                animate={{ x: '-90%', y: 0, rotate: -17 }}
+                src="/images/polaroid/image-4.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+              <motion.img
+                animate={{ x: '-70%', y: 20, rotate: -10 }}
+                src="/images/polaroid/image-5.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+            </motion.div>
           </div>
-        )}
+        </div>
+        {/* )} */}
       </AnimatePresence>
 
       {/* <div> */}
