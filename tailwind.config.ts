@@ -121,6 +121,14 @@ const config: Config = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(-10deg)' },
         },
+        down: {
+          '0%': {
+            transform: 'translateY(-10px)',
+          },
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
       },
       animation: {
         updown: 'updown 2s infinite alternate',
@@ -130,6 +138,7 @@ const config: Config = {
         wave: 'wave 2.5s infinite alternate',
         hit: 'hit 0.4s cubic-bezier(0.63, 0.09, 0.75, 0.46) infinite alternate',
         bounce: 'bounce 0.4s cubic-bezier(0.63, 0.09, 0.76, 0.45) infinite alternate',
+        down: 'down 0.6s 0.6s ease-in infinite alternate forwards',
       },
     },
   },
