@@ -93,7 +93,7 @@ const Gallery: NextPage = () => {
               <motion.img
                 initial={{ x: '-50%', y: 220, rotate: 0 }}
                 animate={open ? { x: '-50%', y: 220, rotate: 0 } : { x: '-30%', y: -90, rotate: 5 }}
-                transition={{ delay: 0.65, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: 0.6, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 src="/images/polaroid/image-2.jpg"
                 className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
               />
@@ -107,29 +107,31 @@ const Gallery: NextPage = () => {
               <motion.img
                 initial={{ x: '-50%', y: 220, rotate: 0 }}
                 animate={open ? { x: '-50%', y: 220, rotate: 0 } : { x: '-5%', y: 40, rotate: 12 }}
-                transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ delay: 0.7, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                 src="/images/polaroid/image-3.jpg"
                 className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
               />
-              {/* <motion.img */}
-              {/*   animate={{ x: '5%', y: 160, rotate: 15 }} */}
-              {/*   src="/images/polaroid/image-6.jpg" */}
-              {/*   className="absolute bottom-0 left-1/2 w-full max-w-[400px] " */}
-              {/* /> */}
-              {/* <motion.img */}
-              {/*   initial={{ x: '-50%', y: 220, rotate: 0 }} */}
-              {/*   animate={open ? { x: '-50%', y: 220, rotate: 0 } : { x: '-90%', y: 0, rotate: -17 }} */}
-              {/*   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} */}
-              {/*   src="/images/polaroid/image-4.jpg" */}
-              {/*   className="absolute bottom-0 left-1/2 w-full max-w-[400px] " */}
-              {/* /> */}
-              {/* <motion.img */}
-              {/*   initial={{ x: '-50%', y: 500, rotate: 0 }} */}
-              {/*   animate={open ? { x: '-50%', y: 500, rotate: 0 } : { x: '-70%', y: 20, rotate: -10 }} */}
-              {/*   transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} */}
-              {/*   src="/images/polaroid/image-5.jpg" */}
-              {/*   className="absolute bottom-0 left-1/2 w-full max-w-[400px] " */}
-              {/* /> */}
+              <motion.img
+                initial={{ x: '-50%', y: 220, rotate: 0 }}
+                animate={open ? { x: '-50%', y: 220, rotate: 0 } : { x: '5%', y: 160, rotate: 15 }}
+                transition={{ delay: 1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                src="/images/polaroid/image-6.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+              <motion.img
+                initial={{ x: '-50%', y: 220, rotate: 0 }}
+                animate={open ? { x: '-50%', y: 220, rotate: 0 } : { x: '-90%', y: 0, rotate: -17 }}
+                transition={{ delay: 0.8, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                src="/images/polaroid/image-4.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
+              <motion.img
+                initial={{ x: '-50%', y: 220, rotate: 0 }}
+                animate={open ? { x: '-50%', y: 220, rotate: 0 } : { x: '-70%', y: 20, rotate: -10 }}
+                transition={{ delay: 0.9, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                src="/images/polaroid/image-5.jpg"
+                className="absolute bottom-0 left-1/2 w-full max-w-[400px] "
+              />
             </motion.div>
           </div>
         </div>
