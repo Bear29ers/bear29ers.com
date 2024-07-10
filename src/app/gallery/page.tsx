@@ -16,6 +16,7 @@ const Gallery: NextPage = () => {
   // const [mediaData, setMediaData] = useState<Media | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
+  const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
 
   // const loadMediaData = () => {
@@ -41,8 +42,7 @@ const Gallery: NextPage = () => {
       y: '-100%',
       transition: {
         ease: [0.8, 0, 0.2, 1],
-        duration: 0.7,
-        delay: 0.12,
+        duration: 1,
       },
     },
   };
@@ -110,6 +110,7 @@ const Gallery: NextPage = () => {
               layout
               layoutId="main-visual"
               transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.4 }}
+              animate={isActiveGallery && { opacity: 0, y: '70%', transition: { duration: 0.5 } }}
               onLayoutAnimationComplete={() => setIsCompletedIntro(!isCompletedIntro)}
               src="/images/polaroid/image-0.jpg"
               alt="Main Visual"
@@ -117,8 +118,12 @@ const Gallery: NextPage = () => {
             />
             {isCompletedIntro && (
               <>
-                <ScrollDown setState={setIsActiveGallery} />
-                <motion.div variants={polaroidWrapperVariants} initial="initial" animate="animate">
+                <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
+                <motion.div
+                  variants={polaroidWrapperVariants}
+                  initial="initial"
+                  animate="animate"
+                  onAnimationComplete={() => setIsCompletedFanning(!isCompletedFanning)}>
                   <motion.img
                     variants={polaroidItemVariants('-105%', 120, -20)}
                     src="/images/polaroid/image-1.jpg"
