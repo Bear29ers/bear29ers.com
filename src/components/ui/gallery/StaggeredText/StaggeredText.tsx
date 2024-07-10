@@ -11,7 +11,7 @@ const StaggeredText: FC<Props> = ({ textList }) => {
     initial: {},
     animate: {
       transition: {
-        delayChildren: 0.6,
+        delayChildren: 0.5,
         staggerChildren: 0.07,
       },
     },

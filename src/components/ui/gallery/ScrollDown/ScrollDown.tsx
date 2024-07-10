@@ -10,19 +10,28 @@ const variants = {
     opacity: 1,
     transition: {
       type: 'spring',
-      duration: 1.5,
+      delay: 2,
+      duration: 2.5,
     },
   },
 };
 
-const ScrollDown: FC = () => {
+interface Props {
+  setState: (state: boolean) => void;
+}
+
+const ScrollDown: FC<Props> = ({ setState }) => {
   return (
     <motion.div
       variants={variants}
       initial="initial"
       animate="animate"
       className="absolute bottom-0 left-1/2 z-40 h-40 w-full max-w-[337px] -translate-x-1/2 bg-gradient-to-transparent">
-      <button type="button" className="absolute inset-x-0 bottom-10 mx-auto w-12 animate-down" aria-label="scroll-down">
+      <button
+        type="button"
+        className="absolute inset-x-0 bottom-10 mx-auto w-12 animate-down"
+        aria-label="scroll-down"
+        onClick={() => setState(true)}>
         <svg width="100%" height="100%" viewBox="0 0 310 177">
           <path
             fill="#000"
