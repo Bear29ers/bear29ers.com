@@ -39,6 +39,16 @@ const config: Config = {
       },
       backgroundImage: {
         'noise-pattern': "url('/images/noise-pattern.png')",
+        'gradient-to-transparent': `linear-gradient(
+          to top,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 1) 50%,
+          rgba(255, 255, 255, 0.8) 60%,
+          rgba(255, 255, 255, 0.6) 70%,
+          rgba(255, 255, 255, 0.4) 80%,
+          rgba(255, 255, 255, 0.2) 90%,
+          rgba(255, 255, 255, 0) 100%
+        )`,
       },
       transformOrigin: {
         '70': '70% 70%',

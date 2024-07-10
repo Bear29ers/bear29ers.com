@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
+import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 
 import type { NextPage } from 'next';
@@ -121,38 +122,41 @@ const Gallery: NextPage = () => {
                 className="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[400px]"
               />
               {isCompleteIntro && (
-                <motion.div variants={polaroidWrapperVariants} initial="initial" animate="animate">
-                  <motion.img
-                    variants={polaroidItemVariants('-105%', 120, -20)}
-                    src="/images/polaroid/image-1.jpg"
-                    className="absolute bottom-0 left-1/2 z-[2] w-full max-w-[400px]"
-                  />
-                  <motion.img
-                    variants={polaroidItemVariants('-30%', -90, 5)}
-                    src="/images/polaroid/image-2.jpg"
-                    className="absolute bottom-0 left-1/2 z-[1] w-full max-w-[400px]"
-                  />
-                  <motion.img
-                    variants={polaroidItemVariants('-90%', 0, -17)}
-                    src="/images/polaroid/image-3.jpg"
-                    className="absolute bottom-0 left-1/2 z-[5] w-full max-w-[400px]"
-                  />
-                  <motion.img
-                    variants={polaroidItemVariants('-5%', 40, 12)}
-                    src="/images/polaroid/image-4.jpg"
-                    className="absolute bottom-0 left-1/2 z-[3] w-full max-w-[400px]"
-                  />
-                  <motion.img
-                    variants={polaroidItemVariants('-70%', 20, -10)}
-                    src="/images/polaroid/image-5.jpg"
-                    className="absolute bottom-0 left-1/2 z-[6] w-full max-w-[400px]"
-                  />
-                  <motion.img
-                    variants={polaroidItemVariants('5%', 160, 15)}
-                    src="/images/polaroid/image-6.jpg"
-                    className="absolute bottom-0 left-1/2 z-[4] w-full max-w-[400px]"
-                  />
-                </motion.div>
+                <>
+                  <ScrollDown />
+                  <motion.div variants={polaroidWrapperVariants} initial="initial" animate="animate">
+                    <motion.img
+                      variants={polaroidItemVariants('-105%', 120, -20)}
+                      src="/images/polaroid/image-1.jpg"
+                      className="absolute bottom-0 left-1/2 z-[2] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      variants={polaroidItemVariants('-30%', -90, 5)}
+                      src="/images/polaroid/image-2.jpg"
+                      className="absolute bottom-0 left-1/2 z-[1] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      variants={polaroidItemVariants('-90%', 0, -17)}
+                      src="/images/polaroid/image-3.jpg"
+                      className="absolute bottom-0 left-1/2 z-[5] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      variants={polaroidItemVariants('-5%', 40, 12)}
+                      src="/images/polaroid/image-4.jpg"
+                      className="absolute bottom-0 left-1/2 z-[3] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      variants={polaroidItemVariants('-70%', 20, -10)}
+                      src="/images/polaroid/image-5.jpg"
+                      className="absolute bottom-0 left-1/2 z-[6] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      variants={polaroidItemVariants('5%', 160, 15)}
+                      src="/images/polaroid/image-6.jpg"
+                      className="absolute bottom-0 left-1/2 z-[4] w-full max-w-[400px]"
+                    />
+                  </motion.div>
+                </>
               )}
             </div>
           </div>
