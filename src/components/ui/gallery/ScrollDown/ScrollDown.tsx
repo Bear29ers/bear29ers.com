@@ -2,9 +2,26 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      duration: 1.5,
+    },
+  },
+};
+
 const ScrollDown: FC = () => {
   return (
-    <motion.div className="absolute bottom-0 left-1/2 z-40 h-40 w-full max-w-[337px] -translate-x-1/2 bg-gradient-to-transparent">
+    <motion.div
+      variants={variants}
+      initial="initial"
+      animate="animate"
+      className="absolute bottom-0 left-1/2 z-40 h-40 w-full max-w-[337px] -translate-x-1/2 bg-gradient-to-transparent">
       <button type="button" className="absolute inset-x-0 bottom-10 mx-auto w-12 animate-down" aria-label="scroll-down">
         <svg width="100%" height="100%" viewBox="0 0 310 177">
           <path
