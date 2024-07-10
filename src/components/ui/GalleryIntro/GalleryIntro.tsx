@@ -19,6 +19,8 @@ const galleryIntroVariants = {
   initial: {},
   animate: {
     transition: {
+      // TODO: 後ほど調整
+      delayChildren: 1,
       staggerChildren: 0.4,
     },
   },
@@ -53,11 +55,11 @@ const mainVisualVariants = {
   },
 };
 
-interface LoaderProps {
+interface Props {
   setLoading: (loading: boolean) => void;
 }
 
-const GalleryIntro: FC<LoaderProps> = ({ setLoading }) => {
+const GalleryIntro: FC<Props> = ({ setLoading }) => {
   return (
     <motion.div
       className="relative overflow-hidden flex-center"
