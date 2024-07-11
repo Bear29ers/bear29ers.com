@@ -1,6 +1,6 @@
 'use client';
 
-import type { FC } from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
 import React from 'react';
 
 import { motion } from 'framer-motion';
@@ -56,15 +56,16 @@ const mainVisualVariants = {
 };
 
 interface Props {
-  setLoading: (loading: boolean) => void;
+  setState: Dispatch<SetStateAction<boolean>>;
+  layoutId: string;
 }
 
-const GalleryIntro: FC<Props> = ({ setLoading }) => {
+const GalleryIntro: FC<Props> = ({ setState, layoutId }) => {
   return (
     <motion.div
       className="relative overflow-hidden flex-center"
       variants={galleryIntroVariants}
-      onAnimationComplete={() => setLoading(false)}
+      onAnimationComplete={() => setState((prevState: boolean): boolean => !prevState)}
       initial="initial"
       animate="animate"
       exit="exit">
@@ -75,7 +76,7 @@ const GalleryIntro: FC<Props> = ({ setLoading }) => {
       <MotionImage src={Image5} alt="image-5" className="absolute w-full max-w-[250px]" variants={imageVariants} />
       <MotionImage src={Image6} alt="image-6" className="absolute w-full max-w-[250px]" variants={imageVariants} />
       <motion.img
-        layoutId="main-visual"
+        layoutId={layoutId}
         src="/images/polaroid/image-0.jpg"
         alt="main-visual"
         className="absolute w-full max-w-[250px]"
