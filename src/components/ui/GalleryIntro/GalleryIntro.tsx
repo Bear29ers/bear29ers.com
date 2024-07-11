@@ -56,11 +56,12 @@ const mainVisualVariants = {
 };
 
 interface Props {
+  mainVisualImageSrc: string;
   setState: Dispatch<SetStateAction<boolean>>;
   layoutId: string;
 }
 
-const GalleryIntro: FC<Props> = ({ setState, layoutId }) => {
+const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, setState }) => {
   return (
     <motion.div
       className="relative overflow-hidden flex-center"
@@ -77,7 +78,7 @@ const GalleryIntro: FC<Props> = ({ setState, layoutId }) => {
       <MotionImage src={Image6} alt="image-6" className="absolute w-full max-w-[250px]" variants={imageVariants} />
       <motion.img
         layoutId={layoutId}
-        src="/images/polaroid/image-0.jpg"
+        src={mainVisualImageSrc}
         alt="main-visual"
         className="absolute w-full max-w-[250px]"
         variants={mainVisualVariants}

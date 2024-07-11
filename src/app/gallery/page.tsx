@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -12,30 +12,42 @@ import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
+import fetchMedia from '@/libs/fetchMedia';
+
+import type { MediaData, Media } from '@/types/media';
+
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
-  // const [mediaData, setMediaData] = useState<Media | null>(null);
+  const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
+  const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
   const mainVisualLayoutId = 'main-visual';
   const [loading, setLoading] = useState<boolean>(true);
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
 
-  // const loadMediaData = () => {
-  //   fetchMedia()
-  //     .then((data: Media) => {
-  //       setMediaData(data);
-  //     })
-  //     .catch((err) => {
-  //       // eslint-disable-next-line no-console
-  //       console.error(err);
-  //     });
-  // };
-  //
-  // useEffect(() => {
-  //   // loadMediaData();
-  // }, []);
+  const loadMediaData = () => {
+    fetchMedia()
+      .then((data: Media) => {
+        setMediaData(data);
+      })
+      .catch((err) => {
+        // eslint-disable-next-line no-console
+        console.error(err);
+      });
+  };
+
+  useEffect(() => {
+    loadMediaData();
+  }, []);
+
+  useEffect(() => {
+    if (mediaData && mediaData.media.data.length) {
+      const lastMediaItem = mediaData.media.data.pop();
+      setMainVisual(lastMediaItem);
+    }
+  }, [mediaData]);
 
   const introBgVariants = {
     initial: {
@@ -77,6 +89,10 @@ const Gallery: NextPage = () => {
     },
   });
 
+  if (!mediaData || !mediaData.media.data.length || !mainVisual) {
+    return <div>No data available</div>;
+  }
+
   return (
     <div className="relative flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
       {isActiveGallery && (
@@ -101,14 +117,14 @@ const Gallery: NextPage = () => {
       <AnimatePresence mode="wait">
         {loading ? (
           <div className="fixed top-1/2 -translate-y-1/2">
-            <GalleryIntro setState={setLoading} layoutId={mainVisualLayoutId} />
+            <GalleryIntro mainVisualImageSrc={mainVisual.mediaUrl} layoutId={mainVisual.id} setState={setLoading} />
           </div>
         ) : (
           <>
             <div className="fixed h-screen w-full">
               <MainVisual
-                imageSrc="/images/polaroid/image-0.jpg"
-                layoutId={mainVisualLayoutId}
+                imageSrc={mainVisual.mediaUrl}
+                layoutId={mainVisual.id}
                 canAnimate={isActiveGallery}
                 setState={setIsCompletedIntro}
               />
@@ -211,28 +227,24 @@ const Gallery: NextPage = () => {
           </>
         )}
       </AnimatePresence>
-
-      {/* <div> */}
-      {/*   <h1>Instagram Gallery</h1> */}
-      {/*   {!mediaData || !mediaData.media.data.length ? ( */}
-      {/*     <div>No data available</div> */}
-      {/*   ) : ( */}
-      {/*     <div> */}
-      {/*       {mediaData.media.data.map((post, index) => ( */}
-      {/*         <div key={index}> */}
-      {/*           <img src={post.mediaUrl} alt={post.caption} /> */}
-      {/*           <p>{post.caption}</p> */}
-      {/*           <p>Likes: {post.likeCount}</p> */}
-      {/*           <p>Posted by: {post.username}</p> */}
-      {/*           <a href={post.permalink} target="_blank" rel="noopener noreferrer"> */}
-      {/*             View on Instagram */}
-      {/*           </a> */}
-      {/*         </div> */}
-      {/*       ))} */}
-      {/*     </div> */}
-      {/*   )} */}
-      {/* </div> */}
       <Footer />
+      {/* {!mediaData || !mediaData.media.data.length ? ( */}
+      {/*   <div>No data available</div> */}
+      {/* ) : ( */}
+      {/*   <div> */}
+      {/*     {mediaData.media.data.map((post, index) => ( */}
+      {/*       <div key={index}> */}
+      {/*         <img src={post.mediaUrl} alt={post.caption} /> */}
+      {/*         <p>{post.caption}</p> */}
+      {/*         <p>Likes: {post.likeCount}</p> */}
+      {/*         <p>Posted by: {post.username}</p> */}
+      {/*         <a href={post.permalink} target="_blank" rel="noopener noreferrer"> */}
+      {/*           View on Instagram */}
+      {/*         </a> */}
+      {/*       </div> */}
+      {/*     ))} */}
+      {/*   </div> */}
+      {/* )} */}
     </div>
   );
 };
