@@ -14,8 +14,8 @@ import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
   // const [mediaData, setMediaData] = useState<Media | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(true);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
 
@@ -84,7 +84,7 @@ const Gallery: NextPage = () => {
         className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern"
         variants={bgVariants}
         initial="initial"
-        animate={isActiveGallery ? 'animate' : 'initial'}>
+        animate={isActiveGallery && 'animate'}>
         {!loading && (
           <div className="mt-40 flex flex-col items-center gap-y-2">
             <StaggeredText textList={['Life', 'in', 'Pixels']} />
@@ -105,59 +105,115 @@ const Gallery: NextPage = () => {
             <GalleryIntro setLoading={setLoading} />
           </motion.div>
         ) : (
-          <div className="fixed h-screen w-full">
-            <motion.img
-              layout
-              layoutId="main-visual"
-              transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.4 }}
-              animate={isActiveGallery && { opacity: 0, y: '70%', transition: { duration: 0.5 } }}
-              onLayoutAnimationComplete={() => setIsCompletedIntro(!isCompletedIntro)}
-              src="/images/polaroid/image-0.jpg"
-              alt="Main Visual"
-              className="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[400px]"
-            />
-            {isCompletedIntro && (
-              <>
-                <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
-                <motion.div
-                  variants={polaroidWrapperVariants}
-                  initial="initial"
-                  animate="animate"
-                  onAnimationComplete={() => setIsCompletedFanning(!isCompletedFanning)}>
+          <>
+            <div className="fixed h-screen w-full">
+              <motion.img
+                layout
+                layoutId="main-visual"
+                transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.4 }}
+                animate={isActiveGallery && { opacity: 0, y: '70%', transition: { duration: 0.5 } }}
+                onLayoutAnimationComplete={() => setIsCompletedIntro(!isCompletedIntro)}
+                src="/images/polaroid/image-0.jpg"
+                alt="Main Visual"
+                className="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[400px]"
+              />
+              {isCompletedIntro && (
+                <>
+                  <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
+                  <motion.div
+                    variants={polaroidWrapperVariants}
+                    initial="initial"
+                    animate="animate"
+                    onAnimationComplete={() => setIsCompletedFanning(!isCompletedFanning)}>
+                    <motion.img
+                      layoutId="image-1"
+                      variants={polaroidItemVariants('-105%', 120, -20)}
+                      src="/images/polaroid/image-1.jpg"
+                      className="absolute bottom-0 left-1/2 z-[2] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      layoutId="image-2"
+                      variants={polaroidItemVariants('-30%', -90, 5)}
+                      src="/images/polaroid/image-2.jpg"
+                      className="absolute bottom-0 left-1/2 z-[1] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      layoutId="image-3"
+                      variants={polaroidItemVariants('-90%', 0, -17)}
+                      src="/images/polaroid/image-3.jpg"
+                      className="absolute bottom-0 left-1/2 z-[5] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      layoutId="image-4"
+                      variants={polaroidItemVariants('-5%', 40, 12)}
+                      src="/images/polaroid/image-4.jpg"
+                      className="absolute bottom-0 left-1/2 z-[3] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      layoutId="image-5"
+                      variants={polaroidItemVariants('-70%', 20, -10)}
+                      src="/images/polaroid/image-5.jpg"
+                      className="absolute bottom-0 left-1/2 z-[6] w-full max-w-[400px]"
+                    />
+                    <motion.img
+                      layoutId="image-6"
+                      variants={polaroidItemVariants('5%', 160, 15)}
+                      src="/images/polaroid/image-6.jpg"
+                      className="absolute bottom-0 left-1/2 z-[4] w-full max-w-[400px]"
+                    />
+                  </motion.div>
+                </>
+              )}
+            </div>
+            {isCompletedFanning && isActiveGallery && (
+              <div className="mx-auto w-full max-w-7xl flex-center">
+                <div className="grid w-fit grid-cols-3 gap-12">
                   <motion.img
-                    variants={polaroidItemVariants('-105%', 120, -20)}
+                    layout
+                    layoutId="image-1"
+                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
                     src="/images/polaroid/image-1.jpg"
-                    className="absolute bottom-0 left-1/2 z-[2] w-full max-w-[400px]"
+                    className="z-[2] w-full max-w-[300px] cursor-pointer"
                   />
                   <motion.img
-                    variants={polaroidItemVariants('-30%', -90, 5)}
+                    layout
+                    layoutId="image-2"
+                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
                     src="/images/polaroid/image-2.jpg"
-                    className="absolute bottom-0 left-1/2 z-[1] w-full max-w-[400px]"
+                    className="z-[1] w-full max-w-[300px] cursor-pointer"
                   />
                   <motion.img
-                    variants={polaroidItemVariants('-90%', 0, -17)}
+                    layout
+                    layoutId="image-3"
+                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
                     src="/images/polaroid/image-3.jpg"
-                    className="absolute bottom-0 left-1/2 z-[5] w-full max-w-[400px]"
+                    className="z-[5] w-full max-w-[300px] cursor-pointer"
                   />
                   <motion.img
-                    variants={polaroidItemVariants('-5%', 40, 12)}
+                    layout
+                    layoutId="image-4"
+                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
                     src="/images/polaroid/image-4.jpg"
-                    className="absolute bottom-0 left-1/2 z-[3] w-full max-w-[400px]"
+                    className="z-[3] w-full max-w-[300px] cursor-pointer"
                   />
                   <motion.img
-                    variants={polaroidItemVariants('-70%', 20, -10)}
+                    layout
+                    layoutId="image-5"
+                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
                     src="/images/polaroid/image-5.jpg"
-                    className="absolute bottom-0 left-1/2 z-[6] w-full max-w-[400px]"
+                    className="z-[6] w-full max-w-[300px] cursor-pointer"
                   />
                   <motion.img
-                    variants={polaroidItemVariants('5%', 160, 15)}
+                    layout
+                    layoutId="image-6"
+                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
                     src="/images/polaroid/image-6.jpg"
-                    className="absolute bottom-0 left-1/2 z-[4] w-full max-w-[400px]"
+                    className="z-[4] w-full max-w-[300px] cursor-pointer"
                   />
-                </motion.div>
-              </>
+                </div>
+              </div>
             )}
-          </div>
+          </>
         )}
       </AnimatePresence>
 
