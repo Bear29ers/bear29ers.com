@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
+import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 import Subhead from '@/components/ui/gallery/Subhead/Subhead';
@@ -15,8 +16,9 @@ import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
   // const [mediaData, setMediaData] = useState<Media | null>(null);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(true);
+  const mainVisualLayoutId = 'main-visual';
+  const [loading, setLoading] = useState<boolean>(true);
+  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
 
@@ -77,9 +79,11 @@ const Gallery: NextPage = () => {
 
   return (
     <div className="relative flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
-      <div className="my-24">
-        {isActiveGallery && <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />}
-      </div>
+      {isActiveGallery && (
+        <div className="my-24">
+          <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
+        </div>
+      )}
       <div className="z-10 flex-col flex-center" />
       <motion.div
         className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern"
@@ -96,21 +100,17 @@ const Gallery: NextPage = () => {
 
       <AnimatePresence mode="wait">
         {loading ? (
-          <motion.div key="loader">
-            <GalleryIntro setLoading={setLoading} />
-          </motion.div>
+          <div className="fixed top-1/2 -translate-y-1/2">
+            <GalleryIntro setState={setLoading} layoutId={mainVisualLayoutId} />
+          </div>
         ) : (
           <>
             <div className="fixed h-screen w-full">
-              <motion.img
-                layout
-                layoutId="main-visual"
-                transition={{ ease: [0.83, 0, 0.17, 1], duration: 1.4 }}
-                animate={isActiveGallery && { opacity: 0, y: '70%', transition: { duration: 0.5 } }}
-                onLayoutAnimationComplete={() => setIsCompletedIntro(!isCompletedIntro)}
-                src="/images/polaroid/image-0.jpg"
-                alt="Main Visual"
-                className="absolute inset-x-0 bottom-0 z-10 mx-auto w-full max-w-[400px]"
+              <MainVisual
+                imageSrc="/images/polaroid/image-0.jpg"
+                layoutId={mainVisualLayoutId}
+                canAnimate={isActiveGallery}
+                setState={setIsCompletedIntro}
               />
               {isCompletedIntro && (
                 <>
