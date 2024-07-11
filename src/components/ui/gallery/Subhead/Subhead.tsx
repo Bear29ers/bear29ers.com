@@ -1,10 +1,20 @@
 import type { FC } from 'react';
 
-const Subhead: FC = () => {
+import { motion } from 'framer-motion';
+
+interface Props {
+  text: string;
+}
+
+const Subhead: FC<Props> = ({ text }) => {
   return (
-    <div>
-      <h1>Subhead</h1>
-    </div>
+    <motion.h2
+      initial={{ y: 40, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ ease: [0.16, 1, 0.3, 1], duration: 2, delay: 1.2 }}
+      className="text-3xl font-medium text-lightGray">
+      {text}
+    </motion.h2>
   );
 };
 

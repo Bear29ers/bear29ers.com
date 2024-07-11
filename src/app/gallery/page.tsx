@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
+import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
 import type { NextPage } from 'next';
 
@@ -34,7 +35,7 @@ const Gallery: NextPage = () => {
   //   // loadMediaData();
   // }, []);
 
-  const bgVariants = {
+  const introBgVariants = {
     initial: {
       y: 0,
     },
@@ -77,24 +78,18 @@ const Gallery: NextPage = () => {
   return (
     <div className="relative flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
       <div className="my-24">
-        <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
+        {isActiveGallery && <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />}
       </div>
       <div className="z-10 flex-col flex-center" />
       <motion.div
         className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern"
-        variants={bgVariants}
+        variants={introBgVariants}
         initial="initial"
         animate={isActiveGallery && 'animate'}>
         {!loading && (
           <div className="mt-40 flex flex-col items-center gap-y-2">
             <StaggeredText textList={['Life', 'in', 'Pixels']} />
-            <motion.h2
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ ease: [0.16, 1, 0.3, 1], duration: 2, delay: 1.2 }}
-              className="text-3xl font-medium text-lightGray">
-              Capturing Moments, Creating Memories.
-            </motion.h2>
+            <Subhead text="Capturing Moments, Creating Memories." />
           </div>
         )}
       </motion.div>
@@ -165,7 +160,7 @@ const Gallery: NextPage = () => {
                 </>
               )}
             </div>
-            {isCompletedFanning && isActiveGallery && (
+            {isActiveGallery && (
               <div className="mx-auto w-full max-w-7xl flex-center">
                 <div className="grid w-fit grid-cols-3 gap-12">
                   <motion.img
