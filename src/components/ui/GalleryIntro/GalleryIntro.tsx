@@ -4,16 +4,8 @@ import type { Dispatch, FC, SetStateAction } from 'react';
 import React from 'react';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
-import Image1 from '~/images/polaroid/image-1.jpg';
-import Image2 from '~/images/polaroid/image-2.jpg';
-import Image3 from '~/images/polaroid/image-3.jpg';
-import Image4 from '~/images/polaroid/image-4.jpg';
-import Image5 from '~/images/polaroid/image-5.jpg';
-import Image6 from '~/images/polaroid/image-6.jpg';
-
-const MotionImage = motion(Image);
+import type { MediaData } from '@/types/media';
 
 const galleryIntroVariants = {
   initial: {},
@@ -57,11 +49,12 @@ const mainVisualVariants = {
 
 interface Props {
   mainVisualImageSrc: string;
-  setState: Dispatch<SetStateAction<boolean>>;
   layoutId: string;
+  mediaList: MediaData[];
+  setState: Dispatch<SetStateAction<boolean>>;
 }
 
-const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, setState }) => {
+const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, mediaList, setState }) => {
   return (
     <motion.div
       className="relative overflow-hidden flex-center"
@@ -70,12 +63,15 @@ const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, setState }) => 
       initial="initial"
       animate="animate"
       exit="exit">
-      <MotionImage src={Image1} alt="image-1" className="w-full max-w-[250px]" variants={imageVariants} />
-      <MotionImage src={Image2} alt="image-2" className="absolute w-full max-w-[250px]" variants={imageVariants} />
-      <MotionImage src={Image3} alt="image-3" className="absolute w-full max-w-[250px]" variants={imageVariants} />
-      <MotionImage src={Image4} alt="image-4" className="absolute w-full max-w-[250px]" variants={imageVariants} />
-      <MotionImage src={Image5} alt="image-5" className="absolute w-full max-w-[250px]" variants={imageVariants} />
-      <MotionImage src={Image6} alt="image-6" className="absolute w-full max-w-[250px]" variants={imageVariants} />
+      {mediaList.map((media: MediaData, index: number) => (
+        <motion.img
+          src={media.mediaUrl}
+          alt={media.id}
+          className={`w-full max-w-[250px] ${index !== 0 && 'absolute'}`}
+          variants={imageVariants}
+          key={media.timestamp}
+        />
+      ))}
       <motion.img
         layoutId={layoutId}
         src={mainVisualImageSrc}
