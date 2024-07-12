@@ -7,6 +7,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
+import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
@@ -62,33 +63,6 @@ const Gallery: NextPage = () => {
     },
   };
 
-  const polaroidWrapperVariants = {
-    initial: {},
-    animate: {
-      transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const polaroidItemVariants = (x: string, y: number, rotate: number) => ({
-    initial: {
-      x: '-50%',
-      y: 220,
-      rotate: 0,
-    },
-    animate: {
-      x,
-      y,
-      rotate,
-      transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  });
-
   if (!mediaData || !mediaData.media.data.length || !mainVisual) {
     return <div>No data available</div>;
   }
@@ -131,48 +105,7 @@ const Gallery: NextPage = () => {
               {isCompletedIntro && (
                 <>
                   <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
-                  <motion.div
-                    variants={polaroidWrapperVariants}
-                    initial="initial"
-                    animate="animate"
-                    onAnimationComplete={() => setIsCompletedFanning(!isCompletedFanning)}>
-                    <motion.img
-                      layoutId="image-1"
-                      variants={polaroidItemVariants('-105%', 120, -20)}
-                      src="/images/polaroid/image-1.jpg"
-                      className="absolute bottom-0 left-1/2 z-[2] w-full max-w-[400px]"
-                    />
-                    <motion.img
-                      layoutId="image-2"
-                      variants={polaroidItemVariants('-30%', -90, 5)}
-                      src="/images/polaroid/image-2.jpg"
-                      className="absolute bottom-0 left-1/2 z-[1] w-full max-w-[400px]"
-                    />
-                    <motion.img
-                      layoutId="image-3"
-                      variants={polaroidItemVariants('-90%', 0, -17)}
-                      src="/images/polaroid/image-3.jpg"
-                      className="absolute bottom-0 left-1/2 z-[5] w-full max-w-[400px]"
-                    />
-                    <motion.img
-                      layoutId="image-4"
-                      variants={polaroidItemVariants('-5%', 40, 12)}
-                      src="/images/polaroid/image-4.jpg"
-                      className="absolute bottom-0 left-1/2 z-[3] w-full max-w-[400px]"
-                    />
-                    <motion.img
-                      layoutId="image-5"
-                      variants={polaroidItemVariants('-70%', 20, -10)}
-                      src="/images/polaroid/image-5.jpg"
-                      className="absolute bottom-0 left-1/2 z-[6] w-full max-w-[400px]"
-                    />
-                    <motion.img
-                      layoutId="image-6"
-                      variants={polaroidItemVariants('5%', 160, 15)}
-                      src="/images/polaroid/image-6.jpg"
-                      className="absolute bottom-0 left-1/2 z-[4] w-full max-w-[400px]"
-                    />
-                  </motion.div>
+                  <FanningImages setState={setIsCompletedFanning} />
                 </>
               )}
             </div>
