@@ -65,8 +65,8 @@ const Gallery: NextPage = () => {
     },
   };
 
-  if (!mediaData || !mediaData.media.data.length || !mainVisual) {
-    return <div>No data available</div>;
+  if (!mediaData || !mediaData.media.data.length || !mainVisual || !animatingMediaList) {
+    return <div className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern" />;
   }
 
   return (
@@ -93,7 +93,12 @@ const Gallery: NextPage = () => {
       <AnimatePresence mode="wait">
         {loading ? (
           <div className="fixed top-1/2 -translate-y-1/2">
-            <GalleryIntro mainVisualImageSrc={mainVisual.mediaUrl} layoutId={mainVisual.id} setState={setLoading} />
+            <GalleryIntro
+              mainVisualImageSrc={mainVisual.mediaUrl}
+              layoutId={mainVisual.id}
+              mediaList={animatingMediaList}
+              setState={setLoading}
+            />
           </div>
         ) : (
           <>
