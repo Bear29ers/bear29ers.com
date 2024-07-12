@@ -22,7 +22,7 @@ import type { NextPage } from 'next';
 const Gallery: NextPage = () => {
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
-  const mainVisualLayoutId = 'main-visual';
+  const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
@@ -47,6 +47,8 @@ const Gallery: NextPage = () => {
     if (mediaData && mediaData.media.data.length) {
       const lastMediaItem = mediaData.media.data.pop();
       setMainVisual(lastMediaItem);
+      const animatingMediaItems = mediaData.media.data.splice(0, 6);
+      setAnimatingMediaList(animatingMediaItems);
     }
   }, [mediaData]);
 
