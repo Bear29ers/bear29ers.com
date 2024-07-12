@@ -112,7 +112,7 @@ const Gallery: NextPage = () => {
               {isCompletedIntro && (
                 <>
                   <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
-                  <FanningImages setState={setIsCompletedFanning} />
+                  <FanningImages mediaList={animatingMediaList} setState={setIsCompletedFanning} />
                 </>
               )}
             </div>
