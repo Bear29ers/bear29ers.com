@@ -33,7 +33,10 @@ const StaggeredText: FC<Props> = ({ textList }) => {
       {textList.map((word: string, i: number) => (
         <div key={`${word}-${i}`} className="flex">
           {[...word].map((letter: string) => (
-            <motion.h1 variants={letterVariants} key={`${word}-${letter}`} className="text-8xl font-bold text-dark">
+            <motion.h1
+              variants={letterVariants}
+              key={`${word}-${letter}`}
+              className="text-[min(13vw,96px)] font-bold leading-none text-dark">
               {letter}
             </motion.h1>
           ))}
