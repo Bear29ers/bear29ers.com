@@ -7,12 +7,14 @@ import { AnimatePresence, motion } from 'framer-motion';
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
+import AnimatedGallery from '@/components/ui/gallery/AnimatedGallery/AnimatedGallery';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
-import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 import Subhead from '@/components/ui/gallery/Subhead/Subhead';
+
+import { zIndexList } from '@/constants/gallery';
 
 import fetchMedia from '@/libs/fetchMedia';
 
@@ -119,8 +121,17 @@ const Gallery: NextPage = () => {
             </div>
             {isActiveGallery && (
               <div className="mx-auto w-full max-w-7xl flex-center">
-                <MainGallery mediaList={animatingMediaList} />
-                <div className="grid w-fit grid-cols-3 gap-12" />
+                <div className="grid w-fit grid-cols-3 gap-12">
+                  {animatingMediaList.map((media: MediaData, index: number) => (
+                    <AnimatedGallery
+                      layoutId={media.id}
+                      imageSrc={media.mediaUrl}
+                      zIndex={zIndexList[index]!}
+                      maxWidth="max-w-[300px]"
+                      key={media.timestamp}
+                    />
+                  ))}
+                </div>
               </div>
             )}
           </>
