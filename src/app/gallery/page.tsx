@@ -24,7 +24,7 @@ import type { MediaData, Media } from '@/types/media';
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
-  const galleryItemMaxWidth = 'max-w-[300px]';
+  const galleryItemMaxWidth = 'max-w-[250px]';
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
@@ -107,6 +107,7 @@ const Gallery: NextPage = () => {
           </div>
         ) : (
           <>
+            {/* ギャラリーが有効になったら表示させない */}
             {!isActiveGallery ? (
               <div className="fixed h-screen w-full">
                 <MainVisual
@@ -124,7 +125,7 @@ const Gallery: NextPage = () => {
               </div>
             ) : (
               <div className="mx-auto w-full max-w-7xl flex-center">
-                <div className="grid w-fit grid-cols-3 gap-12">
+                <div className="grid w-fit grid-cols-3 gap-x-32 gap-y-24">
                   {animatingMediaList.map((media: MediaData, index: number) => (
                     <AnimatedGallery
                       layoutId={media.id}
@@ -145,8 +146,6 @@ const Gallery: NextPage = () => {
                 </div>
               </div>
             )}
-            {/* {isActiveGallery && ( */}
-            {/* )} */}
           </>
         )}
       </AnimatePresence>
