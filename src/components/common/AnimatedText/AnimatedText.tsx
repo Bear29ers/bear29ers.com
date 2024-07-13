@@ -43,7 +43,7 @@ const AnimatedText: FC<Props> = ({ text, classes }) => {
   }, []);
 
   return (
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       {text.split('').map((letter: string, index: number) => (
         <motion.h1
           key={index}
