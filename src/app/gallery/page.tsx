@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-import useDetectScroll from '@smakss/react-scroll-direction';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
@@ -25,15 +24,23 @@ import type { MediaData, Media } from '@/types/media';
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
+  // TODO: おそらくレスポンシブの対応でstateにする
   const galleryItemMaxWidth = 'max-w-[280px]';
+  // whole media data
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
+  // media data for main visual
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
+  // media data for animation
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
   const [loading, setLoading] = useState<boolean>(true);
+  // whether intro animation completed
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
+  // whether image fanning animation completed
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
+  // whether gallery is active
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
-  const { scrollDir, scrollPosition } = useDetectScroll();
+  // whether all animation completed
+  const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
 
   const loadMediaData = () => {
     fetchMedia()
@@ -109,8 +116,7 @@ const Gallery: NextPage = () => {
           </div>
         ) : (
           <>
-            {/* ギャラリーが有効になったら表示させない */}
-            {!isActiveGallery ? (
+            {!isFullyGallerySet && (
               <div className="fixed h-screen w-full">
                 <MainVisual
                   imageSrc={mainVisual.mediaUrl}
@@ -120,12 +126,13 @@ const Gallery: NextPage = () => {
                 />
                 {isCompletedIntro && (
                   <>
-                    <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
+                    {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
                     <FanningImages mediaList={animatingMediaList} setState={setIsCompletedFanning} />
                   </>
                 )}
               </div>
-            ) : (
+            )}
+            {isActiveGallery && (
               <div className="mx-auto w-full max-w-7xl flex-center">
                 <div className="grid w-fit grid-cols-3 gap-x-32 gap-y-24">
                   {animatingMediaList.map((media: MediaData, index: number) => (
@@ -135,6 +142,7 @@ const Gallery: NextPage = () => {
                       zIndex={zIndexList[index]!}
                       maxWidth={galleryItemMaxWidth}
                       key={media.timestamp}
+                      setState={index === animatingMediaList.length - 1 ? setIsFullyGallerySet : undefined}
                     />
                   ))}
                   {mediaData.media.data.map((media: MediaData) => (
