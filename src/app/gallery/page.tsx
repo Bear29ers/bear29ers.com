@@ -9,6 +9,7 @@ import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
 import AnimatedGallery from '@/components/ui/gallery/AnimatedGallery/AnimatedGallery';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
+import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
@@ -23,6 +24,7 @@ import type { MediaData, Media } from '@/types/media';
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
+  const galleryItemMaxWidth = 'max-w-[300px]';
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
@@ -105,21 +107,22 @@ const Gallery: NextPage = () => {
           </div>
         ) : (
           <>
-            <div className="fixed h-screen w-full">
-              <MainVisual
-                imageSrc={mainVisual.mediaUrl}
-                layoutId={mainVisual.id}
-                canAnimate={isActiveGallery}
-                setState={setIsCompletedIntro}
-              />
-              {isCompletedIntro && (
-                <>
-                  <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
-                  <FanningImages mediaList={animatingMediaList} setState={setIsCompletedFanning} />
-                </>
-              )}
-            </div>
-            {isActiveGallery && (
+            {!isActiveGallery ? (
+              <div className="fixed h-screen w-full">
+                <MainVisual
+                  imageSrc={mainVisual.mediaUrl}
+                  layoutId={mainVisual.id}
+                  canAnimate={isActiveGallery}
+                  setState={setIsCompletedIntro}
+                />
+                {isCompletedIntro && (
+                  <>
+                    <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />
+                    <FanningImages mediaList={animatingMediaList} setState={setIsCompletedFanning} />
+                  </>
+                )}
+              </div>
+            ) : (
               <div className="mx-auto w-full max-w-7xl flex-center">
                 <div className="grid w-fit grid-cols-3 gap-12">
                   {animatingMediaList.map((media: MediaData, index: number) => (
@@ -127,13 +130,23 @@ const Gallery: NextPage = () => {
                       layoutId={media.id}
                       imageSrc={media.mediaUrl}
                       zIndex={zIndexList[index]!}
-                      maxWidth="max-w-[300px]"
+                      maxWidth={galleryItemMaxWidth}
+                      key={media.timestamp}
+                    />
+                  ))}
+                  {mediaData.media.data.map((media: MediaData) => (
+                    <MainGallery
+                      imageSrc={media.mediaUrl}
+                      id={media.id}
+                      maxWidth={galleryItemMaxWidth}
                       key={media.timestamp}
                     />
                   ))}
                 </div>
               </div>
             )}
+            {/* {isActiveGallery && ( */}
+            {/* )} */}
           </>
         )}
       </AnimatePresence>
