@@ -2,15 +2,21 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-const variants = {
-  initial: {
-    opacity: 0,
-    y: 20,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-  },
+import getRandowmRotationValue from '@/utils/getRandomRotationValue';
+
+const variants = (rotate: number) => {
+  return {
+    initial: {
+      opacity: 0,
+      y: 20,
+      rotate,
+    },
+    animate: {
+      opacity: 1,
+      y: 0,
+      rotate,
+    },
+  };
 };
 
 const viewport = {
@@ -25,6 +31,8 @@ interface Props {
 }
 
 const MainGallery: FC<Props> = ({ imageSrc, id, maxWidth }) => {
+  const randomRotateValue = getRandowmRotationValue(5);
+
   return (
     <motion.img
       src={imageSrc}
@@ -33,7 +41,7 @@ const MainGallery: FC<Props> = ({ imageSrc, id, maxWidth }) => {
       transition={{
         duration: 0.8,
       }}
-      variants={variants}
+      variants={variants(randomRotateValue)}
       initial="initial"
       whileInView="animate"
       viewport={viewport}
