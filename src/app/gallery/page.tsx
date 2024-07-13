@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
+import useDetectScroll from '@smakss/react-scroll-direction';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
@@ -24,7 +25,7 @@ import type { MediaData, Media } from '@/types/media';
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
-  const galleryItemMaxWidth = 'max-w-[250px]';
+  const galleryItemMaxWidth = 'max-w-[280px]';
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
@@ -32,6 +33,7 @@ const Gallery: NextPage = () => {
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
+  const { scrollDir, scrollPosition } = useDetectScroll();
 
   const loadMediaData = () => {
     fetchMedia()
