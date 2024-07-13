@@ -8,6 +8,7 @@ import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
+import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
@@ -118,73 +119,14 @@ const Gallery: NextPage = () => {
             </div>
             {isActiveGallery && (
               <div className="mx-auto w-full max-w-7xl flex-center">
-                <div className="grid w-fit grid-cols-3 gap-12">
-                  <motion.img
-                    layout
-                    layoutId="image-1"
-                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
-                    src="/images/polaroid/image-1.jpg"
-                    className="z-[2] w-full max-w-[300px] cursor-pointer"
-                  />
-                  <motion.img
-                    layout
-                    layoutId="image-2"
-                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
-                    src="/images/polaroid/image-2.jpg"
-                    className="z-[1] w-full max-w-[300px] cursor-pointer"
-                  />
-                  <motion.img
-                    layout
-                    layoutId="image-3"
-                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
-                    src="/images/polaroid/image-3.jpg"
-                    className="z-[5] w-full max-w-[300px] cursor-pointer"
-                  />
-                  <motion.img
-                    layout
-                    layoutId="image-4"
-                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
-                    src="/images/polaroid/image-4.jpg"
-                    className="z-[3] w-full max-w-[300px] cursor-pointer"
-                  />
-                  <motion.img
-                    layout
-                    layoutId="image-5"
-                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
-                    src="/images/polaroid/image-5.jpg"
-                    className="z-[6] w-full max-w-[300px] cursor-pointer"
-                  />
-                  <motion.img
-                    layout
-                    layoutId="image-6"
-                    transition={{ ease: [0.8, 0, 0.2, 1], duration: 1 }}
-                    src="/images/polaroid/image-6.jpg"
-                    className="z-[4] w-full max-w-[300px] cursor-pointer"
-                  />
-                </div>
+                <MainGallery mediaList={animatingMediaList} />
+                <div className="grid w-fit grid-cols-3 gap-12" />
               </div>
             )}
           </>
         )}
       </AnimatePresence>
       <Footer />
-      {/* {!mediaData || !mediaData.media.data.length ? ( */}
-      {/*   <div>No data available</div> */}
-      {/* ) : ( */}
-      {/*   <div> */}
-      {/*     {mediaData.media.data.map((post, index) => ( */}
-      {/*       <div key={index}> */}
-      {/*         <img src={post.mediaUrl} alt={post.caption} /> */}
-      {/*         <p>{post.caption}</p> */}
-      {/*         <p>Likes: {post.likeCount}</p> */}
-      {/*         <p>Posted by: {post.username}</p> */}
-      {/*         <a href={post.permalink} target="_blank" rel="noopener noreferrer"> */}
-      {/*           View on Instagram */}
-      {/*         </a> */}
-      {/*       </div> */}
-      {/*     ))} */}
-      {/*   </div> */}
-      {/* )} */}
     </div>
   );
 };
