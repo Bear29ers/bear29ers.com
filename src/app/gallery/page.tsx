@@ -97,7 +97,7 @@ const Gallery: NextPage = () => {
         initial="initial"
         animate={isActiveGallery && 'animate'}>
         {!loading && (
-          <div className="mt-40 flex flex-col items-center gap-y-2">
+          <div className="gallery-intro-title flex flex-col items-center gap-y-2">
             <StaggeredText textList={['Life', 'in', 'Pixels']} />
             <Subhead text="Capturing Moments, Creating Memories." />
           </div>
