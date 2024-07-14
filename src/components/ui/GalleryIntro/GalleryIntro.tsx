@@ -11,7 +11,6 @@ const galleryIntroVariants = {
   initial: {},
   animate: {
     transition: {
-      // TODO: 後ほど調整
       delayChildren: 1,
       staggerChildren: 0.4,
     },
@@ -67,7 +66,7 @@ const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, mediaList, setS
         <motion.img
           src={media.mediaUrl}
           alt={media.id}
-          className={`w-full max-w-[250px] ${index !== 0 && 'absolute'}`}
+          className={`w-full max-w-40 txs:max-w-48 msm:max-w-60 ${index !== 0 && 'absolute'}`}
           variants={imageVariants}
           key={media.timestamp}
         />
@@ -76,7 +75,7 @@ const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, mediaList, setS
         layoutId={layoutId}
         src={mainVisualImageSrc}
         alt="main-visual"
-        className="absolute w-full max-w-[250px]"
+        className="absolute w-full max-w-40 txs:max-w-48 msm:max-w-60"
         variants={mainVisualVariants}
       />
     </motion.div>

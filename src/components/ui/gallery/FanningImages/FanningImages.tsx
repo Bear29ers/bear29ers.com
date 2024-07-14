@@ -18,21 +18,19 @@ const variants = {
   },
 };
 
-const itemStyleList = [
-  { zIndex: zIndexList[0]!, x: '-105%', y: 120, rotate: -20 },
-  { zIndex: zIndexList[1]!, x: '-30%', y: -90, rotate: 5 },
-  { zIndex: zIndexList[2]!, x: '-90%', y: 0, rotate: -17 },
-  { zIndex: zIndexList[3]!, x: '-5%', y: 40, rotate: 12 },
-  { zIndex: zIndexList[4]!, x: '-70%', y: 20, rotate: -10 },
-  { zIndex: zIndexList[5]!, x: '5%', y: 160, rotate: 15 },
-];
-
 interface Props {
   mediaList: MediaData[];
+  maxWidth: string;
+  initialY: number;
+  styles: {
+    x: string;
+    y: number;
+    rotate: number;
+  }[];
   setState: Dispatch<SetStateAction<boolean>>;
 }
 
-const FanningImages: FC<Props> = ({ mediaList, setState }) => {
+const FanningImages: FC<Props> = ({ mediaList, maxWidth, initialY, styles, setState }) => {
   return (
     <motion.div
       variants={variants}
@@ -43,7 +41,10 @@ const FanningImages: FC<Props> = ({ mediaList, setState }) => {
         <FanningItem
           imageSrc={media.mediaUrl}
           layoutId={media.id}
-          styles={itemStyleList[index]!}
+          styles={styles[index]!}
+          zIndex={zIndexList[index]!}
+          maxWidth={maxWidth}
+          initialY={initialY}
           key={media.timestamp}
         />
       ))}
