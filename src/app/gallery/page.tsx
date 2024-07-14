@@ -6,9 +6,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
-import GalleryIntro from '@/components/ui/GalleryIntro/GalleryIntro';
 import AnimatedGallery from '@/components/ui/gallery/AnimatedGallery/AnimatedGallery';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
+import GalleryIntro from '@/components/ui/gallery/GalleryIntro/GalleryIntro';
 import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
