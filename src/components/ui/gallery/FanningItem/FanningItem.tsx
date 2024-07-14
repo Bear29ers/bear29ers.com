@@ -2,10 +2,10 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 
-const variants = (x: string, y: number, rotate: number) => ({
+const variants = (initialY: number, x: string, y: number, rotate: number) => ({
   initial: {
     x: '-50%',
-    y: 220,
+    y: initialY,
     rotate: 0,
   },
   animate: {
@@ -23,20 +23,22 @@ interface Props {
   imageSrc: string;
   layoutId: string;
   styles: {
-    zIndex: string;
     x: string;
     y: number;
     rotate: number;
   };
+  zIndex: string;
+  maxWidth: string;
+  initialY: number;
 }
 
-const FanningItem: FC<Props> = ({ imageSrc, layoutId, styles }) => {
+const FanningItem: FC<Props> = ({ imageSrc, layoutId, styles, zIndex, maxWidth, initialY }) => {
   return (
     <motion.img
       layoutId={layoutId}
-      variants={variants(styles.x, styles.y, styles.rotate)}
+      variants={variants(initialY, styles.x, styles.y, styles.rotate)}
       src={imageSrc}
-      className={`absolute bottom-0 left-1/2 w-full max-w-[400px] ${styles.zIndex}`}
+      className={`absolute bottom-0 left-1/2 w-full ${maxWidth} ${zIndex}`}
     />
   );
 };

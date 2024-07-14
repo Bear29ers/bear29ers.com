@@ -15,6 +15,8 @@ import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
+
 import { zIndexList } from '@/constants/gallery';
 
 import fetchMedia from '@/libs/fetchMedia';
@@ -24,23 +26,33 @@ import type { MediaData, Media } from '@/types/media';
 import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
-  // TODO: おそらくレスポンシブの対応でstateにする
-  const galleryItemMaxWidth = 'max-w-[280px]';
-  // whole media data
+  // media data
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
-  // media data for main visual
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
-  // media data for animation
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
+
+  // animation flag
   const [loading, setLoading] = useState<boolean>(true);
-  // whether intro animation completed
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
-  // whether image fanning animation completed
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
-  // whether gallery is active
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
-  // whether all animation completed
   const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
+
+  // style state
+  const galleryItemMaxWidth = 'max-w-72';
+  const [fanningInitialY, setFanningInitialY] = useState<number>(220);
+  const [fanningStyleList, setFanningStyleList] = useState<{ x: string; y: number; rotate: number }[]>([
+    { x: '-105%', y: 120, rotate: -20 },
+    { x: '-30%', y: -90, rotate: 5 },
+    { x: '-90%', y: 0, rotate: -17 },
+    { x: '-5%', y: 40, rotate: 12 },
+    { x: '-70%', y: 20, rotate: -10 },
+    { x: '5%', y: 160, rotate: 15 },
+  ]);
+
+  const isLarge = useMediaQuery('(min-width: 1000px)');
+  const isMedium = useMediaQuery('(min-width: 700px)');
+  const isSmall = useMediaQuery('(min-width: 450px)');
 
   const loadMediaData = () => {
     fetchMedia()
@@ -65,6 +77,50 @@ const Gallery: NextPage = () => {
       setAnimatingMediaList(animatingMediaItems);
     }
   }, [mediaData]);
+
+  useEffect(() => {
+    if (isLarge) {
+      setFanningInitialY(220);
+      setFanningStyleList([
+        { x: '-105%', y: 120, rotate: -20 },
+        { x: '-30%', y: -90, rotate: 5 },
+        { x: '-90%', y: 0, rotate: -17 },
+        { x: '-5%', y: 40, rotate: 12 },
+        { x: '-70%', y: 20, rotate: -10 },
+        { x: '5%', y: 160, rotate: 15 },
+      ]);
+    } else if (isMedium) {
+      setFanningInitialY(220);
+      setFanningStyleList([
+        { x: '-105%', y: 120, rotate: -20 },
+        { x: '-30%', y: -90, rotate: 5 },
+        { x: '-90%', y: 0, rotate: -17 },
+        { x: '-5%', y: 40, rotate: 12 },
+        { x: '-70%', y: 20, rotate: -10 },
+        { x: '5%', y: 160, rotate: 15 },
+      ]);
+    } else if (isSmall) {
+      setFanningInitialY(180);
+      setFanningStyleList([
+        { x: '-90%', y: 50, rotate: -20 },
+        { x: '-30%', y: -60, rotate: 5 },
+        { x: '-80%', y: -20, rotate: -17 },
+        { x: '-25%', y: 15, rotate: 12 },
+        { x: '-65%', y: 0, rotate: -10 },
+        { x: '-6%', y: 70, rotate: 15 },
+      ]);
+    } else {
+      setFanningInitialY(150);
+      setFanningStyleList([
+        { x: '-52%', y: -240, rotate: -2 },
+        { x: '-48%', y: -200, rotate: 2 },
+        { x: '-53%', y: -160, rotate: -3 },
+        { x: '-47%', y: -120, rotate: 3 },
+        { x: '-54%', y: -80, rotate: -4 },
+        { x: '-46%', y: -40, rotate: 4 },
+      ]);
+    }
+  }, [isLarge, isMedium, isSmall]);
 
   const introBgVariants = {
     initial: {
@@ -122,12 +178,19 @@ const Gallery: NextPage = () => {
                   imageSrc={mainVisual.mediaUrl}
                   layoutId={mainVisual.id}
                   canAnimate={isActiveGallery}
+                  maxWidth="mlg:max-w-[400px] msm:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
                   setState={setIsCompletedIntro}
                 />
                 {isCompletedIntro && (
                   <>
                     {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
-                    <FanningImages mediaList={animatingMediaList} setState={setIsCompletedFanning} />
+                    <FanningImages
+                      mediaList={animatingMediaList}
+                      maxWidth="mlg:max-w-[400px] msm:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
+                      initialY={fanningInitialY}
+                      styles={fanningStyleList}
+                      setState={setIsCompletedFanning}
+                    />
                   </>
                 )}
               </div>
