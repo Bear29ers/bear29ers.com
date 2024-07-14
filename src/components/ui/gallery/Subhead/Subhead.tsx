@@ -12,7 +12,7 @@ const Subhead: FC<Props> = ({ text }) => {
       initial={{ y: 40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ ease: [0.16, 1, 0.3, 1], duration: 2, delay: 1.2 }}
-      className="text-[min(4.5vw,30px)] font-medium text-lightGray">
+      className="text-[min(4.1vw,29px)] font-medium text-lightGray">
       {text}
     </motion.h2>
   );
