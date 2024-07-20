@@ -26,8 +26,7 @@ export const Default: Story = {
             },
           ],
         },
-        mediaUrl:
-          'https://scontent-nrt1-2.cdninstagram.com/v/t51.29350-15/451166443_3808549426099080_1051796540578757172_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=18de74&_nc_ohc=22N_GcDEHNUQ7kNvgHy1CEW&_nc_ht=scontent-nrt1-2.cdninstagram.com&edm=AL-3X8kEAAAA&oh=00_AYBawbjA6Dj69kvaPcSE-yGzXh5yTx_D9L-Nfug_KovZkA&oe=669A9924',
+        mediaUrl: '/images/example/image-1.jpg',
         permalink: 'https://www.instagram.com/p/C9bfg4vyXNx/',
         likeCount: 0,
         timestamp: '2024-07-15T04:15:00+0000',
@@ -46,8 +45,7 @@ export const Default: Story = {
             },
           ],
         },
-        mediaUrl:
-          'https://scontent-nrt1-2.cdninstagram.com/v/t51.29350-15/450845581_2744944942337393_4641788592330974644_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=18de74&_nc_ohc=i7DLyun3MtwQ7kNvgHGZeBl&_nc_ht=scontent-nrt1-2.cdninstagram.com&edm=AL-3X8kEAAAA&oh=00_AYCP7wCwVcgmz7jPaF0ChU0JO5clLV9fqEEyPRugJ-CO6A&oe=669AA615',
+        mediaUrl: '/images/example/image-2.jpg',
         permalink: 'https://www.instagram.com/p/C9WsRqbyk4Y/',
         likeCount: 3,
         timestamp: '2024-07-13T07:30:00+0000',
