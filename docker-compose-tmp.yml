@@ -1,0 +1,20 @@
+services:
+  app:
+    container_name: app
+    build:
+      context: .
+      target: dev
+    restart: always
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - GA_TAG_ID=dummy
+      - GRAPH_API_BASE_URL=https://graph.facebook.com/
+      - GRAPH_API_INSTAGRAM_ID=dummy
+      - GRAPH_API_ACCESS_TOKEN=dummy
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 5050:3000

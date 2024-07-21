@@ -1,11 +1,12 @@
-import AnimatedText from '@/components/AnimatedText/AnimatedText';
-import Footer from '@/components/Footer/Footer';
-import Project from '@/components/Project/Project';
-import Period from '@/components/projects/Period/Period';
+import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
+import Footer from '@/components/layout/Footer/Footer';
+import Project from '@/components/ui/Project/Project';
+import Period from '@/components/ui/projects/Period/Period';
 
-import { EXPERIENCE_INFO } from '@/common/constants/experience';
-import type { Project as ProjectType } from '@/common/types/experience';
-import { Experience } from '@/common/types/experience';
+import { EXPERIENCE_INFO } from '@/constants/experience';
+
+import type { Project as ProjectType } from '@/types/experience';
+import { Experience } from '@/types/experience';
 
 import type { NextPage } from 'next';
 
