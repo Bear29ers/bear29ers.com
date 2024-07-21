@@ -7,7 +7,7 @@ interface Children {
   data: ChildrenData[];
 }
 
-interface MediaData {
+export interface MediaData {
   caption: string;
   children: Children;
   mediaUrl: string;
@@ -18,8 +18,17 @@ interface MediaData {
   id: string;
 }
 
+interface Paging {
+  cursors: {
+    before: string;
+    after: string;
+  };
+  next: string;
+}
+
 export interface Media {
   media: {
     data: MediaData[];
+    paging: Paging;
   };
 }

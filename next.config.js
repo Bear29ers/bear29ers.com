@@ -2,6 +2,15 @@
 
 const nextConfig = {
   reactStrictMode: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '*.cdninstagram.com',
+        port: '',
+      },
+    ],
+  },
   webpack: (config) => {
     // Enable polling based on env variable being set
     if (process.env.NEXT_WEBPACK_USEPOLLING) {
