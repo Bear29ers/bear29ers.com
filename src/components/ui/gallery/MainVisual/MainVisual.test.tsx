@@ -38,31 +38,58 @@ jest.mock('framer-motion', () => {
 
 describe('src/components/ui/gallery/MainVisual/MainVisual.test.tsx', () => {
   let renderResult: RenderResult;
-  const mockProps = {
-    imageSrc: '/images/example/image-7.jpg',
-    layoutId: '17924112776916166',
-    canAnimate: false,
-    maxWidth: 'max-w-96',
-    setState: jest.fn(),
-  };
 
-  beforeEach(() => {
-    renderResult = render(<MainVisual {...mockProps} />);
-  });
+  describe('when canAnimate is false', () => {
+    const mockProps = {
+      imageSrc: '/images/example/image-7.jpg',
+      layoutId: '17924112776916166',
+      canAnimate: false,
+      maxWidth: 'max-w-96',
+      setState: jest.fn(),
+    };
 
-  afterEach(() => {
-    renderResult.unmount();
-  });
+    beforeEach(() => {
+      renderResult = render(<MainVisual {...mockProps} />);
+    });
 
-  it('should render the MainVisual image', async () => {
-    await waitFor(() => {
-      expect(screen.getByRole('img', { name: 'Main Visual' })).toBeInTheDocument();
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should render the MainVisual image', async () => {
+      await waitFor(() => {
+        expect(screen.getByRole('img', { name: 'Main Visual' })).toBeInTheDocument();
+      });
+    });
+
+    it('should calls setState when animation completes', async () => {
+      await waitFor(() => {
+        expect(mockProps.setState).toHaveBeenCalled();
+      });
     });
   });
 
-  it('should calls setState when animation completes', async () => {
-    await waitFor(() => {
-      expect(mockProps.setState).toHaveBeenCalled();
+  describe('when canAnimate is true', () => {
+    const mockProps = {
+      imageSrc: '/images/example/image-7.jpg',
+      layoutId: '17924112776916166',
+      canAnimate: true,
+      maxWidth: 'max-w-96',
+      setState: jest.fn(),
+    };
+
+    beforeEach(() => {
+      renderResult = render(<MainVisual {...mockProps} />);
+    });
+
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should render the MainVisual image', async () => {
+      await waitFor(() => {
+        expect(screen.getByRole('img', { name: 'Main Visual' })).toBeInTheDocument();
+      });
     });
   });
 });
