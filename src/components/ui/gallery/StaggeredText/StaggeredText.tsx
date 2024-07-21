@@ -32,10 +32,10 @@ const StaggeredText: FC<Props> = ({ textList }) => {
     <motion.div variants={wrapperVariants} initial="initial" animate="animate" className="flex gap-x-6 overflow-hidden">
       {textList.map((word: string, i: number) => (
         <div key={`${word}-${i}`} className="flex">
-          {[...word].map((letter: string) => (
+          {[...word].map((letter: string, j: number) => (
             <motion.h1
               variants={letterVariants}
-              key={`${word}-${letter}`}
+              key={`${word}-${i}-${letter}-${j}`}
               className="text-[min(13vw,96px)] font-bold leading-none text-dark">
               {letter}
             </motion.h1>
