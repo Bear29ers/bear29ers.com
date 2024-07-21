@@ -22,23 +22,23 @@ const Status: FC = () => {
         <div className="size-56 rounded-full bg-darker flex-center xs:size-64 xxs:size-72 md:size-80">
           <Image src={ProfileIcon} alt={PROFILE_TEXT.userName} className="w-28 xs:w-36 xxs:w-44 md:w-52" />
         </div>
-        <span className="absolute left-32 top-9 size-2 rounded-full bg-mantis xs:top-12 xs:size-3" />
+        <span className="absolute left-32 top-9 size-2 rounded-full bg-customGreen-500 xs:top-12 xs:size-3" />
         <motion.span
-          className="absolute left-6 top-12 size-7 rounded-lg bg-maximumBlue xs:top-16 xxs:size-9"
+          className="absolute left-6 top-12 size-7 rounded-lg bg-customCyan-500 xs:top-16 xxs:size-9"
           initial={{ rotate: 60 }}
           whileHover={{ scale: 1.2, rotate: 240 }}
           transition={{ type: 'spring', stiffness: 400 }}
         />
-        <span className="absolute bottom-24 left-4 size-3 rounded-full bg-mediumSlateBlue xs:bottom-36 xs:size-4" />
+        <span className="absolute bottom-24 left-4 size-3 rounded-full bg-customViolet-500 xs:bottom-36 xs:size-4" />
         <motion.span
-          className="absolute right-0 top-9 size-10 rounded-lg bg-mediumSlateBlue xxs:size-12"
+          className="absolute right-0 top-9 size-10 rounded-lg bg-customViolet-500 xxs:size-12"
           initial={{ rotate: 30 }}
           whileHover={{ scale: 1.2, rotate: 210 }}
           transition={{ type: 'spring', stiffness: 400 }}
         />
-        <span className="absolute bottom-28 right-10 size-1.5 rounded-full bg-maximumBlue xs:right-16 xs:size-2.5" />
+        <span className="absolute bottom-28 right-10 size-1.5 rounded-full bg-customCyan-500 xs:right-16 xs:size-2.5" />
         <motion.span
-          className="absolute bottom-6 right-24 size-5 rounded-md bg-mantis xxs:size-7"
+          className="absolute bottom-6 right-24 size-5 rounded-md bg-customGreen-500 xxs:size-7"
           initial={{ rotate: 15 }}
           whileHover={{ scale: 1.2, rotate: 195 }}
           transition={{ type: 'spring', stiffness: 400 }}

@@ -39,7 +39,7 @@ const ScrollDown: FC<Props> = ({ state, setState }) => {
         width="100%"
         height="100%"
         viewBox="0 0 310 177"
-        className="absolute inset-x-0 top-5 mx-auto w-12 animate-down fill-dark transition-colors duration-400 group-hover:fill-pastelRed">
+        className="absolute inset-x-0 top-5 mx-auto w-12 animate-down fill-dark transition-colors duration-400 group-hover:fill-customRed-500">
         <path
           className="fill-inherit"
           fill="none"
