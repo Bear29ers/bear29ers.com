@@ -42,7 +42,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
         animate={{ x: 0, rotate: 90, transition: animateTransitionValue }}>
         Works
       </motion.div>
-      <div className="absolute bottom-2 flex w-screen justify-around xxs:bottom-3">
+      <div className="absolute top-2 flex w-screen justify-around xxs:bottom-3 lg:bottom-2 lg:top-auto">
         <MotionLink
           href="/about"
           className={`z-40 text-xl font-semibold md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
