@@ -178,7 +178,7 @@ const Gallery: NextPage = () => {
                   imageSrc={mainVisual.mediaUrl}
                   layoutId={mainVisual.id}
                   canAnimate={isActiveGallery}
-                  maxWidth="mlg:max-w-[400px] msm:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
+                  maxWidth="mlg:max-w-[400px] txs:max-w-[350px] max-w-[230px]"
                   setState={setIsCompletedIntro}
                 />
                 {isCompletedIntro && (
@@ -186,7 +186,7 @@ const Gallery: NextPage = () => {
                     {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
                     <FanningImages
                       mediaList={animatingMediaList}
-                      maxWidth="mlg:max-w-[400px] msm:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
+                      maxWidth="mlg:max-w-[400px] md:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
                       initialY={fanningInitialY}
                       styles={fanningStyleList}
                       setState={setIsCompletedFanning}
