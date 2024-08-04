@@ -11,9 +11,6 @@ import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
 import GalleryIntro from '@/components/ui/gallery/GalleryIntro/GalleryIntro';
 import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
-import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
-import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
-import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
@@ -32,15 +29,15 @@ const Gallery: NextPage = () => {
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
 
   // animation flag
-  const [loading, setLoading] = useState<boolean>(true);
-  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(true);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
   const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
 
   // style state
   const galleryItemMaxWidth = 'max-w-72';
-  const [fanningInitialY, setFanningInitialY] = useState<number>(220);
+  const [fanningInitialY, setFanningInitialY] = useState<number | string>(220);
   const [fanningStyleList, setFanningStyleList] = useState<{ x: string; y: number; rotate: number }[]>([
     { x: '-105%', y: 120, rotate: -20 },
     { x: '-30%', y: -90, rotate: 5 },
@@ -51,7 +48,7 @@ const Gallery: NextPage = () => {
   ]);
 
   const isLarge = useMediaQuery('(min-width: 1000px)');
-  const isMedium = useMediaQuery('(min-width: 700px)');
+  const isMedium = useMediaQuery('(min-width: 768px)');
   const isSmall = useMediaQuery('(min-width: 450px)');
 
   const loadMediaData = () => {
@@ -100,14 +97,14 @@ const Gallery: NextPage = () => {
         { x: '5%', y: 160, rotate: 15 },
       ]);
     } else if (isSmall) {
-      setFanningInitialY(180);
+      setFanningInitialY(0);
       setFanningStyleList([
-        { x: '-90%', y: 50, rotate: -20 },
-        { x: '-30%', y: -60, rotate: 5 },
-        { x: '-80%', y: -20, rotate: -17 },
-        { x: '-25%', y: 15, rotate: 12 },
-        { x: '-65%', y: 0, rotate: -10 },
-        { x: '-6%', y: 70, rotate: 15 },
+        { x: '-100%', y: -270, rotate: -10 },
+        { x: '80%', y: -150, rotate: -2.5 },
+        { x: '-180%', y: -150, rotate: 8 },
+        { x: '80%', y: 100, rotate: 6 },
+        { x: '-180%', y: 100, rotate: -5 },
+        { x: '0%', y: -270, rotate: 7.5 },
       ]);
     } else {
       setFanningInitialY(150);
@@ -152,12 +149,12 @@ const Gallery: NextPage = () => {
         variants={introBgVariants}
         initial="initial"
         animate={isActiveGallery && 'animate'}>
-        {!loading && (
-          <div className="gallery-intro-title flex flex-col items-center gap-y-2">
-            <StaggeredText textList={['Life', 'in', 'Pixels']} />
-            <Subhead text="Capturing Moments, Creating Memories." />
-          </div>
-        )}
+        {/* {!loading && ( */}
+        {/*   <div className="gallery-intro-title flex flex-col items-center gap-y-2"> */}
+        {/*     <StaggeredText textList={['Life', 'in', 'Pixels']} /> */}
+        {/*     <Subhead text="Capturing Moments, Creating Memories." /> */}
+        {/*   </div> */}
+        {/* )} */}
       </motion.div>
 
       <AnimatePresence mode="wait">
@@ -183,10 +180,10 @@ const Gallery: NextPage = () => {
                 />
                 {isCompletedIntro && (
                   <>
-                    {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
+                    {/* {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />} */}
                     <FanningImages
                       mediaList={animatingMediaList}
-                      maxWidth="mlg:max-w-[400px] md:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
+                      maxWidth="mlg:max-w-[400px] md:max-w-[350px] txs:max-w-[200px] max-w-[230px]"
                       initialY={fanningInitialY}
                       styles={fanningStyleList}
                       setState={setIsCompletedFanning}
