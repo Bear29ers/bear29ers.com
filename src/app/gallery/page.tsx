@@ -11,6 +11,7 @@ import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
 import GalleryIntro from '@/components/ui/gallery/GalleryIntro/GalleryIntro';
 import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
+import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
@@ -49,7 +50,7 @@ const Gallery: NextPage = () => {
 
   const isLarge = useMediaQuery('(min-width: 1000px)');
   const isMedium = useMediaQuery('(min-width: 768px)');
-  const isSmall = useMediaQuery('(min-width: 450px)');
+  const isSmall = useMediaQuery('(min-width: 540px)');
 
   const loadMediaData = () => {
     fetchMedia()
@@ -107,14 +108,14 @@ const Gallery: NextPage = () => {
         { x: '0%', y: -270, rotate: 7.5 },
       ]);
     } else {
-      setFanningInitialY(150);
+      setFanningInitialY(50);
       setFanningStyleList([
-        { x: '-52%', y: -240, rotate: -2 },
-        { x: '-48%', y: -200, rotate: 2 },
-        { x: '-53%', y: -160, rotate: -3 },
-        { x: '-47%', y: -120, rotate: 3 },
-        { x: '-54%', y: -80, rotate: -4 },
-        { x: '-46%', y: -40, rotate: 4 },
+        { x: '-100%', y: -150, rotate: -10 },
+        { x: '40%', y: -40, rotate: -2.5 },
+        { x: '-140%', y: -40, rotate: 8 },
+        { x: '40%', y: 150, rotate: 6 },
+        { x: '-140%', y: 150, rotate: -5 },
+        { x: '0%', y: -150, rotate: 7.5 },
       ]);
     }
   }, [isLarge, isMedium, isSmall]);
@@ -175,15 +176,15 @@ const Gallery: NextPage = () => {
                   imageSrc={mainVisual.mediaUrl}
                   layoutId={mainVisual.id}
                   canAnimate={isActiveGallery}
-                  maxWidth="mlg:max-w-[400px] txs:max-w-[350px] max-w-[230px]"
+                  maxWidth="mlg:max-w-[400px] xsm:max-w-[350px] max-w-[250px]"
                   setState={setIsCompletedIntro}
                 />
                 {isCompletedIntro && (
                   <>
-                    {/* {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />} */}
+                    {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
                     <FanningImages
                       mediaList={animatingMediaList}
-                      maxWidth="mlg:max-w-[400px] md:max-w-[350px] txs:max-w-[200px] max-w-[230px]"
+                      maxWidth="mlg:max-w-[400px] md:max-w-[350px] xsm:max-w-[200px] max-w-[180px]"
                       initialY={fanningInitialY}
                       styles={fanningStyleList}
                       setState={setIsCompletedFanning}
