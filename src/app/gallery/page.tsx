@@ -30,8 +30,8 @@ const Gallery: NextPage = () => {
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
 
   // animation flag
-  const [loading, setLoading] = useState<boolean>(false);
-  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
   const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
@@ -108,7 +108,7 @@ const Gallery: NextPage = () => {
         { x: '0%', y: -270, rotate: 7.5 },
       ]);
     } else {
-      setFanningInitialY(50);
+      setFanningInitialY(15);
       setFanningStyleList([
         { x: '-100%', y: -150, rotate: -10 },
         { x: '40%', y: -40, rotate: -2.5 },
