@@ -12,6 +12,8 @@ import GalleryIntro from '@/components/ui/gallery/GalleryIntro/GalleryIntro';
 import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
+import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
+import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
@@ -108,7 +110,7 @@ const Gallery: NextPage = () => {
         { x: '0%', y: -270, rotate: 7.5 },
       ]);
     } else {
-      setFanningInitialY(15);
+      setFanningInitialY(0);
       setFanningStyleList([
         { x: '-100%', y: -150, rotate: -10 },
         { x: '40%', y: -40, rotate: -2.5 },
@@ -150,12 +152,12 @@ const Gallery: NextPage = () => {
         variants={introBgVariants}
         initial="initial"
         animate={isActiveGallery && 'animate'}>
-        {/* {!loading && ( */}
-        {/*   <div className="gallery-intro-title flex flex-col items-center gap-y-2"> */}
-        {/*     <StaggeredText textList={['Life', 'in', 'Pixels']} /> */}
-        {/*     <Subhead text="Capturing Moments, Creating Memories." /> */}
-        {/*   </div> */}
-        {/* )} */}
+        {!loading && (
+          <div className="mt-16 flex flex-col items-center gap-y-1 md:mt-24 md:gap-y-2">
+            <StaggeredText textList={['Life', 'in', 'Pixels']} />
+            <Subhead text="Capturing Moments, Creating Memories." />
+          </div>
+        )}
       </motion.div>
 
       <AnimatePresence mode="wait">
