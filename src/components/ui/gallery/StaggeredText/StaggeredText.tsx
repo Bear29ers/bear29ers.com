@@ -36,7 +36,7 @@ const StaggeredText: FC<Props> = ({ textList }) => {
             <motion.h1
               variants={letterVariants}
               key={`${word}-${i}-${letter}-${j}`}
-              className="text-[min(13vw,96px)] font-bold leading-none text-dark">
+              className="text-[min(12vw,72px)] font-bold leading-none text-dark md:text-8xl">
               {letter}
             </motion.h1>
           ))}

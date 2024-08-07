@@ -20,10 +20,10 @@ const Home: NextPage = () => {
       <Intro isClicked={isClicked} homeProfileText={HOME_PROFILE_TEXT} />
       {/* Bear */}
       <Bear isClicked={isClicked} setIsClicked={setIsClicked} />
-      {/* Social Icons */}
-      <SocialIcons lightMode={isClicked} />
       {/* Page Navigation */}
       <PageNavigation isClicked={isClicked} />
+      {/* Social Icons */}
+      <SocialIcons lightMode={isClicked} />
     </div>
   );
 };
