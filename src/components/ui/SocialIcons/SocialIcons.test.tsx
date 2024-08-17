@@ -91,7 +91,7 @@ describe('src/components/ui/SocialIcons/SocialIcons.test.tsx', () => {
   });
 
   describe('barWidth tests', () => {
-    it('should set barWidth to 96px when screen size is under 399px', async () => {
+    it('should set barWidth to 128px when screen size is under 399px', async () => {
       (useMediaQuery as jest.Mock).mockImplementation((query: string) => {
         if (query === '(max-width: 399px)') return true;
         if (query === '(max-width: 499px)') return true;
@@ -103,13 +103,13 @@ describe('src/components/ui/SocialIcons/SocialIcons.test.tsx', () => {
       await waitFor(
         () => {
           const lineElement = screen.getByTestId('icons-line');
-          expect(lineElement).toHaveStyle({ width: '96px' });
+          expect(lineElement).toHaveStyle({ width: '128px' });
         },
         { timeout: 2000 }
       );
     });
 
-    it('should set barWidth to 112px when screen size is between 399px and 499px', async () => {
+    it('should set barWidth to 128px when screen size is between 399px and 499px', async () => {
       (useMediaQuery as jest.Mock).mockImplementation((query: string) => {
         if (query === '(max-width: 399px)') return false;
         if (query === '(max-width: 499px)') return true;
@@ -121,7 +121,7 @@ describe('src/components/ui/SocialIcons/SocialIcons.test.tsx', () => {
       await waitFor(
         () => {
           const lineElement = screen.getByTestId('icons-line');
-          expect(lineElement).toHaveStyle({ width: '112px' });
+          expect(lineElement).toHaveStyle({ width: '128px' });
         },
         { timeout: 2000 }
       );
