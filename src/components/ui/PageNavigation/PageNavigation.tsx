@@ -1,4 +1,6 @@
-import type { FC } from 'react';
+'use client';
+
+import { type FC } from 'react';
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -36,44 +38,46 @@ const variants = {
 const PageNavigation: FC<Props> = ({ isClicked }) => {
   return (
     <>
-      <motion.div
-        className="absolute -right-4 top-1/2 z-40 -translate-y-1/2 rotate-90 text-xl font-semibold text-white line-through xs:-right-2.5 xxs:right-0 md:text-2xl"
-        initial={{ x: 200, rotate: 90 }}
-        animate={{ x: 0, rotate: 90, transition: animateTransitionValue }}>
-        Works
-      </motion.div>
-      <div className="absolute top-2 flex w-screen justify-around xxs:bottom-3 lg:bottom-2 lg:top-auto">
+      <div className="absolute right-0 top-0 flex h-full w-14 flex-col items-center justify-around txs:w-20">
+        <MotionLink
+          href="/experience"
+          className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
+          variants={variants}
+          initial={{ x: 200, rotate: 90 }}
+          animate={{ x: 0, rotate: 90, transition: animateTransitionValue }}
+          whileHover="hover"
+          whileTap="tap">
+          Experience
+        </MotionLink>
+        <motion.div
+          className="z-40 text-xl font-semibold text-white line-through"
+          initial={{ x: 200, rotate: 90 }}
+          animate={{ x: 0, rotate: 90, transition: animateTransitionValue }}>
+          Works
+        </motion.div>
+      </div>
+      <div className="absolute left-0 top-0 flex h-full w-14 flex-col items-center justify-around txs:w-20">
         <MotionLink
           href="/about"
-          className={`z-40 text-xl font-semibold md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
-          initial={{ y: 200 }}
+          className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
           variants={variants}
-          animate={{ y: 0, transition: animateTransitionValue }}
+          initial={{ x: -200, rotate: -90 }}
+          animate={{ x: 0, rotate: -90, transition: animateTransitionValue }}
           whileHover="hover"
           whileTap="tap">
           About
         </MotionLink>
         <MotionLink
-          href="/experience"
-          className="z-40 text-xl font-semibold text-white md:text-2xl"
+          href="/gallery"
+          className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
           variants={variants}
-          initial={{ y: 200 }}
-          animate={{ y: 0, transition: animateTransitionValue }}
+          initial={{ x: -200, rotate: -90 }}
+          animate={{ x: 0, rotate: -90, transition: animateTransitionValue }}
           whileHover="hover"
           whileTap="tap">
-          Experience
+          Gallery
         </MotionLink>
       </div>
-      <MotionLink
-        href="/gallery"
-        className={`absolute -left-4 top-1/2 z-40 -translate-y-1/2 -rotate-90 text-xl font-semibold xs:-left-2.5 xxs:left-0 md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
-        variants={variants}
-        initial={{ x: -200, rotate: -90 }}
-        animate={{ x: 0, rotate: -90, transition: animateTransitionValue }}
-        whileHover="hover"
-        whileTap="tap">
-        Gallery
-      </MotionLink>
     </>
   );
 };
