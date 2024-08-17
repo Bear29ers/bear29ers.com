@@ -28,6 +28,7 @@ import type { NextPage } from 'next';
 const Gallery: NextPage = () => {
   // media data
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
+  const [filteredMediaData, setFilteredMediaData] = useState<MediaData[] | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
 
@@ -71,9 +72,14 @@ const Gallery: NextPage = () => {
 
   useEffect(() => {
     if (mediaData && mediaData.media.data.length) {
-      const lastMediaItem = mediaData.media.data.pop();
+      // mediaTypeがVIDEOの場合は除外する
+      const filteredMediaList = mediaData.media.data.filter((media) => media.mediaType !== 'VIDEO');
+      setFilteredMediaData(filteredMediaList);
+
+      const lastMediaItem = filteredMediaList.pop();
       setMainVisual(lastMediaItem);
-      const animatingMediaItems = mediaData.media.data.splice(0, 6);
+
+      const animatingMediaItems = filteredMediaList.splice(0, 6);
       setAnimatingMediaList(animatingMediaItems);
     }
   }, [mediaData]);
@@ -135,7 +141,7 @@ const Gallery: NextPage = () => {
     },
   };
 
-  if (!mediaData || !mediaData.media.data.length || !mainVisual || !animatingMediaList) {
+  if (!mediaData || !filteredMediaData || !filteredMediaData.length || !mainVisual || !animatingMediaList) {
     return <div className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern" />;
   }
 
@@ -208,7 +214,7 @@ const Gallery: NextPage = () => {
                       setState={index === animatingMediaList.length - 1 ? setIsFullyGallerySet : undefined}
                     />
                   ))}
-                  {mediaData.media.data.map((media: MediaData) => (
+                  {filteredMediaData.map((media: MediaData) => (
                     <MainGallery
                       imageSrc={media.mediaUrl}
                       id={media.id}
