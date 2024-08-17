@@ -21,7 +21,7 @@ const variants = {
 interface Props {
   mediaList: MediaData[];
   maxWidth: string;
-  initialY: number;
+  initialY: number | string;
   styles: {
     x: string;
     y: number;

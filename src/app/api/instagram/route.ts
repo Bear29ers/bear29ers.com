@@ -8,7 +8,7 @@ export const GET = async () => {
   const baseUrl = process.env.GRAPH_API_BASE_URL;
   const instagramId = process.env.GRAPH_API_INSTAGRAM_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
-  const queries = 'media{caption,children{media_url},media_url,permalink,like_count,timestamp,username}';
+  const queries = 'media{caption,children{media_url},media_url,media_type,permalink,like_count,timestamp,username}';
   const url = `${baseUrl}/${instagramId}?access_token=${accessToken}&fields=${queries}`;
 
   try {

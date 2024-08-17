@@ -11,6 +11,7 @@ export interface MediaData {
   caption: string;
   children: Children;
   mediaUrl: string;
+  mediaType: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
   permalink: string;
   likeCount: number;
   timestamp: string;

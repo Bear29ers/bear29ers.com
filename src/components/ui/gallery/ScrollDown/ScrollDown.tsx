@@ -33,7 +33,7 @@ const ScrollDown: FC<Props> = ({ state, setState }) => {
       variants={variants}
       initial="initial"
       animate={state ? 'exit' : 'animate'}
-      className="group absolute bottom-0 left-1/2 z-40 h-28 w-full max-w-[194px] -translate-x-1/2 bg-gradient-to-transparent txs:max-w-[211px] msm:h-40 msm:max-w-[295px] mlg:max-w-[337px]"
+      className="group absolute bottom-24 left-1/2 z-40 h-28 w-full max-w-[212px] -translate-x-1/2 bg-gradient-to-transparent xsm:max-w-[295px] md:bottom-0 md:h-40 mlg:max-w-[337px]"
       onClick={() => setState(true)}>
       <svg
         width="100%"

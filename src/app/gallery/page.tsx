@@ -28,6 +28,7 @@ import type { NextPage } from 'next';
 const Gallery: NextPage = () => {
   // media data
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
+  const [filteredMediaData, setFilteredMediaData] = useState<MediaData[] | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
 
@@ -40,7 +41,7 @@ const Gallery: NextPage = () => {
 
   // style state
   const galleryItemMaxWidth = 'max-w-72';
-  const [fanningInitialY, setFanningInitialY] = useState<number>(220);
+  const [fanningInitialY, setFanningInitialY] = useState<number | string>(220);
   const [fanningStyleList, setFanningStyleList] = useState<{ x: string; y: number; rotate: number }[]>([
     { x: '-105%', y: 120, rotate: -20 },
     { x: '-30%', y: -90, rotate: 5 },
@@ -51,8 +52,8 @@ const Gallery: NextPage = () => {
   ]);
 
   const isLarge = useMediaQuery('(min-width: 1000px)');
-  const isMedium = useMediaQuery('(min-width: 700px)');
-  const isSmall = useMediaQuery('(min-width: 450px)');
+  const isMedium = useMediaQuery('(min-width: 768px)');
+  const isSmall = useMediaQuery('(min-width: 540px)');
 
   const loadMediaData = () => {
     fetchMedia()
@@ -71,9 +72,14 @@ const Gallery: NextPage = () => {
 
   useEffect(() => {
     if (mediaData && mediaData.media.data.length) {
-      const lastMediaItem = mediaData.media.data.pop();
+      // mediaTypeがVIDEOの場合は除外する
+      const filteredMediaList = mediaData.media.data.filter((media) => media.mediaType !== 'VIDEO');
+      setFilteredMediaData(filteredMediaList);
+
+      const lastMediaItem = filteredMediaList.pop();
       setMainVisual(lastMediaItem);
-      const animatingMediaItems = mediaData.media.data.splice(0, 6);
+
+      const animatingMediaItems = filteredMediaList.splice(0, 6);
       setAnimatingMediaList(animatingMediaItems);
     }
   }, [mediaData]);
@@ -100,24 +106,24 @@ const Gallery: NextPage = () => {
         { x: '5%', y: 160, rotate: 15 },
       ]);
     } else if (isSmall) {
-      setFanningInitialY(180);
+      setFanningInitialY(0);
       setFanningStyleList([
-        { x: '-90%', y: 50, rotate: -20 },
-        { x: '-30%', y: -60, rotate: 5 },
-        { x: '-80%', y: -20, rotate: -17 },
-        { x: '-25%', y: 15, rotate: 12 },
-        { x: '-65%', y: 0, rotate: -10 },
-        { x: '-6%', y: 70, rotate: 15 },
+        { x: '-100%', y: -270, rotate: -10 },
+        { x: '80%', y: -150, rotate: -2.5 },
+        { x: '-180%', y: -150, rotate: 8 },
+        { x: '80%', y: 100, rotate: 6 },
+        { x: '-180%', y: 100, rotate: -5 },
+        { x: '0%', y: -270, rotate: 7.5 },
       ]);
     } else {
-      setFanningInitialY(150);
+      setFanningInitialY(0);
       setFanningStyleList([
-        { x: '-52%', y: -240, rotate: -2 },
-        { x: '-48%', y: -200, rotate: 2 },
-        { x: '-53%', y: -160, rotate: -3 },
-        { x: '-47%', y: -120, rotate: 3 },
-        { x: '-54%', y: -80, rotate: -4 },
-        { x: '-46%', y: -40, rotate: 4 },
+        { x: '-100%', y: -150, rotate: -10 },
+        { x: '40%', y: -40, rotate: -2.5 },
+        { x: '-140%', y: -40, rotate: 8 },
+        { x: '40%', y: 150, rotate: 6 },
+        { x: '-140%', y: 150, rotate: -5 },
+        { x: '0%', y: -150, rotate: 7.5 },
       ]);
     }
   }, [isLarge, isMedium, isSmall]);
@@ -135,7 +141,7 @@ const Gallery: NextPage = () => {
     },
   };
 
-  if (!mediaData || !mediaData.media.data.length || !mainVisual || !animatingMediaList) {
+  if (!mediaData || !filteredMediaData || !filteredMediaData.length || !mainVisual || !animatingMediaList) {
     return <div className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern" />;
   }
 
@@ -153,7 +159,7 @@ const Gallery: NextPage = () => {
         initial="initial"
         animate={isActiveGallery && 'animate'}>
         {!loading && (
-          <div className="gallery-intro-title flex flex-col items-center gap-y-2">
+          <div className="mt-16 flex flex-col items-center gap-y-1 md:mt-24 md:gap-y-2">
             <StaggeredText textList={['Life', 'in', 'Pixels']} />
             <Subhead text="Capturing Moments, Creating Memories." />
           </div>
@@ -178,7 +184,7 @@ const Gallery: NextPage = () => {
                   imageSrc={mainVisual.mediaUrl}
                   layoutId={mainVisual.id}
                   canAnimate={isActiveGallery}
-                  maxWidth="mlg:max-w-[400px] msm:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
+                  maxWidth="mlg:max-w-[400px] xsm:max-w-[350px] max-w-[250px]"
                   setState={setIsCompletedIntro}
                 />
                 {isCompletedIntro && (
@@ -186,7 +192,7 @@ const Gallery: NextPage = () => {
                     {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
                     <FanningImages
                       mediaList={animatingMediaList}
-                      maxWidth="mlg:max-w-[400px] msm:max-w-[350px] txs:max-w-[250px] max-w-[230px]"
+                      maxWidth="mlg:max-w-[400px] md:max-w-[350px] xsm:max-w-[200px] max-w-[180px]"
                       initialY={fanningInitialY}
                       styles={fanningStyleList}
                       setState={setIsCompletedFanning}
@@ -208,7 +214,7 @@ const Gallery: NextPage = () => {
                       setState={index === animatingMediaList.length - 1 ? setIsFullyGallerySet : undefined}
                     />
                   ))}
-                  {mediaData.media.data.map((media: MediaData) => (
+                  {filteredMediaData.map((media: MediaData) => (
                     <MainGallery
                       imageSrc={media.mediaUrl}
                       id={media.id}
