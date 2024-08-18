@@ -15,20 +15,3 @@
     transform: rotate(-20deg);
   }
 }
-
-.gallery {
-  &-intro {
-    &-title {
-      @media screen and (height >= 900px) {
-        margin-top: 144px;
-      }
-
-      @media screen and (height >= 800px) {
-        display: flex;
-      }
-
-      display: none;
-      margin: 48px;
-    }
-  }
-}
