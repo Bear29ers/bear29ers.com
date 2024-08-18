@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
+import Loader from '@/components/common/Loader/Loader';
 import Footer from '@/components/layout/Footer/Footer';
 import AnimatedGallery from '@/components/ui/gallery/AnimatedGallery/AnimatedGallery';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
@@ -142,7 +143,11 @@ const Gallery: NextPage = () => {
   };
 
   if (!mediaData || !filteredMediaData || !filteredMediaData.length || !mainVisual || !animatingMediaList) {
-    return <div className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern" />;
+    return (
+      <div className="fixed flex h-screen w-full bg-hitGray bg-noise-pattern flex-center">
+        <Loader />
+      </div>
+    );
   }
 
   return (
