@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Loader> = {
   component: Loader,
+  tags: ['autodocs'],
 };
 
 export default meta;
