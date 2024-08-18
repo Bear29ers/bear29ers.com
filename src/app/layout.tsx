@@ -6,7 +6,7 @@ import Menu from '@/components/common/Menu/Menu';
 
 import { montserrat } from '@/styles/fonts';
 
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 
 import '@/app/globals.scss';
 
@@ -14,6 +14,12 @@ export const metadata: Metadata = {
   title: 'Bear29ers',
   description: 'A new portfolio website by Bear29ers.',
   appleWebApp: true,
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+  viewportFit: 'cover',
 };
 
 const RootLayout = ({
