@@ -34,7 +34,8 @@ const Loader: FC<Props> = ({ count = 5 }) => {
       variants={containerVariants}
       initial="initial"
       animate="animate"
-      style={{ display: 'flex', gap: 12, height: 60, alignItems: 'center' }}>
+      style={{ display: 'flex', gap: 12, height: 60, alignItems: 'center' }}
+      data-testid="dot-container">
       {Array(count)
         .fill(null)
         .map((_, index) => {
@@ -43,6 +44,7 @@ const Loader: FC<Props> = ({ count = 5 }) => {
               key={index}
               variants={dotVariants}
               style={{ height: 20, width: 10, backgroundColor: colors[index % colors.length], borderRadius: 20 }}
+              data-testid="dot"
             />
           );
         })}
