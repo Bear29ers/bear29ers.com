@@ -30,7 +30,7 @@ const RootLayout = ({
   return (
     <html lang="en">
       <body
-        className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-noise-pattern bg-auto bg-center bg-repeat font-mont`}>
+        className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat font-mont txs:bg-noise-pattern`}>
         <Menu />
         {children}
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
