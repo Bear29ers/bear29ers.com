@@ -55,7 +55,7 @@ const MenuWindow: FC<Props> = ({ isOpen, isMobile }) => {
       initial="closed"
       animate={isOpen ? 'opened' : 'closed'}
       style={{ borderRadius: 30 }}
-      className="relative h-[500px] w-[310px] bg-darkerGray xsm:h-[650px] xsm:w-[500px]"
+      className="relative h-[500px] w-[310px] bg-darkerGray xsm:h-[650px] xsm:w-[500px] md:bg-darker"
       data-testid="menu-window">
       <AnimatePresence>{isOpen && <MenuList />}</AnimatePresence>
     </motion.div>
