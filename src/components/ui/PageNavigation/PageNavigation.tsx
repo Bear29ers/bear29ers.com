@@ -41,7 +41,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
       <div className="absolute right-0 top-0 flex h-full w-14 flex-col items-center justify-around txs:w-20">
         <MotionLink
           href="/experience"
-          className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
+          className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-dark lg:text-white' : 'text-white'}`}
           variants={variants}
           initial={{ x: 200, rotate: 90 }}
           animate={{ x: 0, rotate: 90, transition: animateTransitionValue }}
@@ -59,7 +59,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
       <div className="absolute left-0 top-0 flex h-full w-14 flex-col items-center justify-around txs:w-20">
         <MotionLink
           href="/about"
-          className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
+          className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-dark' : 'text-white'}`}
           variants={variants}
           initial={{ x: -200, rotate: -90 }}
           animate={{ x: 0, rotate: -90, transition: animateTransitionValue }}
