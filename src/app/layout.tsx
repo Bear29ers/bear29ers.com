@@ -14,12 +14,14 @@ import type { Metadata, Viewport } from 'next';
 import '@/app/globals.scss';
 
 export const generateMetadata = (): Metadata => {
+  let url = '';
   let pageTitle = '';
   const description =
     'This portfolio is a dynamic platform where I, as a frontend engineer, experiment with cutting-edge technologies and showcase my projects.';
   const requestUrl = headers().get('x-request-url');
   if (requestUrl) {
-    const { pathname } = new URL(requestUrl);
+    const { href, pathname } = new URL(requestUrl);
+    url = href;
     pageTitle = convertToPageTitle(pathname);
   } else {
     // eslint-disable-next-line no-console
@@ -33,6 +35,7 @@ export const generateMetadata = (): Metadata => {
     openGraph: {
       title: `${pageTitle}Bear29ers`,
       description,
+      url,
       siteName: 'Bear29ers',
       locale: 'ja_JP',
       type: 'website',
