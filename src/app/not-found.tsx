@@ -35,7 +35,7 @@ const NotFoundPage: NextPage = () => {
         </div>
         <Link
           href="/"
-          className="w-fit rounded-3xl bg-pink-500 px-8 py-2 font-medium uppercase text-white transition-colors duration-500 ease-in-out hover:bg-pink-400 sm:text-lg">
+          className="w-fit rounded-3xl bg-customRed-500 px-8 py-2 font-medium uppercase text-white transition-colors duration-500 ease-in-out hover:bg-customRed-700 sm:text-lg">
           Go Home
         </Link>
       </div>
