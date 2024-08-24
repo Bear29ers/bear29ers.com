@@ -43,14 +43,17 @@
 
 ## 📙 About The Project
 
-<div style="display: flex;">
-  <a href="https://github.com/Bear29ers/bear29ers.com/assets/39920490/c4b21618-0df1-4cd8-a5f0-daf34e9b3c40" target="_blank" align="center">
-    <img src="https://github.com/Bear29ers/bear29ers.com/assets/39920490/c4b21618-0df1-4cd8-a5f0-daf34e9b3c40" width="90%" align="center" />
-  </a>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/c91b2a01-98f3-4743-84bc-20d0c330b085" width="90%" align="center" />
 </div>
-
-<div style="display: flex; justify-content: center; column-gap: 10px; margin-top: 10px; margin-bottom: 50px;">
+<span>&nbsp;</span>
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/19153a50-d5d6-47e3-a64c-6b71e7dbe34c" width="90%" align="center" />
+</div>
+<span>&nbsp;</span>
+<div align="center">
   <img src="https://github.com/Bear29ers/bear29ers.com/assets/39920490/3073a790-b7f4-45e6-93f6-c278c74482a4" width="250" />
+  <span>&nbsp;</span>
   <img src="https://github.com/Bear29ers/bear29ers.com/assets/39920490/ea696f53-1419-422d-ab42-cfad4c6db6e3" width="250" />
 </div>
 
