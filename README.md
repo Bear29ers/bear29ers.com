@@ -52,9 +52,9 @@
 </div>
 <span>&nbsp;</span>
 <div align="center">
-  <img src="https://github.com/Bear29ers/bear29ers.com/assets/39920490/3073a790-b7f4-45e6-93f6-c278c74482a4" width="250" />
+  <img src="https://github.com/user-attachments/assets/7df7dca0-f352-4838-8192-16ca219aa05f" width="250" />
   <span>&nbsp;</span>
-  <img src="https://github.com/Bear29ers/bear29ers.com/assets/39920490/ea696f53-1419-422d-ab42-cfad4c6db6e3" width="250" />
+  <img src="https://github.com/user-attachments/assets/41056416-6610-4863-bebb-83d8af7ee06a" width="250" />
 </div>
 
 <h4>Bear29ers' Portfolio: A Showcase of Frontend Innovation</h4>
