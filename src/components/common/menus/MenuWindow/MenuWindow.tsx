@@ -45,9 +45,10 @@ const getVariants = (isMobile: boolean) => {
 interface Props {
   isOpen: boolean;
   isMobile: boolean;
+  pathname: string;
 }
 
-const MenuWindow: FC<Props> = ({ isOpen, isMobile }) => {
+const MenuWindow: FC<Props> = ({ isOpen, isMobile, pathname }) => {
   return (
     <motion.div
       layout
@@ -57,7 +58,7 @@ const MenuWindow: FC<Props> = ({ isOpen, isMobile }) => {
       style={{ borderRadius: 30 }}
       className="relative h-[500px] w-[310px] bg-darkerGray xsm:h-[650px] xsm:w-[500px] md:bg-darker"
       data-testid="menu-window">
-      <AnimatePresence>{isOpen && <MenuList />}</AnimatePresence>
+      <AnimatePresence>{isOpen && <MenuList pathname={pathname} />}</AnimatePresence>
     </motion.div>
   );
 };

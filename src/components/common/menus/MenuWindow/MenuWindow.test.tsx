@@ -5,11 +5,13 @@ import MenuWindow from './MenuWindow';
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
+  const pathname = '/about';
+
   describe('when isOpen props is false', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen={false} isMobile={false} />);
+      renderResult = render(<MenuWindow isOpen={false} isMobile={false} pathname={pathname} />);
     });
 
     afterEach(() => {
@@ -41,7 +43,7 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen={false} isMobile />);
+      renderResult = render(<MenuWindow isOpen={false} isMobile pathname={pathname} />);
     });
 
     afterEach(() => {
@@ -65,7 +67,7 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen isMobile={false} />);
+      renderResult = render(<MenuWindow isOpen isMobile={false} pathname={pathname} />);
     });
 
     afterEach(() => {
@@ -105,7 +107,7 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen isMobile />);
+      renderResult = render(<MenuWindow isOpen isMobile pathname={pathname} />);
     });
 
     afterEach(() => {
