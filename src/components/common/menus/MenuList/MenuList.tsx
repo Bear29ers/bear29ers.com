@@ -95,8 +95,8 @@ const MenuList: FC<Props> = ({ pathname }) => {
               className="text-3xl font-bold text-white xsm:text-5xl">
               <a href={menuItem.href} className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
-                {menuItem.href === pathname && <span className="ml-1 text-customRed-500">.</span>}
               </a>
+              {menuItem.href === pathname && <span className="ml-1 text-customRed-500">.</span>}
             </motion.div>
           </div>
         ))}
