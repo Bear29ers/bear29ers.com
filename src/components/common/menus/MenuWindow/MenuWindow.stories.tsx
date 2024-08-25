@@ -15,11 +15,12 @@ export const Default: Story = {
   args: {
     isOpen: false,
     isMobile: false,
+    pathname: '/about',
   },
-  render: ({ isOpen, isMobile }) => {
+  render: ({ isOpen, isMobile, pathname }) => {
     return (
       <div className="h-screen w-screen flex-center">
-        <MenuWindow isOpen={isOpen} isMobile={isMobile} />
+        <MenuWindow isOpen={isOpen} isMobile={isMobile} pathname={pathname} />
       </div>
     );
   },
