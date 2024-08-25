@@ -8,7 +8,7 @@ describe('src/components/common/menus/MenuList/MenuList.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<MenuList />);
+    renderResult = render(<MenuList pathname="/about" />);
   });
 
   afterEach(() => {
