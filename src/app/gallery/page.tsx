@@ -13,6 +13,7 @@ import GalleryIntro from '@/components/ui/gallery/GalleryIntro/GalleryIntro';
 import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
+import ScrollToTop from '@/components/ui/gallery/ScrollToTop/ScrollToTop';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
@@ -153,9 +154,14 @@ const Gallery: NextPage = () => {
   return (
     <div className="relative flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
       {isActiveGallery && (
-        <div className="my-24">
-          <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
-        </div>
+        <>
+          <div className="my-24">
+            <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
+          </div>
+          <div className="fixed bottom-6 right-4 xsm:right-8 lg:right-10">
+            <ScrollToTop />
+          </div>
+        </>
       )}
       <div className="z-10 flex-col flex-center" />
       <motion.div
