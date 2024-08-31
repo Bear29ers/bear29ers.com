@@ -27,7 +27,7 @@ const ScrollToTop: FC = () => {
       {scrollPosition > 100 && (
         <motion.button
           type="button"
-          className="size-14 rounded-full bg-customRed-500 flex-center"
+          className="size-14 rounded-full bg-customRed-500 transition-colors duration-300 flex-center hover:bg-customRed-600"
           onClick={scrollToTop}
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1, transition: { duration: 0.6 } }}
