@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 
 const GridGallery: FC = () => {
   const colorBlocks = [
-    { color: 'bg-red-500', area: 'img-1' },
-    { color: 'bg-blue-500', area: 'img-2' },
-    { color: 'bg-green-500', area: 'img-3' },
-    { color: 'bg-yellow-500', area: 'img-4' },
-    { color: 'bg-purple-500', area: 'img-5' },
-    { color: 'bg-pink-500', area: 'img-6' },
-    { color: 'bg-indigo-500', area: 'img-7' },
-    { color: 'bg-orange-500', area: 'img-8' },
+    { color: 'bg-red-500', area: 'img-1', src: 'https://www.instagram.com/p/BTNoXdplt68/' },
+    { color: 'bg-blue-500', area: 'img-2', src: 'https://www.instagram.com/p/BWFraFrFsh-/' },
+    { color: 'bg-green-500', area: 'img-3', src: 'https://www.instagram.com/p/BS_NXzYFZbl/' },
+    { color: 'bg-yellow-500', area: 'img-4', src: 'https://www.instagram.com/p/BVDcF-dliQR/' },
+    { color: 'bg-purple-500', area: 'img-5', src: 'https://www.instagram.com/p/BWJKs3blCJN/' },
+    { color: 'bg-pink-500', area: 'img-6', src: 'https://www.instagram.com/p/BUh46wWFV4Y/' },
+    { color: 'bg-indigo-500', area: 'img-7', src: 'https://www.instagram.com/p/BXzJw-zFnNO/' },
+    { color: 'bg-orange-500', area: 'img-8', src: 'https://www.instagram.com/p/BeiqY7HBYaN/' },
   ];
 
   return (
@@ -26,7 +26,7 @@ const GridGallery: FC = () => {
               ${index === 6 ? 'col-span-2' : ''}
               `}>
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-          <a href="#" className="size-full">
+          <a href={block.src} target="_blank" className="size-full" rel="noreferrer">
             <motion.img
               src={`/images/gallery/gallery-0${index + 1}.jpg`}
               alt={block.area}
