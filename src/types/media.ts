@@ -30,7 +30,7 @@ interface Paging {
 
 export interface MediaEdge {
   data: MediaData[];
-  paging: Paging;
+  paging?: Paging;
 }
 
 export interface Media {
