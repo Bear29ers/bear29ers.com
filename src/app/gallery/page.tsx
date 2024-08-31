@@ -29,6 +29,8 @@ import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
   // media data
+  const date = new Date('2024-05-01T12:00:00Z');
+  const unixtime = Math.floor(date.getTime() / 1000);
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
   const [filteredMediaData, setFilteredMediaData] = useState<MediaData[] | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
@@ -58,7 +60,7 @@ const Gallery: NextPage = () => {
   const isSmall = useMediaQuery('(min-width: 540px)');
 
   const loadMediaData = () => {
-    fetchMedia()
+    fetchMedia(unixtime)
       .then((data: Media) => {
         setMediaData(data);
       })
@@ -78,11 +80,11 @@ const Gallery: NextPage = () => {
       const filteredMediaList = mediaData.media.data.filter((media) => media.mediaType !== 'VIDEO');
       setFilteredMediaData(filteredMediaList);
 
-      const lastMediaItem = filteredMediaList.pop();
-      setMainVisual(lastMediaItem);
-
       const animatingMediaItems = filteredMediaList.splice(0, 6);
       setAnimatingMediaList(animatingMediaItems);
+
+      const seventhMediaItem = filteredMediaList.at(0);
+      setMainVisual(seventhMediaItem);
     }
   }, [mediaData]);
 
