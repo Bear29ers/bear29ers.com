@@ -24,7 +24,8 @@ interface Paging {
     before: string;
     after: string;
   };
-  next: string;
+  previous?: string;
+  next?: string;
 }
 
 export interface Media {
