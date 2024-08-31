@@ -80,11 +80,11 @@ const Gallery: NextPage = () => {
       const filteredMediaList = mediaData.media.data.filter((media) => media.mediaType !== 'VIDEO');
       setFilteredMediaData(filteredMediaList);
 
-      const lastMediaItem = filteredMediaList.pop();
-      setMainVisual(lastMediaItem);
-
       const animatingMediaItems = filteredMediaList.splice(0, 6);
       setAnimatingMediaList(animatingMediaItems);
+
+      const seventhMediaItem = filteredMediaList.at(0);
+      setMainVisual(seventhMediaItem);
     }
   }, [mediaData]);
 
