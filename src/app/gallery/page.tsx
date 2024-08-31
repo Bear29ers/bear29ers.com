@@ -29,7 +29,6 @@ import type { NextPage } from 'next';
 
 const Gallery: NextPage = () => {
   // media data
-  const firstMediaId = '18020278358005261';
   const date = new Date('2024-05-01T12:00:00Z');
   const unixtime = Math.floor(date.getTime() / 1000);
   const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
