@@ -28,9 +28,11 @@ interface Paging {
   next?: string;
 }
 
+export interface MediaEdge {
+  data: MediaData[];
+  paging: Paging;
+}
+
 export interface Media {
-  media: {
-    data: MediaData[];
-    paging: Paging;
-  };
+  media: MediaEdge;
 }
