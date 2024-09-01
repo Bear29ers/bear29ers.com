@@ -10,6 +10,7 @@ import Footer from '@/components/layout/Footer/Footer';
 import AnimatedGallery from '@/components/ui/gallery/AnimatedGallery/AnimatedGallery';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
 import GalleryIntro from '@/components/ui/gallery/GalleryIntro/GalleryIntro';
+import GridGallery from '@/components/ui/gallery/GridGallery/GridGallery';
 import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
@@ -19,7 +20,7 @@ import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
-import { zIndexList } from '@/constants/gallery';
+import { imageInfoList, zIndexList } from '@/constants/gallery';
 
 import fetchMedia from '@/libs/fetchMedia';
 
@@ -215,7 +216,7 @@ const Gallery: NextPage = () => {
               </div>
             )}
             {isActiveGallery && (
-              <div className="mx-auto w-full max-w-7xl flex-center">
+              <div className="mx-auto w-full max-w-7xl flex-col gap-y-40 flex-center md:gap-y-56">
                 <div className="grid w-fit grid-cols-1 justify-between gap-x-6 gap-y-12 xxs:grid-cols-2 xsm:gap-x-12 xsm:gap-y-20 md:grid-cols-3 lg:gap-24 xl:gap-x-32">
                   {animatingMediaList.map((media: MediaData, index: number) => (
                     <AnimatedGallery
@@ -236,6 +237,7 @@ const Gallery: NextPage = () => {
                     />
                   ))}
                 </div>
+                <GridGallery imageInfoList={imageInfoList} />
               </div>
             )}
           </>
