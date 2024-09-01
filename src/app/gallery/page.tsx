@@ -20,7 +20,7 @@ import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
-import { zIndexList } from '@/constants/gallery';
+import { imageInfoList, zIndexList } from '@/constants/gallery';
 
 import fetchMedia from '@/libs/fetchMedia';
 
@@ -237,7 +237,7 @@ const Gallery: NextPage = () => {
                     />
                   ))}
                 </div>
-                <GridGallery />
+                <GridGallery imageInfoList={imageInfoList} />
               </div>
             )}
           </>
