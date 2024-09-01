@@ -216,7 +216,7 @@ const Gallery: NextPage = () => {
               </div>
             )}
             {isActiveGallery && (
-              <div className="mx-auto w-full max-w-7xl flex-col flex-center">
+              <div className="mx-auto w-full max-w-7xl flex-col gap-y-40 flex-center md:gap-y-56">
                 <div className="grid w-fit grid-cols-1 justify-between gap-x-6 gap-y-12 xxs:grid-cols-2 xsm:gap-x-12 xsm:gap-y-20 md:grid-cols-3 lg:gap-24 xl:gap-x-32">
                   {animatingMediaList.map((media: MediaData, index: number) => (
                     <AnimatedGallery
