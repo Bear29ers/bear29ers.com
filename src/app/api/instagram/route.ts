@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server';
 
 import fetchJson from '@/libs/fetchJson';
 
-import type { Media } from '@/types/media';
+import { convertToCamelCase } from '@/utils/conversion/convertToCamelCase';
+
+import type { Media, MediaData, MediaEdge } from '@/types/media';
 
 import type { NextRequest } from 'next/server';
 
@@ -15,8 +17,28 @@ export const GET = async (request: NextRequest) => {
   const url = `${baseUrl}/${instagramId}?access_token=${accessToken}&fields=${queries}&since=${since}`;
 
   try {
-    const data = await fetchJson<Media>(url);
-    return NextResponse.json(data);
+    let allData: MediaData[] = [];
+    const data = convertToCamelCase(await fetchJson<Media>(url));
+
+    if (data.media && Array.isArray(data.media.data)) {
+      allData = allData.concat(data.media.data);
+    }
+
+    let nextUrl = data.media.paging?.next || null;
+
+    while (nextUrl) {
+      // eslint-disable-next-line no-await-in-loop
+      const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${since}`));
+
+      if (nextData.data && Array.isArray(nextData.data)) {
+        allData = allData.concat(nextData.data);
+      }
+
+      nextUrl = nextData.paging?.next || null;
+    }
+
+    const filteredData = allData.filter((meidaData) => meidaData.mediaType !== 'VIDEO');
+    return NextResponse.json(filteredData);
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error('Error fetching Instagram media data: ', error);
