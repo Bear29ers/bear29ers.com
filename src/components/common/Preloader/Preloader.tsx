@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 const Preloader: FC = () => {
   return (
-    <div className="flex w-fit">
+    <div className="fixed min-h-screen w-full flex-center">
       <div className="relative mx-4 inline-block size-11 before:absolute before:left-[19px] before:top-[37px] before:size-1.5 before:translate-x-[-18px] before:translate-y-[-18px] before:animate-dotRect before:rounded-full before:bg-[#5628EE] before:content-['']">
         <svg viewBox="0 0 80 80" className="size-full">
           <circle
