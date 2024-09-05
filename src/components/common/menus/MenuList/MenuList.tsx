@@ -73,7 +73,11 @@ const socialVariants = {
   },
 };
 
-const MenuList: FC = () => {
+interface Props {
+  pathname: string;
+}
+
+const MenuList: FC<Props> = ({ pathname }) => {
   return (
     <div className="relative h-full flex-col flex-center">
       <div className="flex w-fit flex-col items-start gap-y-5">
@@ -92,6 +96,7 @@ const MenuList: FC = () => {
               <a href={menuItem.href} className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
               </a>
+              {menuItem.href === pathname && <span className="ml-1 text-customRed-500">.</span>}
             </motion.div>
           </div>
         ))}
