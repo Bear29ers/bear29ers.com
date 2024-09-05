@@ -8,10 +8,17 @@ import GalleryClient from './client';
 
 import type { NextPage } from 'next';
 
+export const revalidate = 60;
+
 const Gallery: NextPage = async () => {
-  const DATE = new Date('2024-05-01T12:00:00Z');
-  const unixtime = Math.floor(DATE.getTime() / 1000);
-  const mediaList = await fetchMediaList(unixtime);
+  const fetchData = async () => {
+    const DATE = new Date('2024-05-01T12:00:00Z');
+    const unixtime = Math.floor(DATE.getTime() / 1000);
+    const data = await fetchMediaList(unixtime);
+    return data;
+  };
+
+  const mediaList = await fetchData();
   const pickedMediaList = mediaList.splice(0, 6);
   const mediaData = mediaList[0]!;
 
