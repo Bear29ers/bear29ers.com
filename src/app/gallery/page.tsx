@@ -11,7 +11,7 @@ import type { NextPage } from 'next';
 const Gallery: NextPage = async () => {
   const DATE = new Date('2024-05-01T12:00:00Z');
   const unixtime = Math.floor(DATE.getTime() / 1000);
-  const mediaList = await fetchMediaList(unixtime, { revalidate: 1800 });
+  const mediaList = await fetchMediaList(unixtime);
   const pickedMediaList = mediaList.splice(0, 6);
   const mediaData = mediaList[0]!;
 
