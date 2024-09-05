@@ -1,6 +1,6 @@
 // execute fetch api
-const fetchJson = async <T>(url: string, next?: NextFetchRequestConfig): Promise<T> => {
-  const res = await fetch(url, { next });
+const fetchJson = async <T>(url: string, requestCache?: RequestCache): Promise<T> => {
+  const res = await fetch(url, { cache: requestCache || 'default' });
   if (!res.ok) {
     throw new Error(`HTTP error! status: ${res.status}`);
   }

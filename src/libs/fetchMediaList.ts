@@ -4,7 +4,7 @@ import type { Media, MediaData, MediaEdge } from '@/types/media';
 
 import fetchJson from './fetchJson';
 
-const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): Promise<MediaData[]> => {
+const fetchMediaList = async (unixtime: number): Promise<MediaData[]> => {
   const baseUrl = process.env.GRAPH_API_BASE_URL;
   const instagramId = process.env.GRAPH_API_INSTAGRAM_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
@@ -14,7 +14,7 @@ const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): 
   try {
     let allData: MediaData[] = [];
     // const data = await fetchData(url);
-    const data = convertToCamelCase(await fetchJson<Media>(endpoint, next));
+    const data = convertToCamelCase(await fetchJson<Media>(endpoint, 'no-store'));
 
     if (data.media && Array.isArray(data.media.data)) {
       allData = allData.concat(data.media.data);
@@ -24,7 +24,7 @@ const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): 
 
     while (nextUrl) {
       // eslint-disable-next-line no-await-in-loop
-      const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${unixtime}`, next));
+      const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${unixtime}`, 'no-store'));
 
       if (nextData.data && Array.isArray(nextData.data)) {
         allData = allData.concat(nextData.data);
