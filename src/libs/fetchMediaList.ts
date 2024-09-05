@@ -10,11 +10,12 @@ const fetchMediaList = async (unixtime: number): Promise<MediaData[]> => {
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
   const fields = 'media{caption,children{media_url},media_url,media_type,permalink,like_count,timestamp,username}';
   const endpoint = `${baseUrl}/${instagramId}?access_token=${accessToken}&fields=${fields}&since=${unixtime}`;
+  console.log('endpoint: ', endpoint);
 
   try {
     let allData: MediaData[] = [];
     // const data = await fetchData(url);
-    const data = convertToCamelCase(await fetchJson<Media>(endpoint, 'no-store'));
+    const data = convertToCamelCase(await fetchJson<Media>(endpoint));
 
     if (data.media && Array.isArray(data.media.data)) {
       allData = allData.concat(data.media.data);
@@ -24,7 +25,7 @@ const fetchMediaList = async (unixtime: number): Promise<MediaData[]> => {
 
     while (nextUrl) {
       // eslint-disable-next-line no-await-in-loop
-      const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${unixtime}`, 'no-store'));
+      const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${unixtime}`));
 
       if (nextData.data && Array.isArray(nextData.data)) {
         allData = allData.concat(nextData.data);
