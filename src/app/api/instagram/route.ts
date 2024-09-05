@@ -8,6 +8,8 @@ import type { Media, MediaData, MediaEdge } from '@/types/media';
 
 import type { NextRequest } from 'next/server';
 
+export const revalidate = 3600;
+
 export const GET = async (request: NextRequest) => {
   const baseUrl = process.env.GRAPH_API_BASE_URL;
   const instagramId = process.env.GRAPH_API_INSTAGRAM_ID;
