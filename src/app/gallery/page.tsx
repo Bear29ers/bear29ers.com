@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 
 import Preloader from '@/components/common/Preloader/Preloader';
 
-import fetchMedia from '@/libs/fetchMedia';
+import fetchMediaList from '@/libs/fetchMediaList';
 
 import GalleryClient from './client';
 
@@ -13,7 +13,7 @@ export const revalidate = 3600;
 const Gallery: NextPage = async () => {
   const DATE = new Date('2024-05-01T12:00:00Z');
   const unixtime = Math.floor(DATE.getTime() / 1000);
-  const mediaList = await fetchMedia(unixtime);
+  const mediaList = await fetchMediaList(unixtime);
 
   return (
     <Suspense
