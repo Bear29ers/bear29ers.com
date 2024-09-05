@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
-import Preloader from '@/components/common/Preloader/Preloader';
 import Footer from '@/components/layout/Footer/Footer';
 import AnimatedGallery from '@/components/ui/gallery/AnimatedGallery/AnimatedGallery';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
@@ -23,18 +22,15 @@ import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import { imageInfoList, zIndexList } from '@/constants/gallery';
 
-import type { MediaData, Media } from '@/types/media';
+import type { MediaData } from '@/types/media';
 
 interface Props {
-  mediaList: Media;
+  mediaList: MediaData[];
+  animatingMediaList: MediaData[];
+  mainVisual: MediaData;
 }
 
-const GalleryClient: FC<Props> = ({ mediaList }) => {
-  // media data
-  const [filteredMediaData, setFilteredMediaData] = useState<MediaData[] | undefined>(undefined);
-  const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
-  const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
-
+const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual }) => {
   // animation flag
   const [loading, setLoading] = useState<boolean>(true);
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
@@ -57,20 +53,6 @@ const GalleryClient: FC<Props> = ({ mediaList }) => {
   const isLarge = useMediaQuery('(min-width: 1000px)');
   const isMedium = useMediaQuery('(min-width: 768px)');
   const isSmall = useMediaQuery('(min-width: 540px)');
-
-  useEffect(() => {
-    if (mediaList && mediaList.media.data.length) {
-      // mediaTypeがVIDEOの場合は除外する
-      const filteredMediaList = mediaList.media.data.filter((media) => media.mediaType !== 'VIDEO');
-      setFilteredMediaData(filteredMediaList);
-
-      const animatingMediaItems = filteredMediaList.splice(0, 6);
-      setAnimatingMediaList(animatingMediaItems);
-
-      const seventhMediaItem = filteredMediaList.at(0);
-      setMainVisual(seventhMediaItem);
-    }
-  }, [mediaList]);
 
   useEffect(() => {
     if (isLarge) {
@@ -128,14 +110,6 @@ const GalleryClient: FC<Props> = ({ mediaList }) => {
       },
     },
   };
-
-  if (!mediaList || !filteredMediaData || !filteredMediaData.length || !mainVisual || !animatingMediaList) {
-    return (
-      <div className="fixed flex h-screen w-full bg-hitGray bg-noise-pattern flex-center">
-        <Preloader />
-      </div>
-    );
-  }
 
   return (
     <div className="relative flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
@@ -211,7 +185,7 @@ const GalleryClient: FC<Props> = ({ mediaList }) => {
                       setState={index === animatingMediaList.length - 1 ? setIsFullyGallerySet : undefined}
                     />
                   ))}
-                  {filteredMediaData.map((media: MediaData) => (
+                  {mediaList.map((media: MediaData) => (
                     <MainGallery
                       imageSrc={media.mediaUrl}
                       id={media.id}
