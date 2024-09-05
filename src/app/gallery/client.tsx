@@ -1,11 +1,12 @@
 'use client';
 
+import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
-import Loader from '@/components/common/Loader/Loader';
+import Preloader from '@/components/common/Preloader/Preloader';
 import Footer from '@/components/layout/Footer/Footer';
 import AnimatedGallery from '@/components/ui/gallery/AnimatedGallery/AnimatedGallery';
 import FanningImages from '@/components/ui/gallery/FanningImages/FanningImages';
@@ -22,17 +23,14 @@ import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import { imageInfoList, zIndexList } from '@/constants/gallery';
 
-import fetchMedia from '@/libs/fetchMedia';
-
 import type { MediaData, Media } from '@/types/media';
 
-import type { NextPage } from 'next';
+interface Props {
+  mediaList: Media;
+}
 
-const Gallery: NextPage = () => {
+const GalleryClient: FC<Props> = ({ mediaList }) => {
   // media data
-  const date = new Date('2024-05-01T12:00:00Z');
-  const unixtime = Math.floor(date.getTime() / 1000);
-  const [mediaData, setMediaData] = useState<Media | undefined>(undefined);
   const [filteredMediaData, setFilteredMediaData] = useState<MediaData[] | undefined>(undefined);
   const [mainVisual, setMainVisual] = useState<MediaData | undefined>(undefined);
   const [animatingMediaList, setAnimatingMediaList] = useState<MediaData[] | undefined>(undefined);
@@ -60,25 +58,10 @@ const Gallery: NextPage = () => {
   const isMedium = useMediaQuery('(min-width: 768px)');
   const isSmall = useMediaQuery('(min-width: 540px)');
 
-  const loadMediaData = () => {
-    fetchMedia(unixtime)
-      .then((data: Media) => {
-        setMediaData(data);
-      })
-      .catch((err) => {
-        // eslint-disable-next-line no-console
-        console.error(err);
-      });
-  };
-
   useEffect(() => {
-    loadMediaData();
-  }, []);
-
-  useEffect(() => {
-    if (mediaData && mediaData.media.data.length) {
+    if (mediaList && mediaList.media.data.length) {
       // mediaTypeがVIDEOの場合は除外する
-      const filteredMediaList = mediaData.media.data.filter((media) => media.mediaType !== 'VIDEO');
+      const filteredMediaList = mediaList.media.data.filter((media) => media.mediaType !== 'VIDEO');
       setFilteredMediaData(filteredMediaList);
 
       const animatingMediaItems = filteredMediaList.splice(0, 6);
@@ -87,7 +70,7 @@ const Gallery: NextPage = () => {
       const seventhMediaItem = filteredMediaList.at(0);
       setMainVisual(seventhMediaItem);
     }
-  }, [mediaData]);
+  }, [mediaList]);
 
   useEffect(() => {
     if (isLarge) {
@@ -146,10 +129,10 @@ const Gallery: NextPage = () => {
     },
   };
 
-  if (!mediaData || !filteredMediaData || !filteredMediaData.length || !mainVisual || !animatingMediaList) {
+  if (!mediaList || !filteredMediaData || !filteredMediaData.length || !mainVisual || !animatingMediaList) {
     return (
       <div className="fixed flex h-screen w-full bg-hitGray bg-noise-pattern flex-center">
-        <Loader />
+        <Preloader />
       </div>
     );
   }
@@ -248,4 +231,4 @@ const Gallery: NextPage = () => {
   );
 };
 
-export default Gallery;
+export default GalleryClient;
