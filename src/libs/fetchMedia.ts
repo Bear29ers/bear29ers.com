@@ -1,3 +1,5 @@
+import { headers } from 'next/headers';
+
 import { convertToCamelCase } from '@/utils/conversion/convertToCamelCase';
 
 import type { MediaEdge, Media, MediaData } from '@/types/media';
@@ -5,7 +7,8 @@ import type { MediaEdge, Media, MediaData } from '@/types/media';
 import fetchJson from './fetchJson';
 
 const fetchMedia = async (unixtime: number): Promise<Media> => {
-  const res = await fetch(`/api/instagram?since=${unixtime}`, { cache: 'no-store' });
+  const baseUrl = headers().get('x-request-base');
+  const res = await fetch(`${baseUrl}/api/instagram?since=${unixtime}`);
 
   if (!res.ok) {
     throw new Error('Failed to fetch media data');
