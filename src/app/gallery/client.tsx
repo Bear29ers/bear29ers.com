@@ -39,6 +39,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
   const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
 
   // style state
+  const galleryItemWidth = 288;
   const galleryItemMaxWidth = 'max-w-72';
   const [fanningInitialY, setFanningInitialY] = useState<number | string>(220);
   const [fanningStyleList, setFanningStyleList] = useState<{ x: string; y: number; rotate: number }[]>([
@@ -79,7 +80,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
       setFanningStyleList([
         { x: '-100%', y: -180, rotate: -10 },
         { x: '40%', y: -60, rotate: -2.5 },
-        { x: '-140%', y: -60, rotate: 8 },
+        { x: '-140%', y: -0, rotate: 8 },
         { x: '40%', y: 100, rotate: 6 },
         { x: '-140%', y: 100, rotate: -5 },
         { x: '0%', y: -180, rotate: 7.5 },
@@ -178,6 +179,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
                     <MainGallery
                       imageSrc={media.mediaUrl}
                       id={media.id}
+                      width={galleryItemWidth}
                       maxWidth={galleryItemMaxWidth}
                       key={media.timestamp}
                     />
