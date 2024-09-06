@@ -50,22 +50,11 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
     { x: '5%', y: 160, rotate: 15 },
   ]);
 
-  const isLarge = useMediaQuery('(min-width: 1000px)');
   const isMedium = useMediaQuery('(min-width: 768px)');
   const isSmall = useMediaQuery('(min-width: 540px)');
 
   useEffect(() => {
-    if (isLarge) {
-      setFanningInitialY(220);
-      setFanningStyleList([
-        { x: '-105%', y: 120, rotate: -20 },
-        { x: '-30%', y: -90, rotate: 5 },
-        { x: '-90%', y: 0, rotate: -17 },
-        { x: '-5%', y: 40, rotate: 12 },
-        { x: '-70%', y: 20, rotate: -10 },
-        { x: '5%', y: 160, rotate: 15 },
-      ]);
-    } else if (isMedium) {
+    if (isMedium) {
       setFanningInitialY(220);
       setFanningStyleList([
         { x: '-105%', y: 120, rotate: -20 },
@@ -78,25 +67,25 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
     } else if (isSmall) {
       setFanningInitialY(0);
       setFanningStyleList([
-        { x: '-100%', y: -270, rotate: -10 },
-        { x: '80%', y: -150, rotate: -2.5 },
-        { x: '-180%', y: -150, rotate: 8 },
-        { x: '80%', y: 100, rotate: 6 },
-        { x: '-180%', y: 100, rotate: -5 },
-        { x: '0%', y: -270, rotate: 7.5 },
+        { x: '-100%', y: -330, rotate: -10 },
+        { x: '70%', y: -150, rotate: -2.5 },
+        { x: '-170%', y: -150, rotate: 8 },
+        { x: '70%', y: 100, rotate: 6 },
+        { x: '-170%', y: 100, rotate: -5 },
+        { x: '0%', y: -330, rotate: 7.5 },
       ]);
     } else {
       setFanningInitialY(0);
       setFanningStyleList([
-        { x: '-100%', y: -150, rotate: -10 },
-        { x: '40%', y: -40, rotate: -2.5 },
-        { x: '-140%', y: -40, rotate: 8 },
-        { x: '40%', y: 150, rotate: 6 },
-        { x: '-140%', y: 150, rotate: -5 },
-        { x: '0%', y: -150, rotate: 7.5 },
+        { x: '-100%', y: -180, rotate: -10 },
+        { x: '40%', y: -60, rotate: -2.5 },
+        { x: '-140%', y: -60, rotate: 8 },
+        { x: '40%', y: 100, rotate: 6 },
+        { x: '-140%', y: 100, rotate: -5 },
+        { x: '0%', y: -180, rotate: 7.5 },
       ]);
     }
-  }, [isLarge, isMedium, isSmall]);
+  }, [isMedium, isSmall]);
 
   const introBgVariants = {
     initial: {
@@ -150,7 +139,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
         ) : (
           <>
             {!isFullyGallerySet && (
-              <div className="fixed h-screen w-full">
+              <div className="fixed bottom-24 h-screen w-full md:bottom-0">
                 <MainVisual
                   imageSrc={mainVisual.mediaUrl}
                   layoutId={mainVisual.id}

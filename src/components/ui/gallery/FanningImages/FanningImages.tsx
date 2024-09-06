@@ -36,7 +36,8 @@ const FanningImages: FC<Props> = ({ mediaList, maxWidth, initialY, styles, setSt
       variants={variants}
       initial="initial"
       animate="animate"
-      onAnimationComplete={() => setState((prevState: boolean): boolean => !prevState)}>
+      onAnimationComplete={() => setState((prevState: boolean): boolean => !prevState)}
+      className="relative h-screen w-full">
       {mediaList.map((media: MediaData, index: number) => (
         <FanningItem
           imageSrc={media.mediaUrl}

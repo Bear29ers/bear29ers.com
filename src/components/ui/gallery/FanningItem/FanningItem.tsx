@@ -38,7 +38,7 @@ const FanningItem: FC<Props> = ({ imageSrc, layoutId, styles, zIndex, maxWidth, 
       layoutId={layoutId}
       variants={variants(initialY, styles.x, styles.y, styles.rotate)}
       src={imageSrc}
-      className={`absolute left-1/2 top-1/2 w-full md:bottom-0 md:top-auto ${maxWidth} ${zIndex}`}
+      className={`absolute bottom-0 left-1/2 w-full ${maxWidth} ${zIndex}`}
     />
   );
 };
