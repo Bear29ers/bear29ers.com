@@ -1,6 +1,9 @@
 import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
+const MotionImage = motion(Image);
 
 const variants = {
   initial: {
@@ -21,15 +24,17 @@ const viewport = {
 interface Props {
   imageSrc: string;
   id: string;
+  width: number;
   maxWidth: string;
 }
 
-const MainGallery: FC<Props> = ({ imageSrc, id, maxWidth }) => {
+const MainGallery: FC<Props> = ({ imageSrc, id, width, maxWidth }) => {
   return (
-    <motion.img
+    <MotionImage
       src={imageSrc}
       alt={id}
       className={`w-full cursor-pointer ${maxWidth}`}
+      sizes="100vw"
       transition={{
         duration: 0.8,
       }}
@@ -37,6 +42,8 @@ const MainGallery: FC<Props> = ({ imageSrc, id, maxWidth }) => {
       initial="initial"
       whileInView="animate"
       viewport={viewport}
+      width={width}
+      height={(width / 4) * 5}
     />
   );
 };
