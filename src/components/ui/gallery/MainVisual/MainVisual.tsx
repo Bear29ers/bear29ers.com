@@ -20,7 +20,7 @@ const MainVisual: FC<Props> = ({ imageSrc, layoutId, canAnimate, maxWidth, setSt
       onLayoutAnimationComplete={() => setState((prevState: boolean): boolean => !prevState)}
       src={imageSrc}
       alt="Main Visual"
-      className={`absolute inset-x-0 bottom-24 z-10 mx-auto w-full drop-shadow-2xl md:bottom-0 md:drop-shadow-none ${maxWidth}`}
+      className={`absolute inset-x-0 bottom-0 z-10 mx-auto w-full drop-shadow-2xl md:drop-shadow-none ${maxWidth}`}
     />
   );
 };
