@@ -46,7 +46,7 @@ const FanningImages: FC<Props> = ({ mediaList, maxWidth, initialY, styles, setSt
           zIndex={zIndexList[index]!}
           maxWidth={maxWidth}
           initialY={initialY}
-          key={media.timestamp}
+          key={media.id}
         />
       ))}
     </motion.div>

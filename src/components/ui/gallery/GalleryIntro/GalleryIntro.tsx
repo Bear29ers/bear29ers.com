@@ -68,7 +68,7 @@ const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, mediaList, setS
           alt={media.id}
           className={`w-full max-w-40 txs:max-w-48 msm:max-w-60 ${index !== 0 && 'absolute'}`}
           variants={imageVariants}
-          key={media.timestamp}
+          key={media.id}
         />
       ))}
       <motion.img
