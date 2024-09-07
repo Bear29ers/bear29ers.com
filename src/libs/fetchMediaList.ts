@@ -9,12 +9,10 @@ const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): 
   const instagramId = process.env.GRAPH_API_INSTAGRAM_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
   const fields = 'media{media_url,media_type}';
-  // const fields = 'media{caption,children{media_url},media_url,media_type,permalink,like_count,timestamp,username}';
   const endpoint = `${baseUrl}/${instagramId}?access_token=${accessToken}&fields=${fields}&since=${unixtime}`;
 
   try {
     let allData: Media[] = [];
-    // const data = await fetchData(url);
     const data = convertToCamelCase(await fetchJson<{ media: MediaEdge }>(endpoint, next));
 
     if (data.media && Array.isArray(data.media.data)) {
