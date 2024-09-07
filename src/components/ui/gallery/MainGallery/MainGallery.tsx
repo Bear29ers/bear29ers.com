@@ -2,8 +2,9 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
-const MotionImage = motion(Image);
+const MotionLink = motion(Link);
 
 const variants = {
   initial: {
@@ -30,21 +31,24 @@ interface Props {
 
 const MainGallery: FC<Props> = ({ imageSrc, id, width, maxWidth }) => {
   return (
-    <MotionImage
-      src={imageSrc}
-      alt={id}
-      className={`w-full cursor-pointer ${maxWidth}`}
-      sizes="100vw"
+    <MotionLink
+      href={`/gallery/${id}`}
       transition={{
         duration: 0.8,
       }}
       variants={variants}
       initial="initial"
       whileInView="animate"
-      viewport={viewport}
-      width={width}
-      height={(width / 4) * 5}
-    />
+      viewport={viewport}>
+      <Image
+        src={imageSrc}
+        alt={id}
+        className={`w-full ${maxWidth}`}
+        sizes="100vw"
+        width={width}
+        height={(width / 4) * 5}
+      />
+    </MotionLink>
   );
 };
 
