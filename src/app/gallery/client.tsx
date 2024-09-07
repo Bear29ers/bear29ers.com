@@ -38,7 +38,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
   const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
 
-  // style state
+  // styles state
   const galleryItemWidth = 288;
   const galleryItemMaxWidth = 'max-w-72';
   const [fanningInitialY, setFanningInitialY] = useState<number | string>(220);
@@ -171,7 +171,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
                       imageSrc={media.mediaUrl}
                       zIndex={zIndexList[index]!}
                       maxWidth={galleryItemMaxWidth}
-                      key={media.timestamp}
+                      key={media.id}
                       setState={index === animatingMediaList.length - 1 ? setIsFullyGallerySet : undefined}
                     />
                   ))}
@@ -181,7 +181,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
                       id={media.id}
                       width={galleryItemWidth}
                       maxWidth={galleryItemMaxWidth}
-                      key={media.timestamp}
+                      key={media.id}
                     />
                   ))}
                 </div>
