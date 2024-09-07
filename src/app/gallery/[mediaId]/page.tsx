@@ -1,3 +1,9 @@
+import { Suspense } from 'react';
+
+import Preloader from '@/components/common/Preloader/Preloader';
+
+import GalleryDetailClient from './client';
+
 import type { NextPage } from 'next';
 
 interface Props {
@@ -7,11 +13,16 @@ interface Props {
 }
 
 const GalleryDetail: NextPage<Props> = ({ params }) => {
+  // const media = await fetchMedia(params.mediaId, { revalidate: 1800 });
   return (
-    <div className="relative h-screen w-screen overflow-hidden">
-      <h1>Gallery Detail</h1>
-      <h2>{params.mediaId}</h2>
-    </div>
+    <Suspense
+      fallback={
+        <div className="fixed flex h-screen w-full bg-hitGray bg-noise-pattern flex-center">
+          <Preloader />
+        </div>
+      }>
+      <GalleryDetailClient />
+    </Suspense>
   );
 };
 
