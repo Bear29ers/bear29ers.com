@@ -5,7 +5,7 @@ import React from 'react';
 
 import { motion } from 'framer-motion';
 
-import type { MediaData } from '@/types/media';
+import type { Media } from '@/types/media';
 
 const galleryIntroVariants = {
   initial: {},
@@ -49,7 +49,7 @@ const mainVisualVariants = {
 interface Props {
   mainVisualImageSrc: string;
   layoutId: string;
-  mediaList: MediaData[];
+  mediaList: Media[];
   setState: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -62,7 +62,7 @@ const GalleryIntro: FC<Props> = ({ mainVisualImageSrc, layoutId, mediaList, setS
       initial="initial"
       animate="animate"
       exit="exit">
-      {mediaList.map((media: MediaData, index: number) => (
+      {mediaList.map((media: Media, index: number) => (
         <motion.img
           src={media.mediaUrl}
           alt={media.id}

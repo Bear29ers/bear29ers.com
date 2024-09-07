@@ -22,12 +22,12 @@ import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import { imageInfoList, zIndexList } from '@/constants/gallery';
 
-import type { MediaData } from '@/types/media';
+import type { Media } from '@/types/media';
 
 interface Props {
-  mediaList: MediaData[];
-  animatingMediaList: MediaData[];
-  mainVisual: MediaData;
+  mediaList: Media[];
+  animatingMediaList: Media[];
+  mainVisual: Media;
 }
 
 const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual }) => {
@@ -165,7 +165,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
             {isActiveGallery && (
               <div className="mx-auto w-full max-w-7xl flex-col gap-y-40 flex-center md:gap-y-56">
                 <div className="grid w-fit grid-cols-1 justify-between gap-x-6 gap-y-12 xxs:grid-cols-2 xsm:gap-x-12 xsm:gap-y-20 md:grid-cols-3 lg:gap-24 xl:gap-x-32">
-                  {animatingMediaList.map((media: MediaData, index: number) => (
+                  {animatingMediaList.map((media: Media, index: number) => (
                     <AnimatedGallery
                       layoutId={media.id}
                       imageSrc={media.mediaUrl}
@@ -175,7 +175,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
                       setState={index === animatingMediaList.length - 1 ? setIsFullyGallerySet : undefined}
                     />
                   ))}
-                  {mediaList.map((media: MediaData) => (
+                  {mediaList.map((media: Media) => (
                     <MainGallery
                       imageSrc={media.mediaUrl}
                       id={media.id}
