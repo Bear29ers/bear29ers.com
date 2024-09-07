@@ -20,6 +20,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "@next/third-parties": "^14.2.4",
     "@popmotion/popcorn": "^0.4.4",
     "@testing-library/jest-dom": "^6.4.2",
