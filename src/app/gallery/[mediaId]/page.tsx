@@ -7,7 +7,6 @@ interface Props {
 }
 
 const GalleryDetail: NextPage<Props> = ({ params }) => {
-  console.log('params: ', params.mediaId);
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       <h1>Gallery Detail</h1>
