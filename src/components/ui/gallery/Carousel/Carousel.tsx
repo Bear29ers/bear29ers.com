@@ -1,6 +1,9 @@
 import { useState, type FC, useEffect } from 'react';
 
-import { MotionConfig, useMotionTemplate, useSpring } from 'framer-motion';
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
+import { AnimatePresence, MotionConfig, motion, useMotionTemplate, useSpring } from 'framer-motion';
+
+import Thumbnails from '../Thumbnails/Thumbnails';
 
 const images = [
   'https://2024-05-04-recipe-carousel.vercel.app/images/1.jpg',
@@ -49,8 +52,48 @@ const Carousel: FC = () => {
 
   return (
     <MotionConfig transition={{ type: 'spring', bounce: 0 }}>
-      <div>
-        <h1>Carousel</h1>
+      <div className="flex h-full flex-col justify-between">
+        <div className="relative mt-6 overflow-hidden">
+          <motion.div style={{ x: xPercentage }} className="flex">
+            {images.map((image, i) => (
+              <motion.img
+                key={image}
+                src={image}
+                animate={{ opacity: i === index ? 1 : 0.4 }}
+                className="aspect-[1.85] h-screen max-h-[70vh] w-full shrink-0 object-cover"
+              />
+            ))}
+          </motion.div>
+
+          <AnimatePresence initial={false}>
+            {index > 0 && (
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.7 }}
+                exit={{ opacity: 0, pointerEvents: 'none' }}
+                whileHover={{ opacity: 1 }}
+                className="absolute left-2 top-1/2 -mt-4 flex size-8 items-center justify-center rounded-full bg-white"
+                onClick={() => setIndex(index - 1)}>
+                <ChevronLeftIcon className="size-6 text-black" />
+              </motion.button>
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence initial={false}>
+            {index + 1 < images.length && (
+              <motion.button
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.7 }}
+                exit={{ opacity: 0, pointerEvents: 'none' }}
+                whileHover={{ opacity: 1 }}
+                className="absolute right-2 top-1/2 -mt-4 flex size-8 items-center justify-center rounded-full bg-white"
+                onClick={() => setIndex(index + 1)}>
+                <ChevronRightIcon className="size-6 text-black" />
+              </motion.button>
+            )}
+          </AnimatePresence>
+        </div>
+        <Thumbnails images={images} index={index} setIndex={setIndex} />
       </div>
     </MotionConfig>
   );
