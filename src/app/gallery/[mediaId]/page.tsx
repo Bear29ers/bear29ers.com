@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 
 import Preloader from '@/components/common/Preloader/Preloader';
 
+import fetchMedia from '@/libs/fetchMedia';
+
 import GalleryDetailClient from './client';
 
 import type { NextPage } from 'next';
@@ -12,8 +14,8 @@ interface Props {
   };
 }
 
-const GalleryDetail: NextPage<Props> = ({ params }) => {
-  // const media = await fetchMedia(params.mediaId, { revalidate: 1800 });
+const GalleryDetail: NextPage<Props> = async ({ params }) => {
+  const media = await fetchMedia(params.mediaId, { revalidate: 1800 });
   return (
     <Suspense
       fallback={
@@ -21,7 +23,7 @@ const GalleryDetail: NextPage<Props> = ({ params }) => {
           <Preloader />
         </div>
       }>
-      <GalleryDetailClient />
+      <GalleryDetailClient media={media} />
     </Suspense>
   );
 };
