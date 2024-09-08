@@ -1,9 +1,9 @@
 import { type Dispatch, type FC, type SetStateAction } from 'react';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 import type { Children } from '@/types/media';
-// import Image from 'next/image';
 
 const COLLAPSED_ASPECT_RATIO = 0.4;
 const FULL_ASPECT_RATIO = 4 / 5;
@@ -42,10 +42,15 @@ const Thumbnails: FC<Props> = ({ images, index, setIndex }) => {
                 marginRight: 0,
               },
             }}
-            className="h-full shrink-0"
+            className="relative h-full shrink-0"
             key={item.id}>
-            <img alt={item.mediaUrl} src={item.mediaUrl} className="h-full object-cover" />
-            {/* <Image src={image} alt={image} sizes="100vw" width={400} height={500} className="w-full object-cover" /> */}
+            <Image
+              alt={item.mediaUrl}
+              src={item.mediaUrl}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
+            />
           </motion.button>
         ))}
       </motion.div>

@@ -2,6 +2,7 @@ import { useState, type FC, useEffect } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 import { AnimatePresence, MotionConfig, motion, useMotionTemplate, useSpring } from 'framer-motion';
+import Image from 'next/image';
 
 import type { Media } from '@/types/media';
 
@@ -46,12 +47,18 @@ const Carousel: FC<Props> = ({ media }) => {
         <div className="relative mt-6 w-full max-w-[450px] overflow-hidden">
           <motion.div style={{ x: xPercentage }} className="flex">
             {media.children?.data.map((item, i) => (
-              <motion.img
+              <motion.div
                 key={item.id}
-                src={item.mediaUrl}
-                animate={{ opacity: i === index ? 1 : 0.4 }}
-                className="size-full shrink-0 object-cover object-center"
-              />
+                className="relative h-[562.5px] w-[450px] shrink-0"
+                animate={{ opacity: i === index ? 1 : 0.4 }}>
+                <Image
+                  src={item.mediaUrl}
+                  alt={`Image ${i + 1}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover object-center"
+                />
+              </motion.div>
             ))}
           </motion.div>
 
