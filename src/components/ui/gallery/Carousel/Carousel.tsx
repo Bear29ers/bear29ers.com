@@ -44,24 +44,25 @@ const Carousel: FC<Props> = ({ media }) => {
   return (
     <MotionConfig transition={{ type: 'spring', bounce: 0 }}>
       <div className="flex h-full flex-col gap-y-6">
-        <div className="relative mt-6 w-full max-w-[450px] overflow-hidden">
-          <motion.div style={{ x: xPercentage }} className="flex">
-            {media.children?.data.map((item, i) => (
-              <motion.div
-                key={item.id}
-                className="relative h-[562.5px] w-[450px] shrink-0"
-                animate={{ opacity: i === index ? 1 : 0.4 }}>
-                <Image
-                  src={item.mediaUrl}
-                  alt={`Image ${i + 1}`}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover object-center"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
-
+        <div className="relative w-[600px] flex-center">
+          <div className="w-full max-w-[450px] overflow-hidden">
+            <motion.div style={{ x: xPercentage }} className="flex">
+              {media.children?.data.map((item, i) => (
+                <motion.div
+                  key={item.id}
+                  className="relative h-[562.5px] w-[450px] shrink-0"
+                  animate={{ opacity: i === index ? 1 : 0.4 }}>
+                  <Image
+                    src={item.mediaUrl}
+                    alt={`Image ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover object-center"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
           <AnimatePresence initial={false}>
             {index > 0 && (
               <motion.button
@@ -69,9 +70,9 @@ const Carousel: FC<Props> = ({ media }) => {
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: 'none' }}
                 whileHover={{ opacity: 1 }}
-                className="absolute left-2 top-1/2 -mt-4 flex size-8 items-center justify-center rounded-full bg-white"
+                className="absolute left-0 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white"
                 onClick={() => setIndex(index - 1)}>
-                <ChevronLeftIcon className="size-6 text-black" />
+                <ChevronLeftIcon className="size-8 text-black" />
               </motion.button>
             )}
           </AnimatePresence>
@@ -83,9 +84,9 @@ const Carousel: FC<Props> = ({ media }) => {
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0, pointerEvents: 'none' }}
                 whileHover={{ opacity: 1 }}
-                className="absolute right-2 top-1/2 -mt-4 flex size-8 items-center justify-center rounded-full bg-white"
+                className="absolute right-0 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white"
                 onClick={() => setIndex(index + 1)}>
-                <ChevronRightIcon className="size-6 text-black" />
+                <ChevronRightIcon className="size-8 text-black" />
               </motion.button>
             )}
           </AnimatePresence>
