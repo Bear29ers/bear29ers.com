@@ -12,13 +12,6 @@ const images = [
   'https://2024-05-04-recipe-carousel.vercel.app/images/4.jpg',
   'https://2024-05-04-recipe-carousel.vercel.app/images/5.jpg',
   'https://2024-05-04-recipe-carousel.vercel.app/images/6.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/7.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/8.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/9.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/10.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/11.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/12.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/13.jpg',
 ];
 
 const Carousel: FC = () => {
@@ -52,15 +45,15 @@ const Carousel: FC = () => {
 
   return (
     <MotionConfig transition={{ type: 'spring', bounce: 0 }}>
-      <div className="flex h-full flex-col justify-between">
-        <div className="relative mt-6 overflow-hidden">
+      <div className="flex h-full flex-col gap-y-6">
+        <div className="relative mt-6 aspect-polaroid w-[400px] overflow-hidden">
           <motion.div style={{ x: xPercentage }} className="flex">
             {images.map((image, i) => (
               <motion.img
                 key={image}
                 src={image}
                 animate={{ opacity: i === index ? 1 : 0.4 }}
-                className="aspect-[1.85] h-screen max-h-[70vh] w-full shrink-0 object-cover"
+                className="h-screen max-h-[70vh] w-full shrink-0 object-cover object-center"
               />
             ))}
           </motion.div>

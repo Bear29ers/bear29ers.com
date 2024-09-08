@@ -112,6 +112,9 @@ const config: Config = {
       transitionDuration: {
         '400': '400ms',
       },
+      aspectRatio: {
+        polaroid: '4/5',
+      },
       keyframes: {
         updown: {
           to: {
