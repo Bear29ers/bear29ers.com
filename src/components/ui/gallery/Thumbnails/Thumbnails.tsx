@@ -1,6 +1,8 @@
 import { type Dispatch, type FC, type SetStateAction } from 'react';
 
 import { motion } from 'framer-motion';
+
+import type { Children } from '@/types/media';
 // import Image from 'next/image';
 
 const COLLAPSED_ASPECT_RATIO = 0.4;
@@ -9,7 +11,7 @@ const MARGIN = 24;
 const GAP = 2;
 
 interface Props {
-  images: string[];
+  images: Children;
   index: number;
   setIndex: Dispatch<SetStateAction<number>>;
 }
@@ -23,7 +25,7 @@ const Thumbnails: FC<Props> = ({ images, index, setIndex }) => {
           gap: `${GAP}%`,
         }}
         className="flex min-w-0 justify-center">
-        {images.map((image, i) => (
+        {images.data.map((item, i) => (
           <motion.button
             onClick={() => setIndex(i)}
             initial={false}
@@ -41,8 +43,8 @@ const Thumbnails: FC<Props> = ({ images, index, setIndex }) => {
               },
             }}
             className="h-full shrink-0"
-            key={image}>
-            <img alt="" src={image} className="h-full object-cover" />
+            key={item.id}>
+            <img alt={item.mediaUrl} src={item.mediaUrl} className="h-full object-cover" />
             {/* <Image src={image} alt={image} sizes="100vw" width={400} height={500} className="w-full object-cover" /> */}
           </motion.button>
         ))}

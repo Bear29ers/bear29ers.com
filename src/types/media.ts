@@ -3,7 +3,7 @@ interface ChildrenData {
   id: string;
 }
 
-interface Children {
+export interface Children {
   data: ChildrenData[];
 }
 

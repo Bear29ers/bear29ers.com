@@ -3,18 +3,15 @@ import { useState, type FC, useEffect } from 'react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 import { AnimatePresence, MotionConfig, motion, useMotionTemplate, useSpring } from 'framer-motion';
 
+import type { Media } from '@/types/media';
+
 import Thumbnails from '../Thumbnails/Thumbnails';
 
-const images = [
-  'https://2024-05-04-recipe-carousel.vercel.app/images/1.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/2.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/3.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/4.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/5.jpg',
-  'https://2024-05-04-recipe-carousel.vercel.app/images/6.jpg',
-];
+interface Props {
+  media: Media;
+}
 
-const Carousel: FC = () => {
+const Carousel: FC<Props> = ({ media }) => {
   const [index, setIndex] = useState<number>(0);
 
   const x = index * 100;
@@ -32,7 +29,7 @@ const Carousel: FC = () => {
           setIndex(index - 1);
         }
       } else if (event.key === 'ArrowRight') {
-        if (index < images.length - 1) {
+        if (media.children && index < media.children.data.length - 1) {
           setIndex(index + 1);
         }
       }
@@ -41,19 +38,19 @@ const Carousel: FC = () => {
     document.addEventListener('keydown', handleKeyPress);
 
     return () => document.removeEventListener('keydown', handleKeyPress);
-  }, [index]);
+  }, [index, media.children]);
 
   return (
     <MotionConfig transition={{ type: 'spring', bounce: 0 }}>
       <div className="flex h-full flex-col gap-y-6">
-        <div className="relative mt-6 aspect-polaroid w-[400px] overflow-hidden">
+        <div className="relative mt-6 w-full max-w-[450px] overflow-hidden">
           <motion.div style={{ x: xPercentage }} className="flex">
-            {images.map((image, i) => (
+            {media.children?.data.map((item, i) => (
               <motion.img
-                key={image}
-                src={image}
+                key={item.id}
+                src={item.mediaUrl}
                 animate={{ opacity: i === index ? 1 : 0.4 }}
-                className="h-screen max-h-[70vh] w-full shrink-0 object-cover object-center"
+                className="size-full shrink-0 object-cover object-center"
               />
             ))}
           </motion.div>
@@ -73,7 +70,7 @@ const Carousel: FC = () => {
           </AnimatePresence>
 
           <AnimatePresence initial={false}>
-            {index + 1 < images.length && (
+            {media.children && index + 1 < media.children.data.length && (
               <motion.button
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
@@ -86,7 +83,9 @@ const Carousel: FC = () => {
             )}
           </AnimatePresence>
         </div>
-        <Thumbnails images={images} index={index} setIndex={setIndex} />
+        {media.children && media.children.data.length && (
+          <Thumbnails images={media.children} index={index} setIndex={setIndex} />
+        )}
       </div>
     </MotionConfig>
   );
