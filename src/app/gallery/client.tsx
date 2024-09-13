@@ -117,7 +117,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
       <motion.div
         className="fixed flex h-screen w-full flex-col items-center bg-hitGray bg-noise-pattern"
         variants={introBgVariants}
-        initial="initial"
+        initial={isActiveGallery ? 'animate' : 'initial'}
         animate={isActiveGallery && 'animate'}>
         {!loading && (
           <div className="mt-16 flex flex-col items-center gap-y-1 md:mt-24 md:gap-y-2">
