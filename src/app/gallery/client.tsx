@@ -32,9 +32,9 @@ interface Props {
 
 const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual }) => {
   // animation flag
-  const [loading, setLoading] = useState<boolean>(true);
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
+  const [isCompletedAllIntro, setIsCompletedAllIntro] = useState<boolean>(false);
   const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
   const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
 
@@ -119,7 +119,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
         variants={introBgVariants}
         initial={isActiveGallery ? 'animate' : 'initial'}
         animate={isActiveGallery && 'animate'}>
-        {!loading && (
+        {isCompletedIntro && (
           <div className="mt-16 flex flex-col items-center gap-y-1 md:mt-24 md:gap-y-2">
             <StaggeredText textList={['Life', 'in', 'Pixels']} />
             <Subhead text="Capturing Moments, Creating Memories." />
@@ -128,13 +128,13 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
       </motion.div>
 
       <AnimatePresence mode="wait">
-        {loading ? (
+        {!isCompletedIntro ? (
           <div className="fixed top-1/2 -translate-y-1/2">
             <GalleryIntro
               mainVisualImageSrc={mainVisual.mediaUrl}
               layoutId={mainVisual.id}
               mediaList={animatingMediaList}
-              setState={setLoading}
+              setState={setIsCompletedIntro}
             />
           </div>
         ) : (
@@ -146,9 +146,9 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual })
                   layoutId={mainVisual.id}
                   canAnimate={isActiveGallery}
                   maxWidth="mlg:max-w-[400px] xsm:max-w-[350px] max-w-[250px]"
-                  setState={setIsCompletedIntro}
+                  setState={setIsCompletedAllIntro}
                 />
-                {isCompletedIntro && (
+                {isCompletedAllIntro && (
                   <>
                     {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
                     <FanningImages
