@@ -28,15 +28,16 @@ interface Props {
   mediaList: Media[];
   animatingMediaList: Media[];
   mainVisual: Media;
+  isSkippedIntro: boolean;
 }
 
-const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual }) => {
+const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, isSkippedIntro }) => {
   // animation flag
-  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(false);
-  const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(false);
-  const [isCompletedAllIntro, setIsCompletedAllIntro] = useState<boolean>(false);
-  const [isActiveGallery, setIsActiveGallery] = useState<boolean>(false);
-  const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(false);
+  const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(isSkippedIntro);
+  const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(isSkippedIntro);
+  const [isCompletedAllIntro, setIsCompletedAllIntro] = useState<boolean>(isSkippedIntro);
+  const [isActiveGallery, setIsActiveGallery] = useState<boolean>(isSkippedIntro);
+  const [isFullyGallerySet, setIsFullyGallerySet] = useState<boolean>(isSkippedIntro);
 
   // styles state
   const galleryItemWidth = 288;
