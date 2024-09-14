@@ -10,12 +10,12 @@ import type { NextPage } from 'next';
 
 interface Props {
   searchParams: {
-    intro?: string;
+    intro?: 'skipped';
   };
 }
 
 const Gallery: NextPage<Props> = async ({ searchParams }) => {
-  const isIntroCompleted = Boolean(searchParams.intro);
+  const isIntroSkipped = Boolean(searchParams.intro);
   const DATE = new Date('2024-05-01T12:00:00Z');
   const unixtime = Math.floor(DATE.getTime() / 1000);
   const mediaList = await fetchMediaList(unixtime, { revalidate: 1800 });
@@ -33,7 +33,7 @@ const Gallery: NextPage<Props> = async ({ searchParams }) => {
         mediaList={mediaList}
         animatingMediaList={pickedMediaList}
         mainVisual={mediaData}
-        isSkippedIntro={isIntroCompleted}
+        isSkippedIntro={isIntroSkipped}
       />
     </Suspense>
   );

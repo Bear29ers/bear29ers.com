@@ -1,12 +1,16 @@
 import type { FC } from 'react';
 
+import { useRouter } from 'next/navigation';
+
 interface Props {
+  url: string;
   text: string;
 }
 
-const AnimatedArrowButton: FC<Props> = ({ text }) => {
+const AnimatedArrowButton: FC<Props> = ({ url, text }) => {
+  const router = useRouter();
   return (
-    <button type="button" className="group relative flex w-52 justify-end">
+    <button type="button" className="group relative flex w-52 justify-end" onClick={() => router.push(url)}>
       <span
         className="relative m-0 block size-12 rounded-full bg-darkerGray transition-all duration-450 ease-custom-ease-in-out-quart group-hover:w-full md:bg-darker"
         aria-hidden="true">
