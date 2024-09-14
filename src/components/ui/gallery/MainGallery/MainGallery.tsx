@@ -40,7 +40,8 @@ const MainGallery: FC<Props> = ({ imageSrc, id, width, maxWidth }) => {
       initial="initial"
       whileInView="animate"
       viewport={viewport}
-      prefetch>
+      prefetch
+      scroll={false}>
       <Image
         src={imageSrc}
         alt={id}

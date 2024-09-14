@@ -10,7 +10,10 @@ interface Props {
 const AnimatedArrowButton: FC<Props> = ({ url, text }) => {
   const router = useRouter();
   return (
-    <button type="button" className="group relative flex w-52 justify-end" onClick={() => router.push(url)}>
+    <button
+      type="button"
+      className="group relative flex w-52 justify-end"
+      onClick={() => router.push(url, { scroll: false })}>
       <span
         className="relative m-0 block size-12 rounded-full bg-darkerGray transition-all duration-450 ease-custom-ease-in-out-quart group-hover:w-full md:bg-darker"
         aria-hidden="true">
