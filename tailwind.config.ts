@@ -111,6 +111,7 @@ const config: Config = {
       },
       transitionDuration: {
         '400': '400ms',
+        '450': '450ms',
       },
       aspectRatio: {
         polaroid: '4/5',
