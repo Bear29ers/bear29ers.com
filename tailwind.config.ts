@@ -20,6 +20,9 @@ const config: Config = {
       xs: '400px',
     },
     extend: {
+      width: {
+        '4.5': '1.125rem',
+      },
       fontFamily: {
         mont: ['var(--font-mont)', ...fontFamily.sans],
         damion: ['var(--font-damion)', ...fontFamily.sans],
@@ -107,7 +110,8 @@ const config: Config = {
         '70': '70% 70%',
       },
       transitionTimingFunction: {
-        ease: 'ease',
+        'ease': 'ease',
+        'custom-ease-in-out-quart': 'cubic-bezier(0.65, 0, 0.076, 1)',
       },
       transitionDuration: {
         '400': '400ms',
