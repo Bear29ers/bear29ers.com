@@ -4,6 +4,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof AnimatedArrowButton> = {
   component: AnimatedArrowButton,
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+  },
   tags: ['autodocs'],
 };
 
