@@ -43,7 +43,7 @@ const Thumbnails: FC<Props> = ({ images, index, setIndex }) => {
               },
             }}
             className="relative h-full shrink-0"
-            key={item.id}>
+            key={`thumbnail-${item.id}-${i}`}>
             <Image
               alt={item.mediaUrl}
               src={item.mediaUrl}

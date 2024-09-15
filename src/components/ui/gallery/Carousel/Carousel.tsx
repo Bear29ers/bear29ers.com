@@ -49,7 +49,7 @@ const Carousel: FC<Props> = ({ media }) => {
             <motion.div style={{ x: xPercentage }} className="flex">
               {media.children?.data.map((item, i) => (
                 <motion.div
-                  key={item.id}
+                  key={`carousel-${item.id}-${i}`}
                   className="relative h-[562.5px] w-[450px] shrink-0"
                   animate={{ opacity: i === index ? 1 : 0.4 }}>
                   <Image
