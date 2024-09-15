@@ -18,3 +18,18 @@ services:
       - /app/.next
     ports:
       - 5050:3000
+
+  storybook:
+    container_name: storybook
+    build:
+      context: .
+      target: storybook
+    restart: always
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 6060:6006
