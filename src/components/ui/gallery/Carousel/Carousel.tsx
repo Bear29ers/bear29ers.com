@@ -1,4 +1,5 @@
-import { useState, type FC, useEffect } from 'react';
+import { useEffect } from 'react';
+import type { Dispatch, SetStateAction, FC } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 import { AnimatePresence, MotionConfig, motion, useMotionTemplate, useSpring } from 'framer-motion';
@@ -6,15 +7,13 @@ import Image from 'next/image';
 
 import type { Media } from '@/types/media';
 
-import Thumbnails from '../Thumbnails/Thumbnails';
-
 interface Props {
   media: Media;
+  index: number;
+  setIndex: Dispatch<SetStateAction<number>>;
 }
 
-const Carousel: FC<Props> = ({ media }) => {
-  const [index, setIndex] = useState<number>(0);
-
+const Carousel: FC<Props> = ({ media, index, setIndex }) => {
   const x = index * 100;
   const xSpring = useSpring(x, { bounce: 0 });
   const xPercentage = useMotionTemplate`-${xSpring}%`;
@@ -39,11 +38,11 @@ const Carousel: FC<Props> = ({ media }) => {
     document.addEventListener('keydown', handleKeyPress);
 
     return () => document.removeEventListener('keydown', handleKeyPress);
-  }, [index, media.children]);
+  }, [index, media.children, setIndex]);
 
   return (
     <MotionConfig transition={{ type: 'spring', bounce: 0 }}>
-      <div className="flex h-full flex-col gap-y-6">
+      <div className="flex h-full">
         <div className="relative w-[600px] flex-center">
           <div className="w-full max-w-[450px] overflow-hidden">
             <motion.div style={{ x: xPercentage }} className="flex">
@@ -91,9 +90,6 @@ const Carousel: FC<Props> = ({ media }) => {
             )}
           </AnimatePresence>
         </div>
-        {media.children && media.children.data.length && (
-          <Thumbnails images={media.children} index={index} setIndex={setIndex} />
-        )}
       </div>
     </MotionConfig>
   );
