@@ -7,6 +7,7 @@ import { render, screen } from '@testing-library/react';
 
 import Carousel from './Carousel';
 
+import type { RenderResult } from '@testing-library/react';
 import type { motion } from 'framer-motion';
 
 // Framer Motionの型定義
@@ -58,7 +59,7 @@ jest.mock('next/image', () => ({
   },
 }));
 
-describe('Carousel', () => {
+describe('src/components/ui/gallery/Carousel/Carousel.test.tsx', () => {
   const mockMedia = {
     caption:
       '.\n…\nメリーゴーランド。\n静寂の夜、光の帳が織りなす回転木馬の幻想。\n…\nMerry-go-round.\nOn a silent night, a curtain of light creates the illusion of a carousel.\n——\n📷 Ricoh GRⅢ HDF\n🎨 Lightroom Mobile\n——\n\n#photograghy #landscape \n#streetphotography #streetgrammer #streetsnap\n#ricoh #ricohgr3 #ricoh_gr_photography \n#gr3 #griii #gr3hdf #griiihdf\n#grsnaps #grist #shootgr #gr_meet_japan\n#lightroommobile #lightroom\n#instagramjapan #reco_jp #igersjp',
@@ -87,8 +88,27 @@ describe('Carousel', () => {
     id: '18033720356079349',
   };
 
-  it('renders the carousel with images', () => {
-    render(<Carousel media={mockMedia} />);
-    expect(screen.getAllByRole('img')).toHaveLength(6);
+  const mockSetIndex = jest.fn();
+
+  let renderResult: RenderResult;
+
+  beforeEach(() => {
+    renderResult = render(<Carousel media={mockMedia} index={0} setIndex={mockSetIndex} />);
+  });
+
+  afterEach(() => {
+    renderResult.unmount();
+  });
+
+  it('should render the carousel with images', () => {
+    expect(screen.getAllByRole('img')).toHaveLength(3);
+  });
+
+  it('should show next button when not on last image', () => {
+    expect(screen.getByRole('button', { name: /chevron-right/i })).toBeInTheDocument();
+  });
+
+  it('should hide previous button when on first image', () => {
+    expect(screen.queryByRole('button', { name: /chevron-left/i })).not.toBeInTheDocument();
   });
 });

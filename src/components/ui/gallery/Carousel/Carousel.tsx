@@ -70,6 +70,7 @@ const Carousel: FC<Props> = ({ media, index, setIndex }) => {
                 exit={{ opacity: 0, pointerEvents: 'none' }}
                 whileHover={{ opacity: 1 }}
                 className="absolute left-0 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white"
+                aria-label="chevron-left"
                 onClick={() => setIndex(index - 1)}>
                 <ChevronLeftIcon className="size-8 text-black" />
               </motion.button>
@@ -84,6 +85,7 @@ const Carousel: FC<Props> = ({ media, index, setIndex }) => {
                 exit={{ opacity: 0, pointerEvents: 'none' }}
                 whileHover={{ opacity: 1 }}
                 className="absolute right-0 top-1/2 flex size-10 -translate-y-1/2 items-center justify-center rounded-full bg-white"
+                aria-label="chevron-right"
                 onClick={() => setIndex(index + 1)}>
                 <ChevronRightIcon className="size-8 text-black" />
               </motion.button>
