@@ -7,6 +7,8 @@ import Caption from '@/components/ui/gallery/Caption/Caption';
 import Carousel from '@/components/ui/gallery/Carousel/Carousel';
 import Thumbnails from '@/components/ui/gallery/Thumbnails/Thumbnails';
 
+import { CAPTION_INFO } from '@/constants/gallery';
+
 import type { Media } from '@/types/media';
 
 interface Props {
@@ -29,7 +31,7 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
           )}
         </div>
         <div>
-          <Caption media={media} alt="bear29ers" />
+          <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} />
         </div>
       </div>
     </div>

@@ -12,3 +12,8 @@ export const imageInfoList: ImageInfo[] = [
   { class: 'xs:row-span-2 md:col-span-2 md:row-span-1', src: 'https://www.instagram.com/p/BXzJw-zFnNO/' },
   { class: 'col-span-2 xs:col-span-1 xsm:col-span-2 md:col-span-1', src: 'https://www.instagram.com/p/BeiqY7HBYaN/' },
 ];
+
+export const CAPTION_INFO = {
+  username: 'bear29ers',
+  profileHref: 'https://www.instagram.com/bear29ers/',
+};
