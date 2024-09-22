@@ -30,7 +30,7 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
             <Thumbnails images={media.children} index={index} setIndex={setIndex} />
           )}
         </div>
-        <div>
+        <div className="w-full max-w-[350px]">
           <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} />
         </div>
       </div>
