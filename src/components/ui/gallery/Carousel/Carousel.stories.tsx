@@ -48,11 +48,13 @@ export const Default: Story = {
       username: 'bear29ers',
       id: '18033720356079349',
     },
+    index: 0,
+    setIndex: () => {},
   },
-  render: ({ media }) => {
+  render: ({ media, index, setIndex }) => {
     return (
       <div className="relative min-h-screen w-full flex-col gap-y-10 overflow-y-scroll bg-dark flex-center">
-        <Carousel media={media} />
+        <Carousel media={media} index={index} setIndex={setIndex} />
       </div>
     );
   },
