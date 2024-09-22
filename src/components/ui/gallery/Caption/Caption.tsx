@@ -28,7 +28,7 @@ const Caption: FC<Props> = ({ media, href, alt }) => {
           />
           <h4 className="text-lg">{media.username || alt}</h4>
         </Link>
-        <p className="w-full max-w-[300px] whitespace-pre-wrap">{media.caption}</p>
+        <p className="whitespace-pre-wrap">{media.caption}</p>
       </div>
     </div>
   );
