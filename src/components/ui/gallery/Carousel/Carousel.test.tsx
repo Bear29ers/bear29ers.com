@@ -5,6 +5,8 @@
 import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 
+import type { Media } from '@/types/media';
+
 import Carousel from './Carousel';
 
 import type { RenderResult } from '@testing-library/react';
@@ -60,7 +62,7 @@ jest.mock('next/image', () => ({
 }));
 
 describe('src/components/ui/gallery/Carousel/Carousel.test.tsx', () => {
-  const mockMedia = {
+  const mockMedia: Media = {
     caption:
       '.\n…\nメリーゴーランド。\n静寂の夜、光の帳が織りなす回転木馬の幻想。\n…\nMerry-go-round.\nOn a silent night, a curtain of light creates the illusion of a carousel.\n——\n📷 Ricoh GRⅢ HDF\n🎨 Lightroom Mobile\n——\n\n#photograghy #landscape \n#streetphotography #streetgrammer #streetsnap\n#ricoh #ricohgr3 #ricoh_gr_photography \n#gr3 #griii #gr3hdf #griiihdf\n#grsnaps #grist #shootgr #gr_meet_japan\n#lightroommobile #lightroom\n#instagramjapan #reco_jp #igersjp',
     children: {
