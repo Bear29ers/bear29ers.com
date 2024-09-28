@@ -1,67 +1,20 @@
-/* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable react/button-has-type */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { MotionGlobalConfig } from 'framer-motion';
 
 import type { Media } from '@/types/media';
 
 import Carousel from './Carousel';
 
 import type { RenderResult } from '@testing-library/react';
-import type { motion } from 'framer-motion';
 
-// Framer Motionの型定義
-type MotionProps = React.ComponentProps<typeof motion.div>;
-
-// Framer Motionのモック
-jest.mock('framer-motion', () => {
-  const actual = jest.requireActual('framer-motion');
-  return {
-    ...actual,
-    motion: {
-      div: (props: React.PropsWithChildren<MotionProps>) => <div {...props} />,
-      button: (props: React.PropsWithChildren<MotionProps>) => <button {...props} />,
-    },
-    AnimatePresence: ({ children }: React.PropsWithChildren<object>) => <>{children}</>,
-    MotionConfig: ({ children }: React.PropsWithChildren<object>) => <>{children}</>,
-    useSpring: jest.fn(() => ({ set: jest.fn() })),
-    useMotionTemplate: jest.fn((template: TemplateStringsArray, ..._args: unknown[]) => template.raw[0]),
-  };
+// eslint-disable-next-line react/display-name
+jest.mock('next/image', () => ({ src, alt }: { src: string; alt: string }) => {
+  return <img src={src} alt={alt} />;
 });
 
-// Next/Imageのモック
-jest.mock('next/image', () => ({
-  __esModule: true,
-  default: ({
-    src,
-    alt,
-    fill,
-    sizes,
-    className,
-    ...props
-  }: {
-    src: string;
-    alt: string;
-    fill?: boolean;
-    sizes?: string;
-    className?: string;
-  }) => {
-    // Apply styles if `fill` is true
-    const fillStyle = fill
-      ? { position: 'absolute', height: '100%', width: '100%', left: 0, top: 0, objectFit: 'cover' as const }
-      : {};
-
-    // Return a basic image tag
-    return (
-      // eslint-disable-next-line @next/next/no-img-element
-      <img src={src} alt={alt} sizes={sizes} className={className} style={fillStyle} {...props} />
-    );
-  },
-}));
-
 describe('src/components/ui/gallery/Carousel/Carousel.test.tsx', () => {
+  MotionGlobalConfig.skipAnimations = true;
   const mockMedia: Media = {
     caption:
       '.\n…\nメリーゴーランド。\n静寂の夜、光の帳が織りなす回転木馬の幻想。\n…\nMerry-go-round.\nOn a silent night, a curtain of light creates the illusion of a carousel.\n——\n📷 Ricoh GRⅢ HDF\n🎨 Lightroom Mobile\n——\n\n#photograghy #landscape \n#streetphotography #streetgrammer #streetsnap\n#ricoh #ricohgr3 #ricoh_gr_photography \n#gr3 #griii #gr3hdf #griiihdf\n#grsnaps #grist #shootgr #gr_meet_japan\n#lightroommobile #lightroom\n#instagramjapan #reco_jp #igersjp',
@@ -112,5 +65,27 @@ describe('src/components/ui/gallery/Carousel/Carousel.test.tsx', () => {
 
   it('should hide previous button when on first image', () => {
     expect(screen.queryByRole('button', { name: /chevron-left/i })).not.toBeInTheDocument();
+  });
+
+  it('should call setIndex when next button is clicked', () => {
+    fireEvent.click(screen.getByRole('button', { name: /chevron-right/i }));
+    expect(mockSetIndex).toHaveBeenCalledWith(1);
+  });
+
+  it('should handle right arrow key press', () => {
+    fireEvent.keyDown(document, { key: 'ArrowRight' });
+    expect(mockSetIndex).toHaveBeenCalledWith(1);
+  });
+
+  it('should call setIndex when previous button is clicked', () => {
+    renderResult = render(<Carousel media={mockMedia} index={1} setIndex={mockSetIndex} />);
+    fireEvent.click(screen.getByRole('button', { name: /chevron-left/i }));
+    expect(mockSetIndex).toHaveBeenCalledWith(0);
+  });
+
+  it('should handle left arrow key press', () => {
+    renderResult = render(<Carousel media={mockMedia} index={1} setIndex={mockSetIndex} />);
+    fireEvent.keyDown(document, { key: 'ArrowLeft' });
+    expect(mockSetIndex).toHaveBeenCalledWith(0);
   });
 });
