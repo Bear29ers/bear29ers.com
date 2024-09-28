@@ -15,7 +15,7 @@ interface Props {
 }
 
 const Caption: FC<Props> = ({ media, href, alt }) => {
-  const date = new Date(media.timestamp || '');
+  const date = media.timestamp ? new Date(media.timestamp) : new Date();
   const jstTime = date.toLocaleString('ja-JP', {
     timeZone: 'Asia/Tokyo',
     year: 'numeric',
@@ -47,7 +47,7 @@ const Caption: FC<Props> = ({ media, href, alt }) => {
               <HeartIcon className="size-8 text-pink-500" />
               <span className="-ml-0.5 mb-1 text-xs">{media.likeCount}</span>
             </div>
-            <time dateTime={media.timestamp} className="text-gray-500">
+            <time dateTime={media.timestamp || ''} className="text-gray-500">
               {formattedDate}
             </time>
           </div>
