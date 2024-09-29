@@ -42,7 +42,7 @@ const Carousel: FC<Props> = ({ media, index, setIndex }) => {
 
   return (
     <MotionConfig transition={{ type: 'spring', bounce: 0 }}>
-      <div className="flex h-full px-1 sm:px-0">
+      <div className="flex h-full">
         <div className="relative w-full flex-center sm:w-[600px]">
           <div className="w-full max-w-72 overflow-hidden xs:max-w-80 sm:max-w-[450px]">
             <motion.div style={{ x: xPercentage }} className="flex">

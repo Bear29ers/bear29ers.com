@@ -28,26 +28,26 @@ const Caption: FC<Props> = ({ media, href, alt }) => {
 
   return (
     <div>
-      <div className="mt-4 flex flex-col gap-y-6 rounded-lg bg-darker p-5 text-white">
-        <Link href={href} className="flex items-center gap-x-4">
+      <div className="mt-4 flex flex-col gap-y-4 rounded-lg bg-darker p-5 text-white">
+        <Link href={href} className="flex items-center gap-x-3 txs:gap-x-4">
           <Image
             src={ProfileIcon}
             alt={media.username || alt}
             sizes="100vw"
             width={100}
             height={100}
-            className="w-12 rounded-full"
+            className="w-10 rounded-full txs:w-12"
           />
-          <h4 className="text-lg">{media.username || alt}</h4>
+          <h4 className="txs:text-lg">{media.username || alt}</h4>
         </Link>
         <div className="flex flex-col gap-y-4">
-          <p className="whitespace-pre-wrap">{media.caption}</p>
+          <p className="whitespace-pre-wrap text-sm txs:text-base">{media.caption}</p>
           <div className="flex items-center justify-between">
             <div className="flex items-end">
-              <HeartIcon className="size-8 text-pink-500" />
-              <span className="-ml-0.5 mb-1 text-xs">{media.likeCount}</span>
+              <HeartIcon className="size-7 text-pink-500 txs:size-8" />
+              <span className="-ml-0.5 mb-1 text-[10px] txs:text-xs">{media.likeCount}</span>
             </div>
-            <time dateTime={media.timestamp || ''} className="text-gray-500">
+            <time dateTime={media.timestamp || ''} className="text-sm text-gray-500 txs:text-base">
               {formattedDate}
             </time>
           </div>
