@@ -12,7 +12,7 @@ const MenuIcon: FC<Props> = ({ isOpen, setIsOpen }) => {
 
   return (
     <button
-      className="relative size-12 rounded-full bg-darkerGray flex-center xsm:size-14 md:bg-darker"
+      className="relative size-12 rounded-full bg-darkerGray flex-center txs:bg-darker xsm:size-14"
       type="button"
       onClick={handleClick}>
       <div className="group relative overflow-hidden">

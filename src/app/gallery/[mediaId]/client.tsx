@@ -20,17 +20,17 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
 
   return (
     <div className="relative min-h-screen w-full flex-col gap-y-10 overflow-y-scroll py-24 flex-center">
-      <div className="fixed left-4 top-4 xsm:left-8 xsm:top-8 lg:left-10">
+      <div className="absolute left-4 top-4 xsm:left-8 xsm:top-8 lg:left-10">
         <AnimatedArrowButton url="/gallery?intro=skipped" text="Back to Gallery" />
       </div>
-      <div className="flex gap-x-8">
+      <div className="mt-10 flex flex-col gap-x-8 gap-y-10 lg:mt-0 lg:flex-row">
         <div className="flex flex-col gap-y-6">
           <Carousel media={media} index={index} setIndex={setIndex} />
           {media.children && media.children.data.length && (
             <Thumbnails images={media.children} index={index} setIndex={setIndex} />
           )}
         </div>
-        <div className="w-full max-w-[350px]">
+        <div className="mx-auto w-full max-w-xl lg:max-w-[350px]">
           <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} />
         </div>
       </div>
