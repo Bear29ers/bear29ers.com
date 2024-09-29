@@ -27,12 +27,15 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
         </div>
         <div className="mt-10 flex flex-col gap-x-8 gap-y-10 lg:mt-0 lg:flex-row">
           <div className="flex flex-col gap-y-6">
+            {/* Carousel */}
             <Carousel media={media} index={index} setIndex={setIndex} />
+            {/* Thumbnails */}
             {media.children && media.children.data.length && (
               <Thumbnails images={media.children} index={index} setIndex={setIndex} />
             )}
           </div>
           <div className="mx-auto w-full max-w-xl lg:max-w-[350px]">
+            {/* Caption */}
             <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} />
           </div>
         </div>
