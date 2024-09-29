@@ -25,7 +25,7 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
         <div className="absolute left-4 top-4 xsm:left-8 xsm:top-8 lg:left-10">
           <AnimatedArrowButton url="/gallery?intro=skipped" text="Back to Gallery" />
         </div>
-        <div className="mt-10 flex flex-col gap-x-8 gap-y-10 lg:mt-0 lg:flex-row">
+        <div className="mt-10 flex flex-col gap-x-8 gap-y-10 px-1.5 sm:px-0 lg:mt-0 lg:flex-row">
           <div className="flex flex-col gap-y-6">
             {/* Carousel */}
             <Carousel media={media} index={index} setIndex={setIndex} />
