@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import type { Dispatch, SetStateAction, FC } from 'react';
+import { useEffect, useState } from 'react';
+import type { Dispatch, SetStateAction, FC, TouchEvent } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
 import { AnimatePresence, MotionConfig, motion, useMotionTemplate, useSpring } from 'framer-motion';
@@ -17,6 +17,30 @@ const Carousel: FC<Props> = ({ media, index, setIndex }) => {
   const x = index * 100;
   const xSpring = useSpring(x, { bounce: 0 });
   const xPercentage = useMotionTemplate`-${xSpring}%`;
+  const [touchPosition, setTouchPosition] = useState<number | null>(null);
+
+  const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
+    const touchDown = e.touches[0]?.clientX;
+    setTouchPosition(touchDown || null);
+  };
+
+  const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
+    const touchDown = touchPosition;
+    if (touchDown === null) return;
+
+    const currentTouch = e.touches[0]?.clientX || null;
+    if (currentTouch === null) return;
+
+    const diff = touchDown - currentTouch;
+
+    if (index > 0 && diff < -5) {
+      setIndex(index - 1);
+    } else if (media.children && index < media.children.data.length - 1 && diff > 5) {
+      setIndex(index + 1);
+    }
+
+    setTouchPosition(null);
+  };
 
   useEffect(() => {
     xSpring.set(x);
@@ -44,7 +68,10 @@ const Carousel: FC<Props> = ({ media, index, setIndex }) => {
     <MotionConfig transition={{ type: 'spring', bounce: 0 }}>
       <div className="flex h-full">
         <div className="relative w-full flex-center sm:w-[600px]">
-          <div className="w-full max-w-72 overflow-hidden xs:max-w-80 sm:max-w-[450px]">
+          <div
+            className="w-full max-w-72 overflow-hidden xs:max-w-80 sm:max-w-[450px]"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}>
             <motion.div style={{ x: xPercentage }} className="flex">
               {media.children?.data.map((item, i) => (
                 <motion.div
