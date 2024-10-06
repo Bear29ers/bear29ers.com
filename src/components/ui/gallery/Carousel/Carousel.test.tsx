@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MotionGlobalConfig } from 'framer-motion';
 
@@ -44,48 +45,98 @@ describe('src/components/ui/gallery/Carousel/Carousel.test.tsx', () => {
   };
 
   const mockSetIndex = jest.fn();
+  const mockSetTouchPosition = jest.fn();
 
-  let renderResult: RenderResult;
+  describe('when index props is 0', () => {
+    let renderResult: RenderResult;
+    beforeEach(() => {
+      renderResult = render(
+        <Carousel
+          media={mockMedia}
+          index={0}
+          touchPosition={0}
+          setIndex={mockSetIndex}
+          setTouchPosition={mockSetTouchPosition}
+        />
+      );
+    });
 
-  beforeEach(() => {
-    renderResult = render(<Carousel media={mockMedia} index={0} setIndex={mockSetIndex} />);
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should render the carousel with images', () => {
+      expect(screen.getAllByRole('img')).toHaveLength(3);
+    });
+
+    it('should show next button when not on last image', () => {
+      expect(screen.getByRole('button', { name: /chevron-right/i })).toBeInTheDocument();
+    });
+
+    it('should hide previous button when on first image', () => {
+      expect(screen.queryByRole('button', { name: /chevron-left/i })).not.toBeInTheDocument();
+    });
+
+    it('should call setIndex when next button is clicked', () => {
+      fireEvent.click(screen.getByRole('button', { name: /chevron-right/i }));
+      expect(mockSetIndex).toHaveBeenCalledWith(1);
+    });
+
+    it('should handle right arrow key press', () => {
+      fireEvent.keyDown(document, { key: 'ArrowRight' });
+      expect(mockSetIndex).toHaveBeenCalledWith(1);
+    });
+
+    it('should handle touch start event', () => {
+      const carouselWrapper = screen.getByTestId('carousel-wrapper');
+      expect(carouselWrapper).toBeInTheDocument();
+      fireEvent.touchStart(carouselWrapper, { touches: [{ clientX: 500 }] });
+      expect(mockSetTouchPosition).toHaveBeenCalledWith(500);
+    });
+
+    it('should handle touch move event to go to next image', () => {
+      const carouselWrapper = screen.getByTestId('carousel-wrapper');
+      expect(carouselWrapper).toBeInTheDocument();
+      fireEvent.touchStart(carouselWrapper, { touches: [{ clientX: 500 }] });
+      fireEvent.touchMove(carouselWrapper, { touches: [{ clientX: 400 }] });
+      expect(mockSetIndex).toHaveBeenCalledWith(1);
+    });
   });
 
-  afterEach(() => {
-    renderResult.unmount();
-  });
+  describe('when index props is more than 1', () => {
+    let renderResult: RenderResult;
+    beforeEach(() => {
+      renderResult = render(
+        <Carousel
+          media={mockMedia}
+          index={1}
+          touchPosition={0}
+          setIndex={mockSetIndex}
+          setTouchPosition={mockSetTouchPosition}
+        />
+      );
+    });
 
-  it('should render the carousel with images', () => {
-    expect(screen.getAllByRole('img')).toHaveLength(3);
-  });
+    afterEach(() => {
+      renderResult.unmount();
+    });
 
-  it('should show next button when not on last image', () => {
-    expect(screen.getByRole('button', { name: /chevron-right/i })).toBeInTheDocument();
-  });
+    it('should call setIndex when previous button is clicked', () => {
+      fireEvent.click(screen.getByRole('button', { name: /chevron-left/i }));
+      expect(mockSetIndex).toHaveBeenCalledWith(0);
+    });
 
-  it('should hide previous button when on first image', () => {
-    expect(screen.queryByRole('button', { name: /chevron-left/i })).not.toBeInTheDocument();
-  });
+    it('should handle left arrow key press', () => {
+      fireEvent.keyDown(document, { key: 'ArrowLeft' });
+      expect(mockSetIndex).toHaveBeenCalledWith(0);
+    });
 
-  it('should call setIndex when next button is clicked', () => {
-    fireEvent.click(screen.getByRole('button', { name: /chevron-right/i }));
-    expect(mockSetIndex).toHaveBeenCalledWith(1);
-  });
-
-  it('should handle right arrow key press', () => {
-    fireEvent.keyDown(document, { key: 'ArrowRight' });
-    expect(mockSetIndex).toHaveBeenCalledWith(1);
-  });
-
-  it('should call setIndex when previous button is clicked', () => {
-    renderResult = render(<Carousel media={mockMedia} index={1} setIndex={mockSetIndex} />);
-    fireEvent.click(screen.getByRole('button', { name: /chevron-left/i }));
-    expect(mockSetIndex).toHaveBeenCalledWith(0);
-  });
-
-  it('should handle left arrow key press', () => {
-    renderResult = render(<Carousel media={mockMedia} index={1} setIndex={mockSetIndex} />);
-    fireEvent.keyDown(document, { key: 'ArrowLeft' });
-    expect(mockSetIndex).toHaveBeenCalledWith(0);
+    it('should handle touch move event to go to previous image', () => {
+      const carouselWrapper = screen.getByTestId('carousel-wrapper');
+      expect(carouselWrapper).toBeInTheDocument();
+      fireEvent.touchStart(carouselWrapper, { touches: [{ clientX: 500 }] });
+      fireEvent.touchMove(carouselWrapper, { touches: [{ clientX: 600 }] });
+      expect(mockSetIndex).toHaveBeenCalledWith(0);
+    });
   });
 });
