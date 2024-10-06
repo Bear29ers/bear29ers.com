@@ -49,12 +49,20 @@ export const Default: Story = {
       id: '18033720356079349',
     },
     index: 0,
+    touchPosition: null,
     setIndex: () => {},
+    setTouchPosition: () => {},
   },
-  render: ({ media, index, setIndex }) => {
+  render: ({ media, index, touchPosition, setIndex, setTouchPosition }) => {
     return (
       <div className="relative min-h-screen w-full flex-col gap-y-10 overflow-y-scroll bg-dark flex-center">
-        <Carousel media={media} index={index} setIndex={setIndex} />
+        <Carousel
+          media={media}
+          index={index}
+          touchPosition={touchPosition}
+          setIndex={setIndex}
+          setTouchPosition={setTouchPosition}
+        />
       </div>
     );
   },

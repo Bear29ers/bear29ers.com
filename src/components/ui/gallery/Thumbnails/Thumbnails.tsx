@@ -18,7 +18,7 @@ interface Props {
 
 const Thumbnails: FC<Props> = ({ images, index, setIndex }) => {
   return (
-    <div className="flex h-40 justify-center">
+    <div className="flex h-20 justify-center xs:h-28 txs:h-32 xsm:h-40">
       <motion.div
         style={{
           aspectRatio: FULL_ASPECT_RATIO,
