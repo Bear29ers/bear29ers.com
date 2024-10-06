@@ -18,6 +18,7 @@ interface Props {
 
 const GalleryDetailClient: FC<Props> = ({ media }) => {
   const [index, setIndex] = useState<number>(0);
+  const [touchPosition, setTouchPosition] = useState<number | null>(null);
 
   return (
     <div className="relative min-h-screen w-full overflow-y-scroll text-white">
@@ -28,7 +29,13 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
         <div className="mt-10 flex flex-col gap-x-8 gap-y-10 px-1.5 sm:px-0 lg:mt-0 lg:flex-row">
           <div className="flex flex-col gap-y-6">
             {/* Carousel */}
-            <Carousel media={media} index={index} setIndex={setIndex} />
+            <Carousel
+              media={media}
+              index={index}
+              touchPosition={touchPosition}
+              setIndex={setIndex}
+              setTouchPosition={setTouchPosition}
+            />
             {/* Thumbnails */}
             {media.children && media.children.data.length && (
               <Thumbnails images={media.children} index={index} setIndex={setIndex} />

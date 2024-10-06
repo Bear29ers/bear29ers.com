@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import type { Dispatch, SetStateAction, FC, TouchEvent } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
@@ -10,14 +10,15 @@ import type { Media } from '@/types/media';
 interface Props {
   media: Media;
   index: number;
+  touchPosition: number | null;
   setIndex: Dispatch<SetStateAction<number>>;
+  setTouchPosition: Dispatch<SetStateAction<number | null>>;
 }
 
-const Carousel: FC<Props> = ({ media, index, setIndex }) => {
+const Carousel: FC<Props> = ({ media, index, touchPosition, setIndex, setTouchPosition }) => {
   const x = index * 100;
   const xSpring = useSpring(x, { bounce: 0 });
   const xPercentage = useMotionTemplate`-${xSpring}%`;
-  const [touchPosition, setTouchPosition] = useState<number | null>(null);
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     const touchDown = e.touches[0]?.clientX;
@@ -71,7 +72,8 @@ const Carousel: FC<Props> = ({ media, index, setIndex }) => {
           <div
             className="w-full max-w-72 overflow-hidden xs:max-w-80 sm:max-w-[450px]"
             onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}>
+            onTouchMove={handleTouchMove}
+            data-testid="carousel-wrapper">
             <motion.div style={{ x: xPercentage }} className="flex">
               {media.children?.data.map((item, i) => (
                 <motion.div
