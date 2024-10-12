@@ -59,11 +59,13 @@ const RootLayout = ({
 }: Readonly<{
   children: ReactNode;
 }>) => {
+  const pathname = headers().get('x-request-path') || '/';
+
   return (
     <html lang="en">
       <body
         className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat font-mont txs:bg-noise-pattern`}>
-        <Menu />
+        <Menu pathname={pathname} />
         {children}
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
