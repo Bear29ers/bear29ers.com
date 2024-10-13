@@ -4,6 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof Menu> = {
   component: Menu,
+  tags: ['autodocs'],
 };
 
 export default meta;
@@ -11,5 +12,8 @@ export default meta;
 type Story = StoryObj<typeof Menu>;
 
 export const Default: Story = {
-  render: () => <Menu />,
+  args: {
+    pathname: '/about',
+  },
+  render: ({ pathname }) => <Menu pathname={pathname} />,
 };

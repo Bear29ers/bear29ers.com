@@ -2,16 +2,17 @@
 
 import { useState, type FC } from 'react';
 
-import { usePathname } from 'next/navigation';
-
 import MenuIcon from '@/components/common/menus/MenuIcon/MenuIcon';
 import MenuWindow from '@/components/common/menus/MenuWindow/MenuWindow';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
-const Menu: FC = () => {
+interface Props {
+  pathname: string;
+}
+
+const Menu: FC<Props> = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const pathname = usePathname();
   const isMobile = useMediaQuery('(max-width: 540px)');
 
   return (
