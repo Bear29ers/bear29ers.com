@@ -9,7 +9,7 @@ describe('src/components/common/Menu/Menu.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<Menu />);
+    renderResult = render(<Menu pathname="/about" />);
   });
 
   afterEach(() => {
