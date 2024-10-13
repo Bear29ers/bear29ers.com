@@ -4,6 +4,11 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof AnimatedGallery> = {
   component: AnimatedGallery,
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+    },
+  },
   tags: ['autodocs'],
 };
 

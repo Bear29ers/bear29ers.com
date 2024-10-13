@@ -3,19 +3,19 @@ interface ChildrenData {
   id: string;
 }
 
-interface Children {
+export interface Children {
   data: ChildrenData[];
 }
 
-export interface MediaData {
-  caption: string;
-  children: Children;
+export interface Media {
+  caption?: string;
+  children?: Children;
   mediaUrl: string;
   mediaType: 'IMAGE' | 'VIDEO' | 'CAROUSEL_ALBUM';
-  permalink: string;
-  likeCount: number;
-  timestamp: string;
-  username: string;
+  permalink?: string;
+  likeCount?: number;
+  timestamp?: string;
+  username?: string;
   id: string;
 }
 
@@ -29,10 +29,6 @@ interface Paging {
 }
 
 export interface MediaEdge {
-  data: MediaData[];
+  data: Media[];
   paging?: Paging;
-}
-
-export interface Media {
-  media: MediaEdge;
 }

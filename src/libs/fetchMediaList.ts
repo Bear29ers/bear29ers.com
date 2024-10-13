@@ -1,20 +1,19 @@
 import { convertToCamelCase } from '@/utils/conversion/convertToCamelCase';
 
-import type { Media, MediaData, MediaEdge } from '@/types/media';
+import type { Media, MediaEdge } from '@/types/media';
 
 import fetchJson from './fetchJson';
 
-const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): Promise<MediaData[]> => {
+const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): Promise<Media[]> => {
   const baseUrl = process.env.GRAPH_API_BASE_URL;
   const instagramId = process.env.GRAPH_API_INSTAGRAM_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
-  const fields = 'media{caption,children{media_url},media_url,media_type,permalink,like_count,timestamp,username}';
+  const fields = 'media{media_url,media_type}';
   const endpoint = `${baseUrl}/${instagramId}?access_token=${accessToken}&fields=${fields}&since=${unixtime}`;
 
   try {
-    let allData: MediaData[] = [];
-    // const data = await fetchData(url);
-    const data = convertToCamelCase(await fetchJson<Media>(endpoint, next));
+    let allData: Media[] = [];
+    const data = convertToCamelCase(await fetchJson<{ media: MediaEdge }>(endpoint, next));
 
     if (data.media && Array.isArray(data.media.data)) {
       allData = allData.concat(data.media.data);

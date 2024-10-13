@@ -3,7 +3,7 @@
 import React from 'react';
 import type { FC } from 'react';
 
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 
 import AnimatedGallery from './AnimatedGallery';
@@ -36,6 +36,14 @@ jest.mock('framer-motion', () => {
   };
 });
 
+const routerPushMock = jest.fn();
+
+jest.mock('next/navigation', () => ({
+  useRouter: () => ({
+    push: routerPushMock,
+  }),
+}));
+
 describe('src/components/ui/gallery/AnimatedGallery/AnimatedGallery.test.tsx', () => {
   let renderResult: RenderResult;
   const mockProps = {
@@ -58,9 +66,18 @@ describe('src/components/ui/gallery/AnimatedGallery/AnimatedGallery.test.tsx', (
     expect(screen.getByRole('img')).toBeInTheDocument();
   });
 
-  it('should calls setState when animation completes', async () => {
+  it('should call setState when animation completes', async () => {
     await waitFor(() => {
       expect(mockProps.setState).toHaveBeenCalled();
     });
+  });
+
+  it('should call router.push when the image is clicked', async () => {
+    await waitFor(() => {
+      expect(mockProps.setState).toHaveBeenCalled();
+    });
+
+    fireEvent.click(screen.getByRole('img'));
+    expect(routerPushMock).toHaveBeenCalledWith('/gallery/1');
   });
 });

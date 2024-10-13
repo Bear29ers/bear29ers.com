@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import { zIndexList } from '@/constants/gallery';
 
-import type { MediaData } from '@/types/media';
+import type { Media } from '@/types/media';
 
 import FanningItem from '../FanningItem/FanningItem';
 
@@ -19,7 +19,7 @@ const variants = {
 };
 
 interface Props {
-  mediaList: MediaData[];
+  mediaList: Media[];
   maxWidth: string;
   initialY: number | string;
   styles: {
@@ -36,8 +36,9 @@ const FanningImages: FC<Props> = ({ mediaList, maxWidth, initialY, styles, setSt
       variants={variants}
       initial="initial"
       animate="animate"
-      onAnimationComplete={() => setState((prevState: boolean): boolean => !prevState)}>
-      {mediaList.map((media: MediaData, index: number) => (
+      onAnimationComplete={() => setState((prevState: boolean): boolean => !prevState)}
+      className="relative h-screen w-full">
+      {mediaList.map((media: Media, index: number) => (
         <FanningItem
           imageSrc={media.mediaUrl}
           layoutId={media.id}
@@ -45,7 +46,7 @@ const FanningImages: FC<Props> = ({ mediaList, maxWidth, initialY, styles, setSt
           zIndex={zIndexList[index]!}
           maxWidth={maxWidth}
           initialY={initialY}
-          key={media.timestamp}
+          key={media.id}
         />
       ))}
     </motion.div>
