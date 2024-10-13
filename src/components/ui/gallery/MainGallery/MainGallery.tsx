@@ -1,6 +1,10 @@
 import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const MotionLink = motion(Link);
 
 const variants = {
   initial: {
@@ -21,15 +25,14 @@ const viewport = {
 interface Props {
   imageSrc: string;
   id: string;
+  width: number;
   maxWidth: string;
 }
 
-const MainGallery: FC<Props> = ({ imageSrc, id, maxWidth }) => {
+const MainGallery: FC<Props> = ({ imageSrc, id, width, maxWidth }) => {
   return (
-    <motion.img
-      src={imageSrc}
-      alt={id}
-      className={`w-full cursor-pointer ${maxWidth}`}
+    <MotionLink
+      href={`/gallery/${id}`}
       transition={{
         duration: 0.8,
       }}
@@ -37,7 +40,17 @@ const MainGallery: FC<Props> = ({ imageSrc, id, maxWidth }) => {
       initial="initial"
       whileInView="animate"
       viewport={viewport}
-    />
+      prefetch
+      scroll={false}>
+      <Image
+        src={imageSrc}
+        alt={id}
+        className={`w-full ${maxWidth}`}
+        sizes="100vw"
+        width={width}
+        height={(width / 4) * 5}
+      />
+    </MotionLink>
   );
 };
 

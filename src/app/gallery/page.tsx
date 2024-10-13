@@ -8,7 +8,14 @@ import GalleryClient from './client';
 
 import type { NextPage } from 'next';
 
-const Gallery: NextPage = async () => {
+interface Props {
+  searchParams: {
+    intro?: 'skipped';
+  };
+}
+
+const Gallery: NextPage<Props> = async ({ searchParams }) => {
+  const isIntroSkipped = Boolean(searchParams.intro);
   const DATE = new Date('2024-05-01T12:00:00Z');
   const unixtime = Math.floor(DATE.getTime() / 1000);
   const mediaList = await fetchMediaList(unixtime, { revalidate: 1800 });
@@ -22,7 +29,12 @@ const Gallery: NextPage = async () => {
           <Preloader />
         </div>
       }>
-      <GalleryClient mediaList={mediaList} animatingMediaList={pickedMediaList} mainVisual={mediaData} />
+      <GalleryClient
+        mediaList={mediaList}
+        animatingMediaList={pickedMediaList}
+        mainVisual={mediaData}
+        isSkippedIntro={isIntroSkipped}
+      />
     </Suspense>
   );
 };
