@@ -38,6 +38,7 @@ const Modal: FC<Props> = ({ isOpen, setIsOpen, children }) => {
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
     <>
+      {/* TODO: z-indexの調整（アニメーション画像でz-indexを指定している箇所を見る） */}
       {isOpen && (
         <div className="fixed left-0 top-0 z-60 h-screen w-full bg-black/65">
           <div
