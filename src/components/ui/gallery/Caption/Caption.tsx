@@ -51,6 +51,14 @@ const Caption: FC<Props> = ({ media, href, alt }) => {
               {formattedDate}
             </time>
           </div>
+          <div className="flex-center">
+            <Link
+              href={media.permalink || '/gallery'}
+              target="_blank"
+              className="w-fit rounded-2xl border border-customRed-500 px-4 py-2 transition-colors hover:bg-customRed-500">
+              More on Instagram
+            </Link>
+          </div>
         </div>
       </div>
     </div>
