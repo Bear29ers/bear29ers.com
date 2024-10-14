@@ -12,9 +12,10 @@ interface Props {
   media: Media;
   href: string;
   alt: string;
+  index: number;
 }
 
-const Caption: FC<Props> = ({ media, href, alt }) => {
+const Caption: FC<Props> = ({ media, href, alt, index }) => {
   const date = media.timestamp ? new Date(media.timestamp) : new Date();
   const jstTime = date.toLocaleString('ja-JP', {
     timeZone: 'Asia/Tokyo',
@@ -53,7 +54,7 @@ const Caption: FC<Props> = ({ media, href, alt }) => {
           </div>
           <div className="flex-center">
             <Link
-              href={media.permalink || '/gallery'}
+              href={`${media.permalink}?img_index=${index + 1}` || '/gallery'}
               target="_blank"
               className="w-fit rounded-2xl border border-customRed-500 px-4 py-2 transition-colors hover:bg-customRed-500">
               More on Instagram
