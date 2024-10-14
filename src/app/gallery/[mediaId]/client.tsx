@@ -43,7 +43,7 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
           </div>
           <div className="mx-auto w-full max-w-xl lg:max-w-[350px]">
             {/* Caption */}
-            <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} />
+            <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} index={index} />
           </div>
         </div>
       </div>
