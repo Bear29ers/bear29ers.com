@@ -12,7 +12,12 @@ interface Props {
 
 const GalleryModalClient: FC<Props> = ({ media }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
-  return <Modal isOpen={isOpen} setIsOpen={setIsOpen} />;
+
+  return (
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+      <div className="rounded-md bg-white p-4">モーダル表示</div>
+    </Modal>
+  );
 };
 
 export default GalleryModalClient;

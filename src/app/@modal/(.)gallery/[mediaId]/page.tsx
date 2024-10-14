@@ -19,8 +19,12 @@ const GalleryModal: NextPage<Props> = async ({ params }) => {
   return (
     <Suspense
       fallback={
-        <div className="fixed flex h-screen w-full flex-center">
-          <Preloader />
+        <div className="fixed left-0 top-0 z-60 h-screen w-full bg-black/65">
+          <div className="relative left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 overflow-auto">
+            <div className="rounded-md bg-white p-4">
+              <Preloader />
+            </div>
+          </div>
         </div>
       }>
       <GalleryModalClient media={media} />
