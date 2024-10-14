@@ -30,7 +30,7 @@ const Caption: FC<Props> = ({ media, href, alt, index }) => {
   return (
     <div>
       <div className="mt-4 flex flex-col gap-y-4 rounded-lg bg-darker p-5 text-white">
-        <Link href={href} className="flex items-center gap-x-3 txs:gap-x-4">
+        <Link href={href} className="flex items-center gap-x-3 txs:gap-x-4" data-testid="profile-link">
           <Image
             src={ProfileIcon}
             alt={media.username || alt}
