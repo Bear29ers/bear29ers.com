@@ -56,7 +56,7 @@ const Caption: FC<Props> = ({ media, href, alt, index }) => {
             <Link
               href={`${media.permalink}?img_index=${index + 1}` || '/gallery'}
               target="_blank"
-              className="w-fit rounded-2xl border border-customRed-500 px-4 py-2 transition-colors hover:bg-customRed-500">
+              className="w-fit rounded-2xl border border-customRed-500 px-4 py-2 text-sm transition-colors hover:bg-customRed-500 txs:text-base">
               More on Instagram
             </Link>
           </div>
