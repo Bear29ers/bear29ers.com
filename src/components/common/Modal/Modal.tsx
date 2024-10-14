@@ -1,16 +1,22 @@
-import { useRef, type Dispatch, type FC, type SetStateAction, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
+import type { ReactNode, Dispatch, FC, SetStateAction } from 'react';
+
+import { useRouter } from 'next/navigation';
 
 interface Props {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
+  children: ReactNode;
 }
 
-const Modal: FC<Props> = ({ isOpen, setIsOpen }) => {
+const Modal: FC<Props> = ({ isOpen, setIsOpen, children }) => {
+  const router = useRouter();
   const modalRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && !(modalRef.current as HTMLElement).contains(event.target as Node)) {
+        router.back();
         setIsOpen(false);
       }
     };
@@ -19,7 +25,7 @@ const Modal: FC<Props> = ({ isOpen, setIsOpen }) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [modalRef, setIsOpen]);
+  }, [modalRef, setIsOpen, router]);
 
   useEffect(() => {
     if (isOpen) {
@@ -37,7 +43,7 @@ const Modal: FC<Props> = ({ isOpen, setIsOpen }) => {
           <div
             ref={modalRef}
             className="relative left-1/2 top-1/2 w-fit -translate-x-1/2 -translate-y-1/2 overflow-auto">
-            <div className="bg-white p-4">モーダルの中身をここに書く</div>
+            {children}
           </div>
         </div>
       )}
