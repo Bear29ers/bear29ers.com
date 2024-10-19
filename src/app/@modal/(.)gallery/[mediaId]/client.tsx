@@ -22,8 +22,8 @@ const GalleryModalClient: FC<Props> = ({ media }) => {
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
-      <div className="rounded-md bg-darkerGray p-4">
-        <div className="flex-col gap-y-10 overflow-y-auto flex-center">
+      <div className="mx-auto h-[80vh] w-fit overflow-y-auto rounded-md bg-darkerGray px-4 py-8 sm:h-[95vh] lg:py-4 xl:h-full">
+        <div className="flex-col gap-y-10 flex-center">
           <div className="flex flex-col gap-x-8 gap-y-10 px-1.5 sm:px-0 lg:mt-0 lg:flex-row">
             <div className="flex flex-col gap-y-6">
               {/* Carousel */}
