@@ -3,6 +3,8 @@ import type { ReactNode, Dispatch, FC, SetStateAction } from 'react';
 
 import { useRouter } from 'next/navigation';
 
+import useModalScrollLock from '@/hooks/useModalScrollLock/useModalScrollLock';
+
 interface Props {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
@@ -27,13 +29,7 @@ const Modal: FC<Props> = ({ isOpen, setIsOpen, children }) => {
     };
   }, [modalRef, setIsOpen, router]);
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.classList.add('overflow-hidden');
-    } else {
-      document.body.classList.remove('overflow-hidden');
-    }
-  }, [isOpen]);
+  useModalScrollLock(isOpen);
 
   return (
     // eslint-disable-next-line react/jsx-no-useless-fragment
