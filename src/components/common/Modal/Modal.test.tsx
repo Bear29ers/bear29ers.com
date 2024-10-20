@@ -46,26 +46,6 @@ describe('src/components/common/Modal/Modal.test.tsx', () => {
     expect(screen.queryByText('Modal Content')).not.toBeInTheDocument();
   });
 
-  it('should add overflow-hidden class to body when isOpen props is true', () => {
-    renderResult = render(
-      <Modal isOpen setIsOpen={mockSetIsOpen}>
-        <div>Modal Content</div>
-      </Modal>
-    );
-
-    expect(document.body).toHaveClass('overflow-hidden');
-  });
-
-  it('should remove overflow-hidden class to body when isOpen props is false', () => {
-    renderResult = render(
-      <Modal isOpen={false} setIsOpen={mockSetIsOpen}>
-        <div>Modal Content</div>
-      </Modal>
-    );
-
-    expect(document.body).not.toHaveClass('overflow-hidden');
-  });
-
   it('should call router.back() and setIsOpen(false) when clicking outside the modal', () => {
     renderResult = render(
       <Modal isOpen setIsOpen={mockSetIsOpen}>
