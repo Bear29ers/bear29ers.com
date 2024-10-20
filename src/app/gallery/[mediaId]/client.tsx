@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type FC } from 'react';
+import { useState, type FC, useEffect } from 'react';
 
 import AnimatedArrowButton from '@/components/common/AnimatedArrowButton/AnimatedArrowButton';
 import Footer from '@/components/layout/Footer/Footer';
@@ -19,6 +19,10 @@ interface Props {
 const GalleryDetailClient: FC<Props> = ({ media }) => {
   const [index, setIndex] = useState<number>(0);
   const [touchPosition, setTouchPosition] = useState<number | null>(null);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <div className="relative min-h-screen w-full overflow-y-scroll text-white">

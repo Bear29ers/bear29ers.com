@@ -20,19 +20,10 @@ export const Default: Story = {
   args: {
     layoutId: '18033720356079349',
     imageSrc: '/images/example/image-1.jpg',
-    zIndex: 'z-[1]',
     maxWidth: 'max-w-72',
     setState: () => {},
   },
-  render: ({ layoutId, imageSrc, zIndex, maxWidth, setState }) => {
-    return (
-      <AnimatedGallery
-        layoutId={layoutId}
-        imageSrc={imageSrc}
-        zIndex={zIndex}
-        maxWidth={maxWidth}
-        setState={setState}
-      />
-    );
+  render: ({ layoutId, imageSrc, maxWidth, setState }) => {
+    return <AnimatedGallery layoutId={layoutId} imageSrc={imageSrc} maxWidth={maxWidth} setState={setState} />;
   },
 };

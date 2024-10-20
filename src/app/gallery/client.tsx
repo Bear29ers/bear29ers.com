@@ -157,6 +157,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, i
                       maxWidth="mlg:max-w-[400px] md:max-w-[350px] xsm:max-w-[200px] max-w-[180px]"
                       initialY={fanningInitialY}
                       styles={fanningStyleList}
+                      zIndexList={zIndexList}
                       setState={setIsCompletedFanning}
                     />
                   </>
@@ -170,7 +171,6 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, i
                     <AnimatedGallery
                       layoutId={media.id}
                       imageSrc={media.mediaUrl}
-                      zIndex={zIndexList[index]!}
                       maxWidth={galleryItemMaxWidth}
                       key={media.id}
                       setState={index === animatingMediaList.length - 1 ? setIsFullyGallerySet : undefined}
