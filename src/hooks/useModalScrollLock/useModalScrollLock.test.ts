@@ -1,3 +1,4 @@
+/* eslint-disable jest-dom/prefer-to-have-style */
 import { renderHook } from '@testing-library/react';
 
 import useModalScrollLock from './useModalScrollLock';
@@ -54,6 +55,60 @@ describe('src/hooks/useModalScrollLock/useModalScrollLock', () => {
     expect(document.body).toHaveStyle({ paddingInlineEnd: `${expectedScrollBarWidth}px` });
   });
 
+  it('should handle toggling the modal open and closed', () => {
+    const { rerender } = renderHook(({ isOpen }) => useModalScrollLock(isOpen), {
+      initialProps: { isOpen: false },
+    });
+
+    // Initially, the modal is closed, so no scroll lock
+    expect(document.body).toHaveStyle({ position: '' });
+
+    // Re-open the modal, applying the scroll lock
+    rerender({ isOpen: true });
+    expect(document.body).toHaveStyle({ position: 'fixed' });
+
+    // Close the modal again, removing the scroll lock
+    rerender({ isOpen: false });
+    expect(document.body).toHaveStyle({ position: '' });
+  });
+
+  it('should not apply vertical-specific styles in horizontal writing mode', () => {
+    jest.spyOn(window, 'getComputedStyle').mockReturnValue({
+      getPropertyValue: (prop: string) => {
+        if (prop === 'writingMode') {
+          return 'horizontal-tb'; // Mock horizontal writing mode
+        }
+        return '';
+      },
+      writingMode: 'horizontal-tb', // Ensure writingMode is set properly
+    } as CSSStyleDeclaration);
+
+    renderHook(() => useModalScrollLock(true));
+
+    // Ensure it does not apply vertical-specific styles
+    expect(document.body).not.toHaveStyle({ paddingInlineEnd: '100px' });
+  });
+
+  it('should remove scroll lock and restore scroll when hook is deactivated', () => {
+    const { rerender, unmount } = renderHook(({ isOpen }) => useModalScrollLock(isOpen), {
+      initialProps: { isOpen: true },
+    });
+
+    // Initially, the modal is open, so the scroll lock is applied
+    expect(document.body.style.position).toBe('fixed');
+
+    // When the hook is deactivated, it should clean up
+    rerender({ isOpen: false });
+    expect(document.body).toHaveStyle({ position: '' });
+
+    // Ensure scroll restoration is called
+    expect(global.scrollTo).toHaveBeenCalled();
+
+    // Additional test: Unmount and check cleanup
+    unmount();
+    expect(document.body).toHaveStyle({ position: '' });
+  });
+
   describe('vertical writing mode', () => {
     beforeEach(() => {
       // Mock window.getComputedStyle to return a CSSStyleDeclaration object with writingMode
@@ -93,7 +148,7 @@ describe('src/hooks/useModalScrollLock/useModalScrollLock', () => {
 
       // Positive scrollbar size for vertical mode
       const expectedScrollBarHeight = window.innerHeight - document.body.clientHeight;
-      // eslint-disable-next-line jest-dom/prefer-to-have-style
+
       expect(document.body.style.paddingInlineEnd).toBe(`${expectedScrollBarHeight}px`);
     });
   });
