@@ -49,7 +49,6 @@ describe('src/components/ui/gallery/AnimatedGallery/AnimatedGallery.test.tsx', (
   const mockProps = {
     layoutId: '1',
     imageSrc: 'image-1.jpg',
-    zIndex: 'z-[1]',
     maxWidth: 'max-w-72',
     setState: jest.fn(),
   };

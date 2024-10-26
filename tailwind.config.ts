@@ -106,6 +106,9 @@ const config: Config = {
           rgba(255, 255, 255, 0) 100%
         )`,
       },
+      zIndex: {
+        '60': '60',
+      },
       transformOrigin: {
         '70': '70% 70%',
       },

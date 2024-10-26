@@ -50,11 +50,12 @@ export const Default: Story = {
     },
     href: 'https://www.instagram.com/bear29ers/',
     alt: 'bear29ers',
+    index: 0,
   },
-  render: ({ media, href, alt }) => {
+  render: ({ media, href, alt, index }) => {
     return (
       <div className="w-full max-w-[400px]">
-        <Caption media={media} href={href} alt={alt} />;
+        <Caption media={media} href={href} alt={alt} index={index} />;
       </div>
     );
   },
