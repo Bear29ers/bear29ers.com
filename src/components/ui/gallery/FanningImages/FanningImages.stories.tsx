@@ -69,15 +69,17 @@ export const Default: Story = {
         rotate: 5,
       },
     ],
+    zIndexList: ['z-[2]', 'z-[1]'],
     setState: () => {},
   },
-  render: ({ mediaList, maxWidth, initialY, styles, setState }) => {
+  render: ({ mediaList, maxWidth, initialY, styles, zIndexList, setState }) => {
     return (
       <FanningImages
         mediaList={mediaList}
         maxWidth={maxWidth}
         initialY={initialY}
         styles={styles}
+        zIndexList={zIndexList}
         setState={setState}
       />
     );

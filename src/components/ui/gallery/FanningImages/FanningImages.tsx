@@ -2,8 +2,6 @@ import type { Dispatch, FC, SetStateAction } from 'react';
 
 import { motion } from 'framer-motion';
 
-import { zIndexList } from '@/constants/gallery';
-
 import type { Media } from '@/types/media';
 
 import FanningItem from '../FanningItem/FanningItem';
@@ -27,10 +25,11 @@ interface Props {
     y: number;
     rotate: number;
   }[];
+  zIndexList: string[];
   setState: Dispatch<SetStateAction<boolean>>;
 }
 
-const FanningImages: FC<Props> = ({ mediaList, maxWidth, initialY, styles, setState }) => {
+const FanningImages: FC<Props> = ({ mediaList, maxWidth, initialY, styles, zIndexList, setState }) => {
   return (
     <motion.div
       variants={variants}
