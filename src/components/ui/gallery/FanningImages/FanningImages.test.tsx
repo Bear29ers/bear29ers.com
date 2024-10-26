@@ -117,6 +117,7 @@ describe('src/components/ui/gallery/FanningImages/FanningImages.test.tsx', () =>
       { x: '-60%', y: 0, rotate: -5 },
       { x: '-40%', y: 0, rotate: 5 },
     ],
+    zIndexList: ['z-[2]', 'z-[1]'],
     setState: jest.fn(),
   };
 
