@@ -56,8 +56,10 @@ export const viewport: Viewport = {
 
 const RootLayout = ({
   children,
+  modal,
 }: Readonly<{
   children: ReactNode;
+  modal: ReactNode;
 }>) => {
   const pathname = headers().get('x-request-path') || '/';
 
@@ -67,6 +69,7 @@ const RootLayout = ({
         className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat font-mont txs:bg-noise-pattern`}>
         <Menu pathname={pathname} />
         {children}
+        {modal}
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
     </html>

@@ -12,9 +12,10 @@ interface Props {
   media: Media;
   href: string;
   alt: string;
+  index: number;
 }
 
-const Caption: FC<Props> = ({ media, href, alt }) => {
+const Caption: FC<Props> = ({ media, href, alt, index }) => {
   const date = media.timestamp ? new Date(media.timestamp) : new Date();
   const jstTime = date.toLocaleString('ja-JP', {
     timeZone: 'Asia/Tokyo',
@@ -29,7 +30,7 @@ const Caption: FC<Props> = ({ media, href, alt }) => {
   return (
     <div>
       <div className="mt-4 flex flex-col gap-y-4 rounded-lg bg-darker p-5 text-white">
-        <Link href={href} className="flex items-center gap-x-3 txs:gap-x-4">
+        <Link href={href} className="flex items-center gap-x-3 txs:gap-x-4" data-testid="profile-link">
           <Image
             src={ProfileIcon}
             alt={media.username || alt}
@@ -50,6 +51,14 @@ const Caption: FC<Props> = ({ media, href, alt }) => {
             <time dateTime={media.timestamp || ''} className="text-sm text-gray-500 txs:text-base">
               {formattedDate}
             </time>
+          </div>
+          <div className="flex-center">
+            <Link
+              href={`${media.permalink}?img_index=${index + 1}`}
+              target="_blank"
+              className="w-fit rounded-2xl border border-customRed-500 px-4 py-2 text-sm transition-colors hover:bg-customRed-500 txs:text-base">
+              More on Instagram
+            </Link>
           </div>
         </div>
       </div>
