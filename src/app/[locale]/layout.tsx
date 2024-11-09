@@ -2,11 +2,15 @@ import type { ReactNode } from 'react';
 
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { headers } from 'next/headers';
+import { notFound } from 'next/navigation';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages } from 'next-intl/server';
 
 import Menu from '@/components/common/Menu/Menu';
 
 import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
 
+import { routing } from '@/i18n/routing';
 import { montserrat } from '@/styles/fonts';
 
 import type { Metadata, Viewport } from 'next';
@@ -54,26 +58,40 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
-const RootLayout = ({
+const LocaleLayout = async ({
   children,
   modal,
+  params: { locale },
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
+  params: { locale: string };
 }>) => {
   const pathname = headers().get('x-request-path') || '/';
 
+  // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat font-mont txs:bg-noise-pattern`}>
-        <Menu pathname={pathname} />
-        {children}
-        {modal}
-        <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
+        <NextIntlClientProvider messages={messages}>
+          <Menu pathname={pathname} />
+          {children}
+          {modal}
+          <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
 };
 
-export default RootLayout;
+export default LocaleLayout;

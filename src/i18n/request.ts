@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
@@ -8,7 +9,8 @@ import { routing } from './routing';
 export default getRequestConfig(async ({ requestLocale }) => {
   let locale = await requestLocale;
 
-  if (!locale || !routing.locales.includes(locale)) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  if (!locale || !routing.locales.includes(locale as any)) {
     locale = routing.defaultLocale;
   }
 
