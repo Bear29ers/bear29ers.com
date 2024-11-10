@@ -22,16 +22,6 @@ export const middleware = (request: NextRequest): NextResponse<unknown> => {
   response.headers.set('x-request-url', url);
   response.headers.set('x-request-path', pathname);
 
-  // const requestHeaders = new Headers(headers);
-  // requestHeaders.set('x-request-url', url);
-  // requestHeaders.set('x-request-path', pathname);
-
-  // const res = NextResponse.next({
-  //   request: {
-  //     headers: requestHeaders,
-  //   },
-  // });
-
   return response;
 };
 
@@ -39,5 +29,5 @@ export default createMiddleware(routing);
 
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(ja|en)/:path*', '/((?!_next|_vercel|.*\\..*).*)'],
+  matcher: ['/', '/(ja|en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
 };
