@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 export const USIcon: FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="USIcon">
       <rect width={240} height={192} x={8} y={32} fill="#fff" rx={32} ry={32} />
       <path
         fill="#a62842"
@@ -28,7 +28,7 @@ export const USIcon: FC = () => {
 
 export const JapanIcon: FC = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="JapanIcon">
       <rect width={240} height={192} x={8} y={32} fill="#fff" rx={32} ry={32} />
       <path
         d="M216 32H40a32 32 0 0 0-32 32v128a32 32 0 0 0 32 32h176a32 32 0 0 0 32-32V64a32 32 0 0 0-32-32Zm24 160c0 13.232-10.768 24-24 24H40c-13.232 0-24-10.768-24-24V64c0-13.232 10.768-24 24-24h176c13.232 0 24 10.768 24 24v128Z"
