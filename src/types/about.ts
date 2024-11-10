@@ -3,9 +3,8 @@ import type { FC } from 'react';
 import type { StaticImageData } from 'next/image';
 
 export interface ProfileText {
-  fullName: string;
   userName: string;
-  greeting: string;
+  occupation: string;
   shortGreeting: string;
   title: string;
   biographyList: {
@@ -17,7 +16,6 @@ export interface ProfileText {
 
 export interface ProfileDetail {
   type: string;
-  content: string;
   icon: FC;
 }
 

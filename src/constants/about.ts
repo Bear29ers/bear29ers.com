@@ -8,9 +8,8 @@ import giants from '~/images/teams/giants.png';
 import yankees from '~/images/teams/yankees.png';
 
 export const PROFILE_TEXT: ProfileText = {
-  fullName: 'Yuta Okuma',
   userName: 'Bear29ers',
-  greeting: "Hi, I'm Yuta. Nice to see you!!",
+  occupation: 'Frontend Developer & Designer',
   shortGreeting: "Hi, there, I'm Yuta",
   title: "I'm a front-end developer and designer!!",
   biographyList: [
@@ -45,17 +44,14 @@ export const PROFILE_TEXT: ProfileText = {
 export const PROFILE_DETAILS: ProfileDetail[] = [
   {
     type: 'organization',
-    content: 'Gakken LEAP Co.,Ltd',
     icon: OrganizationIcon,
   },
   {
     type: 'location',
-    content: 'Tokyo, Japan',
     icon: LocationIcon,
   },
   {
     type: 'website',
-    content: 'https://bear29ers.com',
     icon: WebsiteIcon,
   },
 ];

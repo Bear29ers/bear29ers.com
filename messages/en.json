@@ -5,5 +5,13 @@
     "/experience": "/experience",
     "/gallery": "/gallery",
     "/works": "/works"
+  },
+  "about": {
+    "fullName": "Yuta Okuma",
+    "organization": "Gakken LEAP Co.,Ltd",
+    "location": "Tokyo, Japan",
+    "website": "https://bear29ers.com",
+    "links": "Links",
+    "favoriteTeams": "Favorite Teams"
   }
 }

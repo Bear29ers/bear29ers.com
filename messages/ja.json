@@ -5,5 +5,13 @@
     "/experience": "/ja/experience",
     "/gallery": "/ja/gallery",
     "/works": "/ja/works"
+  },
+  "about": {
+    "fullName": "大熊 悠太",
+    "organization": "株式会社Gakken LEAP",
+    "location": "日本, 東京",
+    "website": "https://bear29ers.com",
+    "links": "リンク",
+    "favoriteTeams": "好きなチーム"
   }
 }
