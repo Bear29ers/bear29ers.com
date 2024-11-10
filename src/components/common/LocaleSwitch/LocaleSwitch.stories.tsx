@@ -11,5 +11,9 @@ export default meta;
 type Story = StoryObj<typeof LocaleSwitch>;
 
 export const Default: Story = {
-  render: () => <LocaleSwitch />,
+  render: () => (
+    <div className="h-screen w-screen bg-dark p-4">
+      <LocaleSwitch />
+    </div>
+  ),
 };

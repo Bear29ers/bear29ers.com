@@ -46,9 +46,10 @@ interface Props {
   isOpen: boolean;
   isMobile: boolean;
   pathname: string;
+  locale: string;
 }
 
-const MenuWindow: FC<Props> = ({ isOpen, isMobile, pathname }) => {
+const MenuWindow: FC<Props> = ({ isOpen, isMobile, pathname, locale }) => {
   return (
     <motion.div
       layout
@@ -58,7 +59,7 @@ const MenuWindow: FC<Props> = ({ isOpen, isMobile, pathname }) => {
       style={{ borderRadius: 30 }}
       className="relative h-[500px] w-[310px] bg-darkerGray xsm:h-[650px] xsm:w-[500px] md:bg-darker"
       data-testid="menu-window">
-      <AnimatePresence>{isOpen && <MenuList pathname={pathname} />}</AnimatePresence>
+      <AnimatePresence>{isOpen && <MenuList pathname={pathname} locale={locale} />}</AnimatePresence>
     </motion.div>
   );
 };

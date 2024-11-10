@@ -11,6 +11,8 @@ import getIconComponent from '@/utils/getIconComponent';
 import type { MenuItem } from '@/types/menuItems';
 import type { SocialMedia } from '@/types/socialMedia';
 
+import LocaleSwitch from '../../LocaleSwitch/LocaleSwitch';
+
 // TODO: すべてリンクが有効になったらvariatnsを修正する（whileHoverやwhileTapもvariantsに含める）
 const activeMenuVariants = {
   initial: {
@@ -76,13 +78,14 @@ const socialVariants = {
 
 interface Props {
   pathname: string;
+  locale: string;
 }
 
-const MenuList: FC<Props> = ({ pathname }) => {
+const MenuList: FC<Props> = ({ pathname, locale }) => {
   const t = useTranslations('menu');
 
   return (
-    <div className="relative h-full flex-col flex-center">
+    <div className="relative h-full flex-col gap-y-12 flex-center">
       <div className="flex w-fit flex-col items-start gap-y-5">
         {MENU_ITEMS.map((menuItem: MenuItem, i: number) => (
           <div key={menuItem.id}>
@@ -106,7 +109,7 @@ const MenuList: FC<Props> = ({ pathname }) => {
           </div>
         ))}
       </div>
-      <div className="flex items-center gap-x-6 pt-20">
+      <div className="flex items-center gap-x-6">
         {SOCIAL_MEDIA_LIST.map((socialMedia: SocialMedia, i: number) => (
           <motion.a
             href={socialMedia.href}
@@ -125,6 +128,7 @@ const MenuList: FC<Props> = ({ pathname }) => {
           </motion.a>
         ))}
       </div>
+      <LocaleSwitch locale={locale} />
     </div>
   );
 };
