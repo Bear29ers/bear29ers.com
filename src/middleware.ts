@@ -8,12 +8,16 @@ export const middleware = (request: NextRequest): NextResponse<unknown> => {
   const { headers, url, nextUrl } = request;
   let { pathname } = nextUrl;
 
+  const defaultLocale = headers.get('x-request-locale') || 'en';
+
   // if pathname includes 'gallery', replace it with '/gallery'
   if (pathname.includes('gallery')) {
-    pathname = '/gallery';
+    if (pathname.includes('ja')) {
+      pathname = '/ja/gallery';
+    } else {
+      pathname = '/gallery';
+    }
   }
-
-  const defaultLocale = headers.get('x-request-locale') || 'en';
 
   const handleI18nRouting = createMiddleware(routing);
   const response = handleI18nRouting(request);
