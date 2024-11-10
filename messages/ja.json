@@ -1,6 +1,9 @@
 {
-  "Home": {
-    "title": "こんにちは、世界！",
-    "about": "Aboutページへ行く"
+  "menu": {
+    "/": "/ja",
+    "/about": "/ja/about",
+    "/experience": "/ja/experience",
+    "/gallery": "/ja/gallery",
+    "/works": "/ja/works"
   }
 }
