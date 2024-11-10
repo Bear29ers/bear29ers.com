@@ -1,6 +1,9 @@
 {
-  "Home": {
-    "title": "Hello World!",
-    "about": "Go to the about page"
+  "menu": {
+    "/": "/",
+    "/about": "/about",
+    "/experience": "/experience",
+    "/gallery": "/gallery",
+    "/works": "/works"
   }
 }

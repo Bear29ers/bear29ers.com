@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
@@ -78,6 +79,8 @@ interface Props {
 }
 
 const MenuList: FC<Props> = ({ pathname }) => {
+  const t = useTranslations('menu');
+
   return (
     <div className="relative h-full flex-col flex-center">
       <div className="flex w-fit flex-col items-start gap-y-5">
@@ -93,10 +96,12 @@ const MenuList: FC<Props> = ({ pathname }) => {
               whileTap={{ scale: menuItem.isAvaliable ? 0.9 : 1.0 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               className="text-3xl font-bold text-white xsm:text-5xl">
-              <a href={menuItem.href} className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
+              <a
+                href={t(menuItem.href)}
+                className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
               </a>
-              {menuItem.href === pathname && <span className="ml-1 text-customRed-500">.</span>}
+              {t(menuItem.href) === pathname && <span className="ml-1 text-customRed-500">.</span>}
             </motion.div>
           </div>
         ))}
