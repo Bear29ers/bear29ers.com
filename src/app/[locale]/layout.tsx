@@ -87,8 +87,8 @@ const LocaleLayout = async ({
           <Menu pathname={pathname} />
           {children}
           {modal}
-          <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
         </NextIntlClientProvider>
+        <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
     </html>
   );
