@@ -11,7 +11,7 @@ import Menu from '@/components/common/Menu/Menu';
 import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
 
 import { routing } from '@/i18n/routing';
-import { montserrat } from '@/styles/fonts';
+import { montserrat, murecho } from '@/styles/fonts';
 import type { Locale } from '@/types/locale';
 
 import type { Metadata, Viewport } from 'next';
@@ -82,9 +82,9 @@ const LocaleLayout = async ({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={`${montserrat.variable} ${murecho.variable}`}>
       <body
-        className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat font-mont txs:bg-noise-pattern`}>
+        className={`relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat txs:bg-noise-pattern ${locale === 'en' ? 'font-mont' : 'font-murecho'}`}>
         <NextIntlClientProvider messages={messages}>
           <Menu pathname={pathname} locale={locale} />
           {children}
