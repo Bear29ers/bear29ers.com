@@ -84,7 +84,7 @@ const LocaleLayout = async ({
   return (
     <html lang={locale} className={`${montserrat.variable} ${murecho.variable}`}>
       <body
-        className={`relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat txs:bg-noise-pattern ${locale === 'en' ? 'font-mont' : 'font-murecho'}`}>
+        className={`relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat txs:bg-noise-pattern ${locale === 'en' ? 'font-mont' : 'font-murecho tracking-wider'}`}>
         <NextIntlClientProvider messages={messages}>
           <Menu pathname={pathname} locale={locale} />
           {children}
