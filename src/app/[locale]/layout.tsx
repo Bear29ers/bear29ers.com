@@ -12,6 +12,7 @@ import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
 
 import { routing } from '@/i18n/routing';
 import { montserrat } from '@/styles/fonts';
+import type { Locale } from '@/types/locale';
 
 import type { Metadata, Viewport } from 'next';
 
@@ -65,7 +66,7 @@ const LocaleLayout = async ({
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
-  params: { locale: string };
+  params: { locale: Locale };
 }>) => {
   const pathname = headers().get('x-request-path') || '/';
 

@@ -2,6 +2,8 @@ import type { FC } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
+import type { Locale } from '@/types/locale';
+
 import MenuList from '../MenuList/MenuList';
 
 const getVariants = (isMobile: boolean) => {
@@ -46,7 +48,7 @@ interface Props {
   isOpen: boolean;
   isMobile: boolean;
   pathname: string;
-  locale: string;
+  locale: Locale;
 }
 
 const MenuWindow: FC<Props> = ({ isOpen, isMobile, pathname, locale }) => {

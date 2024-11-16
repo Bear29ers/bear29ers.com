@@ -7,9 +7,11 @@ import MenuWindow from '@/components/common/menus/MenuWindow/MenuWindow';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
+import type { Locale } from '@/types/locale';
+
 interface Props {
   pathname: string;
-  locale: string;
+  locale: Locale;
 }
 
 const Menu: FC<Props> = ({ pathname, locale }) => {
