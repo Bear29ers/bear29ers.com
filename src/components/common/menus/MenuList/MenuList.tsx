@@ -8,6 +8,7 @@ import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
 
 import getIconComponent from '@/utils/getIconComponent';
 
+import type { Locale } from '@/types/locale';
 import type { MenuItem } from '@/types/menuItems';
 import type { SocialMedia } from '@/types/socialMedia';
 
@@ -78,7 +79,7 @@ const socialVariants = {
 
 interface Props {
   pathname: string;
-  locale: string;
+  locale: Locale;
 }
 
 const MenuList: FC<Props> = ({ pathname, locale }) => {
