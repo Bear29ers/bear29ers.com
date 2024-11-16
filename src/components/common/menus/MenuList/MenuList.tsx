@@ -148,21 +148,23 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
           </motion.a>
         ))}
       </div>
-      <motion.div className="flex items-center gap-x-4">
-        {LOCALE_ITEMS.map((localeItem: LocaleItem, i: number) => (
-          <motion.div
-            variants={localeSwitchVariants}
-            initial="initial"
-            custom={i}
-            animate="enter"
-            exit="exit"
-            key={localeItem.locale}>
-            <LocaleSwitch globalLocale={locale} locale={localeItem.locale}>
-              <localeItem.icon />
-            </LocaleSwitch>
-          </motion.div>
-        ))}
-      </motion.div>
+      {!pathname.includes('gallery') && (
+        <motion.div className="flex items-center gap-x-4">
+          {LOCALE_ITEMS.map((localeItem: LocaleItem, i: number) => (
+            <motion.div
+              variants={localeSwitchVariants}
+              initial="initial"
+              custom={i}
+              animate="enter"
+              exit="exit"
+              key={localeItem.locale}>
+              <LocaleSwitch globalLocale={locale} locale={localeItem.locale}>
+                <localeItem.icon />
+              </LocaleSwitch>
+            </motion.div>
+          ))}
+        </motion.div>
+      )}
     </div>
   );
 };
