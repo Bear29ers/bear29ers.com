@@ -1,4 +1,9 @@
 {
+  "meta": {
+    "description": "This portfolio website operates as a place for me to experiment with cutting-edge technologies as a front-end engineer and showcase my projects.",
+    "locale": "en_US"
+  },
+
   "menu": {
     "/": "/",
     "/about": "/about",
