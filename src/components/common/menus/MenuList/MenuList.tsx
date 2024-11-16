@@ -3,12 +3,13 @@ import type { FC } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 
+import { LOCALE_ITEMS } from '@/constants/locale';
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
 
 import getIconComponent from '@/utils/getIconComponent';
 
-import type { Locale } from '@/types/locale';
+import type { Locale, LocaleItem } from '@/types/locale';
 import type { MenuItem } from '@/types/menuItems';
 import type { SocialMedia } from '@/types/socialMedia';
 
@@ -77,6 +78,24 @@ const socialVariants = {
   },
 };
 
+const localeSwitchVariants = {
+  initial: {
+    opacity: 0,
+  },
+  enter: (i: number) => ({
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+      delay: 0.95 + i * 0.2,
+      ease: [0.215, 0.61, 0.355, 1],
+    },
+  }),
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.5, type: 'tween', ease: 'easeInOut' },
+  },
+};
+
 interface Props {
   pathname: string;
   locale: Locale;
@@ -129,7 +148,21 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
           </motion.a>
         ))}
       </div>
-      <LocaleSwitch locale={locale} />
+      <motion.div className="flex items-center gap-x-4">
+        {LOCALE_ITEMS.map((localeItem: LocaleItem, i: number) => (
+          <motion.div
+            variants={localeSwitchVariants}
+            initial="initial"
+            custom={i}
+            animate="enter"
+            exit="exit"
+            key={localeItem.locale}>
+            <LocaleSwitch globalLocale={locale} locale={localeItem.locale}>
+              <localeItem.icon />
+            </LocaleSwitch>
+          </motion.div>
+        ))}
+      </motion.div>
     </div>
   );
 };

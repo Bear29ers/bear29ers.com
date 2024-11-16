@@ -1,40 +1,36 @@
-import type { FC } from 'react';
+import type { FC, ReactNode } from 'react';
 
-import { JapanIcon, USIcon } from '@/components/icons/InternationalIcons/InternationalIcons';
+import { motion } from 'framer-motion';
 
 import { usePathname, useRouter } from '@/i18n/routing';
+import type { Locale } from '@/types/locale';
 
 interface Props {
-  locale: string;
+  globalLocale: Locale;
+  locale: Locale;
+  children: ReactNode;
 }
 
-const LocaleSwitch: FC<Props> = ({ locale }) => {
+const LocaleSwitch: FC<Props> = ({ globalLocale, locale, children }) => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const handleSwitchLocale = (newLocale: 'en' | 'ja') => {
+  const handleSwitchLocale = (newLocale: Locale) => {
     router.replace(pathname, { locale: newLocale });
   };
 
   return (
-    <div className="flex items-center gap-x-3">
-      <button
-        type="button"
-        className={`w-8 ${locale !== 'en' && 'opacity-40'}`}
-        disabled={locale === 'en'}
-        onClick={() => handleSwitchLocale('en')}>
-        <USIcon />
-        {locale === 'en' && <span className="mt-px block h-[3px] w-full rounded-lg bg-white" />}
-      </button>
-      <button
-        type="button"
-        className={`w-8 ${locale !== 'ja' && 'opacity-40'}`}
-        disabled={locale === 'ja'}
-        onClick={() => handleSwitchLocale('ja')}>
-        <JapanIcon />
-        {locale === 'ja' && <span className="mt-px block h-[3px] w-full rounded-lg bg-white" />}
-      </button>
-    </div>
+    <motion.button
+      type="button"
+      className={`w-8 ${globalLocale !== locale && 'opacity-40'}`}
+      disabled={globalLocale === locale}
+      onClick={() => handleSwitchLocale(locale)}
+      whileHover={{ scale: globalLocale !== locale ? 1.1 : 1.0 }}
+      whileTap={{ scale: globalLocale !== locale ? 0.9 : 1.0 }}
+      transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
+      {children}
+      {globalLocale === locale && <span className="mt-px block h-[3px] w-full rounded-lg bg-white" />}
+    </motion.button>
   );
 };
 
