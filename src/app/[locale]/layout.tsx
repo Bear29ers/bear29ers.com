@@ -4,7 +4,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
-import { getMessages } from 'next-intl/server';
+import { getMessages, getTranslations } from 'next-intl/server';
 
 import Menu from '@/components/common/Menu/Menu';
 
@@ -18,11 +18,12 @@ import type { Metadata, Viewport } from 'next';
 
 import '@/app/globals.scss';
 
-export const generateMetadata = (): Metadata => {
+export const generateMetadata = async (): Promise<Metadata> => {
+  const t = await getTranslations('meta');
+
   let url = '';
   let pageTitle = '';
-  const description =
-    'This portfolio is a dynamic platform where I, as a frontend engineer, experiment with cutting-edge technologies and showcase my projects.';
+  const description = t('description');
   const requestUrl = headers().get('x-request-url');
   if (requestUrl) {
     const { href, pathname } = new URL(requestUrl);
@@ -42,7 +43,7 @@ export const generateMetadata = (): Metadata => {
       description,
       url,
       siteName: 'Bear29ers',
-      locale: 'ja_JP',
+      locale: t('locale'),
       type: 'website',
     },
     twitter: {
