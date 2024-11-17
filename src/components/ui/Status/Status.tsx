@@ -17,7 +17,7 @@ import ProfileIcon from '~/images/profile.png';
 const FramerImage = motion(Image);
 
 const Status: FC = () => {
-  const t = useTranslations('about');
+  const t = useTranslations('about.status');
 
   return (
     <div className="flex-col flex-center xl:flex-row">

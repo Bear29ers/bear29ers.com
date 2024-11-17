@@ -11,11 +11,25 @@
     "/works": "/ja/works"
   },
   "about": {
-    "fullName": "大熊 悠太",
-    "organization": "株式会社Gakken LEAP",
-    "location": "日本, 東京",
-    "website": "https://bear29ers.com",
-    "links": "リンク",
-    "favoriteTeams": "好きなチーム"
+    "status": {
+      "fullName": "大熊 悠太",
+      "organization": "株式会社Gakken LEAP",
+      "location": "日本, 東京",
+      "website": "https://bear29ers.com",
+      "links": "リンク",
+      "favoriteTeams": "好きなチーム"
+    },
+    "biography": {
+      "greeting": "こんにちは",
+      "occupation": "フロントエンドエンジニアとデザイナーをしています！",
+      "paragraph": {
+        "first": "こんにちは、フロントエンドエンジニアとデザイナーをしている大熊悠太です。美しく機能的でユーザーに寄り添ったUX・UIを生み出すことがとても好きです。",
+        "second": "少年時代に9年間ほど野球をやっていて、今では観る専門で楽しんでいます。好きなチームはロサンゼルス・ドジャースとニューヨーク・ヤンキースです。",
+        "third": "I first encountered video production in high school when I was active in the Japanese taiko drumming culb and began making simple video works, which I decided to study video in earnest.",
+        "fourth": "I lived in Chiba until I graduated from high school and moved to Kyoto for university, where I majored in the contents business at the faculty of Image Arts and Sciences while independently producing animated videos using Adobe AfterEffects.",
+        "fifth": "In 2017, I took a leave of absence from university to study abroad in Toronto, Canada for about a year. This was a very meaningful time and also the most enjoyable year of my life.",
+        "sixth": "Gradually became interested in programming through the influence of a friend of mine that I met at one of my internships and started learning on my own from front-end languages. started my career as a developer in 2020 and now I am working as a front-end developer in Tokyo."
+      }
+    }
   }
 }
