@@ -80,18 +80,18 @@ export const TEAMS: Team[] = [
 export const AMBITIONS: Ambition[] = [
   {
     id: 1,
-    text: '💻 Learn higher level of Next.js and master Three.js.',
+    text: 'first',
   },
   {
     id: 2,
-    text: '👬 Collaborate with other digital content creators.',
+    text: 'second',
   },
   {
     id: 3,
-    text: '📝 Obtain qualifications in several engineering fields',
+    text: 'third',
   },
   {
     id: 4,
-    text: '🏋🏻 Lose weight and stay healthy',
+    text: 'fourth',
   },
 ];
