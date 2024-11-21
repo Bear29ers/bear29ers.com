@@ -1,39 +1,39 @@
 import { OrganizationIcon, LocationIcon, WebsiteIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import type { Ambition, ProfileDetail, Team } from '@/types/about';
+import type { Ambition, ProfileDetail, ProfileText, Team } from '@/types/about';
 
 import bluejays from '~/images/teams/bluejays.png';
 import dodgers from '~/images/teams/dodgers.png';
 import giants from '~/images/teams/giants.png';
 import yankees from '~/images/teams/yankees.png';
 
-export const PROFILE_TEXT = {
+export const PROFILE_TEXT: ProfileText = {
   userName: 'Bear29ers',
   occupation: 'Frontend Developer & Designer',
   paragraphList: [
     {
       id: 1,
-      text: 'first',
+      paragraph: 'first',
     },
     {
       id: 2,
-      text: 'second',
+      paragraph: 'second',
     },
     {
       id: 3,
-      text: 'third',
+      paragraph: 'third',
     },
     {
       id: 4,
-      text: 'fourth',
+      paragraph: 'fourth',
     },
     {
       id: 5,
-      text: 'fifth',
+      paragraph: 'fifth',
     },
     {
       id: 6,
-      text: 'sixth',
+      paragraph: 'sixth',
     },
   ],
   githubStats: 'https://github-readme-stats-bear29ers.vercel.app/api?username=Bear29ers&show_icons=true&theme=bear',

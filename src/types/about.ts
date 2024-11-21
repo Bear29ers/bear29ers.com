@@ -5,11 +5,9 @@ import type { StaticImageData } from 'next/image';
 export interface ProfileText {
   userName: string;
   occupation: string;
-  shortGreeting: string;
-  title: string;
-  biographyList: {
+  paragraphList: {
     id: number;
-    text: string;
+    paragraph: string;
   }[];
   githubStats: string;
 }

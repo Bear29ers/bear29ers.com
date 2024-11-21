@@ -19,7 +19,7 @@ const Biography: FC = () => {
       <div className="mt-5 flex flex-col gap-y-5">
         {PROFILE_TEXT.paragraphList.map((paragraph) => (
           <p key={paragraph.id} className="sm:text-lg">
-            {t(`paragraph.${paragraph.text}`)}
+            {t(`paragraph.${paragraph.paragraph}`)}
           </p>
         ))}
       </div>
