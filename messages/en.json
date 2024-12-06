@@ -37,5 +37,27 @@
       "third": "📝 Obtain qualifications in several engineering fields.",
       "fourth": "🏋🏻 Lose weight and stay healthy."
     }
+  },
+  "experience": {
+    "role": {
+      "frontend": "Frontend Developer",
+      "webdev_designer": "Web Developer & Designer",
+      "mentor": "Mentor, Internship"
+    },
+    "company": { "gakkenLeap": "Gakken LEAP Co.,Ltd", "emoshu": "EMoshU, Inc.", "lifeIsTech": "Life is Tech, Inc." },
+    "location": { "tokyo": "Tokyo, Japan", "osaka": "Osaka, Japan" },
+    "description": {
+      "gakkenLeap": {
+        "first": {
+          "first": "Because of my background, I was very interested in the education business, so I decided to put myself in an environment where I could develop educational services. Furthermore, I chose a company where I could work as a front-end engineer in order to further develop my field of expertise.",
+          "second": "I was in charge of front-end development of a reskilling service for adults, mainly using Vue.js and Nuxt.js, and improved the UI/UX while communicating with designers.",
+          "third": "In addition, by repeatedly researching and verifying the development using Nuxt.js, which has few reference materials, I was able to acquire front-end skills rapidly in a short period of time."
+        },
+        "second": [
+          "I joined an existing service aimed at elementary and junior high school students. I am in charge of development with another backend engineer, and we are mainly involved in maintenance and operation while also working to improve the service.",
+          "Current issues include the fact that the foundation for frontend testing has not been established and package versions are out of date."
+        ]
+      }
+    }
   }
 }
