@@ -102,15 +102,23 @@ const Project: FC<Props> = ({ project }) => {
           <div className="flex flex-col gap-y-5">
             {/* Description */}
             <div className="mt-6 flex flex-col gap-y-3 text-sm xs:text-base">
-              {project.description.map((paragraph: string, index: number) => (
-                <p key={index}>{paragraph}</p>
+              {project.description.map((index: number) => (
+                <p key={`description-${project.id}-${index}`}>
+                  {t(`description.${project.company}.${project.id}.${index}`)}
+                </p>
               ))}
+              {}
             </div>
             <h3 className="mt-2 text-lg font-bold md:text-xl">Some Highlights</h3>
             {/* Higlights */}
             <div className="flex flex-col gap-y-2">
-              {project.highlightList.map((highlight: string, index: number) => (
-                <ProjectHighlight highlight={highlight} key={index} />
+              {project.highlightList.map((index: number) => (
+                <ProjectHighlight
+                  id={project.id}
+                  company={project.company}
+                  index={index}
+                  key={`highlight-${project.id}-${index}`}
+                />
               ))}
             </div>
           </div>
