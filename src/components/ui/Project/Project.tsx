@@ -60,7 +60,7 @@ const Project: FC<Props> = ({ project }) => {
           <time>{project.endAt}</time>
         </div>
         {/* Role */}
-        <h2 className="text-4xl font-extrabold md:text-5xl">{t(`role.${project.role}`)}</h2>
+        <h2 className="text-3xl font-extrabold md:text-4xl">{t(`role.${project.role}`)}</h2>
         <div className="flex flex-col gap-y-1">
           {/* Campany */}
           <div className="flex items-center gap-x-3">
@@ -109,7 +109,7 @@ const Project: FC<Props> = ({ project }) => {
               ))}
               {}
             </div>
-            <h3 className="mt-2 text-lg font-bold md:text-xl">Some Highlights</h3>
+            <h3 className="mt-2 text-lg font-bold md:text-xl">{t('highlights')}</h3>
             {/* Higlights */}
             <div className="flex flex-col gap-y-2">
               {project.highlightList.map((index: number) => (

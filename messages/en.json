@@ -39,6 +39,7 @@
     }
   },
   "experience": {
+    "highlights": "Some Highlights",
     "role": {
       "frontend": "Frontend Developer",
       "webdev_designer": "Web Developer & Designer",
@@ -68,13 +69,13 @@
       "lifeIsTech": {
         "1": [
           "Sympathizing with the desire to create new opportunities for junior and senior high school students, I participated as a mentor and was mainly in charge of the video editing course.",
-          "In order to provide junior and senior high school students with an opportunity to experience IT technology, I participated in IT camp events held at universities all over Japan as a mentor in various places such as Tokyo and Fukuoka, in addition to camps in Kansai, where I am based.",
+          "In order to provide junior and senior high school students with an opportunity to experience IT technology, I participated in many IT camp events held at universities all over Japan as a mentor in various places such as Tokyo and Fukuoka, in addition to camps in Kansai, where I am based.",
           "In addition to being a mentor, I also participated in some of the events as a photographer, taking pictures of the students having fun and livening up the entire events.",
           "Because each student has a different personality, enthusiasm, and skill set, I learned a lot during my internship about how to put together a curriculum and communicate with each student."
         ]
       }
     },
-    "highlights": {
+    "highlightList": {
       "gakkenLeap": {
         "1": [
           "Creating a proxy in Nuxt.js",
