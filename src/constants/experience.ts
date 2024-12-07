@@ -39,7 +39,7 @@ export const EXPERIENCE_INFO: Experience[] = [
       {
         id: 1,
         startAt: '2020.6',
-        endAt: '2023: 4',
+        endAt: '2023.4',
         role: 'webdev_designer',
         company: 'emoshu',
         location: 'tokyo',
