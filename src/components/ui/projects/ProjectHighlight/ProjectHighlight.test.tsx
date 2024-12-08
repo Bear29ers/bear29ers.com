@@ -4,12 +4,15 @@ import ProjectHighlight from './ProjectHighlight';
 
 import type { RenderResult } from '@testing-library/react';
 
+jest.mock('next-intl', () => ({
+  useTranslations: () => (key: string) => `translated.${key}`,
+}));
+
 describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx', () => {
-  const highlight = 'Dockerize the project';
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<ProjectHighlight highlight={highlight} />);
+    renderResult = render(<ProjectHighlight id={2} company="gakkenLeap" index={0} />);
   });
 
   afterEach(() => {
@@ -20,7 +23,7 @@ describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx'
     expect(screen.getByText('🌟')).toBeInTheDocument();
   });
 
-  it('should render a highlight text', () => {
-    expect(screen.getByText(highlight)).toBeInTheDocument();
+  it('should render a highlight message key', () => {
+    expect(screen.getByText(/translated\.gakkenLeap\.2\.0/)).toBeInTheDocument();
   });
 });
