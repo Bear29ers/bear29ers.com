@@ -24,9 +24,9 @@ const config: Config = {
         '4.5': '1.125rem',
       },
       fontFamily: {
-        mont: ['var(--font-mont)'],
-        murecho: ['var(--font-murecho)'],
-        damion: ['var(--font-damion)'],
+        mont: ['var(--font-mont)', ...fontFamily.sans],
+        murecho: ['var(--font-murecho)', ...fontFamily.sans],
+        damion: ['var(--font-damion)', ...fontFamily.sans],
       },
       colors: {
         dark: '#232A36',
