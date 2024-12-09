@@ -1,18 +1,21 @@
 import { render, screen } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
+
+import messages from '../../../../../messages/en.json';
 
 import ProjectHighlight from './ProjectHighlight';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('next-intl', () => ({
-  useTranslations: () => (key: string) => `translated.${key}`,
-}));
-
 describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<ProjectHighlight id={2} company="gakkenLeap" index={0} />);
+    renderResult = render(
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <ProjectHighlight id={2} company="gakkenLeap" index={0} />
+      </NextIntlClientProvider>
+    );
   });
 
   afterEach(() => {
@@ -23,7 +26,7 @@ describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx'
     expect(screen.getByText('🌟')).toBeInTheDocument();
   });
 
-  it('should render a highlight message key', () => {
-    expect(screen.getByText(/translated\.gakkenLeap\.2\.0/)).toBeInTheDocument();
+  it('should render a highlight text', () => {
+    expect(screen.getByText(messages.experience.highlightList.gakkenLeap[2][0] || '')).toBeInTheDocument();
   });
 });
