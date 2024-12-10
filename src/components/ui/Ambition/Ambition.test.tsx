@@ -1,16 +1,28 @@
 import { render, screen } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
 
-import { AMBITIONS } from '@/constants/about';
+import messages from '../../../../messages/en.json';
 
 import Ambition from './Ambition';
 
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/profiles/Ambition/Ambition.test.tsx', () => {
+  const ambitions = {
+    first: '💻 Learn higher level of Next.js and master Three.js.',
+    second: '👬 Collaborate with other digital content creators.',
+    third: '📝 Obtain qualifications in several engineering fields.',
+    fourth: '🏋🏻 Lose weight and stay healthy.',
+  };
+
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<Ambition />);
+    renderResult = render(
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <Ambition />
+      </NextIntlClientProvider>
+    );
   });
 
   afterEach(() => {
@@ -18,38 +30,18 @@ describe('src/components/profiles/Ambition/Ambition.test.tsx', () => {
   });
 
   it('should render the first resolution text', () => {
-    if (!AMBITIONS[0]) {
-      it.skip('RESOLUTIONS[0] is empty or undefined');
-    } else {
-      const resolution = screen.getByText(AMBITIONS[0].text);
-      expect(resolution).toBeInTheDocument();
-    }
+    expect(screen.getByText(ambitions.first)).toBeInTheDocument();
   });
 
   it('should render the second resolution text', () => {
-    if (!AMBITIONS[1]) {
-      it.skip('RESOLUTIONS[1] is empty or undefined');
-    } else {
-      const resolution = screen.getByText(AMBITIONS[1].text);
-      expect(resolution).toBeInTheDocument();
-    }
+    expect(screen.getByText(ambitions.second)).toBeInTheDocument();
   });
 
   it('should render the third resolution text', () => {
-    if (!AMBITIONS[2]) {
-      it.skip('RESOLUTIONS[2] is empty or undefined');
-    } else {
-      const resolution = screen.getByText(AMBITIONS[2].text);
-      expect(resolution).toBeInTheDocument();
-    }
+    expect(screen.getByText(ambitions.third)).toBeInTheDocument();
   });
 
   it('should render the fourth resolution text', () => {
-    if (!AMBITIONS[3]) {
-      it.skip('RESOLUTIONS[3] is empty or undefined');
-    } else {
-      const resolution = screen.getByText(AMBITIONS[3].text);
-      expect(resolution).toBeInTheDocument();
-    }
+    expect(screen.getByText(ambitions.fourth)).toBeInTheDocument();
   });
 });
