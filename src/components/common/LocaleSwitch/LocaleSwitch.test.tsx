@@ -27,7 +27,7 @@ describe('src/components/common/LocaleSwitch/LocaleSwitch.test.tsx', () => {
   let renderResult: RenderResult;
   const locale = 'en';
 
-  describe('when globalLocale props is different from locale props', () => {
+  describe('when globalLocale props is same as locale props', () => {
     beforeEach(() => {
       renderResult = render(
         <NextIntlClientProvider locale={locale} messages={messages}>
@@ -63,6 +63,45 @@ describe('src/components/common/LocaleSwitch/LocaleSwitch.test.tsx', () => {
       fireEvent.click(button);
 
       expect(mockRouterReplace).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('when globalLocale props is different from locale props', () => {
+    beforeEach(() => {
+      renderResult = render(
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <LocaleSwitch globalLocale={locale} locale="ja">
+            LocaleSwitch
+          </LocaleSwitch>
+        </NextIntlClientProvider>
+      );
+    });
+
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should render the button element', () => {
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+
+    it('should not apply opacity tailwind class', () => {
+      expect(screen.getByRole('button')).toHaveClass('opacity-40');
+    });
+
+    it('should enable the button', () => {
+      expect(screen.getByRole('button')).toBeEnabled();
+    });
+
+    it('should not render the active indicator', () => {
+      expect(renderResult.container.querySelector('.h-\\[3px\\]')).not.toBeInTheDocument();
+    });
+
+    it('should call router.replace', () => {
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+
+      expect(mockRouterReplace).toHaveBeenCalled();
     });
   });
 });
