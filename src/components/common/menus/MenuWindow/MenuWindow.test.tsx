@@ -1,17 +1,39 @@
 import { render, screen, waitFor } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
+
+import messages from '../../../../../messages/en.json';
 
 import MenuWindow from './MenuWindow';
 
 import type { RenderResult } from '@testing-library/react';
 
+jest.mock('next/navigation', () => ({
+  usePathname: () => '/',
+  useRouter: () => ({
+    back: jest.fn(),
+    forward: jest.fn(),
+    refresh: jest.fn(),
+    push: jest.fn(),
+    prefetch: jest.fn(),
+    replace: jest.fn(),
+  }),
+  useParams: () => ({ locale: 'en' }),
+  useSelectedLayoutSegment: () => ({ locale: 'en' }),
+}));
+
 describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
+  const locale = 'en';
   const pathname = '/about';
 
   describe('when isOpen props is false', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen={false} isMobile={false} pathname={pathname} />);
+      renderResult = render(
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <MenuWindow isOpen={false} isMobile={false} pathname={pathname} locale="en" />
+        </NextIntlClientProvider>
+      );
     });
 
     afterEach(() => {
@@ -43,7 +65,11 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen={false} isMobile pathname={pathname} />);
+      renderResult = render(
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <MenuWindow isOpen={false} isMobile pathname={pathname} locale={locale} />
+        </NextIntlClientProvider>
+      );
     });
 
     afterEach(() => {
@@ -67,7 +93,11 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen isMobile={false} pathname={pathname} />);
+      renderResult = render(
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <MenuWindow isOpen isMobile={false} pathname={pathname} locale="en" />
+        </NextIntlClientProvider>
+      );
     });
 
     afterEach(() => {
@@ -107,7 +137,11 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<MenuWindow isOpen isMobile pathname={pathname} />);
+      renderResult = render(
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          <MenuWindow isOpen isMobile pathname={pathname} locale={locale} />
+        </NextIntlClientProvider>
+      );
     });
 
     afterEach(() => {
