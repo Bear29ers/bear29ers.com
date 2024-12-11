@@ -16,8 +16,11 @@ jest.mock('framer-motion', () => {
   const MotionImg: FC<{
     src: string;
     onLayoutAnimationComplete?: () => void;
+    layout?: boolean | string;
+    layoutId?: string;
+    animate?: boolean | string;
     [key: string]: any;
-  }> = ({ src, onLayoutAnimationComplete, ...props }) => {
+  }> = ({ src, onLayoutAnimationComplete, layout, layoutId, animate, ...props }) => {
     ActualReact.useEffect(() => {
       // レイアウトアニメーションの完了をシミュレート
       const timer = setTimeout(() => {
@@ -26,7 +29,15 @@ jest.mock('framer-motion', () => {
       return () => clearTimeout(timer);
     }, [onLayoutAnimationComplete]);
 
-    return <img src={src} {...props} />;
+    return (
+      <img
+        src={src}
+        {...props}
+        {...(layout ? { 'data-layout': layout.toString() } : {})}
+        {...(layoutId ? { 'data-layout-id': layoutId } : {})}
+        {...(animate ? { 'data-animate': animate.toString() } : {})}
+      />
+    );
   };
 
   return {
