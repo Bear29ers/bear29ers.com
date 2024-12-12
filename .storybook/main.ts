@@ -11,6 +11,7 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-controls',
     '@chromatic-com/storybook',
+    'storybook-next-intl',
   ],
 
   framework: {

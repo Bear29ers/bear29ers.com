@@ -1,15 +1,21 @@
 import { render, screen } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
+
+import messages from '../../../../../messages/en.json';
 
 import ProjectHighlight from './ProjectHighlight';
 
 import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx', () => {
-  const highlight = 'Dockerize the project';
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<ProjectHighlight highlight={highlight} />);
+    renderResult = render(
+      <NextIntlClientProvider locale="en" messages={messages}>
+        <ProjectHighlight id={2} company="gakkenLeap" index={0} />
+      </NextIntlClientProvider>
+    );
   });
 
   afterEach(() => {
@@ -21,6 +27,6 @@ describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx'
   });
 
   it('should render a highlight text', () => {
-    expect(screen.getByText(highlight)).toBeInTheDocument();
+    expect(screen.getByText(messages.experience.highlightList.gakkenLeap[2][0] || '')).toBeInTheDocument();
   });
 });

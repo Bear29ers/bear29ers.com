@@ -14,11 +14,12 @@ type Story = StoryObj<typeof MenuList>;
 export const Default: Story = {
   args: {
     pathname: '/about',
+    locale: 'en',
   },
-  render: ({ pathname }) => {
+  render: ({ pathname, locale }) => {
     return (
       <div className="relative h-[650px] w-[500px] rounded-3xl bg-dark">
-        <MenuList pathname={pathname} />
+        <MenuList pathname={pathname} locale={locale} />
       </div>
     );
   },

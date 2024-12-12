@@ -1,14 +1,36 @@
 import { render, screen } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
+
+import messages from '../../../../../messages/en.json';
 
 import MenuList from './MenuList';
 
 import type { RenderResult } from '@testing-library/react';
 
+jest.mock('next/navigation', () => ({
+  usePathname: () => '/',
+  useRouter: () => ({
+    back: jest.fn(),
+    forward: jest.fn(),
+    refresh: jest.fn(),
+    push: jest.fn(),
+    prefetch: jest.fn(),
+    replace: jest.fn(),
+  }),
+  useParams: () => ({ locale: 'en' }),
+  useSelectedLayoutSegment: () => ({ locale: 'en' }),
+}));
+
 describe('src/components/common/menus/MenuList/MenuList.test.tsx', () => {
+  const locale = 'en';
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<MenuList pathname="/about" />);
+    renderResult = render(
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <MenuList pathname="/about" locale={locale} />
+      </NextIntlClientProvider>
+    );
   });
 
   afterEach(() => {

@@ -3,9 +3,6 @@
 import { type FC } from 'react';
 
 import { motion } from 'framer-motion';
-import Link from 'next/link';
-
-const MotionLink = motion(Link);
 
 interface Props {
   isClicked: boolean;
@@ -39,7 +36,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
   return (
     <>
       <div className="absolute right-0 top-0 flex h-full w-14 flex-col items-center justify-around txs:w-20">
-        <MotionLink
+        <motion.a
           href="/experience"
           className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-dark lg:text-white' : 'text-white'}`}
           variants={variants}
@@ -48,7 +45,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
           whileHover="hover"
           whileTap="tap">
           Experience
-        </MotionLink>
+        </motion.a>
         <motion.div
           className="z-40 text-xl font-semibold text-white line-through"
           initial={{ x: 200, rotate: 90 }}
@@ -57,7 +54,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
         </motion.div>
       </div>
       <div className="absolute left-0 top-0 flex h-full w-14 flex-col items-center justify-around txs:w-20">
-        <MotionLink
+        <motion.a
           href="/about"
           className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-dark' : 'text-white'}`}
           variants={variants}
@@ -66,8 +63,8 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
           whileHover="hover"
           whileTap="tap">
           About
-        </MotionLink>
-        <MotionLink
+        </motion.a>
+        <motion.a
           href="/gallery"
           className={`z-40 text-xl font-semibold  md:text-2xl ${isClicked ? 'text-white lg:text-dark' : 'text-white'}`}
           variants={variants}
@@ -76,7 +73,7 @@ const PageNavigation: FC<Props> = ({ isClicked }) => {
           whileHover="hover"
           whileTap="tap">
           Gallery
-        </MotionLink>
+        </motion.a>
       </div>
     </>
   );

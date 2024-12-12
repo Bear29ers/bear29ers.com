@@ -3,21 +3,17 @@ import type { FC } from 'react';
 import type { StaticImageData } from 'next/image';
 
 export interface ProfileText {
-  fullName: string;
   userName: string;
-  greeting: string;
-  shortGreeting: string;
-  title: string;
-  biographyList: {
+  occupation: string;
+  paragraphList: {
     id: number;
-    text: string;
+    paragraph: string;
   }[];
   githubStats: string;
 }
 
 export interface ProfileDetail {
   type: string;
-  content: string;
   icon: FC;
 }
 
