@@ -14,6 +14,7 @@ type Story = StoryObj<typeof Menu>;
 export const Default: Story = {
   args: {
     pathname: '/about',
+    locale: 'en',
   },
-  render: ({ pathname }) => <Menu pathname={pathname} />,
+  render: ({ pathname, locale }) => <Menu pathname={pathname} locale={locale} />,
 };

@@ -2,6 +2,7 @@ import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 
 import { PROFILE_DETAILS, PROFILE_TEXT, TEAMS } from '@/constants/about';
 import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
@@ -16,6 +17,8 @@ import ProfileIcon from '~/images/profile.png';
 const FramerImage = motion(Image);
 
 const Status: FC = () => {
+  const t = useTranslations('about.status');
+
   return (
     <div className="flex-col flex-center xl:flex-row">
       <div className="relative -mb-40 mr-0 size-[250px] rounded-full bg-darkGray flex-center xs:size-[294px] xxs:size-[328px] md:size-[360px] xl:-mr-32 xl:mb-0">
@@ -48,7 +51,7 @@ const Status: FC = () => {
         <div className="flex flex-col items-center justify-center gap-10 rounded-3xl bg-darkGray px-16 pb-16 pt-48 md:flex-row lg:gap-x-16 xl:gap-x-10 xl:py-10 xl:pl-48 xl:pr-16">
           <div className="flex flex-col gap-y-8">
             <div>
-              <h2 className="text-2xl font-bold">{PROFILE_TEXT.fullName}</h2>
+              <h2 className="text-2xl font-bold">{t('fullName')}</h2>
               <h4 className="text-xl text-lightGray">{PROFILE_TEXT.userName}</h4>
             </div>
             <ul className="flex flex-col gap-y-2">
@@ -59,12 +62,12 @@ const Status: FC = () => {
                   </div>
                   {profileDetail.type === 'website' ? (
                     <a
-                      href={profileDetail.content}
+                      href={t(profileDetail.type)}
                       className="transition-all duration-300 hover:underline hover:opacity-80">
-                      {profileDetail.content}
+                      {t(profileDetail.type)}
                     </a>
                   ) : (
-                    <span>{profileDetail.content}</span>
+                    <span>{t(profileDetail.type)}</span>
                   )}
                 </li>
               ))}
@@ -72,7 +75,7 @@ const Status: FC = () => {
           </div>
           <div className="flex flex-col gap-y-10 md:gap-y-4">
             <div className="flex flex-col gap-y-4 md:gap-y-2">
-              <h3 className="text-xl font-bold">Contacts</h3>
+              <h3 className="text-xl font-bold">{t('links')}</h3>
               <div className="flex gap-x-5 md:gap-x-4">
                 {SOCIAL_MEDIA_LIST.map((socialMedia: SocialMedia) => (
                   <motion.a
@@ -89,7 +92,7 @@ const Status: FC = () => {
               </div>
             </div>
             <div className="flex flex-col gap-y-4 md:gap-y-2">
-              <h3 className="text-xl font-bold">Favorite Teams</h3>
+              <h3 className="text-xl font-bold">{t('favoriteTeams')}</h3>
               <div className="flex gap-x-3 md:gap-x-2">
                 {TEAMS.map((team: Team) => (
                   <FramerImage
