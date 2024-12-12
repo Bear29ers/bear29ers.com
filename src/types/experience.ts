@@ -6,8 +6,8 @@ export interface Project {
   company: string;
   location: string;
   tagList: string[];
-  description: string[];
-  highlightList: string[];
+  description: number[];
+  highlightList: number[];
 }
 
 export interface Experience {

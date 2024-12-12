@@ -5,9 +5,6 @@ import Period from '@/components/ui/projects/Period/Period';
 
 import { EXPERIENCE_INFO } from '@/constants/experience';
 
-import type { Project as ProjectType } from '@/types/experience';
-import { Experience } from '@/types/experience';
-
 import type { NextPage } from 'next';
 
 const Experience: NextPage = () => {
@@ -17,7 +14,7 @@ const Experience: NextPage = () => {
         <AnimatedText text="Experience" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
       </div>
       <div className="mx-auto flex w-full flex-col gap-y-48 lg:max-w-screen-lg">
-        {EXPERIENCE_INFO.map((experience: Experience) => (
+        {EXPERIENCE_INFO.map((experience) => (
           <div
             className="flex flex-col items-center justify-between gap-y-8 xsm:flex-row md:justify-evenly lg:justify-between"
             key={experience.id}>
@@ -25,7 +22,7 @@ const Experience: NextPage = () => {
               <Period startAt={experience.startAt} endAt={experience.endAt} />
             </div>
             <div className="flex flex-col gap-y-12 xsm:max-w-md md:max-w-xl lg:max-w-3xl">
-              {experience.projects.map((project: ProjectType) => (
+              {experience.projects.map((project) => (
                 <Project project={project} key={project.id} />
               ))}
             </div>

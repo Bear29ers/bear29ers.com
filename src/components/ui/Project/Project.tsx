@@ -3,6 +3,7 @@
 import { useState, type FC } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
@@ -38,6 +39,7 @@ interface Props {
 }
 
 const Project: FC<Props> = ({ project }) => {
+  const t = useTranslations('experience');
   const [isShow, setIsShow] = useState<boolean>(false);
   const handleClick = () => {
     setIsShow(!isShow);
@@ -58,21 +60,21 @@ const Project: FC<Props> = ({ project }) => {
           <time>{project.endAt}</time>
         </div>
         {/* Role */}
-        <h2 className="text-4xl font-extrabold md:text-5xl">{project.role}</h2>
+        <h2 className="text-3xl font-extrabold md:text-4xl">{t(`role.${project.role}`)}</h2>
         <div className="flex flex-col gap-y-1">
           {/* Campany */}
           <div className="flex items-center gap-x-3">
             <div className="size-4">
               <OrganizationIcon />
             </div>
-            <span className="text-sm font-medium md:text-base">{project.company}</span>
+            <span className="text-sm font-medium md:text-base">{t(`company.${project.company}`)}</span>
           </div>
           {/* Location */}
           <div className="flex items-center gap-x-3">
             <div className="size-4">
               <LocationIcon />
             </div>
-            <span className="text-sm font-medium md:text-base">{project.location}</span>
+            <span className="text-sm font-medium md:text-base">{t(`location.${project.location}`)}</span>
           </div>
         </div>
         {/* ProjectTag */}
@@ -100,15 +102,23 @@ const Project: FC<Props> = ({ project }) => {
           <div className="flex flex-col gap-y-5">
             {/* Description */}
             <div className="mt-6 flex flex-col gap-y-3 text-sm xs:text-base">
-              {project.description.map((paragraph: string, index: number) => (
-                <p key={index}>{paragraph}</p>
+              {project.description.map((index: number) => (
+                <p key={`description-${project.id}-${index}`}>
+                  {t(`description.${project.company}.${project.id}.${index}`)}
+                </p>
               ))}
+              {}
             </div>
-            <h3 className="mt-2 text-lg font-bold md:text-xl">Some Highlights</h3>
+            <h3 className="mt-2 text-lg font-bold md:text-xl">{t('highlights')}</h3>
             {/* Higlights */}
             <div className="flex flex-col gap-y-2">
-              {project.highlightList.map((highlight: string, index: number) => (
-                <ProjectHighlight highlight={highlight} key={index} />
+              {project.highlightList.map((index: number) => (
+                <ProjectHighlight
+                  id={project.id}
+                  company={project.company}
+                  index={index}
+                  key={`highlight-${project.id}-${index}`}
+                />
               ))}
             </div>
           </div>
