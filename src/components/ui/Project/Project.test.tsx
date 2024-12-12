@@ -1,4 +1,7 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { NextIntlClientProvider } from 'next-intl';
+
+import messages from '../../../../messages/en.json';
 
 import Project from './Project';
 
@@ -6,22 +9,33 @@ import type { RenderResult } from '@testing-library/react';
 
 describe('src/components/ui/Project/Project.test.tsx', () => {
   const projectData = {
-    id: 1,
+    id: 2,
     startAt: '2022.1',
     endAt: '2023.12',
-    role: 'Software Engineer',
-    company: 'Acme Inc.',
-    location: 'New York, US',
+    role: 'frontend',
+    company: 'gakkenLeap',
+    location: 'tokyo',
     tagList: ['React', 'Node.js', 'TypeScript'],
-    description: ['Description of the project.', 'or description of the company'],
-    highlightList: ['Highlight 1', 'Highlight 2'],
+    description: [0, 1],
+    highlightList: [0, 1],
   };
+
+  const descriptionList = [
+    'I joined an existing service aimed at elementary and junior high school students. I am in charge of development with another backend engineer, and we are mainly involved in maintenance and operation while also working to improve the service.',
+    'Current issues include the fact that the foundation for frontend testing has not been established and package versions are out of date.',
+  ];
+
+  const highlightList = ['Upgrading Next.js from 12 to 14', 'The foundation of frontend testing'];
 
   describe('initial state', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<Project project={projectData} />);
+      renderResult = render(
+        <NextIntlClientProvider locale="en" messages={messages}>
+          <Project project={projectData} />
+        </NextIntlClientProvider>
+      );
     });
 
     afterEach(() => {
@@ -39,16 +53,16 @@ describe('src/components/ui/Project/Project.test.tsx', () => {
     });
 
     it('should render the role', () => {
-      expect(screen.getByRole('heading', { level: 2, name: projectData.role })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { level: 2, name: 'Frontend Developer' })).toBeInTheDocument();
     });
 
     it('should render the company and its icon', () => {
-      expect(screen.getByText(projectData.company)).toBeInTheDocument();
+      expect(screen.getByText('Gakken LEAP Co.,Ltd')).toBeInTheDocument();
       expect(screen.getByRole('img', { name: 'OrganizationIcon' })).toBeInTheDocument();
     });
 
     it('should render the location and its icon', () => {
-      expect(screen.getByText(projectData.location)).toBeInTheDocument();
+      expect(screen.getByText('Tokyo, Japan')).toBeInTheDocument();
       expect(screen.getByRole('img', { name: 'LocationIcon' })).toBeInTheDocument();
     });
 
@@ -63,13 +77,13 @@ describe('src/components/ui/Project/Project.test.tsx', () => {
     });
 
     it('should render the all description', () => {
-      projectData.description.forEach((description) => {
+      descriptionList.forEach((description) => {
         expect(screen.getByText(description)).toBeInTheDocument();
       });
     });
 
     it('should render all highlights', () => {
-      projectData.highlightList.forEach((highlight) => {
+      highlightList.forEach((highlight) => {
         expect(screen.getByText(highlight)).toBeInTheDocument();
       });
     });
@@ -84,7 +98,11 @@ describe('src/components/ui/Project/Project.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<Project project={projectData} />);
+      renderResult = render(
+        <NextIntlClientProvider locale="en" messages={messages}>
+          <Project project={projectData} />
+        </NextIntlClientProvider>
+      );
       fireEvent.click(screen.getByRole('button', { name: 'Show More' }));
     });
 

@@ -1,25 +1,37 @@
-import { NextResponse } from 'next/server';
+import createMiddleware from 'next-intl/middleware';
 
-import type { NextRequest } from 'next/server';
+import { routing } from './i18n/routing';
 
-export const middleware = (request: NextRequest) => {
+import type { NextRequest, NextResponse } from 'next/server';
+
+export const middleware = (request: NextRequest): NextResponse<unknown> => {
   const { headers, url, nextUrl } = request;
   let { pathname } = nextUrl;
 
+  const defaultLocale = headers.get('x-request-locale') || 'en';
+
   // if pathname includes 'gallery', replace it with '/gallery'
   if (pathname.includes('gallery')) {
-    pathname = '/gallery';
+    if (pathname.includes('ja')) {
+      pathname = '/ja/gallery';
+    } else {
+      pathname = '/gallery';
+    }
   }
 
-  const requestHeaders = new Headers(headers);
-  requestHeaders.set('x-request-url', url);
-  requestHeaders.set('x-request-path', pathname);
+  const handleI18nRouting = createMiddleware(routing);
+  const response = handleI18nRouting(request);
 
-  const res = NextResponse.next({
-    request: {
-      headers: requestHeaders,
-    },
-  });
+  response.headers.set('x-request-locale', defaultLocale);
+  response.headers.set('x-request-url', url);
+  response.headers.set('x-request-path', pathname);
 
-  return res;
+  return response;
+};
+
+export default createMiddleware(routing);
+
+export const config = {
+  // Match only internationalized pathnames
+  matcher: ['/', '/(ja|en)/:path*', '/((?!api|_next|_vercel|.*\\..*).*)'],
 };

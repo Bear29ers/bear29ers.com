@@ -13,12 +13,14 @@ type Story = StoryObj<typeof ProjectHighlight>;
 
 export const Default: Story = {
   args: {
-    highlight: 'Dockerize the project',
+    id: 2,
+    company: 'gakkenLeap',
+    index: 0,
   },
-  render: ({ highlight }) => {
+  render: ({ id, company, index }) => {
     return (
       <div className="text-white">
-        <ProjectHighlight highlight={highlight} />
+        <ProjectHighlight id={id} company={company} index={index} />
       </div>
     );
   },

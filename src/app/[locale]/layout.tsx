@@ -2,22 +2,28 @@ import type { ReactNode } from 'react';
 
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { headers } from 'next/headers';
+import { notFound } from 'next/navigation';
+import { NextIntlClientProvider } from 'next-intl';
+import { getMessages, getTranslations } from 'next-intl/server';
 
 import Menu from '@/components/common/Menu/Menu';
 
 import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
 
-import { montserrat } from '@/styles/fonts';
+import { routing } from '@/i18n/routing';
+import { montserrat, murecho } from '@/styles/fonts';
+import type { Locale } from '@/types/locale';
 
 import type { Metadata, Viewport } from 'next';
 
 import '@/app/globals.scss';
 
-export const generateMetadata = (): Metadata => {
+export const generateMetadata = async (): Promise<Metadata> => {
+  const t = await getTranslations('meta');
+
   let url = '';
   let pageTitle = '';
-  const description =
-    'This portfolio is a dynamic platform where I, as a frontend engineer, experiment with cutting-edge technologies and showcase my projects.';
+  const description = t('description');
   const requestUrl = headers().get('x-request-url');
   if (requestUrl) {
     const { href, pathname } = new URL(requestUrl);
@@ -37,7 +43,7 @@ export const generateMetadata = (): Metadata => {
       description,
       url,
       siteName: 'Bear29ers',
-      locale: 'ja_JP',
+      locale: t('locale'),
       type: 'website',
     },
     twitter: {
@@ -54,26 +60,40 @@ export const viewport: Viewport = {
   viewportFit: 'cover',
 };
 
-const RootLayout = ({
+const LocaleLayout = async ({
   children,
   modal,
+  params: { locale },
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
+  params: { locale: Locale };
 }>) => {
   const pathname = headers().get('x-request-path') || '/';
 
+  // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
+  if (!routing.locales.includes(locale as any)) {
+    notFound();
+  }
+
+  // Providing all messages to the client
+  // side is the easiest way to get started
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale} className={`${montserrat.variable} ${murecho.variable}`}>
       <body
-        className={`${montserrat.variable} relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat font-mont txs:bg-noise-pattern`}>
-        <Menu pathname={pathname} />
-        {children}
-        {modal}
+        className={`relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat txs:bg-noise-pattern ${locale === 'en' ? 'font-mont' : 'font-murecho tracking-wider'}`}>
+        <NextIntlClientProvider messages={messages}>
+          <Menu pathname={pathname} locale={locale} />
+          {children}
+          {modal}
+        </NextIntlClientProvider>
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
     </html>
   );
 };
 
-export default RootLayout;
+export default LocaleLayout;

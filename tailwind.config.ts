@@ -25,6 +25,7 @@ const config: Config = {
       },
       fontFamily: {
         mont: ['var(--font-mont)', ...fontFamily.sans],
+        murecho: ['var(--font-murecho)', ...fontFamily.sans],
         damion: ['var(--font-damion)', ...fontFamily.sans],
       },
       colors: {
