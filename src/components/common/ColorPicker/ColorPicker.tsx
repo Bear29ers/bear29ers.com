@@ -19,7 +19,7 @@ const ColorPicker: FC = () => {
     const angle = index * step;
 
     // 80pxの半径で円周上の位置を計算
-    const radius = 80;
+    const radius = 70;
     const radian = (angle * Math.PI) / 180;
 
     // x, y座標を計算（右上に配置するため、xは正、yは負の値になる）
@@ -48,16 +48,15 @@ const ColorPicker: FC = () => {
             <button
               type="button"
               key={color}
-              className="absolute left-1/2 top-1/2 size-8 rounded-full bg-white transition-opacity flex-center hover:opacity-80"
+              className={`absolute left-1/2 top-1/2 size-7 rounded-full border-4 border-white transition-opacity flex-center hover:opacity-80 bg-custom${color}-500`}
               style={{
                 transform: `
                 translate(${pos.x}px, ${pos.y}px) 
                 translate(-50%, -50%)
               `,
               }}
-              onClick={() => handleClickColor(color)}>
-              <span className={`block size-6 rounded-full bg-custom${color}-500`} />
-            </button>
+              onClick={() => handleClickColor(color)}
+            />
           );
         })}
     </div>
