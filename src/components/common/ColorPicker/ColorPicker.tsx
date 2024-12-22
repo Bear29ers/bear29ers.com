@@ -4,13 +4,14 @@ import { useState, type FC } from 'react';
 
 import { motion } from 'framer-motion';
 
+import { COLORS } from '@/constants/colors';
+
 const ColorPicker: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedColor, setSelectedColor] = useState<string>('Red');
 
-  const colors = ['Red', 'Yellow', 'Green', 'Cyan', 'Violet'];
-
-  const availableColors: string[] = colors.filter((color) => color !== selectedColor);
+  // colors except selectedColor
+  const availableColors: string[] = COLORS.filter((color) => color !== selectedColor);
 
   // 4つの色を90度の範囲に均等に配置するため、各色の角度を計算
   const calculatePosition = (index: number): { x: number; y: number } => {
@@ -61,11 +62,12 @@ const ColorPicker: FC = () => {
         onClick={() => setIsOpen(!isOpen)}
       />
       {availableColors.slice(0, 4).map((color: string, index: number) => {
+        const customColorClass = `bg-custom${color}-500`;
         return (
           <motion.button
             type="button"
             key={color}
-            className={`absolute left-1/2 top-1/2 z-40 size-7 rounded-full border-4 border-white transition-opacity flex-center hover:opacity-80 bg-custom${color}-500`}
+            className={`absolute left-1/2 top-1/2 z-40 size-7 rounded-full border-4 border-white transition-opacity flex-center hover:opacity-80 ${customColorClass}`}
             variants={getColorVariants(index)}
             initial="initial"
             custom={index}
