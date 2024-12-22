@@ -3,12 +3,13 @@ import type { FC, ReactNode } from 'react';
 import { motion } from 'framer-motion';
 
 import { usePathname, useRouter } from '@/i18n/routing';
+import type { Color } from '@/types/color';
 import type { Locale } from '@/types/locale';
 
 interface Props {
   globalLocale: Locale;
   locale: Locale;
-  themeColor: string;
+  themeColor: Color;
   children: ReactNode;
 }
 
