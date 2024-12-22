@@ -71,7 +71,7 @@ const config: Config = {
           800: '#337223',
           900: '#1F5914',
         },
-        customYellow: {
+        customOrange: {
           100: '#FEF6E6',
           200: '#FCE9C2',
           300: '#F9D99F',
