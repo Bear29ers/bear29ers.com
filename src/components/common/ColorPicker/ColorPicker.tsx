@@ -8,13 +8,19 @@ import { useAtom } from 'jotai';
 import { COLORS } from '@/constants/colors';
 
 import { themeColor } from '@/state/colors';
+import type { Color } from '@/types/color';
 
-const ColorPicker: FC = () => {
+interface Props {
+  pathname: string;
+}
+
+const ColorPicker: FC<Props> = ({ pathname }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedThemeColor, setSelectedThemeColor] = useAtom(themeColor);
+  const expectionPathList = ['/', '/ja', '/about', '/ja/about'];
 
   // colors except selectedColor
-  const availableColors: string[] = COLORS.filter((color) => color !== selectedThemeColor);
+  const availableColors: Color[] = COLORS.filter((color) => color !== selectedThemeColor);
 
   // 4つの色を90度の範囲に均等に配置するため、各色の角度を計算
   const calculatePosition = (index: number): { x: number; y: number } => {
@@ -52,10 +58,14 @@ const ColorPicker: FC = () => {
     };
   };
 
-  const handleClickColor = (color: string) => {
+  const handleClickColor = (color: Color) => {
     setSelectedThemeColor(color);
     setIsOpen(!isOpen);
   };
+
+  if (expectionPathList.includes(pathname)) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-4 left-4 z-50">
@@ -64,7 +74,7 @@ const ColorPicker: FC = () => {
         className={`relative z-50 size-10 rounded-full border-4 border-white flex-center bg-custom${selectedThemeColor}-500`}
         onClick={() => setIsOpen(!isOpen)}
       />
-      {availableColors.slice(0, 4).map((color: string, index: number) => {
+      {availableColors.slice(0, 4).map((color: Color, index: number) => {
         const customColorClass = `bg-custom${color}-500`;
         return (
           <motion.button

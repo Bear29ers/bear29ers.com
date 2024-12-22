@@ -90,7 +90,7 @@ const LocaleLayout = async ({
           <Menu pathname={pathname} locale={locale} />
           {children}
           {modal}
-          <ColorPicker />
+          <ColorPicker pathname={pathname} />
         </NextIntlClientProvider>
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
