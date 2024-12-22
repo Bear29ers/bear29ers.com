@@ -15,7 +15,6 @@ import type { SocialMedia } from '@/types/socialMedia';
 
 import LocaleSwitch from '../../LocaleSwitch/LocaleSwitch';
 
-// TODO: すべてリンクが有効になったらvariatnsを修正する（whileHoverやwhileTapもvariantsに含める）
 const activeMenuVariants = {
   initial: {
     opacity: 0,
