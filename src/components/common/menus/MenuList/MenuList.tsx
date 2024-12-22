@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
+import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
 
 import { LOCALE_ITEMS } from '@/constants/locale';
@@ -9,6 +10,7 @@ import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
 
 import getIconComponent from '@/utils/getIconComponent';
 
+import { themeColor } from '@/state/colors';
 import type { Locale, LocaleItem } from '@/types/locale';
 import type { MenuItem } from '@/types/menuItems';
 import type { SocialMedia } from '@/types/socialMedia';
@@ -102,6 +104,7 @@ interface Props {
 
 const MenuList: FC<Props> = ({ pathname, locale }) => {
   const t = useTranslations('menu');
+  const [selectedThemeColor, _] = useAtom(themeColor);
 
   return (
     <div className="relative h-full flex-col gap-y-12 flex-center">
@@ -123,7 +126,7 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
                 className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
               </a>
-              {t(menuItem.href) === pathname && <span className="ml-1 text-customRed-500">.</span>}
+              {t(menuItem.href) === pathname && <span className={`ml-1 text-custom${selectedThemeColor}-500`}>.</span>}
             </motion.div>
           </div>
         ))}
@@ -157,7 +160,7 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
               animate="enter"
               exit="exit"
               key={localeItem.locale}>
-              <LocaleSwitch globalLocale={locale} locale={localeItem.locale}>
+              <LocaleSwitch globalLocale={locale} locale={localeItem.locale} themeColor={selectedThemeColor}>
                 <localeItem.icon />
               </LocaleSwitch>
             </motion.div>
