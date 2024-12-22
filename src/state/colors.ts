@@ -1,3 +1,5 @@
 import { atomWithStorage } from 'jotai/utils';
 
-export const themeColor = atomWithStorage('themeColor', 'Red');
+import type { Color } from '@/types/color';
+
+export const themeColor = atomWithStorage<Color>('themeColor', 'Red');
