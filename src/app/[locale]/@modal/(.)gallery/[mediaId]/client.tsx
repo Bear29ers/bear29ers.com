@@ -2,6 +2,8 @@
 
 import { useState, type FC } from 'react';
 
+import { useAtom } from 'jotai';
+
 import Modal from '@/components/common/Modal/Modal';
 import Caption from '@/components/ui/gallery/Caption/Caption';
 import Carousel from '@/components/ui/gallery/Carousel/Carousel';
@@ -9,6 +11,7 @@ import Thumbnails from '@/components/ui/gallery/Thumbnails/Thumbnails';
 
 import { CAPTION_INFO } from '@/constants/gallery';
 
+import { themeColor } from '@/state/colors';
 import type { Media } from '@/types/media';
 
 interface Props {
@@ -19,6 +22,7 @@ const GalleryModalClient: FC<Props> = ({ media }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
   const [index, setIndex] = useState<number>(0);
   const [touchPosition, setTouchPosition] = useState<number | null>(null);
+  const [selectedThemeColor, _] = useAtom(themeColor);
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -41,7 +45,13 @@ const GalleryModalClient: FC<Props> = ({ media }) => {
             </div>
             <div className="mx-auto w-full max-w-xl lg:max-w-[450px]">
               {/* Caption */}
-              <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} index={index} />
+              <Caption
+                media={media}
+                href={CAPTION_INFO.profileHref}
+                alt={CAPTION_INFO.username}
+                index={index}
+                themeColor={selectedThemeColor}
+              />
             </div>
           </div>
         </div>
