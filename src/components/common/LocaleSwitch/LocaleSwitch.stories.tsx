@@ -18,10 +18,11 @@ export const Default: Story = {
     globalLocale: 'en',
     locale: 'en',
     children: <USIcon />,
+    themeColor: 'Red',
   },
-  render: ({ globalLocale, locale, children }) => (
+  render: ({ globalLocale, locale, children, themeColor }) => (
     <div className="h-screen w-screen bg-dark p-4">
-      <LocaleSwitch globalLocale={globalLocale} locale={locale}>
+      <LocaleSwitch globalLocale={globalLocale} locale={locale} themeColor={themeColor}>
         {children}
       </LocaleSwitch>
     </div>
