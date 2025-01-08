@@ -16,11 +16,12 @@ export const Default: Story = {
     id: 2,
     company: 'gakkenLeap',
     index: 0,
+    themeColor: 'Red',
   },
-  render: ({ id, company, index }) => {
+  render: ({ id, company, index, themeColor }) => {
     return (
       <div className="text-white">
-        <ProjectHighlight id={id} company={company} index={index} />
+        <ProjectHighlight id={id} company={company} index={index} themeColor={themeColor} />
       </div>
     );
   },
