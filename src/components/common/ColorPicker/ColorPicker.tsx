@@ -73,6 +73,7 @@ const ColorPicker: FC<Props> = ({ pathname }) => {
         type="button"
         className={`relative z-50 size-10 rounded-full border-4 border-white flex-center bg-custom${selectedThemeColor}-500`}
         onClick={() => setIsOpen(!isOpen)}
+        aria-label={`${selectedThemeColor.toLowerCase()}-theme-color-button`}
       />
       {availableColors.slice(0, 4).map((color: Color, index: number) => {
         const customColorClass = `bg-custom${color}-500`;
@@ -86,6 +87,7 @@ const ColorPicker: FC<Props> = ({ pathname }) => {
             custom={index}
             animate={isOpen ? 'animate' : 'initial'}
             onClick={() => handleClickColor(color)}
+            aria-label={`${color.toLowerCase()}-color-button`}
           />
         );
       })}
