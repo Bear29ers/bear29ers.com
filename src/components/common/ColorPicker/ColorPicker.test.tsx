@@ -46,6 +46,27 @@ describe('src/components/common/ColorPicker/ColorPicker.test.tsx', () => {
         fireEvent.click(orangeButton);
         expect(screen.getByRole('button', { name: 'orange-theme-color-button' })).toBeInTheDocument();
       });
+
+      it.each(['red', 'green', 'cyan', 'violet'])(
+        'should display the picking color (%s) button elements',
+        (color: string) => {
+          expect(screen.getByRole('button', { name: `${color}-color-button` })).toBeInTheDocument();
+        }
+      );
+    });
+
+    describe('button positioning', () => {
+      it('should position buttons correctly when opened', () => {
+        const themeButton = screen.getByRole('button', { name: 'orange-theme-color-button' });
+        fireEvent.click(themeButton);
+
+        const colorButtons = screen.getAllByRole('button').slice(1);
+        colorButtons.forEach((button, _) => {
+          expect(button).toHaveClass('absolute');
+          expect(button).toHaveClass('left-1/2');
+          expect(button).toHaveClass('top-1/2');
+        });
+      });
     });
   });
 });
