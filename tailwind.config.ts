@@ -6,6 +6,7 @@ import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+  safelist: [{ pattern: /^border-/ }, { pattern: /^bg-/ }, { pattern: /^text-/ }, { pattern: /^fill-/ }],
   theme: {
     screens: {
       xl: '1280px',
