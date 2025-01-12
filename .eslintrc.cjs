@@ -185,7 +185,7 @@ const config = {
       {
         config: 'tailwind.config.ts',
         cssFiles: ['**/*.scss', '**/*.css', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
-        whitelist: ['gallery-intro-title', 'bg-custom', 'text-custom', 'border-custom', '-200', '-400', '-500', '-900'],
+        whitelist: ['gallery-intro-title'],
       },
     ],
     'tailwindcss/classnames-order': 'off',
