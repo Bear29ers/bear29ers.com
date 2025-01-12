@@ -6,6 +6,7 @@ import { notFound } from 'next/navigation';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 
+import ColorPicker from '@/components/common/ColorPicker/ColorPicker';
 import Menu from '@/components/common/Menu/Menu';
 
 import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
@@ -89,6 +90,7 @@ const LocaleLayout = async ({
           <Menu pathname={pathname} locale={locale} />
           {children}
           {modal}
+          <ColorPicker pathname={pathname} />
         </NextIntlClientProvider>
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>

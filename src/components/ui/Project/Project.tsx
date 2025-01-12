@@ -3,10 +3,12 @@
 import { useState, type FC } from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
+import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
+import { themeColor } from '@/state/colors';
 import type { Project as ProjectType } from '@/types/experience';
 
 import ProjectHighlight from '../projects/ProjectHighlight/ProjectHighlight';
@@ -41,8 +43,18 @@ interface Props {
 const Project: FC<Props> = ({ project }) => {
   const t = useTranslations('experience');
   const [isShow, setIsShow] = useState<boolean>(false);
+  const [selectedThemeColor, _] = useAtom(themeColor);
+
   const handleClick = () => {
     setIsShow(!isShow);
+  };
+
+  const buttonColorVariants = {
+    Red: 'bg-customRed-500 hover:bg-customRed-300',
+    Orange: 'bg-customOrange-500 hover:bg-customOrange-300',
+    Green: 'bg-customGreen-500 hover:bg-customGreen-300',
+    Cyan: 'bg-customCyan-500 hover:bg-customCyan-300',
+    Violet: 'bg-customViolet-500 hover:bg-customViolet-300',
   };
 
   return (
@@ -80,12 +92,12 @@ const Project: FC<Props> = ({ project }) => {
         {/* ProjectTag */}
         <div className="flex flex-wrap gap-1.5">
           {project.tagList.map((tagName: string, index: number) => (
-            <ProjectTag tagName={tagName} key={index} />
+            <ProjectTag tagName={tagName} key={index} themeColor={selectedThemeColor} />
           ))}
         </div>
         <button
           type="button"
-          className="inline w-fit rounded-xl bg-customRed-500 px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out hover:bg-customRed-400 xs:text-sm"
+          className={`inline w-fit rounded-xl px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out xs:text-sm ${buttonColorVariants[selectedThemeColor]}`}
           onClick={handleClick}>
           {isShow ? 'Show Less' : 'Show More'}
         </button>
@@ -118,6 +130,7 @@ const Project: FC<Props> = ({ project }) => {
                   company={project.company}
                   index={index}
                   key={`highlight-${project.id}-${index}`}
+                  themeColor={selectedThemeColor}
                 />
               ))}
             </div>

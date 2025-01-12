@@ -15,11 +15,12 @@ export const Default: Story = {
   args: {
     state: false,
     setState: () => {},
+    themeColor: 'Red',
   },
-  render: ({ state, setState }) => {
+  render: ({ state, setState, themeColor }) => {
     return (
       <div className="h-screen w-full bg-dark">
-        <ScrollDown state={state} setState={setState} />
+        <ScrollDown state={state} setState={setState} themeColor={themeColor} />
       </div>
     );
   },
