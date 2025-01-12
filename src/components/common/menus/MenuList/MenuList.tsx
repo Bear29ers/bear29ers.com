@@ -8,6 +8,7 @@ import { LOCALE_ITEMS } from '@/constants/locale';
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
 
+import getCustomColorClass from '@/utils/getCustomColorClass';
 import getIconComponent from '@/utils/getIconComponent';
 
 import { themeColor } from '@/state/colors';
@@ -105,6 +106,7 @@ interface Props {
 const MenuList: FC<Props> = ({ pathname, locale }) => {
   const t = useTranslations('menu');
   const [selectedThemeColor, _] = useAtom(themeColor);
+  const customTextColorClass = getCustomColorClass('text', selectedThemeColor, 500);
 
   return (
     <div className="relative h-full flex-col gap-y-12 flex-center">
@@ -126,7 +128,7 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
                 className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
               </a>
-              {t(menuItem.href) === pathname && <span className={`ml-1 text-custom${selectedThemeColor}-500`}>.</span>}
+              {t(menuItem.href) === pathname && <span className={`ml-1 ${customTextColorClass}`}>.</span>}
             </motion.div>
           </div>
         ))}
