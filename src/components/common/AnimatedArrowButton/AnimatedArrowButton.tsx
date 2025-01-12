@@ -12,7 +12,7 @@ const AnimatedArrowButton: FC<Props> = ({ url, text }) => {
   return (
     <button
       type="button"
-      className="group relative flex w-52 justify-end"
+      className="group relative flex w-52 cursor-pointer justify-end"
       onClick={() => router.push(url, { scroll: false })}>
       <span
         className="relative m-0 block size-12 rounded-full bg-darkerGray transition-all duration-450 ease-custom-ease-in-out-quart group-hover:w-full txs:bg-darker"
