@@ -7,6 +7,8 @@ import { useAtom } from 'jotai';
 
 import { COLORS } from '@/constants/colors';
 
+import getCustomColorClass from '@/utils/getCustomColorClass';
+
 import { themeColor } from '@/state/colors';
 import type { Color } from '@/types/color';
 
@@ -71,17 +73,18 @@ const ColorPicker: FC<Props> = ({ pathname }) => {
     <div className="fixed bottom-4 left-4 z-50">
       <button
         type="button"
-        className={`relative z-50 size-10 rounded-full border-4 border-white flex-center bg-custom${selectedThemeColor}-500`}
+        className={`relative z-50 size-10 rounded-full border-4 border-white flex-center ${getCustomColorClass('bg', selectedThemeColor, 500)}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-label={`${selectedThemeColor.toLowerCase()}-theme-color-button`}
       />
       {availableColors.slice(0, 4).map((color: Color, index: number) => {
-        const customColorClass = `bg-custom${color}-500`;
+        const customBgColorClass = getCustomColorClass('bg', color, 500);
+
         return (
           <motion.button
             type="button"
             key={color}
-            className={`absolute left-1/2 top-1/2 z-40 size-7 rounded-full border-4 border-white transition-opacity flex-center hover:opacity-80 ${customColorClass}`}
+            className={`absolute left-1/2 top-1/2 z-40 size-7 rounded-full border-4 border-white transition-opacity flex-center hover:opacity-80 ${customBgColorClass}`}
             variants={getColorVariants(index)}
             initial="initial"
             custom={index}
