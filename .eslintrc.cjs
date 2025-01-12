@@ -102,7 +102,7 @@ const config = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/no-unknown-property': ['error', { ignore: ['space'] }],
     'react/require-default-props': 'off',
-    'react/no-array-index-key': 'warn',
+    'react/no-array-index-key': 'off',
     /* import */
     'unused-imports/no-unused-imports': 'error',
     'import/prefer-default-export': 'off',

@@ -1,21 +1,23 @@
 import type { FC } from 'react';
 
 import { motion } from 'framer-motion';
+import { useAtom } from 'jotai';
 import { useTranslations } from 'next-intl';
 
 import { LOCALE_ITEMS } from '@/constants/locale';
 import { MENU_ITEMS } from '@/constants/menuItems';
 import { SOCIAL_MEDIA_LIST } from '@/constants/socialMedia';
 
+import getCustomColorClass from '@/utils/getCustomColorClass';
 import getIconComponent from '@/utils/getIconComponent';
 
+import { themeColor } from '@/state/colors';
 import type { Locale, LocaleItem } from '@/types/locale';
 import type { MenuItem } from '@/types/menuItems';
 import type { SocialMedia } from '@/types/socialMedia';
 
 import LocaleSwitch from '../../LocaleSwitch/LocaleSwitch';
 
-// TODO: すべてリンクが有効になったらvariatnsを修正する（whileHoverやwhileTapもvariantsに含める）
 const activeMenuVariants = {
   initial: {
     opacity: 0,
@@ -103,6 +105,8 @@ interface Props {
 
 const MenuList: FC<Props> = ({ pathname, locale }) => {
   const t = useTranslations('menu');
+  const [selectedThemeColor, _] = useAtom(themeColor);
+  const customTextColorClass = getCustomColorClass('text', selectedThemeColor, 500);
 
   return (
     <div className="relative h-full flex-col gap-y-12 flex-center">
@@ -124,7 +128,7 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
                 className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
                 {menuItem.text}
               </a>
-              {t(menuItem.href) === pathname && <span className="ml-1 text-customRed-500">.</span>}
+              {t(menuItem.href) === pathname && <span className={`ml-1 ${customTextColorClass}`}>.</span>}
             </motion.div>
           </div>
         ))}
@@ -158,7 +162,7 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
               animate="enter"
               exit="exit"
               key={localeItem.locale}>
-              <LocaleSwitch globalLocale={locale} locale={localeItem.locale}>
+              <LocaleSwitch globalLocale={locale} locale={localeItem.locale} themeColor={selectedThemeColor}>
                 <localeItem.icon />
               </LocaleSwitch>
             </motion.div>

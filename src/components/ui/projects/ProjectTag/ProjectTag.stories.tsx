@@ -14,8 +14,9 @@ type Story = StoryObj<typeof ProjectTag>;
 export const Default: Story = {
   args: {
     tagName: 'HTML',
+    themeColor: 'Red',
   },
-  render: ({ tagName }) => {
-    return <ProjectTag tagName={tagName} />;
+  render: ({ tagName, themeColor }) => {
+    return <ProjectTag tagName={tagName} themeColor={themeColor} />;
   },
 };

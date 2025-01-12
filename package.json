@@ -27,6 +27,7 @@
     "@testing-library/react": "^14.2.1",
     "framer-motion": "^11.2.10",
     "framer-motion-8": "npm:framer-motion@^8.5.5",
+    "jotai": "^2.10.4",
     "next": "^14.2.4",
     "next-intl": "^3.25.0",
     "popmotion": "^11.0.5",
