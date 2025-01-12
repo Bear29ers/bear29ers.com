@@ -49,6 +49,14 @@ const Project: FC<Props> = ({ project }) => {
     setIsShow(!isShow);
   };
 
+  const buttonColorVariants = {
+    Red: 'bg-customRed-500 hover:bg-customRed-300',
+    Orange: 'bg-customOrange-500 hover:bg-customOrange-300',
+    Green: 'bg-customGreen-500 hover:bg-customGreen-300',
+    Cyan: 'bg-customCyan-500 hover:bg-customCyan-300',
+    Violet: 'bg-customViolet-500 hover:bg-customViolet-300',
+  };
+
   return (
     <motion.div
       className="flex w-full grow flex-col rounded-2xl p-5 md:p-8"
@@ -89,7 +97,7 @@ const Project: FC<Props> = ({ project }) => {
         </div>
         <button
           type="button"
-          className={`inline w-fit rounded-xl px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out xs:text-sm bg-custom${selectedThemeColor}-500 hover:bg-custom${selectedThemeColor}-400`}
+          className={`inline w-fit rounded-xl px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out xs:text-sm ${buttonColorVariants[selectedThemeColor]}`}
           onClick={handleClick}>
           {isShow ? 'Show Less' : 'Show More'}
         </button>
