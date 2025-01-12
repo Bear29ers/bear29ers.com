@@ -31,7 +31,7 @@ describe('src/components/common/LocaleSwitch/LocaleSwitch.test.tsx', () => {
     beforeEach(() => {
       renderResult = render(
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <LocaleSwitch globalLocale={locale} locale={locale}>
+          <LocaleSwitch globalLocale={locale} locale={locale} themeColor="Red">
             LocaleSwitch
           </LocaleSwitch>
         </NextIntlClientProvider>
@@ -70,7 +70,7 @@ describe('src/components/common/LocaleSwitch/LocaleSwitch.test.tsx', () => {
     beforeEach(() => {
       renderResult = render(
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <LocaleSwitch globalLocale={locale} locale="ja">
+          <LocaleSwitch globalLocale={locale} locale="ja" themeColor="Red">
             LocaleSwitch
           </LocaleSwitch>
         </NextIntlClientProvider>
