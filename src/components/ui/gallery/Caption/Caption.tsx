@@ -29,6 +29,14 @@ const Caption: FC<Props> = ({ media, href, alt, index, themeColor }) => {
   });
   const formattedDate = jstTime.replace(/\//g, '-');
 
+  const linkColorVariants = {
+    Red: 'border-customRed-500 hover:bg-customRed-500',
+    Orange: 'border-customOrange-500 hover:bg-customOrange-500',
+    Green: 'border-customGreen-500 hover:bg-customGreen-500',
+    Cyan: 'border-customCyan-500 hover:bg-customCyan-500',
+    Violet: 'border-customViolet-500 hover:bg-customViolet-500',
+  };
+
   return (
     <div>
       <div className="mt-4 flex flex-col gap-y-4 rounded-lg bg-darker p-5 text-white">
@@ -58,7 +66,7 @@ const Caption: FC<Props> = ({ media, href, alt, index, themeColor }) => {
             <Link
               href={`${media.permalink}?img_index=${index + 1}`}
               target="_blank"
-              className={`w-fit rounded-2xl border px-4 py-2 text-sm transition-colors txs:text-base border-custom${themeColor}-500 hover:bg-custom${themeColor}-500`}>
+              className={`w-fit rounded-2xl border px-4 py-2 text-sm transition-colors txs:text-base ${linkColorVariants[themeColor]}`}>
               More on Instagram
             </Link>
           </div>
