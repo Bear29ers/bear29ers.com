@@ -31,7 +31,13 @@ interface Props {
 }
 
 const ScrollDown: FC<Props> = ({ state, setState, themeColor }) => {
-  const customColorClass = `group-hover:fill-custom${themeColor}-500`;
+  const arrowColorVariants = {
+    Red: 'group-hover:fill-customRed-500',
+    Orange: 'group-hover:fill-customOrange-500',
+    Green: 'group-hover:fill-customGreen-500',
+    Cyan: 'group-hover:fill-customCyan-500',
+    Violet: 'group-hover:fill-customViolet-500',
+  };
 
   return (
     <motion.button
@@ -44,7 +50,7 @@ const ScrollDown: FC<Props> = ({ state, setState, themeColor }) => {
         width="100%"
         height="100%"
         viewBox="0 0 310 177"
-        className={`absolute inset-x-0 top-5 mx-auto w-12 animate-down fill-dark transition-colors duration-400 ${customColorClass}`}>
+        className={`absolute inset-x-0 top-5 mx-auto w-12 animate-down fill-dark transition-colors duration-400 ${arrowColorVariants[themeColor]}`}>
         <path
           className="fill-inherit"
           fill="none"
