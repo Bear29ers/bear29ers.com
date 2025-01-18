@@ -1,14 +1,14 @@
-import _import from 'eslint-plugin-import';
+import pluginImport from 'eslint-plugin-import';
 import unusedImports from 'eslint-plugin-unused-imports';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import tailwindcss from 'eslint-plugin-tailwindcss';
 import tseslint from 'typescript-eslint';
-import jest from 'eslint-plugin-jest';
+import pluginJest from 'eslint-plugin-jest';
 import jestDom from 'eslint-plugin-jest-dom';
 import testingLibrary from 'eslint-plugin-testing-library';
+import pluginPrettier from 'eslint-config-prettier';
 import { fixupPluginRules } from '@eslint/compat';
 import globals from 'globals';
-import tsParser from '@typescript-eslint/parser';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import js from '@eslint/js';
@@ -22,7 +22,7 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-export default [
+const eslintConfig = [
   {
     ignores: [
       '**/*.cjs',
@@ -41,26 +41,16 @@ export default [
     'eslint:recommended',
     'airbnb',
     'airbnb/hooks',
-    'plugin:jsx-a11y/recommended',
+    'react',
     'next/core-web-vitals',
-    'plugin:tailwindcss/recommended',
-    'plugin:jest/recommended',
-    'plugin:jest/style',
-    'plugin:testing-library/react',
-    'plugin:jest-dom/recommended',
-    'plugin:testing-library/react',
-    'plugin:react/recommended',
-    'plugin:storybook/recommended',
     'prettier'
   ),
   {
     plugins: {
-      'import': fixupPluginRules(_import),
+      'import': pluginImport,
       'unused-imports': unusedImports,
       'jsx-a11y': jsxA11Y,
       tailwindcss,
-      '@typescript-eslint': typescriptEslint,
-      jest,
       'jest-dom': jestDom,
       'testing-library': testingLibrary,
     },
@@ -83,6 +73,8 @@ export default [
     },
 
     rules: {
+      ...pluginImport.configs['recommended'].rules,
+      ...pluginPrettier.rules,
       'no-unused-vars': 'off',
       'arrow-body-style': 'off',
 
@@ -247,17 +239,26 @@ export default [
 
       'tailwindcss/classnames-order': 'off',
 
+      'testing-library/no-render-in-lifecycle': 'off',
+      'testing-library/no-node-access': 'off',
+    },
+  },
+  {
+    files: ['**/*.test.tsx', '**/*.test.ts'],
+    plugins: { jest: pluginJest },
+    languageOptions: {
+      globals: pluginJest.environments.globals.globals
+    },
+    rules: {
       'jest/consistent-test-it': [
         'error',
         {
           fn: 'it',
         },
       ],
-
       'jest/require-top-level-describe': ['error'],
-      'testing-library/no-render-in-lifecycle': 'off',
-      'testing-library/no-node-access': 'off',
-    },
-  },
+    }
+  }
 ];
 
+export default eslintConfig;
