@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import getCustomColorClass from '@/utils/getCustomColorClass';
 

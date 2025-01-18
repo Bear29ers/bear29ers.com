@@ -3,8 +3,8 @@
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
 import { useAtom } from 'jotai';
+import { AnimatePresence, motion } from 'motion/react';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';

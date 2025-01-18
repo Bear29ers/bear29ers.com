@@ -10,7 +10,7 @@ import MainVisual from './MainVisual';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('framer-motion', () => {
+jest.mock('motion/react', () => {
   const ActualReact: typeof React = jest.requireActual('react');
 
   const MotionImg: FC<{
