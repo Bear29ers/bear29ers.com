@@ -2,6 +2,7 @@ import pluginImport from 'eslint-plugin-import';
 import unusedImports from 'eslint-plugin-unused-imports';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import tseslint from 'typescript-eslint';
+import pluginNext from '@next/eslint-plugin-next';
 import pluginTailwind from 'eslint-plugin-tailwindcss';
 import pluginJest from 'eslint-plugin-jest';
 import pluginJestDom from 'eslint-plugin-jest-dom';
@@ -36,18 +37,18 @@ const eslintConfig = [
       '**/.next/',
     ],
   },
-  ...tseslint.configs.recommended,
-  ...pluginTailwind.configs['flat/recommended'],
   ...compat.extends(
     'eslint:recommended',
     'airbnb',
-    'airbnb/hooks',
     'react',
-    'next/core-web-vitals',
     'prettier'
   ),
+  ...tseslint.configs.recommended,
+  ...pluginTailwind.configs['flat/recommended'],
   {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     plugins: {
+      '@next/next': pluginNext,
       'import': pluginImport,
       'unused-imports': unusedImports,
       'jsx-a11y': jsxA11Y,
@@ -69,6 +70,8 @@ const eslintConfig = [
     },
 
     rules: {
+      ...pluginNext.configs.recommended.rules,
+      ...pluginNext.configs['core-web-vitals'].rules,
       ...pluginImport.configs['recommended'].rules,
       ...pluginPrettier.rules,
       'no-unused-vars': 'off',
@@ -144,7 +147,6 @@ const eslintConfig = [
       'react/no-array-index-key': 'off',
       'unused-imports/no-unused-imports': 'error',
       'import/prefer-default-export': 'off',
-
       'import/extensions': [
         'error',
         'ignorePackages',
@@ -155,7 +157,6 @@ const eslintConfig = [
           tsx: 'never',
         },
       ],
-
       'import/order': [
         'error',
         {
@@ -221,7 +222,6 @@ const eslintConfig = [
           },
         },
       ],
-
       'tailwindcss/no-custom-classname': [
         'warn',
         {
@@ -232,7 +232,6 @@ const eslintConfig = [
           whitelist: ['gallery-intro-title'],
         },
       ],
-
       'tailwindcss/classnames-order': 'off',
     },
   },
