@@ -1,8 +1,8 @@
 import pluginImport from 'eslint-plugin-import';
 import unusedImports from 'eslint-plugin-unused-imports';
 import jsxA11Y from 'eslint-plugin-jsx-a11y';
-import tailwindcss from 'eslint-plugin-tailwindcss';
 import tseslint from 'typescript-eslint';
+import pluginTailwind from 'eslint-plugin-tailwindcss';
 import pluginJest from 'eslint-plugin-jest';
 import pluginJestDom from 'eslint-plugin-jest-dom';
 import pluginTestingLibrary from 'eslint-plugin-testing-library';
@@ -37,6 +37,7 @@ const eslintConfig = [
     ],
   },
   ...tseslint.configs.recommended,
+  ...pluginTailwind.configs['flat/recommended'],
   ...compat.extends(
     'eslint:recommended',
     'airbnb',
@@ -50,9 +51,6 @@ const eslintConfig = [
       'import': pluginImport,
       'unused-imports': unusedImports,
       'jsx-a11y': jsxA11Y,
-      tailwindcss,
-      'jest-dom': jestDom,
-      'testing-library': testingLibrary,
     },
 
     languageOptions: {
@@ -62,12 +60,10 @@ const eslintConfig = [
       },
       ecmaVersion: 'latest',
       sourceType: 'module',
-
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
         },
-
         project: './tsconfig.json',
       },
     },
