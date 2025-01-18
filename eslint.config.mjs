@@ -5,7 +5,7 @@ import tailwindcss from 'eslint-plugin-tailwindcss';
 import tseslint from 'typescript-eslint';
 import pluginJest from 'eslint-plugin-jest';
 import pluginJestDom from 'eslint-plugin-jest-dom';
-import testingLibrary from 'eslint-plugin-testing-library';
+import pluginTestingLibrary from 'eslint-plugin-testing-library';
 import pluginPrettier from 'eslint-config-prettier';
 import { fixupPluginRules } from '@eslint/compat';
 import globals from 'globals';
@@ -238,14 +238,11 @@ const eslintConfig = [
       ],
 
       'tailwindcss/classnames-order': 'off',
-
-      'testing-library/no-render-in-lifecycle': 'off',
-      'testing-library/no-node-access': 'off',
     },
   },
   {
     files: ['**/*.test.tsx', '**/*.test.ts'],
-    plugins: { jest: pluginJest, 'jest-dom': pluginJestDom },
+    plugins: { jest: pluginJest, 'jest-dom': pluginJestDom, 'testing-library': pluginTestingLibrary },
     languageOptions: {
       globals: pluginJest.environments.globals.globals
     },
@@ -253,6 +250,7 @@ const eslintConfig = [
       ...pluginJest.configs['flat/style'].rules,
       ...pluginJest.configs['flat/recommended'].rules,
       ...pluginJestDom.configs['flat/recommended'].rules,
+      ...pluginTestingLibrary.configs['flat/dom'].rules,
       'jest/consistent-test-it': [
         'error',
         {
@@ -260,6 +258,8 @@ const eslintConfig = [
         },
       ],
       'jest/require-top-level-describe': ['error'],
+      'testing-library/no-render-in-lifecycle': 'off',
+      'testing-library/no-node-access': 'off',
     }
   }
 ];
