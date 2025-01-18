@@ -4,7 +4,7 @@ import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import tailwindcss from 'eslint-plugin-tailwindcss';
 import tseslint from 'typescript-eslint';
 import pluginJest from 'eslint-plugin-jest';
-import jestDom from 'eslint-plugin-jest-dom';
+import pluginJestDom from 'eslint-plugin-jest-dom';
 import testingLibrary from 'eslint-plugin-testing-library';
 import pluginPrettier from 'eslint-config-prettier';
 import { fixupPluginRules } from '@eslint/compat';
@@ -245,11 +245,14 @@ const eslintConfig = [
   },
   {
     files: ['**/*.test.tsx', '**/*.test.ts'],
-    plugins: { jest: pluginJest },
+    plugins: { jest: pluginJest, 'jest-dom': pluginJestDom },
     languageOptions: {
       globals: pluginJest.environments.globals.globals
     },
     rules: {
+      ...pluginJest.configs['flat/style'].rules,
+      ...pluginJest.configs['flat/recommended'].rules,
+      ...pluginJestDom.configs['flat/recommended'].rules,
       'jest/consistent-test-it': [
         'error',
         {
