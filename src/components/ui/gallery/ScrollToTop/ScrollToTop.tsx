@@ -1,6 +1,6 @@
 import { useState, type FC, useEffect } from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 
 const ScrollToTop: FC = () => {
   const [scrollPosition, setScrollPosition] = useState<number>(0);

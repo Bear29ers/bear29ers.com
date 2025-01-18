@@ -2,8 +2,8 @@
 
 import { useState, type FC } from 'react';
 
-import { motion } from 'framer-motion';
 import { useAtom } from 'jotai';
+import { motion } from 'motion/react';
 
 import { COLORS } from '@/constants/colors';
 

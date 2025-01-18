@@ -1,6 +1,6 @@
 import type { Dispatch, FC, SetStateAction } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useRouter } from 'next/navigation';
 
 interface Props {

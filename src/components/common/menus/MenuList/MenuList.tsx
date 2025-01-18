@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
-import { motion } from 'framer-motion';
 import { useAtom } from 'jotai';
+import { motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { LOCALE_ITEMS } from '@/constants/locale';
