@@ -3,7 +3,7 @@
 import type { Dispatch, FC, SetStateAction } from 'react';
 import React from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import type { Media } from '@/types/media';
 
