@@ -2,8 +2,8 @@
 
 import { useState, type FC } from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
 import { useAtom } from 'jotai';
+import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';

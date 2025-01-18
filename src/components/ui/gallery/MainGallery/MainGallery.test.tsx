@@ -9,7 +9,7 @@ import MainGallery from './MainGallery';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('framer-motion', () => ({
+jest.mock('motion/react', () => ({
   motion: jest.fn().mockImplementation((Component: FC) => Component),
 }));
 
