@@ -30,7 +30,6 @@ const eslintConfig = [
       '**/.next/',
     ],
   },
-  /* JavaScript */
   js.configs.recommended,
   {
     files: ['**/*.{js,jsx,ts,tsx}', '**/*.test.{ts,tsx}'],

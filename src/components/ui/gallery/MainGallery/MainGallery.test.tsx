@@ -1,5 +1,3 @@
-/* eslint-disable react/display-name */
-
 import type { FC } from 'react';
 
 import { render, screen, waitFor } from '@testing-library/react';
