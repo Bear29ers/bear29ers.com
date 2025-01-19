@@ -9,13 +9,14 @@ import GalleryModalClient from './client';
 import type { NextPage } from 'next';
 
 interface Props {
-  params: {
+  params: Promise<{
     mediaId: string;
-  };
+  }>;
 }
 
 const GalleryModal: NextPage<Props> = async ({ params }) => {
-  const media = await fetchMedia(params.mediaId, { revalidate: 1800 });
+  const { mediaId } = await params;
+  const media = await fetchMedia(mediaId, { revalidate: 1800 });
   return (
     <Suspense
       fallback={
