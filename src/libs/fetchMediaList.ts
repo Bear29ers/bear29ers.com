@@ -22,7 +22,6 @@ const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): 
     let nextUrl = data.media.paging?.next || null;
 
     while (nextUrl) {
-      // eslint-disable-next-line no-await-in-loop
       const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${unixtime}`, next));
 
       if (nextData.data && Array.isArray(nextData.data)) {
@@ -36,7 +35,6 @@ const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): 
 
     return filteredData;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error fetching Instagram media list data: ', error);
     throw new Error('Failed to fetch media list data', { cause: error });
   }

@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { type FC } from 'react';
 
 import { render, screen, waitFor } from '@testing-library/react';

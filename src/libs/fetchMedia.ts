@@ -15,7 +15,6 @@ const fetchMedia = async (mediaId: string, next?: NextFetchRequestConfig): Promi
 
     return data;
   } catch (error) {
-    // eslint-disable-next-line no-console
     console.error('Error fetching Instagram media data: ', error);
     throw new Error('Failed to fetch media data', { cause: error });
   }
