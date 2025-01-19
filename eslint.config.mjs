@@ -1,8 +1,10 @@
-import pluginImport from 'eslint-plugin-import';
-import unusedImports from 'eslint-plugin-unused-imports';
-import jsxA11Y from 'eslint-plugin-jsx-a11y';
 import tseslint from 'typescript-eslint';
+import pluginImport from 'eslint-plugin-import';
+import pluginUnusedImports from 'eslint-plugin-unused-imports';
 import pluginNext from '@next/eslint-plugin-next';
+import pluginReact from 'eslint-plugin-react';
+import pluginReactHooks from 'eslint-plugin-react-hooks';
+import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginTailwind from 'eslint-plugin-tailwindcss';
 import pluginJest from 'eslint-plugin-jest';
 import pluginJestDom from 'eslint-plugin-jest-dom';
@@ -23,6 +25,9 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
+/**
+ * @type {import('eslint').Linter.Config}
+ */
 const eslintConfig = [
   {
     ignores: [
@@ -43,37 +48,19 @@ const eslintConfig = [
     'react',
     'prettier'
   ),
-  ...tseslint.configs.recommended,
-  ...pluginTailwind.configs['flat/recommended'],
+  /* JavaScript */
+  js.configs.recommended,
   {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
     plugins: {
-      '@next/next': pluginNext,
       'import': pluginImport,
-      'unused-imports': unusedImports,
-      'jsx-a11y': jsxA11Y,
+      'unused-imports': pluginUnusedImports,
     },
-
     languageOptions: {
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-      },
       ecmaVersion: 'latest',
       sourceType: 'module',
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-        project: './tsconfig.json',
-      },
     },
-
     rules: {
-      ...pluginNext.configs.recommended.rules,
-      ...pluginNext.configs['core-web-vitals'].rules,
-      ...pluginImport.configs['recommended'].rules,
-      ...pluginPrettier.rules,
+      ...js.configs.recommended.rules,
       'no-unused-vars': 'off',
       'arrow-body-style': 'off',
 
@@ -84,68 +71,10 @@ const eslintConfig = [
           message: 'DO NOT DECLARE ENUM',
         },
       ],
-
       'no-plusplus': 'off',
-
-      '@typescript-eslint/ban-ts-comment': [
-        'error',
-        {
-          'ts-expect-error': 'allow-with-description',
-          'ts-ignore': false,
-          'ts-nocheck': false,
-          'ts-check': false,
-        },
-      ],
-
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        {
-          prefer: 'type-imports',
-        },
-      ],
-
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
-        },
-      ],
-
-      'react/jsx-filename-extension': [
-        'error',
-        {
-          extensions: ['.jsx', '.tsx'],
-        },
-      ],
-
-      'react/jsx-props-no-spreading': 'off',
-
-      'react/function-component-definition': [
-        'error',
-        {
-          namedComponents: 'arrow-function',
-          unnamedComponents: 'arrow-function',
-        },
-      ],
-
-      'react/prop-types': 'off',
-      'react/jsx-uses-react': 'off',
-      'react/react-in-jsx-scope': 'off',
-      'react-hooks/exhaustive-deps': 'warn',
-
-      'react/no-unknown-property': [
-        'error',
-        {
-          ignore: ['space'],
-        },
-      ],
-
-      'react/require-default-props': 'off',
-      'react/no-array-index-key': 'off',
+      // unused-imports
       'unused-imports/no-unused-imports': 'error',
+      // import
       'import/prefer-default-export': 'off',
       'import/extensions': [
         'error',
@@ -222,6 +151,58 @@ const eslintConfig = [
           },
         },
       ],
+    }
+  },
+  /* TypeScript */
+  ...tseslint.configs.recommended,
+  {
+    files: ["**/*.{ts,tsx}"],
+    plugins: {
+      typescript: tseslint.plugin
+    },
+    languageOptions: {
+      parser: tseslint.parser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.commonjs,
+        ...globals.es2015,
+      }
+    },
+    rules: {
+      '@typescript-eslint/ban-ts-comment': [
+        'error',
+        {
+          'ts-expect-error': 'allow-with-description',
+          'ts-ignore': false,
+          'ts-nocheck': false,
+          'ts-check': false,
+        },
+      ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+        },
+      ],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
+    },
+  },
+  /* TailwindCSS */
+  ...pluginTailwind.configs['flat/recommended'],
+  {
+    plugins: {
+      tailwindcss: pluginTailwind,
+    },
+    rules: {
       'tailwindcss/no-custom-classname': [
         'warn',
         {
@@ -233,8 +214,65 @@ const eslintConfig = [
         },
       ],
       'tailwindcss/classnames-order': 'off',
+    }
+  },
+  // React & Next
+  pluginReact.configs.recommended,
+  pluginJsxA11y.flatConfigs.recommended,
+  {
+    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
+    plugins: {
+      '@next/next': pluginNext,
+      react: pluginReact,
+      'react-hooks': pluginReactHooks,
+      'jsx-a11y': pluginJsxA11y,
+    },
+    languageOptions: {
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
+    },
+    rules: {
+      ...pluginNext.configs.recommended.rules,
+      ...pluginNext.configs['core-web-vitals'].rules,
+      ...pluginReact.configs.recommended.rules,
+      ...pluginReactHooks.configs.recommended.rules,
+      'react/jsx-filename-extension': [
+        'error',
+        {
+          extensions: ['.jsx', '.tsx'],
+        },
+      ],
+      'react/jsx-props-no-spreading': 'off',
+      'react/function-component-definition': [
+        'error',
+        {
+          namedComponents: 'arrow-function',
+          unnamedComponents: 'arrow-function',
+        },
+      ],
+      'react/prop-types': 'off',
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+      'react/no-unknown-property': [
+        'error',
+        {
+          ignore: ['space'],
+        },
+      ],
+      'react/require-default-props': 'off',
+      'react/no-array-index-key': 'off',
+      'react-hooks/exhaustive-deps': 'warn',
     },
   },
+  // Jest & Testing Library
   {
     files: ['**/*.test.tsx', '**/*.test.ts'],
     plugins: { jest: pluginJest, 'jest-dom': pluginJestDom, 'testing-library': pluginTestingLibrary },
@@ -256,7 +294,8 @@ const eslintConfig = [
       'testing-library/no-render-in-lifecycle': 'off',
       'testing-library/no-node-access': 'off',
     }
-  }
+  },
+  ...pluginPrettier,
 ];
 
 export default eslintConfig;
