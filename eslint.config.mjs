@@ -1,3 +1,5 @@
+import globals from 'globals';
+import js from '@eslint/js';
 import tseslint from 'typescript-eslint';
 import pluginImport from 'eslint-plugin-import';
 import pluginUnusedImports from 'eslint-plugin-unused-imports';
@@ -10,20 +12,6 @@ import pluginJest from 'eslint-plugin-jest';
 import pluginJestDom from 'eslint-plugin-jest-dom';
 import pluginTestingLibrary from 'eslint-plugin-testing-library';
 import pluginPrettier from 'eslint-config-prettier';
-import { fixupPluginRules } from '@eslint/compat';
-import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
 
 /**
  * @type {import('eslint').Linter.Config}
@@ -42,28 +30,51 @@ const eslintConfig = [
       '**/.next/',
     ],
   },
-  ...compat.extends(
-    'eslint:recommended',
-    'airbnb',
-    'react',
-    'prettier'
-  ),
   /* JavaScript */
   js.configs.recommended,
   {
+    files: ['**/*.{js,jsx,ts,tsx}', '**/*.test.{ts,tsx}'],
     plugins: {
       'import': pluginImport,
       'unused-imports': pluginUnusedImports,
+      '@next/next': pluginNext,
+      react: pluginReact,
+      'react-hooks': pluginReactHooks,
+      'jsx-a11y': pluginJsxA11y,
+      tailwindcss: pluginTailwind,
+      typescript: tseslint.plugin,
+      prettier: pluginPrettier,
     },
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+      parser: tseslint.parser,
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+        ...globals.commonjs,
+        ...globals.es2015,
+      }
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
     },
     rules: {
       ...js.configs.recommended.rules,
+      ...tseslint.configs.recommended[1].rules,
+      ...pluginNext.configs.recommended.rules,
+      ...pluginNext.configs['core-web-vitals'].rules,
+      ...pluginReactHooks.configs.recommended.rules,
+      ...pluginPrettier.rules,
       'no-unused-vars': 'off',
       'arrow-body-style': 'off',
-
       'no-restricted-syntax': [
         'error',
         {
@@ -151,58 +162,7 @@ const eslintConfig = [
           },
         },
       ],
-    }
-  },
-  /* TypeScript */
-  ...tseslint.configs.recommended,
-  {
-    files: ["**/*.{ts,tsx}"],
-    plugins: {
-      typescript: tseslint.plugin
-    },
-    languageOptions: {
-      parser: tseslint.parser,
-      globals: {
-        ...globals.browser,
-        ...globals.node,
-        ...globals.commonjs,
-        ...globals.es2015,
-      }
-    },
-    rules: {
-      '@typescript-eslint/ban-ts-comment': [
-        'error',
-        {
-          'ts-expect-error': 'allow-with-description',
-          'ts-ignore': false,
-          'ts-nocheck': false,
-          'ts-check': false,
-        },
-      ],
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        {
-          prefer: 'type-imports',
-        },
-      ],
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
-        },
-      ],
-    },
-  },
-  /* TailwindCSS */
-  ...pluginTailwind.configs['flat/recommended'],
-  {
-    plugins: {
-      tailwindcss: pluginTailwind,
-    },
-    rules: {
+      // TailwindCSS
       'tailwindcss/no-custom-classname': [
         'warn',
         {
@@ -214,36 +174,7 @@ const eslintConfig = [
         },
       ],
       'tailwindcss/classnames-order': 'off',
-    }
-  },
-  // React & Next
-  pluginReact.configs.recommended,
-  pluginJsxA11y.flatConfigs.recommended,
-  {
-    files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
-    plugins: {
-      '@next/next': pluginNext,
-      react: pluginReact,
-      'react-hooks': pluginReactHooks,
-      'jsx-a11y': pluginJsxA11y,
-    },
-    languageOptions: {
-      parserOptions: {
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
-    settings: {
-      react: {
-        version: 'detect'
-      }
-    },
-    rules: {
-      ...pluginNext.configs.recommended.rules,
-      ...pluginNext.configs['core-web-vitals'].rules,
-      ...pluginReact.configs.recommended.rules,
-      ...pluginReactHooks.configs.recommended.rules,
+      // React
       'react/jsx-filename-extension': [
         'error',
         {
@@ -269,8 +200,9 @@ const eslintConfig = [
       ],
       'react/require-default-props': 'off',
       'react/no-array-index-key': 'off',
+      // React Hooks
       'react-hooks/exhaustive-deps': 'warn',
-    },
+    }
   },
   // Jest & Testing Library
   {
@@ -295,7 +227,6 @@ const eslintConfig = [
       'testing-library/no-node-access': 'off',
     }
   },
-  ...pluginPrettier,
 ];
 
 export default eslintConfig;
