@@ -25,13 +25,13 @@ export const generateMetadata = async (): Promise<Metadata> => {
   let url = '';
   let pageTitle = '';
   const description = t('description');
-  const requestUrl = headers().get('x-request-url');
+  const headersList = await headers();
+  const requestUrl = headersList.get('x-request-url');
   if (requestUrl) {
     const { href, pathname } = new URL(requestUrl);
     url = href;
     pageTitle = convertToPageTitle(pathname);
   } else {
-    // eslint-disable-next-line no-console
     console.error('x-request-url header is missing');
   }
 
@@ -70,10 +70,10 @@ const LocaleLayout = async ({
   modal: ReactNode;
   params: { locale: Locale };
 }>) => {
-  const pathname = headers().get('x-request-path') || '/';
+  const headersList = await headers();
+  const pathname = headersList.get('x-request-path') || '/';
 
   // Ensure that the incoming `locale` is valid
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unsafe-argument
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
