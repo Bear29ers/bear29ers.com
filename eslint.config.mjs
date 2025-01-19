@@ -38,12 +38,12 @@ const eslintConfig = [
       'import': pluginImport,
       'unused-imports': pluginUnusedImports,
       '@next/next': pluginNext,
-      react: pluginReact,
+      'react': pluginReact,
       'react-hooks': pluginReactHooks,
       'jsx-a11y': pluginJsxA11y,
-      tailwindcss: pluginTailwind,
-      typescript: tseslint.plugin,
-      prettier: pluginPrettier,
+      'tailwindcss': pluginTailwind,
+      'typescript': tseslint.plugin,
+      'prettier': pluginPrettier,
     },
     languageOptions: {
       ecmaVersion: 'latest',
@@ -59,12 +59,12 @@ const eslintConfig = [
         ...globals.node,
         ...globals.commonjs,
         ...globals.es2015,
-      }
+      },
     },
     settings: {
       react: {
-        version: 'detect'
-      }
+        version: 'detect',
+      },
     },
     rules: {
       ...js.configs.recommended.rules,
@@ -87,16 +87,6 @@ const eslintConfig = [
       'unused-imports/no-unused-imports': 'error',
       // import
       'import/prefer-default-export': 'off',
-      'import/extensions': [
-        'error',
-        'ignorePackages',
-        {
-          js: 'never',
-          jsx: 'never',
-          ts: 'never',
-          tsx: 'never',
-        },
-      ],
       'import/order': [
         'error',
         {
@@ -202,14 +192,14 @@ const eslintConfig = [
       'react/no-array-index-key': 'off',
       // React Hooks
       'react-hooks/exhaustive-deps': 'warn',
-    }
+    },
   },
   // Jest & Testing Library
   {
     files: ['**/*.test.tsx', '**/*.test.ts'],
-    plugins: { jest: pluginJest, 'jest-dom': pluginJestDom, 'testing-library': pluginTestingLibrary },
+    plugins: { 'jest': pluginJest, 'jest-dom': pluginJestDom, 'testing-library': pluginTestingLibrary },
     languageOptions: {
-      globals: pluginJest.environments.globals.globals
+      globals: pluginJest.environments.globals.globals,
     },
     rules: {
       ...pluginJest.configs['flat/style'].rules,
@@ -225,7 +215,7 @@ const eslintConfig = [
       'jest/require-top-level-describe': ['error'],
       'testing-library/no-render-in-lifecycle': 'off',
       'testing-library/no-node-access': 'off',
-    }
+    },
   },
 ];
 
