@@ -1,6 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable no-use-before-define */
-
 // convert snake case to camel case (string)
 const convertToCamelCaseStr = (str: string): string => {
   return str

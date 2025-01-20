@@ -9,7 +9,6 @@ import Carousel from './Carousel';
 
 import type { RenderResult } from '@testing-library/react';
 
-// eslint-disable-next-line react/display-name
 jest.mock('next/image', () => ({ src, alt }: { src: string; alt: string }) => {
   return <img src={src} alt={alt} />;
 });
