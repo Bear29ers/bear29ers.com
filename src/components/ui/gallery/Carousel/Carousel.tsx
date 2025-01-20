@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import type { Dispatch, SetStateAction, FC, TouchEvent } from 'react';
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/16/solid';
-import { AnimatePresence, MotionConfig, motion, useMotionTemplate, useSpring } from 'framer-motion';
+import { AnimatePresence, MotionConfig, motion, useMotionTemplate, useSpring } from 'motion/react';
 import Image from 'next/image';
 
 import type { Media } from '@/types/media';

@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import '@/hooks/useMediaQuery/useMediaQueryMock';
-import { motionValue } from 'framer-motion';
+import { motionValue } from 'motion/react';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 

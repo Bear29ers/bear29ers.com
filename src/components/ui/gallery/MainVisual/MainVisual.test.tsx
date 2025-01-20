@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable no-unused-expressions */
 import type { FC } from 'react';
 import React from 'react';
 
@@ -10,7 +8,7 @@ import MainVisual from './MainVisual';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('framer-motion', () => {
+jest.mock('motion/react', () => {
   const ActualReact: typeof React = jest.requireActual('react');
 
   const MotionImg: FC<{

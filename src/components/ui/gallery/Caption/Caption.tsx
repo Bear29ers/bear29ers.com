@@ -4,6 +4,7 @@ import { HeartIcon } from '@heroicons/react/16/solid';
 import Image from 'next/image';
 import Link from 'next/link';
 
+import type { Color } from '@/types/color';
 import type { Media } from '@/types/media';
 
 import ProfileIcon from '~/images/profile_2.jpg';
@@ -13,9 +14,10 @@ interface Props {
   href: string;
   alt: string;
   index: number;
+  themeColor: Color;
 }
 
-const Caption: FC<Props> = ({ media, href, alt, index }) => {
+const Caption: FC<Props> = ({ media, href, alt, index, themeColor }) => {
   const date = media.timestamp ? new Date(media.timestamp) : new Date();
   const jstTime = date.toLocaleString('ja-JP', {
     timeZone: 'Asia/Tokyo',
@@ -26,6 +28,14 @@ const Caption: FC<Props> = ({ media, href, alt, index }) => {
     minute: 'numeric',
   });
   const formattedDate = jstTime.replace(/\//g, '-');
+
+  const linkColorVariants = {
+    Red: 'border-customRed-500 hover:bg-customRed-500',
+    Orange: 'border-customOrange-500 hover:bg-customOrange-500',
+    Green: 'border-customGreen-500 hover:bg-customGreen-500',
+    Cyan: 'border-customCyan-500 hover:bg-customCyan-500',
+    Violet: 'border-customViolet-500 hover:bg-customViolet-500',
+  };
 
   return (
     <div>
@@ -56,7 +66,7 @@ const Caption: FC<Props> = ({ media, href, alt, index }) => {
             <Link
               href={`${media.permalink}?img_index=${index + 1}`}
               target="_blank"
-              className="w-fit rounded-2xl border border-customRed-500 px-4 py-2 text-sm transition-colors hover:bg-customRed-500 txs:text-base">
+              className={`w-fit rounded-2xl border px-4 py-2 text-sm transition-colors txs:text-base ${linkColorVariants[themeColor]}`}>
               More on Instagram
             </Link>
           </div>

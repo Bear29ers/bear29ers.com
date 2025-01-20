@@ -9,13 +9,14 @@ import GalleryClient from './client';
 import type { NextPage } from 'next';
 
 interface Props {
-  searchParams: {
+  searchParams: Promise<{
     intro?: 'skipped';
-  };
+  }>;
 }
 
 const Gallery: NextPage<Props> = async ({ searchParams }) => {
-  const isIntroSkipped = Boolean(searchParams.intro);
+  const { intro } = await searchParams;
+  const isIntroSkipped = Boolean(intro);
   const DATE = new Date('2024-05-01T12:00:00Z');
   const unixtime = Math.floor(DATE.getTime() / 1000);
   const mediaList = await fetchMediaList(unixtime, { revalidate: 1800 });

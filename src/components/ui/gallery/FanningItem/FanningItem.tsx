@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const variants = (initialY: number | string, x: string, y: number | string, rotate: number) => ({
   initial: {

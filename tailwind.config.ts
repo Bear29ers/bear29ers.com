@@ -6,6 +6,7 @@ import type { PluginAPI } from 'tailwindcss/types/config';
 
 const config: Config = {
   content: ['./src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+  safelist: [{ pattern: /^border-/ }, { pattern: /^bg-/ }, { pattern: /^text-/ }, { pattern: /^fill-/ }],
   theme: {
     screens: {
       xl: '1280px',
@@ -71,7 +72,7 @@ const config: Config = {
           800: '#337223',
           900: '#1F5914',
         },
-        customYellow: {
+        customOrange: {
           100: '#FEF6E6',
           200: '#FCE9C2',
           300: '#F9D99F',

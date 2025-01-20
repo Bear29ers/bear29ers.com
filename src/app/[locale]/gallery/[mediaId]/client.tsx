@@ -2,6 +2,8 @@
 
 import { useState, type FC, useEffect } from 'react';
 
+import { useAtom } from 'jotai';
+
 import AnimatedArrowButton from '@/components/common/AnimatedArrowButton/AnimatedArrowButton';
 import Footer from '@/components/layout/Footer/Footer';
 import Caption from '@/components/ui/gallery/Caption/Caption';
@@ -10,6 +12,7 @@ import Thumbnails from '@/components/ui/gallery/Thumbnails/Thumbnails';
 
 import { CAPTION_INFO } from '@/constants/gallery';
 
+import { themeColor } from '@/state/colors';
 import type { Media } from '@/types/media';
 
 interface Props {
@@ -19,6 +22,7 @@ interface Props {
 const GalleryDetailClient: FC<Props> = ({ media }) => {
   const [index, setIndex] = useState<number>(0);
   const [touchPosition, setTouchPosition] = useState<number | null>(null);
+  const [selectedThemeColor, _] = useAtom(themeColor);
 
   useEffect(() => {
     window.scroll(0, 0);
@@ -47,7 +51,13 @@ const GalleryDetailClient: FC<Props> = ({ media }) => {
           </div>
           <div className="mx-auto w-full max-w-xl lg:max-w-[350px]">
             {/* Caption */}
-            <Caption media={media} href={CAPTION_INFO.profileHref} alt={CAPTION_INFO.username} index={index} />
+            <Caption
+              media={media}
+              href={CAPTION_INFO.profileHref}
+              alt={CAPTION_INFO.username}
+              index={index}
+              themeColor={selectedThemeColor}
+            />
           </div>
         </div>
       </div>

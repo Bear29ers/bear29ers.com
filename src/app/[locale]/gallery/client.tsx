@@ -3,7 +3,8 @@
 import type { FC } from 'react';
 import { useEffect, useState } from 'react';
 
-import { AnimatePresence, motion } from 'framer-motion';
+import { useAtom } from 'jotai';
+import { AnimatePresence, motion } from 'motion/react';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
@@ -22,6 +23,7 @@ import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import { imageInfoList, zIndexList } from '@/constants/gallery';
 
+import { themeColor } from '@/state/colors';
 import type { Media } from '@/types/media';
 
 interface Props {
@@ -32,6 +34,8 @@ interface Props {
 }
 
 const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, isSkippedIntro }) => {
+  const [selectedThemeColor, _] = useAtom(themeColor);
+
   // animation flag
   const [isCompletedIntro, setIsCompletedIntro] = useState<boolean>(isSkippedIntro);
   const [isCompletedFanning, setIsCompletedFanning] = useState<boolean>(isSkippedIntro);
@@ -151,7 +155,13 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, i
                 />
                 {isCompletedAllIntro && (
                   <>
-                    {isCompletedFanning && <ScrollDown state={isActiveGallery} setState={setIsActiveGallery} />}
+                    {isCompletedFanning && (
+                      <ScrollDown
+                        state={isActiveGallery}
+                        setState={setIsActiveGallery}
+                        themeColor={selectedThemeColor}
+                      />
+                    )}
                     <FanningImages
                       mediaList={animatingMediaList}
                       maxWidth="mlg:max-w-[400px] md:max-w-[350px] xsm:max-w-[200px] max-w-[180px]"

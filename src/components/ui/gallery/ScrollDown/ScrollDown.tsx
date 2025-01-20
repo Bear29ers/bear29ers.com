@@ -1,6 +1,8 @@
 import type { FC } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+
+import type { Color } from '@/types/color';
 
 const variants = {
   initial: {
@@ -25,9 +27,18 @@ const variants = {
 interface Props {
   state: boolean;
   setState: (state: boolean) => void;
+  themeColor: Color;
 }
 
-const ScrollDown: FC<Props> = ({ state, setState }) => {
+const ScrollDown: FC<Props> = ({ state, setState, themeColor }) => {
+  const arrowColorVariants = {
+    Red: 'group-hover:fill-customRed-500',
+    Orange: 'group-hover:fill-customOrange-500',
+    Green: 'group-hover:fill-customGreen-500',
+    Cyan: 'group-hover:fill-customCyan-500',
+    Violet: 'group-hover:fill-customViolet-500',
+  };
+
   return (
     <motion.button
       variants={variants}
@@ -39,7 +50,7 @@ const ScrollDown: FC<Props> = ({ state, setState }) => {
         width="100%"
         height="100%"
         viewBox="0 0 310 177"
-        className="absolute inset-x-0 top-5 mx-auto w-12 animate-down fill-dark transition-colors duration-400 group-hover:fill-customRed-500">
+        className={`absolute inset-x-0 top-5 mx-auto w-12 animate-down fill-dark transition-colors duration-400 ${arrowColorVariants[themeColor]}`}>
         <path
           className="fill-inherit"
           fill="none"
