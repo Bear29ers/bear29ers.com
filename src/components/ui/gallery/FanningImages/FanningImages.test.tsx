@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import React from 'react';
 import type { FC, ReactNode } from 'react';
 
