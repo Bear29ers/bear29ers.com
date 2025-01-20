@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 
 import { fireEvent, render, screen } from '@testing-library/react';
-import { MotionGlobalConfig } from 'framer-motion';
+import { MotionGlobalConfig } from 'motion/react';
 
 import type { Media } from '@/types/media';
 
@@ -9,7 +9,6 @@ import Carousel from './Carousel';
 
 import type { RenderResult } from '@testing-library/react';
 
-// eslint-disable-next-line react/display-name
 jest.mock('next/image', () => ({ src, alt }: { src: string; alt: string }) => {
   return <img src={src} alt={alt} />;
 });

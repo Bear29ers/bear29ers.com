@@ -9,7 +9,7 @@ import type { RenderResult } from '@testing-library/react';
 const scrollToMock = jest.fn();
 // Object.defineProperty(window, 'scrollTo', { value: scrollToMock });
 
-// IntersectionObserverのモック（framer-motionのため）
+// IntersectionObserverのモック（motion/reactのため）
 const mockIntersectionObserver = jest.fn();
 mockIntersectionObserver.mockReturnValue({
   observe: () => null,

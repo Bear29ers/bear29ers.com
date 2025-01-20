@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { Dispatch, SetStateAction, FC } from 'react';
 
-import { useMotionValue, motion, useSpring } from 'framer-motion-8';
+import { useMotionValue, motion, useSpring } from 'motion/react';
 import { distance } from 'popmotion';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
@@ -20,7 +20,7 @@ import {
 
 import type { SkillIcon, SkillIcons } from '@/types/skillIcons';
 
-import type { MotionValue } from 'framer-motion-8';
+import type { MotionValue } from 'motion/react';
 
 interface SquareProps {
   item: SkillIcon;

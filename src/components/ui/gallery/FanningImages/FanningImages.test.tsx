@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-
 import React from 'react';
 import type { FC, ReactNode } from 'react';
 
@@ -10,7 +8,7 @@ import FanningImages from './FanningImages';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('framer-motion', () => {
+jest.mock('motion/react', () => {
   const ActualReact: typeof React = jest.requireActual('react');
 
   const MotionDiv: FC<{

@@ -1,4 +1,3 @@
-// eslint-disable-next-line camelcase
 import { Montserrat, Damion, Murecho } from 'next/font/google';
 
 export const montserrat = Montserrat({

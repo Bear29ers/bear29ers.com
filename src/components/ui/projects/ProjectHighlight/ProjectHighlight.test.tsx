@@ -13,7 +13,7 @@ describe('src/components/ui/projects/ProjectHighlight/ProjectHighlight.test.tsx'
   beforeEach(() => {
     renderResult = render(
       <NextIntlClientProvider locale="en" messages={messages}>
-        <ProjectHighlight id={2} company="gakkenLeap" index={0} />
+        <ProjectHighlight id={2} company="gakkenLeap" index={0} themeColor="Red" />
       </NextIntlClientProvider>
     );
   });

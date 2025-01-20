@@ -1,19 +1,24 @@
 import type { FC, ReactNode } from 'react';
 
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
+
+import getCustomColorClass from '@/utils/getCustomColorClass';
 
 import { usePathname, useRouter } from '@/i18n/routing';
+import type { Color } from '@/types/color';
 import type { Locale } from '@/types/locale';
 
 interface Props {
   globalLocale: Locale;
   locale: Locale;
+  themeColor: Color;
   children: ReactNode;
 }
 
-const LocaleSwitch: FC<Props> = ({ globalLocale, locale, children }) => {
+const LocaleSwitch: FC<Props> = ({ globalLocale, locale, themeColor, children }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const customBgColorClass = getCustomColorClass('bg', themeColor, 500);
 
   const handleSwitchLocale = (newLocale: Locale) => {
     router.replace(pathname, { locale: newLocale });
@@ -29,7 +34,7 @@ const LocaleSwitch: FC<Props> = ({ globalLocale, locale, children }) => {
       whileTap={{ scale: globalLocale !== locale ? 0.9 : 1.0 }}
       transition={{ type: 'spring', stiffness: 400, damping: 10 }}>
       {children}
-      {globalLocale === locale && <span className="mt-px block h-[3px] w-full rounded-lg bg-white" />}
+      {globalLocale === locale && <span className={`mt-px block h-[3px] w-full rounded-lg ${customBgColorClass}`} />}
     </motion.button>
   );
 };

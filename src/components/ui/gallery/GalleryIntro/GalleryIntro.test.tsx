@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { type FC } from 'react';
 
 import { render, screen, waitFor } from '@testing-library/react';
@@ -10,7 +8,7 @@ import GalleryIntro from './GalleryIntro';
 import type { RenderResult } from '@testing-library/react';
 
 // Framer Motionのモックを改善
-jest.mock('framer-motion', () => {
+jest.mock('motion/react', () => {
   const ActualReact: typeof React = jest.requireActual('react');
 
   const MotionDiv: FC<{

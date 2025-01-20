@@ -9,7 +9,7 @@ describe('src/components/ui/projects/ProjectTag/ProjectTag.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<ProjectTag tagName={tagName} />);
+    renderResult = render(<ProjectTag tagName={tagName} themeColor="Red" />);
   });
 
   afterEach(() => {
