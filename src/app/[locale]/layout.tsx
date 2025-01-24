@@ -64,12 +64,13 @@ export const viewport: Viewport = {
 const LocaleLayout = async ({
   children,
   modal,
-  params: { locale },
+  params,
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }>) => {
+  const { locale } = await params;
   const headersList = await headers();
   const pathname = headersList.get('x-request-path') || '/';
 

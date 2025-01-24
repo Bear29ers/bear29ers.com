@@ -27,6 +27,7 @@
     "@testing-library/react": "^14.2.1",
     "jotai": "^2.10.4",
     "motion": "^11.18.1",
+    "newt-client-js": "^3.3.7",
     "next": "15.1.5",
     "next-intl": "^3.25.0",
     "popmotion": "^11.0.5",

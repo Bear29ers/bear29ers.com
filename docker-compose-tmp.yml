@@ -12,6 +12,8 @@ services:
       - GRAPH_API_BASE_URL=https://graph.facebook.com/
       - GRAPH_API_INSTAGRAM_ID=dummy
       - GRAPH_API_ACCESS_TOKEN=dummy
+      - NEWT_SPACE_UID=dummy
+      - NEWT_CDN_API_TOKEN=xxxxxxxxxxxxxxx
     volumes:
       - .:/app
       - /app/node_modules
