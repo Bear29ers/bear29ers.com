@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { getArticles } from '@/libs/newt';
 
-const Blog: NextPage = async () => {
+const Articles: NextPage = async () => {
   const articles = await getArticles();
   return (
     <main>
@@ -20,4 +20,4 @@ const Blog: NextPage = async () => {
   );
 };
 
-export default Blog;
+export default Articles;
