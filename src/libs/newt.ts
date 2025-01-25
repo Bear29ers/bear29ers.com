@@ -21,3 +21,16 @@ export const getArticles = cache(async () => {
 
   return items;
 });
+
+export const getArticleBySlug = cache(async (slug: string) => {
+  const article = await client.getFirstContent<Article>({
+    appUid: 'blog',
+    modelUid: 'article',
+    query: {
+      slug,
+      select: ['_id', 'title', 'slug', 'body'],
+    },
+  });
+
+  return article;
+});
