@@ -28,7 +28,7 @@ export const getArticleBySlug = cache(async (slug: string) => {
     modelUid: 'article',
     query: {
       slug,
-      select: ['_id', 'title', 'slug', 'body'],
+      select: ['_id', '_sys', 'title', 'slug', 'body'],
     },
   });
 
