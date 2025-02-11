@@ -18,11 +18,24 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
+    "@eslint/js": "^9.20.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jest": "^28.11.0",
+    "eslint-plugin-jest-dom": "^5.5.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-storybook": "^0.11.2",
+    "eslint-plugin-tailwindcss": "^3.18.0",
+    "eslint-plugin-testing-library": "^7.1.1",
+    "eslint-plugin-unused-imports": "^4.1.4",
+    "globals": "^15.14.0",
     "markuplint": "^4.11.5",
     "postcss": "^8",
     "prettier": "^3.5.0",
@@ -31,6 +44,7 @@
     "stylelint-config-recess-order": "^6.0.0",
     "stylelint-config-standard-scss": "^14.0.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.24.0"
   }
 }
