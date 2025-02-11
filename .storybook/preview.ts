@@ -1,5 +1,6 @@
-import type { Preview } from '@storybook/react';
 import nextIntl from './next-intl';
+
+import type { Preview } from '@storybook/react';
 import '../src/app/globals.scss';
 
 const preview: Preview = {

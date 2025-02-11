@@ -8,6 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta<typeof <%= h.changeCase.pascal(component_name) %>> = {
   component: <%= h.changeCase.pascal(component_name) %>,
+  tags: ['autotags'],
 };
 
 export default meta;

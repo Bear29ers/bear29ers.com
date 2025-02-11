@@ -11,7 +11,7 @@ import pluginTailwind from 'eslint-plugin-tailwindcss';
 import pluginJest from 'eslint-plugin-jest';
 import pluginJestDom from 'eslint-plugin-jest-dom';
 import pluginTestingLibrary from 'eslint-plugin-testing-library';
-import pluginPrettier from 'eslint-config-prettier';
+import configPretteir from 'eslint-config-prettier';
 
 /**
  * @type {import('eslint').Linter.Config}
@@ -31,6 +31,7 @@ const eslintConfig = [
     ],
   },
   js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     files: ['**/*.{js,jsx,ts,tsx}', '**/*.test.{ts,tsx}'],
     plugins: {
@@ -41,8 +42,6 @@ const eslintConfig = [
       'react-hooks': pluginReactHooks,
       'jsx-a11y': pluginJsxA11y,
       'tailwindcss': pluginTailwind,
-      'typescript': tseslint.plugin,
-      'prettier': pluginPrettier,
     },
     languageOptions: {
       ecmaVersion: 'latest',
@@ -67,11 +66,11 @@ const eslintConfig = [
     },
     rules: {
       ...js.configs.recommended.rules,
-      ...tseslint.configs.recommended[1].rules,
+      ...pluginReact.configs['jsx-runtime'].rules,
+      ...pluginReactHooks.configs.recommended.rules,
       ...pluginNext.configs.recommended.rules,
       ...pluginNext.configs['core-web-vitals'].rules,
-      ...pluginReactHooks.configs.recommended.rules,
-      ...pluginPrettier.rules,
+      // JavaScript
       'no-unused-vars': 'off',
       'arrow-body-style': 'off',
       'no-restricted-syntax': [
@@ -82,6 +81,31 @@ const eslintConfig = [
         },
       ],
       'no-plusplus': 'off',
+      // TypeScript
+      '@typescript-eslint/ban-ts-comment': [
+        'error',
+        {
+          'ts-expect-error': 'allow-with-description',
+          'ts-ignore': false,
+          'ts-nocheck': false,
+          'ts-check': false,
+        },
+      ],
+      '@typescript-eslint/consistent-type-imports': [
+        'error',
+        {
+          prefer: 'type-imports',
+        },
+      ],
+      '@typescript-eslint/no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+        },
+      ],
       // unused-imports
       'unused-imports/no-unused-imports': 'error',
       // import
@@ -215,6 +239,10 @@ const eslintConfig = [
       'testing-library/no-render-in-lifecycle': 'off',
       'testing-library/no-node-access': 'off',
     },
+  },
+  // Pretteir
+  {
+    ...configPretteir,
   },
 ];
 

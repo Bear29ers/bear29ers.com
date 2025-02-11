@@ -17,7 +17,7 @@ services:
       - /app/node_modules
       - /app/.next
     ports:
-      - 5050:3000
+      - 3030:3000
 
   storybook:
     container_name: storybook
