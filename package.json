@@ -10,6 +10,9 @@
     "format": "prettier --check --write './src/**/*.{js,jsx,ts,tsx,css,scss,md,mdx,json}'",
     "stylelint:fix": "stylelint --fix './src/**/*.{scss,sass}'",
     "markuplint": "markuplint './src/**/*.{html,jsx,tsx}'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "npm run test -- --coverage",
     "prepare": "husky"
   },
   "dependencies": {
