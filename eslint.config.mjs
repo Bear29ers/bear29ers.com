@@ -82,31 +82,6 @@ const eslintConfig = [
         },
       ],
       'no-plusplus': 'off',
-      // TypeScript
-      '@typescript-eslint/ban-ts-comment': [
-        'error',
-        {
-          'ts-expect-error': 'allow-with-description',
-          'ts-ignore': false,
-          'ts-nocheck': false,
-          'ts-check': false,
-        },
-      ],
-      '@typescript-eslint/consistent-type-imports': [
-        'error',
-        {
-          prefer: 'type-imports',
-        },
-      ],
-      '@typescript-eslint/no-unused-vars': [
-        'warn',
-        {
-          argsIgnorePattern: '^_',
-          varsIgnorePattern: '^_',
-          caughtErrorsIgnorePattern: '^_',
-          destructuredArrayIgnorePattern: '^_',
-        },
-      ],
       // unused-imports
       'unused-imports/no-unused-imports': 'error',
       // import
