@@ -1,7 +1,7 @@
 # **********
 # base stage
 # **********
-FROM node:lts-alpine AS base
+FROM node:lts-slim AS base
 WORKDIR /app
 
 # **********
