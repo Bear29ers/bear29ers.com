@@ -38,4 +38,4 @@ CMD ["npm", "run", "dev"]
 FROM inter AS storybook
 ENV STORYBOOK_NO_MANAGER_CACHE=true
 EXPOSE 6006
-CMD ["npm", "run", "storybook"]
+CMD ["npm", "run", "storybook", "--", "--no-open"]
