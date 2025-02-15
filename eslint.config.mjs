@@ -55,8 +55,8 @@ const eslintConfig = [
       globals: {
         ...globals.browser,
         ...globals.node,
-        ...globals.commonjs,
-        ...globals.es2015,
+        ...globals.jest,
+        ...globals.es2025,
       },
     },
     settings: {
