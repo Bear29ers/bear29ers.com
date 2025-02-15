@@ -11,5 +11,5 @@ export default {
   '**/*.{js,jsx,ts,tsx,json}': 'prettier --write',
   '**/*.{html,jsx,tsx}': 'markuplint --fix',
   '**/*.{css,scss,sass}': 'stylelint --fix',
-  '**/*.{spec,test}.{js,jsx,ts,tsx}': 'jest -- --coverage',
+  '**/*.{spec,test}.{js,jsx,ts,tsx}': 'jest',
 };
