@@ -33,7 +33,7 @@ describe('src/components/ui/Project/Project.test.tsx', () => {
     beforeEach(() => {
       renderResult = render(
         <NextIntlClientProvider locale="en" messages={messages}>
-          <Project project={projectData} />
+          <Project project={projectData} themeColor="Red" />
         </NextIntlClientProvider>
       );
     });
