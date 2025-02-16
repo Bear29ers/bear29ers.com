@@ -4,14 +4,17 @@ import type { Media } from '@/types/media';
 
 import fetchJson from './fetchJson';
 
-const fetchMedia = async (mediaId: string, next?: NextFetchRequestConfig): Promise<Media> => {
+const fetchMedia = async (
+  mediaId: string,
+  options?: { revalidate?: number | false; tags?: string[] }
+): Promise<Media> => {
   const baseUrl = process.env.GRAPH_API_BASE_URL;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
   const fields = 'caption,children{media_url},media_type,permalink,like_count,timestamp,username';
   const endpoint = `${baseUrl}/${mediaId}?access_token=${accessToken}&fields=${fields}`;
 
   try {
-    const data = convertToCamelCase(await fetchJson<Media>(endpoint, next));
+    const data = convertToCamelCase(await fetchJson<Media>(endpoint, options));
 
     return data;
   } catch (error) {

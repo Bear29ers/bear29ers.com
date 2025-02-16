@@ -4,7 +4,10 @@ import type { Media, MediaEdge } from '@/types/media';
 
 import fetchJson from './fetchJson';
 
-const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): Promise<Media[]> => {
+const fetchMediaList = async (
+  unixtime: number,
+  options?: { revalidate?: number | false; tags?: string[] }
+): Promise<Media[]> => {
   const baseUrl = process.env.GRAPH_API_BASE_URL;
   const instagramId = process.env.GRAPH_API_INSTAGRAM_ID;
   const accessToken = process.env.GRAPH_API_ACCESS_TOKEN;
@@ -13,7 +16,7 @@ const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): 
 
   try {
     let allData: Media[] = [];
-    const data = convertToCamelCase(await fetchJson<{ media: MediaEdge }>(endpoint, next));
+    const data = convertToCamelCase(await fetchJson<{ media: MediaEdge }>(endpoint, options));
 
     if (data.media && Array.isArray(data.media.data)) {
       allData = allData.concat(data.media.data);
@@ -22,7 +25,7 @@ const fetchMediaList = async (unixtime: number, next?: NextFetchRequestConfig): 
     let nextUrl = data.media.paging?.next || null;
 
     while (nextUrl) {
-      const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${unixtime}`, next));
+      const nextData = convertToCamelCase(await fetchJson<MediaEdge>(`${nextUrl}&since=${unixtime}`, options));
 
       if (nextData.data && Array.isArray(nextData.data)) {
         allData = allData.concat(nextData.data);
