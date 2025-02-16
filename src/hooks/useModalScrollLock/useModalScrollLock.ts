@@ -2,6 +2,12 @@ import { useEffect } from 'react';
 
 type AllowedStyles = 'blockSize' | 'insetInlineStart' | 'position' | 'insetBlockStart' | 'inlineSize';
 
+interface ScrollToOptions {
+  behavior?: 'auto' | 'smooth' | 'instant';
+  left?: number;
+  right?: number;
+}
+
 // ドキュメントの書字方向を取得し、縦書きかどうかを判定する
 const isVerticalWritingMode = (): boolean => {
   const { writingMode } = window.getComputedStyle(document.documentElement);
@@ -19,8 +25,8 @@ const getScrollBarSize = (): number => {
 const getScrollPosition = (fixed: boolean): number => {
   if (fixed) {
     return isVerticalWritingMode()
-      ? document.scrollingElement?.scrollLeft ?? 0
-      : document.scrollingElement?.scrollTop ?? 0;
+      ? (document.scrollingElement?.scrollLeft ?? 0)
+      : (document.scrollingElement?.scrollTop ?? 0);
   }
 
   return parseInt(document.body.style.insetBlockStart || '0', 10);

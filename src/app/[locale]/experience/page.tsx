@@ -1,3 +1,7 @@
+'use client';
+
+import { useAtom } from 'jotai';
+
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 import Footer from '@/components/layout/Footer/Footer';
 import Project from '@/components/ui/Project/Project';
@@ -5,9 +9,13 @@ import Period from '@/components/ui/projects/Period/Period';
 
 import { EXPERIENCE_INFO } from '@/constants/experience';
 
+import { themeColor } from '@/state/colors';
+
 import type { NextPage } from 'next';
 
 const Experience: NextPage = () => {
+  const [selectedThemeColor, _] = useAtom(themeColor);
+
   return (
     <div className="flex w-full flex-col items-center px-2.5 text-white xs:px-5 lg:px-0">
       <div className="my-24">
@@ -23,7 +31,7 @@ const Experience: NextPage = () => {
             </div>
             <div className="flex flex-col gap-y-12 xsm:max-w-md md:max-w-xl lg:max-w-3xl">
               {experience.projects.map((project) => (
-                <Project project={project} key={project.id} />
+                <Project project={project} themeColor={selectedThemeColor} key={project.id} />
               ))}
             </div>
           </div>

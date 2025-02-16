@@ -74,6 +74,7 @@ const LocaleLayout = async ({
   const pathname = headersList.get('x-request-path') || '/';
 
   // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }

@@ -2,13 +2,12 @@
 
 import { useState, type FC } from 'react';
 
-import { useAtom } from 'jotai';
 import { AnimatePresence, motion } from 'motion/react';
 import { useTranslations } from 'next-intl';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
-import { themeColor } from '@/state/colors';
+import type { Color } from '@/types/color';
 import type { Project as ProjectType } from '@/types/experience';
 
 import ProjectHighlight from '../projects/ProjectHighlight/ProjectHighlight';
@@ -38,23 +37,23 @@ const variants = {
 
 interface Props {
   project: ProjectType;
+  themeColor: Color;
 }
 
-const Project: FC<Props> = ({ project }) => {
+const Project: FC<Props> = ({ project, themeColor }) => {
   const t = useTranslations('experience');
   const [isShow, setIsShow] = useState<boolean>(false);
-  const [selectedThemeColor, _] = useAtom(themeColor);
 
   const handleClick = () => {
     setIsShow(!isShow);
   };
 
   const buttonColorVariants = {
-    Red: 'bg-customRed-500 hover:bg-customRed-300',
-    Orange: 'bg-customOrange-500 hover:bg-customOrange-300',
-    Green: 'bg-customGreen-500 hover:bg-customGreen-300',
-    Cyan: 'bg-customCyan-500 hover:bg-customCyan-300',
-    Violet: 'bg-customViolet-500 hover:bg-customViolet-300',
+    Red: 'bg-customRed-600 hover:bg-customRed-400',
+    Orange: 'bg-customOrange-600 hover:bg-customOrange-400',
+    Green: 'bg-customGreen-600 hover:bg-customGreen-400',
+    Cyan: 'bg-customCyan-600 hover:bg-customCyan-400',
+    Violet: 'bg-customViolet-600 hover:bg-customViolet-400',
   };
 
   return (
@@ -92,12 +91,12 @@ const Project: FC<Props> = ({ project }) => {
         {/* ProjectTag */}
         <div className="flex flex-wrap gap-1.5">
           {project.tagList.map((tagName: string, index: number) => (
-            <ProjectTag tagName={tagName} key={index} themeColor={selectedThemeColor} />
+            <ProjectTag tagName={tagName} key={index} themeColor={themeColor} />
           ))}
         </div>
         <button
           type="button"
-          className={`inline w-fit rounded-xl px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out xs:text-sm ${buttonColorVariants[selectedThemeColor]}`}
+          className={`inline w-fit rounded-xl px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out xs:text-sm ${buttonColorVariants[themeColor]}`}
           onClick={handleClick}>
           {isShow ? 'Show Less' : 'Show More'}
         </button>
@@ -130,7 +129,7 @@ const Project: FC<Props> = ({ project }) => {
                   company={project.company}
                   index={index}
                   key={`highlight-${project.id}-${index}`}
-                  themeColor={selectedThemeColor}
+                  themeColor={themeColor}
                 />
               ))}
             </div>
