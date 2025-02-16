@@ -22,7 +22,7 @@ describe('src/components/ui/gallery/ScrollToTop/ScrollToTop.test.tsx', () => {
   let renderResult: RenderResult;
 
   beforeEach(() => {
-    renderResult = render(<ScrollToTop />);
+    renderResult = render(<ScrollToTop themeColor="Red" />);
 
     // 各テスト前にscrollYをリセット
     Object.defineProperty(window, 'scrollY', { value: 0, writable: true });
