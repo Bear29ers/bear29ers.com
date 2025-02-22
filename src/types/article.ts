@@ -21,6 +21,20 @@ export interface Author {
   };
 }
 
+interface CoverImage {
+  src: string;
+  fileType: string;
+  width: number;
+  height: number;
+  title: string;
+  altText: string;
+}
+
+export interface Tag {
+  name: string;
+  slug: string;
+}
+
 export interface Article {
   _id: string;
   _sys: System;
@@ -28,4 +42,6 @@ export interface Article {
   slug: string;
   body: string;
   author: Author;
+  coverImage: CoverImage;
+  tags: Tag[];
 }
