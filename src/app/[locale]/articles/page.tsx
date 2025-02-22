@@ -1,7 +1,8 @@
-import { Metadata, NextPage } from 'next';
 import Link from 'next/link';
 
 import { getArticles } from '@/libs/newt';
+
+import type { Metadata, NextPage } from 'next';
 
 export const metadata: Metadata = {
   title: 'Newt ブログ',

@@ -1,11 +1,12 @@
-import { Metadata } from 'next/types';
+import { Suspense } from 'react';
 
-import ArticleDate from '@/components/ui/articles/ArticleDate/ArticleDate';
-import ArticleProfile from '@/components/ui/articles/ArticleProfile/ArticleProfile';
+import Preloader from '@/components/common/Preloader/Preloader';
 
 import { getArticleBySlug, getArticles } from '@/libs/newt';
 
-import getFormattedDate from '@/utils/getFormattedDate';
+import ArticleClient from './client';
+
+import type { Metadata } from 'next/types';
 
 type Params = Promise<{ slug: string }>;
 
@@ -32,19 +33,15 @@ const Article = async ({ params }: { params: Params }) => {
   const article = await getArticleBySlug(slug);
   if (!article) return;
 
-  const formattedCreatedAt = getFormattedDate(new Date(article._sys.createdAt));
-  const formattedUpdatedAt = getFormattedDate(new Date(article._sys.updatedAt));
-
   return (
-    <main className="relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat font-murecho tracking-wider flex-center txs:bg-noise-pattern">
-      <div className="mt-20 w-full max-w-6xl rounded-2xl bg-white px-32 py-20 shadow-2xl">
-        <ArticleDate createdAt={formattedCreatedAt} updatedAt={formattedUpdatedAt} />
-        <h1 className="mb-6 mt-4 text-3xl font-bold">{article.title}</h1>
-        <ArticleProfile author={article.author} />
-        <hr className="my-8" />
-        <div dangerouslySetInnerHTML={{ __html: article.body }}></div>
-      </div>
-    </main>
+    <Suspense
+      fallback={
+        <div className="fixed flex h-screen w-full bg-hitGray bg-noise-pattern flex-center">
+          <Preloader />
+        </div>
+      }>
+      <ArticleClient article={article} />
+    </Suspense>
   );
 };
 
