@@ -8,7 +8,7 @@ const buildEslintCommand = (filenames) =>
 
 export default {
   '**/*.{js,jsx,ts,tsx}': [buildEslintCommand],
-  '**/*.{js,jsx,ts,tsx,json}': 'prettier --write',
+  '**/*.{js,cjs,mjs,ts,jsx,tsx,scss,json}': 'prettier --write',
   '**/*.{html,jsx,tsx}': 'markuplint --fix',
   '**/*.{css,scss,sass}': 'stylelint --fix',
   '**/*.{spec,test}.{js,jsx,ts,tsx}': 'jest',
