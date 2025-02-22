@@ -1,9 +1,21 @@
 import type { FC } from 'react';
 
-const ArticleTag: FC = () => {
+import type { Tag } from '@/types/article';
+
+interface Props {
+  tags: Tag[];
+}
+
+const ArticleTag: FC<Props> = ({ tags }) => {
+  const bgColorVariants = {
+    coding: 'bg-customRed-500',
+  };
+
   return (
     <div>
-      <h1>ArticleTag</h1>
+      {tags.map((tag: Tag) => (
+        <span key={tag.slug}>{tag.name}</span>
+      ))}
     </div>
   );
 };

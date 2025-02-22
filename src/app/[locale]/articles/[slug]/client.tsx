@@ -6,6 +6,7 @@ import { useAtom } from 'jotai';
 
 import ArticleDate from '@/components/ui/articles/ArticleDate/ArticleDate';
 import ArticleProfile from '@/components/ui/articles/ArticleProfile/ArticleProfile';
+import ArticleTag from '@/components/ui/articles/ArticleTag/ArticleTag';
 
 import getFormattedDate from '@/utils/getFormattedDate';
 
@@ -27,7 +28,10 @@ const ArticleClient: FC<Props> = ({ article }) => {
       <div className="mt-32 w-full max-w-6xl rounded-2xl bg-white px-32 py-20 shadow-2xl">
         <ArticleDate createdAt={formattedCreatedAt} updatedAt={formattedUpdatedAt} />
         <h1 className="mb-6 mt-4 text-3xl font-bold">{article.title}</h1>
-        <ArticleProfile author={article.author} themeColor={selectedThemeColor} />
+        <div className="flex items-center justify-between">
+          <ArticleProfile author={article.author} themeColor={selectedThemeColor} />
+          <ArticleTag tags={article.tags} />
+        </div>
         <hr className="my-8" />
         <div dangerouslySetInnerHTML={{ __html: article.body }}></div>
       </div>
