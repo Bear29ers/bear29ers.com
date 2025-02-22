@@ -2,7 +2,7 @@ import { cache } from 'react';
 
 import { createClient } from 'newt-client-js';
 
-import { Article } from '@/types/article';
+import type { Article } from '@/types/article';
 
 const client = createClient({
   spaceUid: process.env.NEWT_SPACE_UID + '',
@@ -28,7 +28,7 @@ export const getArticleBySlug = cache(async (slug: string) => {
     modelUid: 'article',
     query: {
       slug,
-      select: ['_id', '_sys', 'title', 'slug', 'body', 'author'],
+      select: ['_id', '_sys', 'title', 'slug', 'body', 'author', 'coverImage', 'tags'],
     },
   });
 
