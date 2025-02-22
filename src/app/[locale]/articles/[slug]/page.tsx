@@ -1,7 +1,3 @@
-import { Suspense } from 'react';
-
-import Preloader from '@/components/common/Preloader/Preloader';
-
 import { getArticleBySlug, getArticles } from '@/libs/newt';
 
 import ArticleClient from './client';
@@ -33,16 +29,7 @@ const Article = async ({ params }: { params: Params }) => {
   const article = await getArticleBySlug(slug);
   if (!article) return;
 
-  return (
-    <Suspense
-      fallback={
-        <div className="fixed flex h-screen w-full bg-hitGray bg-noise-pattern flex-center">
-          <Preloader />
-        </div>
-      }>
-      <ArticleClient article={article} />
-    </Suspense>
-  );
+  return <ArticleClient article={article} />;
 };
 
 export default Article;

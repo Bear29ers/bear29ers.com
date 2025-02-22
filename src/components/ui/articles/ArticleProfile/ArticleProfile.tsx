@@ -26,7 +26,7 @@ const ArticleProfile: FC<Props> = ({ author, themeColor }) => {
       <Image
         src={author.profileImage?.src || DefaultProfile}
         alt="Profile image"
-        className={`size-12 rounded-full border-3 ${borderColorVariants[themeColor]}`}
+        className={`size-12 rounded-full border-3 ${borderColorVariants[themeColor] || 'border-hitGray'}`}
       />
       <div className="flex w-full items-center justify-between">
         <div className="flex flex-col items-start justify-center gap-y-1">
