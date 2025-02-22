@@ -1,7 +1,7 @@
 # **********
 # base stage
 # **********
-FROM node:lts-alpine AS base
+FROM node:lts-slim AS base
 WORKDIR /app
 
 # **********
@@ -38,4 +38,4 @@ CMD ["npm", "run", "dev"]
 FROM inter AS storybook
 ENV STORYBOOK_NO_MANAGER_CACHE=true
 EXPOSE 6006
-CMD ["npm", "run", "storybook"]
+CMD ["npm", "run", "storybook", "--", "--no-open"]

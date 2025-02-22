@@ -84,7 +84,7 @@ describe('src/hooks/useMediaQuery/useMediaQuery', () => {
     expect(removeEventListenerMock).toHaveBeenCalled();
 
     // 全ての呼び出しが 'change' イベントに対するものであることを確認
-    removeEventListenerMock.mock.calls.forEach((call: [string, EventListener]) => {
+    removeEventListenerMock.mock.calls.forEach((call: [string, (e: Event) => void]) => {
       expect(call[0]).toBe('change');
     });
   });

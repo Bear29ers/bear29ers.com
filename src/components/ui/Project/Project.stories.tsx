@@ -26,11 +26,12 @@ const projectData = {
 export const Default: Story = {
   args: {
     project: projectData,
+    themeColor: 'Red',
   },
-  render: ({ project }) => {
+  render: ({ project, themeColor }) => {
     return (
       <div className="text-white">
-        <Project project={project} />
+        <Project project={project} themeColor={themeColor} />
       </div>
     );
   },
