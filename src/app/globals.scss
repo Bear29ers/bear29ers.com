@@ -37,7 +37,43 @@
   }
 
   p {
-    @apply leading-relaxed;
+    @apply mt-2 leading-7;
+  }
+
+  a {
+    @apply text-blue-600 hover:underline;
+  }
+
+  ol {
+    @apply mt-2 list-inside list-decimal;
+
+    li {
+      @apply leading-loose;
+    }
+  }
+
+  ul {
+    @apply mt-2 list-inside list-disc;
+
+    li {
+      @apply leading-loose;
+    }
+  }
+
+  blockquote {
+    @apply my-2 border-s-4 border-gray-300 bg-gray-50 p-2;
+
+    p {
+      @apply m-0 font-medium italic leading-loose text-gray-900;
+    }
+  }
+
+  pre {
+    @apply my-6;
+  }
+
+  code {
+    @apply rounded bg-[#215aa012] px-1.5 py-[3px];
   }
 }
 
