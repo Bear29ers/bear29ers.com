@@ -7,14 +7,29 @@ interface Props {
 }
 
 const ArticleTag: FC<Props> = ({ tags }) => {
-  const bgColorVariants = {
-    coding: 'bg-customRed-500',
+  const getBgColorVariants = (tag: string): string => {
+    let colorVariants: string;
+    switch (tag) {
+      case 'frontend':
+        colorVariants = 'bg-customGreen-100 text-customGreen-800';
+        break;
+      case 'ui-ux':
+        colorVariants = 'bg-customOrange-100 text-customOrange-800';
+        break;
+      default:
+        colorVariants = 'bg-customCyan-100 text-customCyan-800';
+        break;
+    }
+
+    return colorVariants;
   };
 
   return (
     <div>
       {tags.map((tag: Tag) => (
-        <span key={tag.slug} className="me-2 rounded-sm bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
+        <span
+          key={tag.slug}
+          className={`me-2 rounded-sm px-2.5 py-0.5 text-sm font-medium ${getBgColorVariants(tag.slug)}`}>
           {tag.name}
         </span>
       ))}
