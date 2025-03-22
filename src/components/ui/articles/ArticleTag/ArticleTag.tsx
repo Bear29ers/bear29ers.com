@@ -14,7 +14,9 @@ const ArticleTag: FC<Props> = ({ tags }) => {
   return (
     <div>
       {tags.map((tag: Tag) => (
-        <span key={tag.slug}>{tag.name}</span>
+        <span key={tag.slug} className="me-2 rounded-sm bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
+          {tag.name}
+        </span>
       ))}
     </div>
   );
