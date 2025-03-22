@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+// For blog contents
+#article {
+  h1 {
+    @apply mb-3 text-3xl font-bold;
+
+    &:not(:first-of-type) {
+      @apply mt-6;
+    }
+  }
+
+  h2 {
+    @apply mb-2.5 text-2xl font-bold;
+
+    &:not(:first-of-type) {
+      @apply mt-5;
+    }
+  }
+
+  h3 {
+    @apply my-2 text-xl font-bold;
+  }
+
+  h4 {
+    @apply my-1.5 text-lg font-bold;
+  }
+
+  h5 {
+    @apply my-1 font-bold;
+  }
+
+  h6 {
+    @apply my-0.5 text-sm font-bold;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+}
+
 // NOTE: この設定を外すとアニメーションの動きがおかしくなるので残しておく
 @keyframes bounce {
   0% {

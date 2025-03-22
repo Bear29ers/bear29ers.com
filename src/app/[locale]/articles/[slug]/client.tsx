@@ -33,7 +33,7 @@ const ArticleClient: FC<Props> = ({ article }) => {
           <ArticleTag tags={article.tags} />
         </div>
         <hr className="my-8" />
-        <div dangerouslySetInnerHTML={{ __html: article.body }}></div>
+        <div id="article" dangerouslySetInnerHTML={{ __html: article.body }}></div>
       </div>
     </main>
   );
