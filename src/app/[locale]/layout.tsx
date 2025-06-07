@@ -17,7 +17,7 @@ import type { Locale } from '@/types/locale';
 
 import type { Metadata, Viewport } from 'next';
 
-import '@/app/globals.scss';
+import '@/app/globals.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations('meta');
