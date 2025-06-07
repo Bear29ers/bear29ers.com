@@ -80,18 +80,22 @@ export const TEAMS: Team[] = [
 export const AMBITIONS: Ambition[] = [
   {
     id: 1,
+    icon: '💻',
     text: 'first',
   },
   {
     id: 2,
+    icon: '🎨',
     text: 'second',
   },
   {
     id: 3,
+    icon: '🌎',
     text: 'third',
   },
   {
     id: 4,
+    icon: '🏋️',
     text: 'fourth',
   },
 ];

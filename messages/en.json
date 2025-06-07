@@ -32,10 +32,10 @@
       }
     },
     "ambitions": {
-      "first": "💻 Learn higher level of Next.js and master Three.js.",
-      "second": "👬 Collaborate with other digital content creators.",
-      "third": "📝 Obtain qualifications in several engineering fields.",
-      "fourth": "🏋🏻 Lose weight and stay healthy."
+      "first": "Become more knowledgeable about front-end technologies in general.",
+      "second": "Acquire skills in UI/UX.",
+      "third": "Study WebGL.",
+      "fourth": "Stay healthy."
     }
   },
   "experience": {
@@ -56,7 +56,11 @@
         ],
         "2": [
           "I joined an existing service aimed at elementary and junior high school students. I am in charge of development with another backend engineer, and we are mainly involved in maintenance and operation while also working to improve the service.",
-          "Current issues include the fact that the foundation for frontend testing has not been established and package versions are out of date."
+          "Additionally, I was responsible for implementing the UI for search functionality as part of additional feature development, and I also gained experience migrating the existing service site to a CMS (WordPress)."
+        ],
+        "3": [
+          "After a year, I rejoined the frontend team for the reskilling service for adults.",
+          "Immediately after returning, due to the structure of the development team, I also contributed to backend development with Ruby on Rails in my small way. "
         ]
       },
       "emoshu": {
@@ -82,7 +86,8 @@
           "Learning Server-Side Rendering",
           "Communicating with designers to improve UI/UX"
         ],
-        "2": ["Upgrading Next.js from 12 to 14", "The foundation of frontend testing"]
+        "2": ["Upgrading Next.js from 12 to 14", "The foundation of frontend testing", "Handling WordPress"],
+        "3": ["Creating simple CRUD with Rails", "Upgrading to Tailwind v4"]
       },
       "emoshu": {
         "1": [
