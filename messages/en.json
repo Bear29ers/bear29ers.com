@@ -32,10 +32,10 @@
       }
     },
     "ambitions": {
-      "first": "💻 Become more knowledgeable about front-end technologies in general.",
-      "second": "🎨 Acquire skills in UI/UX.",
-      "third": "🌎 Study WebGL.",
-      "fourth": "🏋  Stay healthy."
+      "first": "Become more knowledgeable about front-end technologies in general.",
+      "second": "Acquire skills in UI/UX.",
+      "third": "Study WebGL.",
+      "fourth": "Stay healthy."
     }
   },
   "experience": {

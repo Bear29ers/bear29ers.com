@@ -12,8 +12,9 @@ const Ambition: FC = () => {
   return (
     <ul className="space-y-3">
       {AMBITIONS.map((ambition: AmbitionType) => (
-        <li key={ambition.id} className="xxs:text-lg sm:text-xl">
-          {t(ambition.text)}
+        <li key={ambition.id} className="flex gap-x-1.5 xxs:text-lg sm:text-xl">
+          <span>{ambition.icon}</span>
+          <span>{t(ambition.text)}</span>
         </li>
       ))}
     </ul>
