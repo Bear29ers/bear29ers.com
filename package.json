@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --check --write './src/**/*.{js,jsx,ts,tsx,css,scss,md,mdx,json}'",
-    "stylelint:fix": "stylelint --fix './src/**/*.{scss,sass}'",
+    "stylelint:fix": "stylelint --fix './src/**/*.css'",
     "markuplint": "markuplint './src/**/*.{html,jsx,tsx}'",
     "test": "jest",
     "test:watch": "jest --watch",
