@@ -10,22 +10,22 @@ import type { RenderResult } from '@testing-library/react';
 describe('src/components/ui/Project/Project.test.tsx', () => {
   const projectData = {
     id: 2,
-    startAt: '2022.1',
-    endAt: '2023.12',
+    startAt: '2024.5',
+    endAt: 'current',
     role: 'frontend',
     company: 'gakkenLeap',
     location: 'tokyo',
-    tagList: ['React', 'Node.js', 'TypeScript'],
+    tagList: ['HTML', '(S)CSS', 'Tailwind', 'JavaScript', 'TypeScript', 'React', 'NextJS', 'Figma', 'UI', 'UX'],
     description: [0, 1],
-    highlightList: [0, 1],
+    highlightList: [0, 1, 2],
   };
 
   const descriptionList = [
     'I joined an existing service aimed at elementary and junior high school students. I am in charge of development with another backend engineer, and we are mainly involved in maintenance and operation while also working to improve the service.',
-    'Current issues include the fact that the foundation for frontend testing has not been established and package versions are out of date.',
+    'Additionally, I was responsible for implementing the UI for search functionality as part of additional feature development, and I also gained experience migrating the existing service site to a CMS (WordPress).',
   ];
 
-  const highlightList = ['Upgrading Next.js from 12 to 14', 'The foundation of frontend testing'];
+  const highlightList = ['Upgrading Next.js from 12 to 14', 'The foundation of frontend testing', 'Handling WordPress'];
 
   describe('initial state', () => {
     let renderResult: RenderResult;

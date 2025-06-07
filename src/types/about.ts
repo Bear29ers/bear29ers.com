@@ -25,5 +25,6 @@ export interface Team {
 
 export interface Ambition {
   id: number;
+  icon: string;
   text: string;
 }
