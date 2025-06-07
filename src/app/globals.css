@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-// NOTE: この設定を外すとアニメーションの動きがおかしくなるので残しておく
+/* NOTE: この設定を外すとアニメーションの動きがおかしくなるので残しておく */
 @keyframes bounce {
   0% {
     bottom: 200px;
