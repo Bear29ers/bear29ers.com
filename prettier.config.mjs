@@ -17,7 +17,7 @@ const config = {
   plugins: ['prettier-plugin-tailwindcss'],
   overrides: [
     {
-      files: ['**/*.css', '**/*.scss', '**/*.html'],
+      files: ['**/*.css', '**/*.html'],
       options: {
         singleQuote: false,
       },

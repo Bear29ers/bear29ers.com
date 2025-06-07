@@ -181,7 +181,7 @@ const eslintConfig = [
         {
           config: 'tailwind.config.ts',
 
-          cssFiles: ['**/*.scss', '**/*.css', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
+          cssFiles: ['**/*.css', '!**/node_modules', '!**/.*', '!**/dist', '!**/build'],
 
           whitelist: ['gallery-intro-title'],
         },
