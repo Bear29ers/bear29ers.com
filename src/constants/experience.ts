@@ -39,7 +39,7 @@ export const EXPERIENCE_INFO: Experience[] = [
         location: 'tokyo',
         tagList: ['HTML', '(S)CSS', 'Tailwind', 'JavaScript', 'TypeScript', 'React', 'NextJS', 'Figma', 'UI', 'UX'],
         description: [0, 1],
-        highlightList: [0, 1],
+        highlightList: [0, 1, 2],
       },
       {
         id: 1,
