@@ -86,7 +86,8 @@
           "Learning Server-Side Rendering",
           "Communicating with designers to improve UI/UX"
         ],
-        "2": ["Upgrading Next.js from 12 to 14", "The foundation of frontend testing", "Handling WordPress"]
+        "2": ["Upgrading Next.js from 12 to 14", "The foundation of frontend testing", "Handling WordPress"],
+        "3": ["Creating simple CRUD with Rails", "Upgrading to Tailwind v4"]
       },
       "emoshu": {
         "1": [
