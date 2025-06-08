@@ -27,7 +27,7 @@ const Menu: FC<Props> = ({ locale }) => {
   return (
     <div>
       <div className="fixed right-4 top-4 z-50 xsm:right-8 xsm:top-8 lg:right-10">
-        <MenuWindow isOpen={isOpen} isMobile={isMobile} pathname={pathname} locale={locale} />
+        <MenuWindow isOpen={isOpen} setIsOpen={setIsOpen} isMobile={isMobile} pathname={pathname} locale={locale} />
         <div className="absolute right-0 top-0">
           <MenuIcon isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
