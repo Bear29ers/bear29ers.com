@@ -19,8 +19,9 @@ const Menu: FC<Props> = ({ locale }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const isMobile = useMediaQuery('(max-width: 540px)');
   const pathname = usePathname();
+  const expectionPathList = ['/', '/ja'];
 
-  if (['/', '/ja'].includes(pathname)) {
+  if (expectionPathList.includes(pathname)) {
     return null;
   }
 
