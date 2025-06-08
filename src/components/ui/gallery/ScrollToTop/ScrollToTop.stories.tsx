@@ -1,3 +1,5 @@
+import mockRouter from 'next-router-mock';
+
 import ScrollToTop from './ScrollToTop';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -12,13 +14,13 @@ export default meta;
 type Story = StoryObj<typeof ScrollToTop>;
 
 export const Default: Story = {
-  args: {
-    themeColor: 'Red',
+  beforeEach: () => {
+    mockRouter.setCurrentUrl('/experience');
   },
-  render: ({ themeColor }) => (
+  render: () => (
     <div className="h-[150vh] w-full">
       <div className="fixed bottom-6 right-10">
-        <ScrollToTop themeColor={themeColor} />
+        <ScrollToTop />
       </div>
     </div>
   ),
