@@ -113,9 +113,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, i
           <div className="my-24">
             <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
           </div>
-          <div className="fixed bottom-6 right-4 xsm:right-8 lg:right-10">
-            <ScrollToTop themeColor={selectedThemeColor} />
-          </div>
+          <ScrollToTop themeColor={selectedThemeColor} />
         </>
       )}
       <div className="z-10 flex-col flex-center" />
