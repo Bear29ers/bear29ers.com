@@ -1,7 +1,8 @@
-import type { FC } from 'react';
+import type { Dispatch, FC, SetStateAction } from 'react';
 
 import { useAtom } from 'jotai';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import { LOCALE_ITEMS } from '@/constants/locale';
@@ -101,12 +102,17 @@ const localeSwitchVariants = {
 interface Props {
   pathname: string;
   locale: Locale;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-const MenuList: FC<Props> = ({ pathname, locale }) => {
+const MenuList: FC<Props> = ({ pathname, locale, setIsOpen }) => {
   const t = useTranslations('menu');
   const [selectedThemeColor, _] = useAtom(themeColor);
   const customTextColorClass = getCustomColorClass('text', selectedThemeColor, 500);
+
+  const handleClick = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className="relative h-full flex-col gap-y-12 flex-center">
@@ -123,11 +129,12 @@ const MenuList: FC<Props> = ({ pathname, locale }) => {
               whileTap={{ scale: menuItem.isAvaliable ? 0.9 : 1.0 }}
               transition={{ type: 'spring', stiffness: 400, damping: 10 }}
               className="text-3xl font-bold text-white xsm:text-5xl">
-              <a
+              <Link
                 href={t(menuItem.href)}
-                className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}>
+                className={`${menuItem.isAvaliable ? '' : 'pointer-events-none line-through'}`}
+                onClick={handleClick}>
                 {menuItem.text}
-              </a>
+              </Link>
               {t(menuItem.href) === pathname && <span className={`ml-1 ${customTextColorClass}`}>.</span>}
             </motion.div>
           </div>

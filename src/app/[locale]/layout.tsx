@@ -8,6 +8,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 
 import ColorPicker from '@/components/common/ColorPicker/ColorPicker';
 import Menu from '@/components/common/Menu/Menu';
+import ScrollToTop from '@/components/common/ScrollToTop/ScrollToTop';
 
 import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
 
@@ -70,8 +71,6 @@ const LocaleLayout = async ({
   modal: ReactNode;
   params: Promise<{ locale: Locale }>;
 }>) => {
-  const headersList = await headers();
-  const pathname = headersList.get('x-request-path') || '/';
   const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
@@ -89,10 +88,11 @@ const LocaleLayout = async ({
       <body
         className={`relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat txs:bg-noise-pattern ${locale === 'en' ? 'font-mont' : 'font-murecho tracking-wider'}`}>
         <NextIntlClientProvider messages={messages}>
-          <Menu pathname={pathname} locale={locale} />
+          <Menu locale={locale} />
           {children}
           {modal}
-          <ColorPicker pathname={pathname} />
+          <ColorPicker />
+          <ScrollToTop />
         </NextIntlClientProvider>
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
