@@ -7,6 +7,8 @@ import { useTranslations } from 'next-intl';
 
 import { LocationIcon, OrganizationIcon } from '@/components/icons/ProfileIcons/ProfileIcons';
 
+import getCustomColorClass from '@/utils/getCustomColorClass';
+
 import type { Color } from '@/types/color';
 import type { Project as ProjectType } from '@/types/experience';
 
@@ -44,16 +46,12 @@ const Project: FC<Props> = ({ project, themeColor }) => {
   const t = useTranslations('experience');
   const [isShow, setIsShow] = useState<boolean>(false);
 
+  const customBgColorClass = getCustomColorClass('bg', themeColor, 600);
+  const customBgHoverColorClass = getCustomColorClass('hover:bg', themeColor, 400);
+  const buttonColor = `${customBgColorClass} ${customBgHoverColorClass}`;
+
   const handleClick = () => {
     setIsShow(!isShow);
-  };
-
-  const buttonColorVariants = {
-    Red: 'bg-customRed-600 hover:bg-customRed-400',
-    Orange: 'bg-customOrange-600 hover:bg-customOrange-400',
-    Green: 'bg-customGreen-600 hover:bg-customGreen-400',
-    Cyan: 'bg-customCyan-600 hover:bg-customCyan-400',
-    Violet: 'bg-customViolet-600 hover:bg-customViolet-400',
   };
 
   return (
@@ -96,7 +94,7 @@ const Project: FC<Props> = ({ project, themeColor }) => {
         </div>
         <button
           type="button"
-          className={`inline w-fit rounded-xl px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out xs:text-sm ${buttonColorVariants[themeColor]}`}
+          className={`inline w-fit rounded-xl px-4 py-1 text-xs font-medium uppercase transition-colors duration-500 ease-in-out xs:text-sm ${buttonColor}`}
           onClick={handleClick}>
           {isShow ? 'Show Less' : 'Show More'}
         </button>
