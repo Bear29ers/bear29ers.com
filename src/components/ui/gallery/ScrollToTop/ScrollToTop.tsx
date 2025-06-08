@@ -1,17 +1,20 @@
+'use client';
+
 import { useState, type FC, useEffect } from 'react';
 
+import { useAtom } from 'jotai';
 import { AnimatePresence, motion } from 'motion/react';
+import { usePathname } from 'next/navigation';
 
 import getCustomColorClass from '@/utils/getCustomColorClass';
 
-import type { Color } from '@/types/color';
+import { themeColor } from '@/state/colors';
 
-interface Props {
-  themeColor: Color;
-}
-
-const ScrollToTop: FC<Props> = ({ themeColor }) => {
+const ScrollToTop: FC = () => {
+  const [selectedThemeColor, _] = useAtom(themeColor);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
+  const pathname = usePathname();
+  const expectionPathList = ['/', '/ja'];
 
   useEffect(() => {
     const updatePosition = () => {
@@ -23,8 +26,8 @@ const ScrollToTop: FC<Props> = ({ themeColor }) => {
     return () => window.removeEventListener('scroll', updatePosition);
   }, []);
 
-  const customBgColorClass = getCustomColorClass('bg', themeColor, 500);
-  const customBgHoverColorClass = getCustomColorClass('hover:bg', themeColor, 600);
+  const customBgColorClass = getCustomColorClass('bg', selectedThemeColor, 500);
+  const customBgHoverColorClass = getCustomColorClass('hover:bg', selectedThemeColor, 600);
   const buttonColor = `${customBgColorClass} ${customBgHoverColorClass}`;
 
   const scrollToTop = () => {
@@ -33,6 +36,10 @@ const ScrollToTop: FC<Props> = ({ themeColor }) => {
       behavior: 'smooth',
     });
   };
+
+  if (expectionPathList.includes(pathname)) {
+    return null;
+  }
 
   return (
     <AnimatePresence>
@@ -48,7 +55,7 @@ const ScrollToTop: FC<Props> = ({ themeColor }) => {
             whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 400, damping: 10 } }}
             whileTap={{ scale: 0.9, transition: { type: 'spring', stiffness: 400, damping: 10 } }}>
             <svg
-              className="size-6 txs:size-8"
+              className="size-6 text-white txs:size-8"
               aria-hidden="true"
               focusable="false"
               data-prefix="fas"

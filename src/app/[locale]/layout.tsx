@@ -8,6 +8,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 
 import ColorPicker from '@/components/common/ColorPicker/ColorPicker';
 import Menu from '@/components/common/Menu/Menu';
+import ScrollToTop from '@/components/ui/gallery/ScrollToTop/ScrollToTop';
 
 import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
 
@@ -91,6 +92,7 @@ const LocaleLayout = async ({
           {children}
           {modal}
           <ColorPicker />
+          <ScrollToTop />
         </NextIntlClientProvider>
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>

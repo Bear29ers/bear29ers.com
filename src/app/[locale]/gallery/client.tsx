@@ -15,7 +15,6 @@ import GridGallery from '@/components/ui/gallery/GridGallery/GridGallery';
 import MainGallery from '@/components/ui/gallery/MainGallery/MainGallery';
 import MainVisual from '@/components/ui/gallery/MainVisual/MainVisual';
 import ScrollDown from '@/components/ui/gallery/ScrollDown/ScrollDown';
-import ScrollToTop from '@/components/ui/gallery/ScrollToTop/ScrollToTop';
 import StaggeredText from '@/components/ui/gallery/StaggeredText/StaggeredText';
 import Subhead from '@/components/ui/gallery/Subhead/Subhead';
 
@@ -113,7 +112,6 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, i
           <div className="my-24">
             <AnimatedText text="Gallery" classes="text-[48px] xs:text-[60px] xsm:text-[80px]" />
           </div>
-          <ScrollToTop themeColor={selectedThemeColor} />
         </>
       )}
       <div className="z-10 flex-col flex-center" />
