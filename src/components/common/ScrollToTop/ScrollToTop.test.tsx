@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { usePathname } from 'next/navigation';
 
 import ScrollToTop from './ScrollToTop';
 
@@ -18,11 +18,17 @@ mockIntersectionObserver.mockReturnValue({
 });
 window.IntersectionObserver = mockIntersectionObserver;
 
+jest.mock('next/navigation', () => ({
+  usePathname: jest.fn(),
+}));
+
 describe('src/components/ui/gallery/ScrollToTop/ScrollToTop.test.tsx', () => {
   let renderResult: RenderResult;
+  const mockUsePathname = usePathname as jest.Mock;
 
   beforeEach(() => {
     renderResult = render(<ScrollToTop />);
+    mockUsePathname.mockReturnValue('/some-page');
 
     // 各テスト前にscrollYをリセット
     Object.defineProperty(window, 'scrollY', { value: 0, writable: true });
@@ -32,30 +38,47 @@ describe('src/components/ui/gallery/ScrollToTop/ScrollToTop.test.tsx', () => {
 
   afterEach(() => {
     renderResult.unmount();
+    jest.clearAllMocks();
   });
 
-  it('should not display the ScrollToTop button in the initial state', () => {
-    expect(screen.queryByRole('button')).not.toBeInTheDocument();
+  describe('Normal rendering', () => {
+    it('should not display the ScrollToTop button in the initial state', () => {
+      expect(screen.queryByRole('button')).not.toBeInTheDocument();
+    });
+
+    it('should display the ScrollToTop button when scroll position is over 101px', () => {
+      // スクロール位置を101pxに設定
+      Object.defineProperty(window, 'scrollY', { value: 101 });
+      fireEvent.scroll(window);
+
+      expect(screen.getByRole('button')).toBeInTheDocument();
+    });
+
+    it('should been called scrollTo when the button is clicked', () => {
+      Object.defineProperty(window, 'scrollY', { value: 101 });
+      fireEvent.scroll(window);
+
+      const button = screen.getByRole('button');
+      fireEvent.click(button);
+
+      expect(scrollToMock).toHaveBeenCalledWith({
+        top: 0,
+        behavior: 'smooth',
+      });
+    });
   });
 
-  it('should display the ScrollToTop button when scroll position is over 101px', () => {
-    // スクロール位置を101pxに設定
-    Object.defineProperty(window, 'scrollY', { value: 101 });
-    fireEvent.scroll(window);
+  describe('Null rendering', () => {
+    it('should return null when pathname is "/"', () => {
+      mockUsePathname.mockReturnValue('/');
+      const { container } = render(<ScrollToTop />);
+      expect(container).toBeEmptyDOMElement();
+    });
 
-    expect(screen.getByRole('button')).toBeInTheDocument();
-  });
-
-  it('should been called scrollTo when the button is clicked', () => {
-    Object.defineProperty(window, 'scrollY', { value: 101 });
-    fireEvent.scroll(window);
-
-    const button = screen.getByRole('button');
-    fireEvent.click(button);
-
-    expect(scrollToMock).toHaveBeenCalledWith({
-      top: 0,
-      behavior: 'smooth',
+    it('should return null when pathname is "/ja"', () => {
+      mockUsePathname.mockReturnValue('/ja');
+      const { container } = render(<ScrollToTop />);
+      expect(container).toBeEmptyDOMElement();
     });
   });
 });
