@@ -14,7 +14,7 @@ import type { SocialMedia } from '@/types/socialMedia';
 
 import ProfileIcon from '~/images/profile.png';
 
-const FramerImage = motion(Image);
+const FramerImage = motion.create(Image);
 
 const Status: FC = () => {
   const t = useTranslations('about.status');

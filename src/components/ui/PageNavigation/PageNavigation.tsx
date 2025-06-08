@@ -32,7 +32,7 @@ const variants = {
   },
 };
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 // TODO: すべてリンクとして使用できるようになったら、個別のリンクとしてコンポーネント化する
 const PageNavigation: FC<Props> = ({ isClicked }) => {
