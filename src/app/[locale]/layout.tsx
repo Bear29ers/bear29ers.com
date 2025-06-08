@@ -70,8 +70,6 @@ const LocaleLayout = async ({
   modal: ReactNode;
   params: Promise<{ locale: Locale }>;
 }>) => {
-  const headersList = await headers();
-  const pathname = headersList.get('x-request-path') || '/';
   const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
@@ -92,7 +90,7 @@ const LocaleLayout = async ({
           <Menu locale={locale} />
           {children}
           {modal}
-          <ColorPicker pathname={pathname} />
+          <ColorPicker />
         </NextIntlClientProvider>
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>
