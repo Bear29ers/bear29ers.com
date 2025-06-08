@@ -100,5 +100,10 @@
         "1": ["Improving video editing skills", "Designing & Photography", "Creating materials with Ps and Ai"]
       }
     }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": ["I'm sorry, the page you requested could not be found.", "Please go back to the home page."],
+    "button": "Go Home"
   }
 }

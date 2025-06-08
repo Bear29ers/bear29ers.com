@@ -1,10 +1,34 @@
+'use client';
+
+import { useAtom } from 'jotai';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
+
+import getCustomColorClass from '@/utils/getCustomColorClass';
+
+import { themeColor } from '@/state/colors';
 
 import type { NextPage } from 'next';
 
 const NotFoundPage: NextPage = () => {
+  const t = useTranslations('notFound');
+
+  const [selectedThemeColor, _] = useAtom(themeColor);
+  const customBgColorClass = getCustomColorClass('bg', selectedThemeColor, 500);
+  const customBgHoverColorClass = getCustomColorClass('hover:bg', selectedThemeColor, 700);
+
+  const buttonColor = `${customBgColorClass} ${customBgHoverColorClass}`;
+
+  const customColorHex = {
+    Red: '#D23F3F',
+    Orange: '#C97A1E',
+    Green: '#488B32',
+    Cyan: '#237084',
+    Violet: '#3A41B7',
+  };
+
   return (
     <div className="h-screen w-screen flex-col bg-dark px-2 text-white flex-center sm:px-0">
       <div className="gap-x-20 flex-center xs:gap-x-28 sm:gap-x-36">
@@ -17,7 +41,10 @@ const NotFoundPage: NextPage = () => {
             d="M95.2 12.7c-36.4 1.4-74.9-.2-85-.7C8.9 7.1 6 7.3 6 7.3s-6 1-6 13.8 4.7 14.8 6.5 14.8c2.5 0 3.4-4.2 3.6-5.2 10.1-.5 48.6-2.1 85-.7 15.5.6 42.9 2 72 3.6V9.1c-29.1 1.6-56.5 3-71.9 3.6zM323 .1s-33.5 1.7-43.1 2.5c-5.3.5-47.8 3-92 5.4v26.6c44.2 2.4 86.7 4.9 92 5.4 9.6.8 43.1 2.5 43.1 2.5s14.4 2.5 14.4-21v-.4c0-23.5-14.4-21-14.4-21z"
             fill="#d2b48c"
           />
-          <path d="M167.1 9.1v24.3c6.9.4 13.8.7 20.8 1.1V8c-6.9.4-13.9.7-20.8 1.1z" fill="#005A9C" />
+          <path
+            d="M167.1 9.1v24.3c6.9.4 13.8.7 20.8 1.1V8c-6.9.4-13.9.7-20.8 1.1z"
+            fill={`${customColorHex[selectedThemeColor]}`}
+          />
         </svg>
         <svg className="absolute bottom-[50px] right-14 size-16 animate-bounce" viewBox="0 0 46.6 46.6">
           <circle cx={23.3} cy={23.3} r={23.3} fill="#ffffff" />
@@ -28,15 +55,18 @@ const NotFoundPage: NextPage = () => {
         </svg>
       </div>
       <div className="mt-24 flex-col gap-y-8 flex-center">
-        <h2 className="text-3xl font-semibold sm:text-5xl">Page Not Found</h2>
+        <h2 className="text-3xl font-semibold sm:text-5xl">{t('title')}</h2>
         <div className="hidden flex-col xxs:flex">
-          <p className="sm:text-xl">I&apos;m sorry, the page you requested could not be found.</p>
-          <p className="sm:text-xl">Please go back to the homepage.</p>
+          {t.raw('description').map((description: string, index: number) => (
+            <p className="sm:text-xl" key={index}>
+              {description}
+            </p>
+          ))}
         </div>
         <Link
           href="/"
-          className="w-fit rounded-3xl bg-customRed-500 px-8 py-2 font-medium uppercase text-white transition-colors duration-500 ease-in-out hover:bg-customRed-700 sm:text-lg">
-          Go Home
+          className={`w-fit rounded-3xl px-8 py-2 font-medium uppercase text-white transition-colors duration-500 ease-in-out sm:text-lg ${buttonColor}`}>
+          {t('button')}
         </Link>
       </div>
     </div>
