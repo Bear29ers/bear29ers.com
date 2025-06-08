@@ -2,6 +2,8 @@ import { useState, type FC, useEffect } from 'react';
 
 import { AnimatePresence, motion } from 'motion/react';
 
+import getCustomColorClass from '@/utils/getCustomColorClass';
+
 import type { Color } from '@/types/color';
 
 interface Props {
@@ -21,13 +23,9 @@ const ScrollToTop: FC<Props> = ({ themeColor }) => {
     return () => window.removeEventListener('scroll', updatePosition);
   }, []);
 
-  const bgColorVariants = {
-    Red: 'bg-customRed-500 hover:bg-customRed-600',
-    Orange: 'bg-customOrange-500 hover:bg-customOrange-600',
-    Green: 'bg-customGreen-500 hover:bg-customGreen-600',
-    Cyan: 'bg-customCyan-500 hover:bg-customCyan-600',
-    Violet: 'bg-customViolet-500 hover:bg-customViolet-600',
-  };
+  const customBgColorClass = getCustomColorClass('bg', themeColor, 500);
+  const customBgHoverColorClass = getCustomColorClass('hover:bg', themeColor, 600);
+  const buttonColor = `${customBgColorClass} ${customBgHoverColorClass}`;
 
   const scrollToTop = () => {
     document.documentElement.scrollTo({
@@ -42,7 +40,7 @@ const ScrollToTop: FC<Props> = ({ themeColor }) => {
         <div className="fixed bottom-6 right-4 xsm:right-8 lg:right-10">
           <motion.button
             type="button"
-            className={`size-9 rounded-full transition-colors duration-300 flex-center txs:size-14 ${bgColorVariants[themeColor]}`}
+            className={`size-9 rounded-full transition-colors duration-300 flex-center txs:size-14 ${buttonColor}`}
             onClick={scrollToTop}
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1, transition: { duration: 0.6 } }}
