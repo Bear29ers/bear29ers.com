@@ -64,14 +64,15 @@ export const viewport: Viewport = {
 const LocaleLayout = async ({
   children,
   modal,
-  params: { locale },
+  params,
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }>) => {
   const headersList = await headers();
   const pathname = headersList.get('x-request-path') || '/';
+  const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
