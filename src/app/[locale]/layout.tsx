@@ -8,6 +8,7 @@ import { getMessages, getTranslations } from 'next-intl/server';
 
 import ColorPicker from '@/components/common/ColorPicker/ColorPicker';
 import Menu from '@/components/common/Menu/Menu';
+import ScrollToTop from '@/components/common/ScrollToTop/ScrollToTop';
 
 import convertToPageTitle from '@/utils/conversion/convertToPageTitle';
 
@@ -17,7 +18,7 @@ import type { Locale } from '@/types/locale';
 
 import type { Metadata, Viewport } from 'next';
 
-import '@/app/globals.scss';
+import '@/app/globals.css';
 
 export const generateMetadata = async (): Promise<Metadata> => {
   const t = await getTranslations('meta');
@@ -64,16 +65,16 @@ export const viewport: Viewport = {
 const LocaleLayout = async ({
   children,
   modal,
-  params: { locale },
+  params,
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
-  params: { locale: Locale };
+  params: Promise<{ locale: Locale }>;
 }>) => {
-  const headersList = await headers();
-  const pathname = headersList.get('x-request-path') || '/';
+  const { locale } = await params;
 
   // Ensure that the incoming `locale` is valid
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
@@ -87,10 +88,11 @@ const LocaleLayout = async ({
       <body
         className={`relative size-full overscroll-y-none bg-dark bg-auto bg-center bg-repeat txs:bg-noise-pattern ${locale === 'en' ? 'font-mont' : 'font-murecho tracking-wider'}`}>
         <NextIntlClientProvider messages={messages}>
-          <Menu pathname={pathname} locale={locale} />
+          <Menu locale={locale} />
           {children}
           {modal}
-          <ColorPicker pathname={pathname} />
+          <ColorPicker />
+          <ScrollToTop />
         </NextIntlClientProvider>
         <GoogleAnalytics gaId={process.env.GA_ID ?? ''} />
       </body>

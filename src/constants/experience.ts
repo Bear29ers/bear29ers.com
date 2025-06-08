@@ -8,6 +8,29 @@ export const EXPERIENCE_INFO: Experience[] = [
     endAt: 'current',
     projects: [
       {
+        id: 3,
+        startAt: '2025.5',
+        endAt: 'current',
+        role: 'frontend',
+        company: 'gakkenLeap',
+        location: 'tokyo',
+        tagList: [
+          'HTML',
+          'Tailwind',
+          'JavaScript',
+          'TypeScript',
+          'VueJS',
+          'NuxtJS',
+          'Figma',
+          'UI',
+          'UX',
+          'Ruby',
+          'Rails',
+        ],
+        description: [0, 1],
+        highlightList: [0, 1],
+      },
+      {
         id: 2,
         startAt: '2024.5',
         endAt: 'current',
@@ -16,7 +39,7 @@ export const EXPERIENCE_INFO: Experience[] = [
         location: 'tokyo',
         tagList: ['HTML', '(S)CSS', 'Tailwind', 'JavaScript', 'TypeScript', 'React', 'NextJS', 'Figma', 'UI', 'UX'],
         description: [0, 1],
-        highlightList: [0, 1],
+        highlightList: [0, 1, 2],
       },
       {
         id: 1,

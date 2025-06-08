@@ -1,4 +1,7 @@
-/** @type {import('pretteir').Config} */
+/**
+ * @see https://prettier.io/docs/en/configuration.html
+ * @type {import("prettier").Config}
+ */
 
 const config = {
   printWidth: 120,
@@ -14,7 +17,7 @@ const config = {
   plugins: ['prettier-plugin-tailwindcss'],
   overrides: [
     {
-      files: ['**/*.css', '**/*.scss', '**/*.html'],
+      files: ['**/*.css', '**/*.html'],
       options: {
         singleQuote: false,
       },
@@ -22,4 +25,4 @@ const config = {
   ],
 };
 
-module.exports = config;
+export default config;
