@@ -111,9 +111,7 @@ const MenuList: FC<Props> = ({ pathname, locale, setIsOpen }) => {
   const customTextColorClass = getCustomColorClass('text', selectedThemeColor, 500);
 
   const handleClick = () => {
-    setTimeout(() => {
-      setIsOpen(false);
-    }, 500);
+    setIsOpen(false);
   };
 
   return (
