@@ -8,7 +8,14 @@ import MainGallery from './MainGallery';
 import type { RenderResult } from '@testing-library/react';
 
 jest.mock('motion/react', () => ({
-  motion: jest.fn().mockImplementation((Component: FC) => Component),
+  motion: {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    create: (Component: FC) => (props: any) => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { variants, initial, whileInView, viewport, transition, ...rest } = props;
+      return <Component {...rest} />;
+    },
+  },
 }));
 
 describe('src/components/ui/gallery/MainGallery/MainGallery.test.tsx', () => {
