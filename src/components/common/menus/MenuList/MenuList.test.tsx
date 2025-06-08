@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { NextIntlClientProvider } from 'next-intl';
 
 import messages from '../../../../../messages/en.json';
@@ -91,5 +91,21 @@ describe('src/components/common/menus/MenuList/MenuList.test.tsx', () => {
 
   it('should render the ThreadsIcon component', () => {
     expect(screen.getByRole('img', { name: 'ThreadsIcon' })).toBeInTheDocument();
+  });
+
+  it('should update isOpen false', () => {
+    const setIsOpenMock = jest.fn();
+    renderResult.unmount();
+    renderResult = render(
+      <NextIntlClientProvider locale={locale} messages={messages}>
+        <MenuList pathname="/about" locale={locale} setIsOpen={setIsOpenMock} />
+      </NextIntlClientProvider>
+    );
+
+    const link = screen.getByRole('link', { name: 'Experience' });
+    fireEvent.click(link);
+
+    // expect(setIsOpenMock).toHaveBeenCalledTimes(1);
+    expect(setIsOpenMock).toHaveBeenCalledWith(false);
   });
 });
