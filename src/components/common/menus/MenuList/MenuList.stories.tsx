@@ -15,11 +15,12 @@ export const Default: Story = {
   args: {
     pathname: '/about',
     locale: 'en',
+    setIsOpen: () => {},
   },
-  render: ({ pathname, locale }) => {
+  render: ({ pathname, locale, setIsOpen }) => {
     return (
       <div className="relative h-[650px] w-[500px] rounded-3xl bg-dark">
-        <MenuList pathname={pathname} locale={locale} />
+        <MenuList pathname={pathname} locale={locale} setIsOpen={setIsOpen} />
       </div>
     );
   },

@@ -68,6 +68,7 @@
     "lint-staged": "^15.4.3",
     "markuplint": "^4.11.5",
     "next-intl": "^3.26.5",
+    "next-router-mock": "^1.0.2",
     "postcss": "^8",
     "prettier": "^3.5.0",
     "prettier-plugin-tailwindcss": "^0.6.11",
