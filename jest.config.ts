@@ -15,7 +15,9 @@ const config: Config = {
   moduleNameMapper: {
     '^next$': require.resolve('next'),
     '^next/navigation$': require.resolve('next/navigation'),
+    '^@/(.*)$': '<rootDir>/src/$1',
   },
+  coverageReporters: ['text', 'lcov', 'html'],
 };
 
 // createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
