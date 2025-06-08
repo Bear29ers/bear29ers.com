@@ -1,10 +1,13 @@
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 import AnimatedText from '@/components/common/AnimatedText/AnimatedText';
 
 import type { NextPage } from 'next';
 
 const NotFoundPage: NextPage = () => {
+  const t = useTranslations('notFound');
+
   return (
     <div className="h-screen w-screen flex-col bg-dark px-2 text-white flex-center sm:px-0">
       <div className="gap-x-20 flex-center xs:gap-x-28 sm:gap-x-36">
@@ -28,15 +31,18 @@ const NotFoundPage: NextPage = () => {
         </svg>
       </div>
       <div className="mt-24 flex-col gap-y-8 flex-center">
-        <h2 className="text-3xl font-semibold sm:text-5xl">Page Not Found</h2>
+        <h2 className="text-3xl font-semibold sm:text-5xl">{t('title')}</h2>
         <div className="hidden flex-col xxs:flex">
-          <p className="sm:text-xl">I&apos;m sorry, the page you requested could not be found.</p>
-          <p className="sm:text-xl">Please go back to the homepage.</p>
+          {t.raw('description').map((description: string, index: number) => (
+            <p className="sm:text-xl" key={index}>
+              {description}
+            </p>
+          ))}
         </div>
         <Link
           href="/"
           className="w-fit rounded-3xl bg-customRed-500 px-8 py-2 font-medium uppercase text-white transition-colors duration-500 ease-in-out hover:bg-customRed-700 sm:text-lg">
-          Go Home
+          {t('button')}
         </Link>
       </div>
     </div>
