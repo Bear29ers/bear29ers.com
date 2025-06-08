@@ -10,7 +10,8 @@
 
 - [ ] The title of the pull request is described.（タイトルが記載されている）
 - [ ] The overview is written.（概要が記載されいてる）
-- [ ] The label iis set correctly.（ラベルが正しくセットされている）
+- [ ] The label is set correctly.（ラベルが正しくセットされている）
+- [ ] App version is set correctly.（アプリのバージョンが正しくセットされている）
 
 ## Supplement（補足）
 
