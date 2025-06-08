@@ -4,6 +4,9 @@ import { useState, type FC } from 'react';
 
 import { useAtom } from 'jotai';
 import { motion } from 'motion/react';
+import { usePathname } from 'next/navigation';
+
+import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
 import { COLORS } from '@/constants/colors';
 
@@ -12,14 +15,12 @@ import getCustomColorClass from '@/utils/getCustomColorClass';
 import { themeColor } from '@/state/colors';
 import type { Color } from '@/types/color';
 
-interface Props {
-  pathname: string;
-}
-
-const ColorPicker: FC<Props> = ({ pathname }) => {
+const ColorPicker: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedThemeColor, setSelectedThemeColor] = useAtom(themeColor);
+  const pathname = usePathname();
   const expectionPathList = ['/', '/ja', '/about', '/ja/about'];
+  const isMobile = useMediaQuery('(max-width: 449px)');
 
   // colors except selectedColor
   const availableColors: Color[] = COLORS.filter((color) => color !== selectedThemeColor);
@@ -34,7 +35,7 @@ const ColorPicker: FC<Props> = ({ pathname }) => {
     const angle = startAngleDeg + index * step;
 
     // 80pxの半径で円周上の位置を計算
-    const radius = 70;
+    const radius = isMobile ? 60 : 70;
     const radian = (angle * Math.PI) / 180;
 
     // x, y座標を計算（右上に配置するため、xは正、yは負の値になる）
@@ -73,7 +74,7 @@ const ColorPicker: FC<Props> = ({ pathname }) => {
     <div className="fixed bottom-4 left-4 z-50">
       <button
         type="button"
-        className={`relative z-50 size-10 rounded-full border-4 border-white flex-center ${getCustomColorClass('bg', selectedThemeColor, 500)}`}
+        className={`relative z-50 size-7 rounded-full border-3 border-white flex-center txs:size-10 txs:border-4 ${getCustomColorClass('bg', selectedThemeColor, 500)}`}
         onClick={() => setIsOpen(!isOpen)}
         aria-label={`${selectedThemeColor.toLowerCase()}-theme-color-button`}
       />
@@ -84,7 +85,7 @@ const ColorPicker: FC<Props> = ({ pathname }) => {
           <motion.button
             type="button"
             key={color}
-            className={`absolute left-1/2 top-1/2 z-40 size-7 rounded-full border-4 border-white transition-opacity flex-center hover:opacity-80 ${customBgColorClass}`}
+            className={`absolute left-1/2 top-1/2 z-40 size-6 rounded-full border-3 border-white transition-opacity flex-center hover:opacity-80 txs:size-7 txs:border-4 ${customBgColorClass}`}
             variants={getColorVariants(index)}
             initial="initial"
             custom={index}

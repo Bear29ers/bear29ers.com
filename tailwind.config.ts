@@ -108,6 +108,9 @@ const config: Config = {
           rgba(255, 255, 255, 0) 100%
         )`,
       },
+      borderWidth: {
+        3: '3px',
+      },
       zIndex: {
         '60': '60',
       },
