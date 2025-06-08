@@ -18,8 +18,8 @@ const getVariants = (isMobile: boolean) => {
           transition: { duration: 0.75, type: 'tween', ease: easing },
         },
         closed: {
-          width: '48px',
-          height: '48px',
+          width: '40px',
+          height: '40px',
           top: '0px',
           right: '0px',
           transition: { duration: 0.75, delay: 0.35, type: 'tween', ease: easing },

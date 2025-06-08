@@ -44,7 +44,7 @@ const ScrollToTop: FC = () => {
   return (
     <AnimatePresence>
       {scrollPosition > 100 && (
-        <div className="fixed bottom-6 right-4 xsm:right-8 lg:right-10">
+        <div className="fixed bottom-4 right-4 xsm:right-8 lg:right-10">
           <motion.button
             type="button"
             className={`size-9 rounded-full transition-colors duration-300 flex-center txs:size-14 ${buttonColor}`}
