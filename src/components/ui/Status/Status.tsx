@@ -12,7 +12,7 @@ import getIconComponent from '@/utils/getIconComponent';
 import type { ProfileDetail, Team } from '@/types/about';
 import type { SocialMedia } from '@/types/socialMedia';
 
-import ProfileIcon from '~/images/profile.png';
+import ProfileIcon from '~/images/profile.webp';
 
 const FramerImage = motion.create(Image);
 
