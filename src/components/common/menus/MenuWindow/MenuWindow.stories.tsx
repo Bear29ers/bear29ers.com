@@ -17,11 +17,12 @@ export const Default: Story = {
     isMobile: false,
     pathname: '/about',
     locale: 'en',
+    setIsOpen: () => {},
   },
-  render: ({ isOpen, isMobile, pathname, locale }) => {
+  render: ({ isOpen, isMobile, pathname, locale, setIsOpen }) => {
     return (
       <div className="h-screen w-screen flex-center">
-        <MenuWindow isOpen={isOpen} isMobile={isMobile} pathname={pathname} locale={locale} />
+        <MenuWindow isOpen={isOpen} isMobile={isMobile} pathname={pathname} locale={locale} setIsOpen={setIsOpen} />
       </div>
     );
   },
