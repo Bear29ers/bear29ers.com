@@ -31,7 +31,7 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     beforeEach(() => {
       renderResult = render(
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <MenuWindow isOpen={false} isMobile={false} pathname={pathname} locale="en" />
+          <MenuWindow isOpen={false} isMobile={false} pathname={pathname} locale="en" setIsOpen={jest.fn()} />
         </NextIntlClientProvider>
       );
     });
@@ -67,7 +67,7 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     beforeEach(() => {
       renderResult = render(
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <MenuWindow isOpen={false} isMobile pathname={pathname} locale={locale} />
+          <MenuWindow isOpen={false} isMobile pathname={pathname} locale={locale} setIsOpen={jest.fn()} />
         </NextIntlClientProvider>
       );
     });
@@ -80,12 +80,12 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
       expect(screen.getByTestId('menu-window')).toBeInTheDocument();
     });
 
-    it('should have 56px of width style', () => {
-      expect(screen.getByTestId('menu-window')).toHaveStyle('width: 48px');
+    it('should have 40px of width style', () => {
+      expect(screen.getByTestId('menu-window')).toHaveStyle('width: 40px');
     });
 
-    it('should have 56px of height style', () => {
-      expect(screen.getByTestId('menu-window')).toHaveStyle('height: 48px');
+    it('should have 40px of height style', () => {
+      expect(screen.getByTestId('menu-window')).toHaveStyle('height: 40px');
     });
   });
 
@@ -139,7 +139,7 @@ describe('src/components/common/menus/MenuWindow/MenuWindow.test.tsx', () => {
     beforeEach(() => {
       renderResult = render(
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <MenuWindow isOpen isMobile pathname={pathname} locale={locale} />
+          <MenuWindow isOpen isMobile pathname={pathname} locale={locale} setIsOpen={jest.fn()} />
         </NextIntlClientProvider>
       );
     });

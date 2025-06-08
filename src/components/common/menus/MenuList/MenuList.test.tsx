@@ -28,7 +28,7 @@ describe('src/components/common/menus/MenuList/MenuList.test.tsx', () => {
   beforeEach(() => {
     renderResult = render(
       <NextIntlClientProvider locale={locale} messages={messages}>
-        <MenuList pathname="/about" locale={locale} />
+        <MenuList pathname="/about" locale={locale} setIsOpen={jest.fn()} />
       </NextIntlClientProvider>
     );
   });
