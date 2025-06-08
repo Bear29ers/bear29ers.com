@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import React from 'react';
 import type { FC } from 'react';
 
@@ -16,6 +17,7 @@ jest.mock('motion/react', () => {
     onLayoutAnimationComplete?: () => void;
     layout?: boolean | string;
     layoutId?: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     [key: string]: any;
   }> = ({ src, onLayoutAnimationComplete, layout, layoutId, ...props }) => {
     ActualReact.useEffect(() => {

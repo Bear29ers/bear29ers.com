@@ -1,6 +1,10 @@
-import type { Preview } from '@storybook/react';
+import { getRouter, usePathname } from '@storybook/nextjs/navigation.mock';
+import '../src/app/globals.css';
+import mockRouter from 'next-router-mock';
+
 import nextIntl from './next-intl';
-import '../src/app/globals.scss';
+
+import type { Preview } from '@storybook/react';
 
 const preview: Preview = {
   initialGlobals: {
@@ -21,6 +25,13 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+  },
+  beforeEach: () => {
+    getRouter().push.mockImplementation((...args: Parameters<typeof mockRouter.push>) => mockRouter.push(...args));
+    getRouter().replace.mockImplementation((...args: Parameters<typeof mockRouter.replace>) =>
+      mockRouter.replace(...args)
+    );
+    usePathname.mockImplementation(() => mockRouter.pathname);
   },
 };
 

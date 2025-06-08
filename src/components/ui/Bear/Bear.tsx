@@ -11,7 +11,7 @@ const Bear: FC<Props> = ({ isClicked, setIsClicked }) => {
   };
 
   return (
-    <div className="relative z-30 size-full ">
+    <div className="relative z-30 size-full">
       <div
         className={`absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-1000 ease-ease ${isClicked ? 'left-1/2 top-32 scale-[0.65] xxs:left-[calc(100%-60px)] xxs:top-[calc(100%-115px)] xsm:top-[calc(100%-100px)] md:left-[calc(100%-80px)] md:top-[calc(100%-110px)] md:scale-[0.8] lg:left-[calc(100%-100px)] lg:top-[calc(100%-130px)] lg:scale-100' : 'left-1/2 top-1/2 scale-100 md:scale-[1.2] lg:scale-150'}`}
         data-testid="bear-wrapper">

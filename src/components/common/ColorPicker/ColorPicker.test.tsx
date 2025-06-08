@@ -1,16 +1,40 @@
 import { fireEvent, render, screen } from '@testing-library/react';
-
 import '@testing-library/jest-dom';
+import { usePathname } from 'next/navigation';
+
 import ColorPicker from './ColorPicker';
 
 import type { RenderResult } from '@testing-library/react';
 
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  usePathname: jest.fn(),
+}));
+
 describe('src/components/common/ColorPicker/ColorPicker.test.tsx', () => {
+  // mock matchMedia for testing
+  beforeAll(() => {
+    Object.defineProperty(window, 'matchMedia', {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addListener: jest.fn(), // deprecated
+        removeListener: jest.fn(), // deprecated
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+  });
+
   describe('when the pathname is exception', () => {
     it.each(['/', '/ja', '/about', '/ja/about'])(
       'should not display the button element for excluded path: %s',
       (pathname: string) => {
-        render(<ColorPicker pathname={pathname} />);
+        (usePathname as jest.Mock).mockReturnValue(pathname);
+        render(<ColorPicker />);
         expect(screen.queryByRole('button')).not.toBeInTheDocument();
       }
     );
@@ -20,7 +44,8 @@ describe('src/components/common/ColorPicker/ColorPicker.test.tsx', () => {
     let renderResult: RenderResult;
 
     beforeEach(() => {
-      renderResult = render(<ColorPicker pathname="/experience" />);
+      (usePathname as jest.Mock).mockReturnValue('/experience');
+      renderResult = render(<ColorPicker />);
     });
 
     afterEach(() => {

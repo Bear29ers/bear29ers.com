@@ -1,3 +1,5 @@
+import mockRouter from 'next-router-mock';
+
 import ColorPicker from './ColorPicker';
 
 import type { Meta, StoryObj } from '@storybook/react';
@@ -12,8 +14,8 @@ export default meta;
 type Story = StoryObj<typeof ColorPicker>;
 
 export const Default: Story = {
-  args: {
-    pathname: '/experience',
+  beforeEach: () => {
+    mockRouter.setCurrentUrl('/experience');
   },
-  render: ({ pathname }) => <ColorPicker pathname={pathname} />,
+  render: () => <ColorPicker />,
 };
