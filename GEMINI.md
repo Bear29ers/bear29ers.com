@@ -17,7 +17,7 @@
 - **フレームワーク/ライブラリ**: Next.js, React, Jotai, motion, popmotion, Tailwind CSS
 - **パッケージ管理**: npm
 - **テスト**: Jest, React Testing Library
-- **環境**: Docker
+- **環境**: Docker Composeを使用した開発環境が提供されています。`app`コンテナ（Next.js）と`storybook`コンテナが定義されています。
 
 ## コーディング規約
 
@@ -32,6 +32,9 @@
 
 ## よく使うコマンド
 
+- **Docker開発環境の起動**: `docker-compose -f docker-compose-tmp.yml up`
+- **Docker開発環境の停止**: `docker-compose -f docker-compose-tmp.yml down`
+- **Dockerイメージのビルド**: `docker-compose -f docker-compose-tmp.yml build`
 - **依存関係のインストール**: `npm install`
 - **開発サーバーの起動**: `npm run dev`
 - **テストの実行**: `npm test`
