@@ -4,58 +4,57 @@
 
 ## プロジェクト概要
 
-- **目的と種類**: このプロジェクトの目的と、どのような種類のアプリケーションであるかを簡潔に記述します。
-  例: これは、シフト管理を行うためのWebアプリケーションです。
-- **主要な機能**: プロジェクトの核となる機能や、ユーザーが期待する主要な振る舞いを説明します。
-  例: ユーザー管理、シフト作成・編集、通知機能。
+- **目的と種類**: フロントエンドエンジニアである[Bear29ers](https://github.com/Bear29ers)のポートフォリオサイトです。最新技術の実験場であり、自身のプロジェクトを紹介する動的なプラットフォームとして機能します。
+- **主要な機能**:
+  - プロジェクトの紹介
+  - 経歴の表示
+  - 制作物（ギャラリー）の表示
+  - 多言語対応（日/英）
 
 ## 技術スタック
 
-- **言語**: 使用しているプログラミング言語とそのバージョン。
-  例: Python 3.10, JavaScript (ES2020), TypeScript 4.x
-- **フレームワーク/ライブラリ**: 主要なフレームワークやライブラリ。
-  例: フロントエンド: React, Vue.js, Angular / バックエンド: Django, Flask, Node.js (Express), Spring Boot
-- **パッケージ管理**: 使用しているパッケージマネージャー。
-  例: pip, npm, yarn, poetry, go mod
-- **データベース**: 使用しているデータベースとそのバージョン（もしあれば）。
-  例: PostgreSQL 14, MongoDB 5.x, SQLite
-- **環境**: 開発環境、テスト環境、本番環境に関する情報（例: Docker, Kubernetes）。
-  例: 開発環境はDocker Composeで構築されています。
+- **言語**: TypeScript, JavaScript
+- **フレームワーク/ライブラリ**: Next.js, React, Jotai, motion, popmotion, Tailwind CSS
+- **パッケージ管理**: npm
+- **テスト**: Jest, React Testing Library
+- **環境**: Docker
 
 ## コーディング規約
 
-- **スタイルガイド**: 従うべきスタイルガイド。
-  例: PEP 8 (Python), Airbnb JavaScript Style Guide
-- **フォーマッター**: 使用しているコードフォーマッターとその設定。
-  例: black (Python), Prettier (JavaScript/TypeScript)
-- **リンター**: 使用しているリンターとその設定。
-  例: ruff (Python), ESLint (JavaScript/TypeScript)
-- **型チェック**: 使用している型チェックツールとその設定。
-  例: mypy (Python), TypeScript compiler
-- **命名規則**: 変数、関数、クラス、ファイルなどの命名規則。
-  例: Python: snake_case, JavaScript: camelCase
-- **コメント/ドキュメンテーション**: コメントの書き方、Docstringの形式、APIドキュメンテーションの生成方法など。
+- **スタイルガイド**: Prettier, ESLint
+- **フォーマッター**: Prettier
+- **リンター**: ESLint, stylelint, markuplint
+- **型チェック**: TypeScript
+- **命名規則**:
+  - コンポーネント: PascalCase
+  - 変数/関数: camelCase
+- **コメント/ドキュメンテーション**: Storybookを利用してコンポーネントのドキュメントを生成しています。
 
 ## よく使うコマンド
 
-- **依存関係のインストール**: プロジェクトの依存関係をインストールするためのコマンド。
-  例: `pip install -r requirements.txt`, `npm install`
-- **開発サーバーの起動**: ローカル開発サーバーを起動するためのコマンド。
-  例: `python manage.py runserver`, `npm start`
-- **テストの実行**: テストを実行するためのコマンド。
-  例: `pytest`, `npm test`
-- **ビルド/コンパイル**: プロジェクトをビルドまたはコンパイルするためのコマンド。
-  例: `npm run build`
-- **デプロイ**: アプリケーションをデプロイするためのコマンド（もしあれば）。
-- **コードのフォーマット/リンティング**: コードの整形や静的解析を実行するためのコマンド。
-  例: `black .`, `ruff check .`, `npm run lint`
+- **依存関係のインストール**: `npm install`
+- **開発サーバーの起動**: `npm run dev`
+- **テストの実行**: `npm test`
+- **ビルド/コンパイル**: `npm run build`
+- **コードのフォーマット/リンティング**:
+  - `npm run format`
+  - `npm run lint`
+  - `npm run stylelint:fix`
+  - `npm run markuplint`
+- **Storybookの起動**: `npm run storybook`
 
 ## プロジェクト構造
 
-- **主要なディレクトリ**: `src/`, `tests/`, `docs/`, `config/`, `public/` など、主要なディレクトリの役割と内容を説明します。
-  例: `src/client` にフロントエンドコード、`src/server` にバックエンドコードがあります。
-- **設定ファイル**: 主要な設定ファイルの場所と、その設定が何に影響するかを説明します。
+- **`src/app`**: Next.jsのApp Routerに基づいたルーティングと各ページのコンポーネントが配置されています。
+- **`src/components`**: 共通で利用されるUIコンポーネントが格納されています。
+- **`src/constants`**: プロジェクト全体で利用される定数（例: ナビゲーションのメニュー項目、SNSリンクなど）が定義されています。
+- **`src/hooks`**: カスタムフックが配置されています。
+- **`src/styles`**: グローバルなスタイルやフォント設定が定義されています。
+- **`src/types`**: プロジェクトで使用される型定義がまとめられています。
+- **`messages`**: `next-intl`による多言語対応のためのメッセージファイルが格納されています。（`en.json`, `ja.json`）
+- **`public`**: 画像などの静的リソースが配置されています。
 
 ## 特定の指示/注意事項
 
-- **開発ワークフロー**: 新しい機能の追加、バグ修正、コードレビューのプロセスなど、開発の一般的なワークフロー。
+- **コンポーネント生成**: `npm run hygen component new` コマンドで新しいコンポーネントの雛形を生成できます。
+- **国際化 (i18n)**: `next-intl` を使用しており、テキストは `messages` ディレクトリ内のJSONファイルで管理されています。新しいテキストを追加する際は、両方の言語ファイル（`en.json`, `ja.json`）を更新する必要があります。
