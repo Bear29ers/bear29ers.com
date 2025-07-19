@@ -33,7 +33,7 @@ const eslintConfig = [
   js.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    files: ['**/*.{js,jsx,ts,tsx}', '**/*.test.{ts,tsx}'],
+    files: ['**/*.{js,mjs,jsx,ts,tsx}', '**/*.test.{ts,tsx}'],
     plugins: {
       'import': pluginImport,
       'unused-imports': pluginUnusedImports,
