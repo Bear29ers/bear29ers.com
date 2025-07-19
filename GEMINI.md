@@ -32,9 +32,9 @@
 
 ## よく使うコマンド
 
-- **Docker開発環境の起動**: `docker-compose -f docker-compose-tmp.yml up`
-- **Docker開発環境の停止**: `docker-compose -f docker-compose-tmp.yml down`
-- **Dockerイメージのビルド**: `docker-compose -f docker-compose-tmp.yml build`
+- **Docker開発環境の起動**: `docker compose up -d`
+- **Docker開発環境の停止**: `docker compose down`
+- **Dockerイメージのビルド**: `docker compose build`
 - **依存関係のインストール**: `npm install`
 - **開発サーバーの起動**: `npm run dev`
 - **テストの実行**: `npm test`
@@ -61,3 +61,4 @@
 
 - **コンポーネント生成**: `npm run hygen component new` コマンドで新しいコンポーネントの雛形を生成できます。
 - **国際化 (i18n)**: `next-intl` を使用しており、テキストは `messages` ディレクトリ内のJSONファイルで管理されています。新しいテキストを追加する際は、両方の言語ファイル（`en.json`, `ja.json`）を更新する必要があります。
+
