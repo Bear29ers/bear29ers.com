@@ -6,9 +6,11 @@ import type { Locale } from '@/types/locale';
 
 import MenuList from '../MenuList/MenuList';
 
-const getVariants = (isMobile: boolean) => {
-  const easing = [0.76, 0, 0.24, 1];
-  const variants = isMobile
+import type { Variants } from 'motion/react';
+
+const getVariants = (isMobile: boolean): Variants => {
+  const easing = [0.76, 0, 0.24, 1] as const;
+  const variants: Variants = isMobile
     ? {
         opened: {
           width: '310px',

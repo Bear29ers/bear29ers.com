@@ -2,12 +2,14 @@ import type { FC } from 'react';
 
 import { motion } from 'motion/react';
 
+import type { Variants } from 'motion/react';
+
 interface Props {
   textList: string[];
 }
 
 const StaggeredText: FC<Props> = ({ textList }) => {
-  const wrapperVariants = {
+  const wrapperVariants: Variants = {
     initial: {},
     animate: {
       transition: {
@@ -17,7 +19,7 @@ const StaggeredText: FC<Props> = ({ textList }) => {
     },
   };
 
-  const letterVariants = {
+  const letterVariants: Variants = {
     initial: { y: '100%' },
     animate: {
       y: 0,

@@ -15,6 +15,8 @@ import getCustomColorClass from '@/utils/getCustomColorClass';
 import { themeColor } from '@/state/colors';
 import type { Color } from '@/types/color';
 
+import type { Variants } from 'motion/react';
+
 const ColorPicker: FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [selectedThemeColor, setSelectedThemeColor] = useAtom(themeColor);
@@ -45,7 +47,7 @@ const ColorPicker: FC = () => {
     return { x, y };
   };
 
-  const getColorVariants = (i: number) => {
+  const getColorVariants = (i: number): Variants => {
     const position = calculatePosition(i);
     return {
       initial: { x: '-50%', y: '-50%' },
