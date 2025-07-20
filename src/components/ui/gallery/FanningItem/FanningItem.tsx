@@ -2,7 +2,9 @@ import type { FC } from 'react';
 
 import { motion } from 'motion/react';
 
-const variants = (initialY: number | string, x: string, y: number | string, rotate: number) => ({
+import type { Variants } from 'motion/react';
+
+const variants = (initialY: number | string, x: string, y: number | string, rotate: number): Variants => ({
   initial: {
     x: '-50%',
     y: initialY,

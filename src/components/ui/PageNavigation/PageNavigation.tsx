@@ -5,6 +5,8 @@ import { type FC } from 'react';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 
+import type { Variants } from 'motion/react';
+
 interface Props {
   isClicked: boolean;
 }
@@ -13,15 +15,15 @@ const animateTransitionValue = {
   type: 'spring',
   duration: 1.5,
   delay: 1.0,
-};
+} as const;
 
 const bounceTransitionValue = {
   type: 'spring',
   stiffness: 400,
   damping: 10,
-};
+} as const;
 
-const variants = {
+const variants: Variants = {
   hover: {
     scale: 1.1,
     transition: bounceTransitionValue,

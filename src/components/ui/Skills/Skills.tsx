@@ -123,10 +123,7 @@ const Skills: FC = () => {
   return (
     <div>
       <div style={{ perspective: 1000 }}>
-        <motion.div
-          transition={{ duration: 10, loop: Infinity, ease: 'linear' }}
-          className="size-fit"
-          data-testid="skills">
+        <motion.div transition={{ duration: 10, ease: 'linear' }} className="size-fit" data-testid="skills">
           <motion.div
             className="relative flex"
             style={{
