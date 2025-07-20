@@ -4,7 +4,9 @@ import { motion } from 'motion/react';
 
 import type { Color } from '@/types/color';
 
-const variants = {
+import type { Variants } from 'motion/react';
+
+const variants: Variants = {
   initial: {
     opacity: 0,
   },

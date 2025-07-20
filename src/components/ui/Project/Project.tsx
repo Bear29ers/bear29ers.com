@@ -15,7 +15,9 @@ import type { Project as ProjectType } from '@/types/experience';
 import ProjectHighlight from '../projects/ProjectHighlight/ProjectHighlight';
 import ProjectTag from '../projects/ProjectTag/ProjectTag';
 
-const bgVariants = {
+import type { Variants } from 'motion/react';
+
+const bgVariants: Variants = {
   opened: {
     backgroundColor: '#2C3641',
     transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },
@@ -26,7 +28,7 @@ const bgVariants = {
   },
 };
 
-const variants = {
+const variants: Variants = {
   opened: {
     height: 'auto',
     transition: { duration: 0.75, type: 'tween', ease: [0.76, 0, 0.24, 1] },

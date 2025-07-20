@@ -19,7 +19,9 @@ import type { SocialMedia } from '@/types/socialMedia';
 
 import LocaleSwitch from '../../LocaleSwitch/LocaleSwitch';
 
-const activeMenuVariants = {
+import type { Variants } from 'motion/react';
+
+const activeMenuVariants: Variants = {
   initial: {
     opacity: 0,
     translateY: 80,
@@ -37,11 +39,11 @@ const activeMenuVariants = {
   }),
   exit: {
     opacity: 0,
-    transition: { duration: 0.5, type: 'linear', ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
   },
 };
 
-const inactiveMenuVariants = {
+const inactiveMenuVariants: Variants = {
   initial: {
     opacity: 0,
     translateY: 80,
@@ -59,11 +61,11 @@ const inactiveMenuVariants = {
   }),
   exit: {
     opacity: 0,
-    transition: { duration: 0.5, type: 'linear', ease: [0.76, 0, 0.24, 1] },
+    transition: { duration: 0.5, ease: [0.76, 0, 0.24, 1] },
   },
 };
 
-const socialVariants = {
+const socialVariants: Variants = {
   initial: {
     opacity: 0,
   },
@@ -81,7 +83,7 @@ const socialVariants = {
   },
 };
 
-const localeSwitchVariants = {
+const localeSwitchVariants: Variants = {
   initial: {
     opacity: 0,
   },
