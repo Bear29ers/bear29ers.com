@@ -18,7 +18,8 @@ const isVerticalWritingMode = (): boolean => {
 const getScrollBarSize = (): number => {
   const scrollBarXSize = window.innerHeight - document.body.clientHeight;
   const scrollBarYSize = window.innerWidth - document.body.clientWidth;
-  return isVerticalWritingMode() ? scrollBarXSize : scrollBarYSize;
+  const scrollBarSize = isVerticalWritingMode() ? scrollBarXSize : scrollBarYSize;
+  return Math.max(0, scrollBarSize);
 };
 
 // スクロール位置を取得する
