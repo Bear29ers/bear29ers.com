@@ -1,7 +1,7 @@
 /* eslint-disable jest-dom/prefer-to-have-style */
 import { renderHook } from '@testing-library/react';
 
-import useModalScrollLock from './useModalScrollLock';
+import useModalScrollLock, { backfaceFixed } from './useModalScrollLock';
 
 describe('src/hooks/useModalScrollLock/useModalScrollLock', () => {
   beforeEach(() => {
@@ -28,6 +28,12 @@ describe('src/hooks/useModalScrollLock/useModalScrollLock', () => {
 
   afterEach(() => {
     jest.clearAllMocks();
+    // Restore scrollingElement if it was mocked
+    Object.defineProperty(document, 'scrollingElement', {
+      value: document.documentElement,
+      configurable: true,
+      writable: true,
+    });
   });
 
   it('should apply scroll lock when modal is open', () => {
@@ -53,6 +59,31 @@ describe('src/hooks/useModalScrollLock/useModalScrollLock', () => {
     // Scrollbar size should be positive
     const expectedScrollBarWidth = window.innerWidth - document.body.clientWidth;
     expect(document.body).toHaveStyle({ paddingInlineEnd: `${expectedScrollBarWidth}px` });
+  });
+
+  it('should handle no scrollbar correctly', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 900, // Equal to clientWidth, so scrollbar size is 0
+      writable: true,
+    });
+
+    renderHook(() => useModalScrollLock(true));
+
+    expect(document.body).toHaveStyle({ paddingInlineEnd: '0px' });
+  });
+
+  it('should handle negative scrollbar size correctly', () => {
+    Object.defineProperty(window, 'innerWidth', {
+      configurable: true,
+      value: 800, // Less than clientWidth, so scrollbar size is negative
+      writable: true,
+    });
+
+    renderHook(() => useModalScrollLock(true));
+
+    // The padding should be 0, not negative
+    expect(document.body).toHaveStyle({ paddingInlineEnd: '0px' });
   });
 
   it('should handle toggling the modal open and closed', () => {
@@ -109,6 +140,59 @@ describe('src/hooks/useModalScrollLock/useModalScrollLock', () => {
     expect(document.body).toHaveStyle({ position: '' });
   });
 
+  it('should handle null scrollingElement gracefully', () => {
+    Object.defineProperty(document, 'scrollingElement', {
+      value: null,
+      configurable: true,
+    });
+
+    renderHook(() => useModalScrollLock(true));
+
+    expect(document.body.style.insetBlockStart).toBe('0px');
+
+    renderHook(() => useModalScrollLock(false));
+
+    expect(global.scrollTo).toHaveBeenCalledWith({
+      behavior: 'instant',
+      top: 0,
+    });
+  });
+
+  it('should handle non-numeric insetBlockStart', () => {
+    renderHook(() => useModalScrollLock(true)); // Lock
+    document.body.style.insetBlockStart = 'auto'; // Set non-numeric value
+    renderHook(() => useModalScrollLock(false)); // Unlock
+
+    expect(global.scrollTo).toHaveBeenCalledWith({ behavior: 'instant', top: 0 });
+  });
+
+  // This test case covers the scenario where `scrollTop` is `undefined`.
+  it('should handle undefined scrollTop gracefully', () => {
+    Object.defineProperty(document.documentElement, 'scrollTop', {
+      configurable: true,
+      value: undefined, // Set scrollTop to undefined
+      writable: true,
+    });
+
+    renderHook(() => useModalScrollLock(true));
+
+    // `getScrollPosition` should fall back to 0, so `insetBlockStart` should be '0px'.
+    expect(document.body.style.insetBlockStart).toBe('0px');
+  });
+
+  // This test case covers the scenario where `insetBlockStart` is empty when unlocking.
+  it('should handle empty insetBlockStart when unlocking', () => {
+    // Lock first to set some styles
+    renderHook(() => useModalScrollLock(true));
+    // Manually clear the style that the unlock function relies on
+    document.body.style.insetBlockStart = '';
+    // Unlock
+    renderHook(() => useModalScrollLock(false));
+
+    // `getScrollPosition` should fall back to 0, so `scrollTo` should be called with `top: 0`.
+    expect(global.scrollTo).toHaveBeenCalledWith({ behavior: 'instant', top: 0 });
+  });
+
   describe('vertical writing mode', () => {
     beforeEach(() => {
       // Mock window.getComputedStyle to return a CSSStyleDeclaration object with writingMode
@@ -150,6 +234,63 @@ describe('src/hooks/useModalScrollLock/useModalScrollLock', () => {
       const expectedScrollBarHeight = window.innerHeight - document.body.clientHeight;
 
       expect(document.body.style.paddingInlineEnd).toBe(`${expectedScrollBarHeight}px`);
+    });
+
+    it('should handle no scrollbar correctly in vertical writing mode', () => {
+      Object.defineProperty(window, 'innerHeight', {
+        configurable: true,
+        value: 800, // Equal to clientHeight
+        writable: true,
+      });
+
+      renderHook(() => useModalScrollLock(true));
+
+      expect(document.body.style.paddingInlineEnd).toBe('0px');
+    });
+
+    it('should remove scroll lock and restore scroll position in vertical writing mode', () => {
+      Object.defineProperty(document, 'scrollingElement', {
+        value: { scrollLeft: 500, scrollTop: 1000 },
+        configurable: true,
+      });
+
+      const { rerender } = renderHook(({ isOpen }) => useModalScrollLock(isOpen), {
+        initialProps: { isOpen: true },
+      });
+
+      expect(document.body.style.position).toBe('fixed');
+      expect(document.body.style.insetBlockStart).toBe('500px');
+
+      rerender({ isOpen: false });
+
+      expect(document.body.style.position).toBe('');
+      expect(global.scrollTo).toHaveBeenCalledWith({
+        behavior: 'instant',
+        left: 500,
+      });
+    });
+  });
+
+  describe('when window is not defined (SSR)', () => {
+    const originalWindow = global.window;
+    const originalDocument = global.document;
+
+    afterEach(() => {
+      global.window = originalWindow;
+      global.document = originalDocument;
+    });
+
+    it('should exit early if window is undefined', () => {
+      // @ts-ignore
+      delete global.window;
+      expect(() => backfaceFixed(true)).not.toThrow();
+    });
+
+    it('should exit early if document is undefined', () => {
+      // Keep window, delete document
+      // @ts-ignore
+      delete global.document;
+      expect(() => backfaceFixed(true)).not.toThrow();
     });
   });
 });

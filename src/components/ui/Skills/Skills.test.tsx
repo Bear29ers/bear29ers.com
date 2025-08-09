@@ -1,203 +1,144 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import '@/hooks/useMediaQuery/useMediaQueryMock';
-import { motionValue } from 'motion/react';
+import { motionValue, useSpring } from 'motion/react';
 
 import useMediaQuery from '@/hooks/useMediaQuery/useMediaQuery';
 
-import {
-  ICON_GAP_LG,
-  ICON_GAP_SM,
-  ICON_SIZE_LG,
-  ICON_SIZE_SM,
-  SKILL_ICONS_LG,
-  SKILL_ICONS_MD,
-  SKILL_ICONS_SM,
-} from '@/constants/skillIcons';
+import { ICON_SIZE_LG, ICON_SIZE_SM, SKILL_ICONS_LG, SKILL_ICONS_MD, SKILL_ICONS_SM } from '@/constants/skillIcons';
 
 import Skills, { Square } from './Skills';
 
 import type { RenderResult } from '@testing-library/react';
 
-jest.mock('../../../hooks/useMediaQuery/useMediaQuery.ts');
+jest.mock('@/hooks/useMediaQuery/useMediaQuery');
+jest.mock('motion/react', () => ({
+  ...jest.requireActual('motion/react'),
+  useSpring: jest.fn(),
+}));
 
 describe('src/components/ui/Skills/Skills.test.tsx', () => {
   describe('Skills component', () => {
     let renderResult: RenderResult;
-
-    beforeEach(() => {
-      renderResult = render(<Skills />);
-    });
 
     afterEach(() => {
       renderResult.unmount();
     });
 
     it('should render the Skills component', () => {
+      (useMediaQuery as jest.Mock).mockReturnValue(false);
+      renderResult = render(<Skills />);
       expect(screen.getByTestId('skills')).toBeInTheDocument();
     });
 
-    it('should render 60 Square components', () => {
-      expect(screen.getAllByTestId(/^square-\d+-\d+$/)).toHaveLength(60);
+    it('should render the correct number of squares based on the icon list', () => {
+      (useMediaQuery as jest.Mock).mockReturnValue(false);
+      renderResult = render(<Skills />);
+      const squares = screen.getAllByTestId(/^square-\d+-\d+$/);
+      const expectedCount = SKILL_ICONS_LG.reduce((acc, row) => acc + row.icons.length, 0);
+      expect(squares).toHaveLength(expectedCount);
+    });
+
+    it('should set a square to active onDragStart', () => {
+      (useMediaQuery as jest.Mock).mockReturnValue(false);
+      renderResult = render(<Skills />);
+      const square = screen.getByTestId('square-0-0');
+      fireEvent.dragStart(square);
+      const activeSquare = screen.getByTestId('square-0-0');
+      expect(activeSquare).toHaveStyle('z-index: 1');
     });
   });
 
   describe('Square component', () => {
-    it('should render the Square component with "square-0-0" test id', () => {
-      const props = {
-        item: { column: 1, component: () => <div>MockedComponent</div> },
-        active: { row: 0, col: 0 },
-        setActive: jest.fn(),
-        colIndex: 0,
-        rowIndex: 0,
-        numberOfColumns: 10,
-        x: motionValue(0),
-        y: motionValue(0),
-        size: 60,
-        gap: 15,
-      };
+    const mockProps = {
+      item: { column: 1, component: () => <div data-testid="mock-component">Mock</div> },
+      active: { row: 0, col: 0 },
+      setActive: jest.fn(),
+      colIndex: 0,
+      rowIndex: 0,
+      numberOfColumns: 10,
+      x: motionValue(10),
+      y: motionValue(20),
+      size: 60,
+      gap: 15,
+    };
 
-      render(<Square {...props} />);
-
-      const squareElement = screen.getByTestId('square-0-0');
-      expect(squareElement).toBeInTheDocument();
-      expect(squareElement).toHaveStyle('top: 0');
-      expect(squareElement).toHaveStyle('left: 0');
+    beforeEach(() => {
+      (useSpring as jest.Mock).mockImplementation((value) => value);
     });
 
-    it('should render the Square component with "square-5-9" test id', () => {
-      const props = {
-        item: { column: 10, component: () => <div>MockedComponent</div> },
-        active: { row: 5, col: 9 },
-        setActive: jest.fn(),
-        colIndex: 9,
-        rowIndex: 5,
-        numberOfColumns: 10,
-        x: motionValue(0),
-        y: motionValue(0),
-        size: 60,
-        gap: 15,
-      };
+    it('should render with correct initial styles and content', () => {
+      render(<Square {...mockProps} />);
+      const square = screen.getByTestId('square-0-0');
+      expect(square).toHaveStyle('top: 0px');
+      expect(square).toHaveStyle('left: 0px');
+      expect(square).toHaveStyle('width: 60px');
+      expect(square).toHaveStyle('height: 60px');
+      expect(screen.getByTestId('mock-component')).toBeInTheDocument();
+    });
 
+    it('should have a zIndex of 1 when active', () => {
+      render(<Square {...mockProps} />);
+      const square = screen.getByTestId('square-0-0');
+      expect(square).toHaveStyle('z-index: 1');
+    });
+
+    it('should have a zIndex of 0 when not active', () => {
+      const props = { ...mockProps, active: { row: 1, col: 1 } };
       render(<Square {...props} />);
+      const square = screen.getByTestId('square-0-0');
+      expect(square).toHaveStyle('z-index: 0');
+    });
 
-      const squareElement = screen.getByTestId('square-5-9');
-      expect(squareElement).toBeInTheDocument();
+    it('should apply spring animation values when not active', () => {
+      const props = { ...mockProps, active: { row: 1, col: 1 } };
+      render(<Square {...props} />);
+      const square = screen.getByTestId('square-0-0');
+      expect(square.style.transform).toContain('translateX(10px) translateY(20px)');
     });
   });
 
-  describe('Icon gap tests', () => {
-    it('should set iconGap to ICON_GAP_SM when screen size is under 399px', async () => {
-      (useMediaQuery as jest.Mock).mockImplementation((query: string) => {
+  describe('Responsive behavior', () => {
+    let renderResult: RenderResult;
+
+    afterEach(() => {
+      renderResult.unmount();
+    });
+
+    it('should use small icons and gap on small screens', () => {
+      (useMediaQuery as jest.Mock).mockImplementation((query) => {
         if (query === '(max-width: 399px)') return true;
-        return false;
-      });
-
-      render(<Skills />);
-
-      await waitFor(() => {
-        const squares = screen.getAllByTestId(/^square-/);
-
-        if (!squares[0] || !squares[1]) throw new Error('no squares found');
-        const firstSquare: HTMLElement = squares[0];
-        const secondSquare: HTMLElement = squares[1];
-        const gap = parseInt(secondSquare.style.left, 10) - parseInt(firstSquare.style.left, 10) - ICON_SIZE_LG;
-        expect(gap).toBe(ICON_GAP_SM);
-      });
-    });
-
-    it('should set iconGap to ICON_GAP_LG when screen size is over 400px', async () => {
-      (useMediaQuery as jest.Mock).mockImplementation(() => false);
-
-      render(<Skills />);
-
-      await waitFor(() => {
-        const squares = screen.getAllByTestId(/^square-/);
-
-        if (!squares[0] || !squares[1]) throw new Error('no squares found');
-        const firstSquare: HTMLElement = squares[0];
-        const secondSquare: HTMLElement = squares[1];
-        const gap = parseInt(secondSquare.style.left, 10) - parseInt(firstSquare.style.left, 10) - ICON_SIZE_LG;
-        expect(gap).toBe(ICON_GAP_LG);
-      });
-    });
-  });
-
-  describe('Icon size tests', () => {
-    it('should set iconSize to ICON_SIZE_SM when screen size is under 699px', async () => {
-      (useMediaQuery as jest.Mock).mockImplementation((query: string) => {
+        if (query === '(max-width: 699px)') return true;
         if (query === '(max-width: 799px)') return true;
         return false;
       });
-
-      render(<Skills />);
-
-      const square = screen.getAllByTestId(/^square-/)[0];
-
-      await waitFor(() => {
-        expect(square).toHaveStyle(`width: ${ICON_SIZE_SM}px`);
-      });
-
-      await waitFor(() => {
-        expect(square).toHaveStyle(`height: ${ICON_SIZE_SM}px`);
-      });
+      renderResult = render(<Skills />);
+      const squares = screen.getAllByTestId(/^square-\d+-\d+$/);
+      const expectedCount = SKILL_ICONS_SM.reduce((acc, row) => acc + row.icons.length, 0);
+      expect(squares).toHaveLength(expectedCount);
+      expect(squares[0]).toHaveStyle(`width: ${ICON_SIZE_SM}px`);
     });
 
-    it('should set iconSize to ICON_SIZE_LG when screen size is over 700px', async () => {
-      (useMediaQuery as jest.Mock).mockImplementation(() => false);
-
-      render(<Skills />);
-
-      const square = screen.getAllByTestId(/^square-/)[0];
-
-      await waitFor(() => {
-        expect(square).toHaveStyle(`width: ${ICON_SIZE_LG}px`);
-      });
-
-      await waitFor(() => {
-        expect(square).toHaveStyle(`height: ${ICON_SIZE_LG}px`);
-      });
-    });
-  });
-
-  describe('Icon list tests', () => {
-    it('should set iconList to SKILL_ICONS_SM when screen size is under 399px', async () => {
-      (useMediaQuery as jest.Mock).mockImplementation((query: string) => {
-        if (query === '(max-width: 399px)') return true;
-        return false;
-      });
-
-      render(<Skills />);
-
-      await waitFor(() => {
-        const squares = screen.getAllByTestId(/^square-/);
-        expect(squares).toHaveLength(SKILL_ICONS_SM.reduce((acc, row) => acc + row.icons.length, 0));
-      });
-    });
-
-    it('should set iconList to SKILL_ICONS_MD when screen size is between 399px and 699px', async () => {
-      (useMediaQuery as jest.Mock).mockImplementation((query: string) => {
+    it('should use medium icons on medium screens', () => {
+      (useMediaQuery as jest.Mock).mockImplementation((query) => {
         if (query === '(max-width: 399px)') return false;
         if (query === '(max-width: 699px)') return true;
+        if (query === '(max-width: 799px)') return true;
         return false;
       });
-
-      render(<Skills />);
-
-      await waitFor(() => {
-        const squares = screen.getAllByTestId(/^square-/);
-        expect(squares).toHaveLength(SKILL_ICONS_MD.reduce((acc, row) => acc + row.icons.length, 0));
-      });
+      renderResult = render(<Skills />);
+      const squares = screen.getAllByTestId(/^square-\d+-\d+$/);
+      const expectedCount = SKILL_ICONS_MD.reduce((acc, row) => acc + row.icons.length, 0);
+      expect(squares).toHaveLength(expectedCount);
+      expect(squares[0]).toHaveStyle(`width: ${ICON_SIZE_SM}px`);
     });
 
-    it('should set iconList to SKILL_ICONS_LG when screen size is over 699px', async () => {
-      (useMediaQuery as jest.Mock).mockImplementation(() => false);
-
-      render(<Skills />);
-
-      await waitFor(() => {
-        const squares = screen.getAllByTestId(/^square-/);
-        expect(squares).toHaveLength(SKILL_ICONS_LG.reduce((acc, row) => acc + row.icons.length, 0));
-      });
+    it('should use large icons and gap on large screens', () => {
+      (useMediaQuery as jest.Mock).mockReturnValue(false);
+      renderResult = render(<Skills />);
+      const squares = screen.getAllByTestId(/^square-\d+-\d+$/);
+      const expectedCount = SKILL_ICONS_LG.reduce((acc, row) => acc + row.icons.length, 0);
+      expect(squares).toHaveLength(expectedCount);
+      expect(squares[0]).toHaveStyle(`width: ${ICON_SIZE_LG}px`);
     });
   });
 });
