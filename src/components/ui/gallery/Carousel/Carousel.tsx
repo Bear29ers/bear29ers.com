@@ -22,22 +22,25 @@ const Carousel: FC<Props> = ({ media, index, touchPosition, setIndex, setTouchPo
 
   const handleTouchStart = (e: TouchEvent<HTMLDivElement>) => {
     const touchDown = e.touches[0]?.clientX;
-    setTouchPosition(touchDown || null);
+    setTouchPosition(touchDown ?? null);
   };
 
   const handleTouchMove = (e: TouchEvent<HTMLDivElement>) => {
     const touchDown = touchPosition;
     if (touchDown === null) return;
 
-    const currentTouch = e.touches[0]?.clientX || null;
-    if (currentTouch === null) return;
+    const currentTouch = e.touches[0]?.clientX;
+    if (currentTouch === null || currentTouch === undefined) return;
 
     const diff = touchDown - currentTouch;
 
-    if (index > 0 && diff < -5) {
-      setIndex(index - 1);
-    } else if (media.children && index < media.children.data.length - 1 && diff > 5) {
+    // Forward swipe (left swipe, diff > 5) - go to next image
+    if (diff > 5 && media.children && index < media.children.data.length - 1) {
       setIndex(index + 1);
+    }
+    // Backward swipe (right swipe, diff < -5) - go to previous image
+    else if (diff < -5 && index > 0) {
+      setIndex(index - 1);
     }
 
     setTouchPosition(null);

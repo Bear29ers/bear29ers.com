@@ -25,6 +25,8 @@ import { imageInfoList, zIndexList } from '@/constants/gallery';
 import { themeColor } from '@/state/colors';
 import type { Media } from '@/types/media';
 
+import type { Variants } from 'motion/react';
+
 interface Props {
   mediaList: Media[];
   animatingMediaList: Media[];
@@ -92,7 +94,7 @@ const GalleryClient: FC<Props> = ({ mediaList, animatingMediaList, mainVisual, i
     }
   }, [isMedium, isSmall]);
 
-  const introBgVariants = {
+  const introBgVariants: Variants = {
     initial: {
       y: 0,
     },
