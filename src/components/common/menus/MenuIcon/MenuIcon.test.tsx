@@ -82,24 +82,42 @@ describe('src/components/common/menus/MenuIcon/MenuIcon.test.tsx', () => {
   });
 
   describe('when button is clicked', () => {
-    it('should update isOpen from false to true', () => {
+    it('should update isOpen from false to true and apply correct classes', () => {
       const setIsOpenMock = jest.fn();
-      render(<MenuIcon isOpen={false} setIsOpen={setIsOpenMock} />);
+      const { rerender } = render(<MenuIcon isOpen={false} setIsOpen={setIsOpenMock} />);
 
       fireEvent.click(screen.getByRole('button'));
 
-      expect(setIsOpenMock).toHaveBeenCalledTimes(1);
       expect(setIsOpenMock).toHaveBeenCalledWith(true);
+
+      // Re-render with the new prop to check class changes
+      rerender(<MenuIcon isOpen setIsOpen={setIsOpenMock} />);
+
+      expect(screen.getByTestId('menu-icon-top-line')).toHaveClass('translate-x-10');
+      expect(screen.getByTestId('menu-icon-middle-line')).toHaveClass('translate-x-10');
+      expect(screen.getByTestId('menu-icon-bottom-line')).toHaveClass('translate-x-10');
+      expect(screen.getByTestId('menu-icon-close')).toHaveClass('translate-x-0');
+      expect(screen.getByTestId('menu-icon-close-top')).toHaveClass('rotate-45');
+      expect(screen.getByTestId('menu-icon-close-bottom')).toHaveClass('-rotate-45');
     });
 
-    it('should update isOpen from true to false', () => {
+    it('should update isOpen from true to false and apply correct classes', () => {
       const setIsOpenMock = jest.fn();
-      render(<MenuIcon isOpen setIsOpen={setIsOpenMock} />);
+      const { rerender } = render(<MenuIcon isOpen setIsOpen={setIsOpenMock} />);
 
       fireEvent.click(screen.getByRole('button'));
 
-      expect(setIsOpenMock).toHaveBeenCalledTimes(1);
       expect(setIsOpenMock).toHaveBeenCalledWith(false);
+
+      // Re-render with the new prop to check class changes
+      rerender(<MenuIcon isOpen={false} setIsOpen={setIsOpenMock} />);
+
+      expect(screen.getByTestId('menu-icon-top-line')).not.toHaveClass('translate-x-10');
+      expect(screen.getByTestId('menu-icon-middle-line')).not.toHaveClass('translate-x-10');
+      expect(screen.getByTestId('menu-icon-bottom-line')).not.toHaveClass('translate-x-10');
+      expect(screen.getByTestId('menu-icon-close')).not.toHaveClass('translate-x-0');
+      expect(screen.getByTestId('menu-icon-close-top')).not.toHaveClass('rotate-45');
+      expect(screen.getByTestId('menu-icon-close-bottom')).not.toHaveClass('-rotate-45');
     });
   });
 });

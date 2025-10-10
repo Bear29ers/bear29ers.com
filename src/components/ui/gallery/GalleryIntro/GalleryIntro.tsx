@@ -7,7 +7,9 @@ import { motion } from 'motion/react';
 
 import type { Media } from '@/types/media';
 
-const galleryIntroVariants = {
+import type { Variants } from 'motion/react';
+
+const galleryIntroVariants: Variants = {
   initial: {},
   animate: {
     transition: {
@@ -18,7 +20,7 @@ const galleryIntroVariants = {
   exit: {},
 };
 
-const imageVariants = {
+const imageVariants: Variants = {
   initial: { y: '100%' },
   animate: {
     y: 0,
@@ -35,7 +37,7 @@ const imageVariants = {
   },
 };
 
-const mainVisualVariants = {
+const mainVisualVariants: Variants = {
   initial: { y: '100%' },
   animate: {
     y: 0,
