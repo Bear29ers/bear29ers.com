@@ -78,9 +78,6 @@ Jotai is used for global state. Atoms live in `src/state/`.
 
 ## Project Conventions
 
-### Implementation logs
-After any meaningful change, create a log file at `_docs/yyyy-mm-dd_<feature-name>.md`.
-
 ### Commit messages
 Follow the cz-emoji format defined in the global `~/.claude/CLAUDE.md` (e.g., `:sparkles: feat: add gallery filter`).
 
