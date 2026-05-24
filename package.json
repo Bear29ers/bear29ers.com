@@ -27,6 +27,11 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
     "@eslint/eslintrc": "^3",
