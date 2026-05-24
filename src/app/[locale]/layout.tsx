@@ -69,15 +69,16 @@ const LocaleLayout = async ({
 }: Readonly<{
   children: ReactNode;
   modal: ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 }>) => {
-  const { locale } = await params;
+  const { locale: localeParam } = await params;
 
   // Ensure that the incoming `locale` is valid
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  if (!routing.locales.includes(locale as any)) {
+  if (!routing.locales.includes(localeParam as Locale)) {
     notFound();
   }
+
+  const locale = localeParam as Locale;
 
   // Providing all messages to the client
   // side is the easiest way to get started
