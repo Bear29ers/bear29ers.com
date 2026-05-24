@@ -81,6 +81,10 @@ Jotai is used for global state. Atoms live in `src/state/`.
 ### Commit messages
 Follow the cz-emoji format defined in the global `~/.claude/CLAUDE.md` (e.g., `:sparkles: feat: add gallery filter`).
 
+**NEVER commit automatically.** Only commit when the user explicitly requests it.
+
+When the user asks to commit, review what has been implemented in the session and propose a commit message based on the actual changes — do not commit until the user approves the message.
+
 ### Session handovers
 - At the start of each session, check `.claude/handovers/` and read the latest file if one exists.
 - At natural stopping points, prompt the user to run `/handover`.
