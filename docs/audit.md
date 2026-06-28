@@ -21,7 +21,7 @@
 
 ## 🔴 Critical
 
-- [ ] **1. シークレット漏洩 — トークンの即時ローテーションと履歴除去**
+- [x] **1. シークレット漏洩 — トークンの即時ローテーションと履歴除去**
   - **対象**: `docker-compose.yml:14-16`
   - **現状**: Instagram Graph API アクセストークンと Newt CDN API トークンがプレーンテキストでコミット済み。
   - **推奨対応**: 両トークンを即座にローテーション。`.env` ファイルに移動し `.gitignore` へ追加。`git filter-repo` または BFG Repo Cleaner で git 履歴から除去。
