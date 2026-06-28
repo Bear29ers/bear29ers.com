@@ -1,17 +1,9 @@
-import { createRequire } from 'module';
-
-import nextJest from 'next/jest.js';
-
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { Config } from 'jest';
 
-const require = createRequire(import.meta.url);
+const nextJest = require('next/jest').default;
+const createJestConfig = nextJest({ dir: './' });
 
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: './',
-});
-
-// Add any custom config to be passed to Jest
 const customJestConfig: Config = {
   coverageProvider: 'v8',
   testEnvironment: 'jest-environment-jsdom',
@@ -24,10 +16,8 @@ const customJestConfig: Config = {
   coverageReporters: ['text', 'lcov', 'html'],
 };
 
-const asyncConfig = createJestConfig(customJestConfig);
-
-export default async () => {
-  const config = await asyncConfig();
+module.exports = async () => {
+  const config = await createJestConfig(customJestConfig)();
   config.transformIgnorePatterns = ['/node_modules/(?!next-intl)/', '^\\.next/$'];
   return config;
 };
