@@ -1,35 +1,50 @@
+import { NextResponse } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 
 import { routing } from './i18n/routing';
 
-import type { NextRequest, NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+const handleI18nRouting = createMiddleware(routing);
 
 export const middleware = (request: NextRequest): NextResponse<unknown> => {
-  const { headers, url, nextUrl } = request;
+  const { url, nextUrl } = request;
   let { pathname } = nextUrl;
 
-  const defaultLocale = headers.get('x-request-locale') || 'en';
-
-  // if pathname includes 'gallery', replace it with '/gallery'
+  // Normalize gallery paths to strip query-path cruft
   if (pathname.includes('gallery')) {
-    if (pathname.includes('ja')) {
-      pathname = '/ja/gallery';
-    } else {
-      pathname = '/gallery';
-    }
+    pathname = pathname.includes('ja') ? '/ja/gallery' : '/gallery';
   }
 
-  const handleI18nRouting = createMiddleware(routing);
-  const response = handleI18nRouting(request);
+  // Run next-intl routing first to determine redirect/rewrite intent
+  const intlResponse = handleI18nRouting(request);
 
-  response.headers.set('x-request-locale', defaultLocale);
-  response.headers.set('x-request-url', url);
-  response.headers.set('x-request-path', pathname);
+  // For redirects (e.g. /en/about → /about with localePrefix: 'as-needed'), pass through directly
+  if (!intlResponse.ok) {
+    return intlResponse;
+  }
+
+  // Build modified request headers so RSC can read them via headers() from 'next/headers'
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-request-url', url);
+  requestHeaders.set('x-request-path', pathname);
+
+  // Use NextResponse.rewrite or .next with our custom request headers so that
+  // x-middleware-override-headers correctly lists our keys alongside the rewrite intent.
+  const rewriteUrl = intlResponse.headers.get('x-middleware-rewrite');
+  const response = rewriteUrl
+    ? NextResponse.rewrite(new URL(rewriteUrl, url), { request: { headers: requestHeaders } })
+    : NextResponse.next({ request: { headers: requestHeaders } });
+
+  // Copy non-internal next-intl response headers (Set-Cookie for locale, Link for hreflang, etc.)
+  intlResponse.headers.forEach((value, key) => {
+    if (!key.startsWith('x-middleware')) {
+      response.headers.set(key, value);
+    }
+  });
 
   return response;
 };
-
-export default createMiddleware(routing);
 
 export const config = {
   // Match only internationalized pathnames

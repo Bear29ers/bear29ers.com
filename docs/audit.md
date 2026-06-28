@@ -27,7 +27,7 @@
   - **推奨対応**: 両トークンを即座にローテーション。`.env` ファイルに移動し `.gitignore` へ追加。`git filter-repo` または BFG Repo Cleaner で git 履歴から除去。
   - **影響範囲**: セキュリティ（第三者による API 不正利用リスク）
 
-- [ ] **2. `middleware.ts` 重複 export によるカスタムヘッダーの dead code 化**
+- [x] **2. `middleware.ts` 重複 export によるカスタムヘッダーの dead code 化**
   - **対象**: `src/middleware.ts:7`（named export）、`:32`（default export）
   - **現状**: `export const middleware` で定義したカスタムヘッダー設定（`x-request-locale`, `x-request-url`, `x-request-path`）が、末尾の `export default createMiddleware(routing)` により完全に上書きされ、Next.js には default export のみが使われている。結果として `[locale]/layout.tsx:30` の `generateMetadata` が依存するヘッダーは常に未設定。
   - **推奨対応**: `middleware.ts:32` の `export default` 行を削除。named export の `middleware` のみを残す。また、App Router でミドルウェアのレスポンスヘッダーを RSC に渡すには `NextResponse.next({ request: { headers: newHeaders } })` パターンが必要（参照: [Next.js公式](https://nextjs.org/docs/app/building-your-application/routing/middleware#setting-headers)）。
