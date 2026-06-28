@@ -53,5 +53,8 @@ next-env.d.ts
 # Claude Code
 .claude
 
+# Playwright MCP
+.playwright-mcp
+
 # Serena
 .serena
