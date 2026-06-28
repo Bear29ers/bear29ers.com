@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
 const nextJest = require('next/jest').default;
 const createJestConfig = nextJest({ dir: './' });
 

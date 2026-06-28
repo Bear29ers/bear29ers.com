@@ -23,6 +23,7 @@ const eslintConfig = [
       '**/tailwind.config.ts',
       '**/jest.setup.js',
       '**/next.config.js',
+      '**/jest.config.js',
       '**/build/',
       '**/bin/',
       '**/obj/',
