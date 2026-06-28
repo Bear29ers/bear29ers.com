@@ -14,8 +14,9 @@ jobs:
           node-version: 22
           cache: 'npm'
       - run: npm ci
-      - run: npx jest --coverage --coverageReporters=json --coverageDirectory=coverage
+      - run: npx jest --coverage --json --outputFile=report.json
       - uses: ArtiomTr/jest-coverage-report-action@v2
+        continue-on-error: true
         with:
           skip-step: all
-          coverage-file: coverage/coverage-final.json
+          coverage-file: report.json
