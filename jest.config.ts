@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-import type { Config } from 'jest';
-
 const nextJest = require('next/jest').default;
 const createJestConfig = nextJest({ dir: './' });
 
-const customJestConfig: Config = {
+const customJestConfig = {
   coverageProvider: 'v8',
   testEnvironment: 'jest-environment-jsdom',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
